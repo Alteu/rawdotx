@@ -57,6 +57,7 @@ The theme must work in **any language** from day one:
 ```
 <theme folders>        Shopify theme (added when the build phase starts)
 brand/                 brand assets (logo)
+docs/research/         reference research (e.g. wallhack-analysis.md; patterns only, never copy designs)
 tests/                 Playwright tests
 .claude/               skills, hooks, settings
 .mcp.json              MCP servers (Shopify Dev MCP)
