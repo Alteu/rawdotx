@@ -10,6 +10,14 @@ fi
 cd "$CLAUDE_PROJECT_DIR"
 npm ci --no-audit --no-fund
 
+# Store connection. Not secrets: the real Theme Access password is a network secret on the
+# cloud environment, which the agent proxy injects into requests to
+# theme-kit-access.shopifyapps.com in place of this placeholder.
+if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
+  echo "export SHOPIFY_FLAG_STORE=wide-clownfish-3r7al4-r4j2fm0h.myshopify.com" >> "$CLAUDE_ENV_FILE"
+  echo "export SHOPIFY_CLI_THEME_TOKEN=shptka_placeholder" >> "$CLAUDE_ENV_FILE"
+fi
+
 # Node's built-in fetch (used by the Shopify Dev MCP) ignores HTTPS_PROXY unless told otherwise.
 if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
   echo "export NODE_USE_ENV_PROXY=1" >> "$CLAUDE_ENV_FILE"

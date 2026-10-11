@@ -12,6 +12,17 @@ Direct-to-consumer store for rawdot gaming peripherals: mouse skates, glass mous
 - The name is written **only** as `rawdot` (all lowercase) or `RAWDOT` (all uppercase). Never `Rawdot`, `RawDot`, `RAWdot` or any other mix. This applies to code, copy, alt text, commit messages and docs.
 - Logo mark: `brand/logo/rawdot-mark.svg` (vector, `fill="currentColor"`, so its color comes from CSS). `rawdot-mark-original.webp` is the source file it was traced from. Treat both as fixed brand assets; don't redraw or alter them.
 
+## Store
+
+- Store: `wide-clownfish-3r7al4-r4j2fm0h.myshopify.com`, live at **rawdot.shop**. Products, collections, apps and settings already exist and are reused as they are.
+- **The new theme is built from scratch as a separate, unpublished theme in this store.** Customers keep seeing the current site until the owner publishes the new theme themselves.
+- Existing themes, which must **never** be modified, pushed to, published, unpublished, renamed or deleted:
+  - `Rawdot/main` (#197611290993), the **live** theme. It is connected to a different GitHub repository, `Rawdot/main`; never push to that repository.
+  - `Horizon` (#197598708081) and `External Redirect` (#197598675313), both unpublished.
+- Do not download, read or reuse the current theme's code or design. The new theme starts from Shopify's Skeleton Theme.
+- CLI access is through a Theme Access password (themes only, no admin access). In cloud sessions it is a network secret on the environment, injected by the agent proxy, so the CLI gets the placeholder `shptka_placeholder`.
+- Allowed CLI writes: `shopify theme dev` (temporary development theme) and `shopify theme push --theme <new theme id>` to the new theme only. Never use `--live`, `--allow-live`, `theme publish` or `theme delete`, and never push without an explicit `--theme` ID.
+
 ## Architecture
 
 - **Native Shopify Online Store 2.0 theme**: Liquid, HTML, CSS, vanilla JavaScript, sections and blocks, editable in the theme editor.
@@ -56,8 +67,8 @@ playwright.config.ts   browser test config
 
 ## Security
 
-- **Never commit credentials.** Store domain and Theme Access password go in `.env` (git-ignored; see `.env.example`) or in the cloud environment's secret settings.
-- Use a **development store** for all work. Never push to, publish, or change the live store or its published theme without explicit owner approval.
+- **Never commit credentials.** The Theme Access password goes in `.env` locally (git-ignored; see `.env.example`) or as a network secret on the cloud environment. Never ask for it in chat.
+- Never change the live theme or store settings; publishing the new theme is always the owner's action. See **Store** above.
 - Escape output in Liquid (`| escape` for user-controlled values), and never put secrets in theme files. Everything in a theme is public.
 
 ## Git workflow
