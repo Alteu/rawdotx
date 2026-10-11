@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+test-results/
+playwright-report/
+.claude/skills/
+# Written by the Shopify theme editor; formatting churn causes merge conflicts.
+config/settings_data.json
+templates/*.json
+sections/*.json

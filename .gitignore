@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Secrets — never commit real credentials
+.env
+.env.*
+!.env.example
+
+# Shopify CLI
+.shopify/
+
+# Playwright output
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
