@@ -17,7 +17,7 @@ Direct-to-consumer store for rawdot gaming peripherals: mouse skates, glasspads,
 The owner will provide full product details later. Don't invent specs, prices or copy.
 
 - **Mouse skates** (main product). Mouse skates come in three types: balance, speed and control.
-  - **ICE version**: rawdot's speed skate. Available now.
+  - **Ice Version** (written exactly like that: capital I, capital V): rawdot's speed skate. Available now.
   - **Control version**: coming soon.
 - **Glasspad** (glass mousepad): coming soon.
 - **Gaming arm sleeve**: coming soon. Not yet decided whether it is sold separately (likely) or bundled with the glasspad. Don't build anything that assumes one or the other.
