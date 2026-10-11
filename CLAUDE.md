@@ -1,6 +1,6 @@
 # rawdot — Shopify storefront
 
-Direct-to-consumer store for rawdot gaming peripherals: mouse skates, glass mousepads, gaming arm sleeves.
+Direct-to-consumer store for rawdot gaming peripherals: mouse skates, glasspads, gaming arm sleeves. Sells worldwide.
 
 ## Project status
 
@@ -11,6 +11,29 @@ Direct-to-consumer store for rawdot gaming peripherals: mouse skates, glass mous
 
 - The name is written **only** as `rawdot` (all lowercase) or `RAWDOT` (all uppercase). Never `Rawdot`, `RawDot`, `RAWdot` or any other mix. This applies to code, copy, alt text, commit messages and docs.
 - Logo mark: `brand/logo/rawdot-mark.svg` (vector, `fill="currentColor"`, so its color comes from CSS). `rawdot-mark-original.webp` is the source file it was traced from. Treat both as fixed brand assets; don't redraw or alter them.
+
+## Products (context, not final)
+
+The owner will provide full product details later. Don't invent specs, prices or copy.
+
+- **Mouse skates** (main product). Mouse skates come in three types: balance, speed and control.
+  - **ICE version**: rawdot's speed skate. Available now.
+  - **Control version**: coming soon.
+- **Glasspad** (glass mousepad): coming soon.
+- **Gaming arm sleeve**: coming soon. Not yet decided whether it is sold separately (likely) or bundled with the glasspad. Don't build anything that assumes one or the other.
+- The theme must handle **coming-soon products** cleanly (visible but not purchasable). Exactly how is decided with the owner.
+
+## International (worldwide store)
+
+rawdot will ship worldwide. Shipping rates and zones are configured later in Shopify settings and are **out of scope for now**; the theme does not handle shipping logic.
+
+The theme must work in **any language** from day one:
+
+- No hard-coded text: every theme string lives in `locales/` (`en.default.json` plus one file per language). Product and page content is translated in Shopify (Translate & Adapt / Markets), not in the theme.
+- No text baked into images. Text goes in HTML, so it can be translated.
+- Layouts must cope with longer or shorter text (for example German) and with **right-to-left languages** (Arabic, Hebrew): use CSS logical properties (`margin-inline-start`, not `margin-left`), and set `lang`/`dir` from the current locale.
+- Prices, currencies, dates and numbers come from Shopify's formatting filters (`money`, `date`), never formatted by hand.
+- A language and country selector uses Shopify's native `localization` form. Shopify handles `hreflang` and localized URLs.
 
 ## Store
 
