@@ -1,9 +1,14 @@
 {% doc %}
   The original site's page background, used on every page except the homepage: a two-size dot grid,
   slowly drifting soft light and thin floating rings. Purely decorative; sits behind all content.
+  The "paper" variant (policy pages) is a fine graph-paper grid instead, so legal pages read as documents.
+
+  @param {string} [variant] - "paper" for the graph-paper background
 {% enddoc %}
-<div class="backdrop" aria-hidden="true">
-  <span class="backdrop__ring backdrop__ring--1"></span>
-  <span class="backdrop__ring backdrop__ring--2"></span>
-  <span class="backdrop__ring backdrop__ring--3"></span>
+<div class="backdrop{% if variant == 'paper' %} backdrop--paper{% endif %}" aria-hidden="true">
+  {%- unless variant == 'paper' -%}
+    <span class="backdrop__ring backdrop__ring--1"></span>
+    <span class="backdrop__ring backdrop__ring--2"></span>
+    <span class="backdrop__ring backdrop__ring--3"></span>
+  {%- endunless -%}
 </div>

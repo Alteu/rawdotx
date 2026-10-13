@@ -23,7 +23,9 @@
     "navigation": "Footer",
     "all_rights_reserved": "All rights reserved.",
     "socials": "Socials",
-    "legal": "Legal"
+    "legal": "Legal",
+    "shop": "Shop",
+    "tagline": "Mouse skates, glasspads and arm sleeves for gamers."
   },
   "localization": {
     "country_label": "Country/region",
@@ -67,7 +69,11 @@
     "taxes_and_shipping": "Taxes and shipping calculated at checkout.",
     "checkout": "Check out",
     "empty": "Your cart is empty.",
-    "continue_shopping": "Continue shopping"
+    "continue_shopping": "Continue shopping",
+    "decrease": "Decrease quantity for {{ title }}",
+    "increase": "Increase quantity for {{ title }}",
+    "updated": "Cart updated",
+    "update_error": "The cart couldn't be updated. Try again."
   },
   "collections": {
     "empty": "No products yet."

@@ -1,7 +1,7 @@
 {% doc %}
   Small inline UI icons. Decorative: always pair with visible or visually hidden text.
 
-  @param {string} name - Icon name: account, menu, close, arrow-left, arrow-right
+  @param {string} name - Icon name: account, menu, close, arrow-left, arrow-right, globe
 {% enddoc %}
 <svg
   class="icon icon--{{ name }}"
@@ -27,5 +27,7 @@
       <path d="M15 5l-7 7 7 7"/>
     {%- when 'arrow-right' -%}
       <path d="M9 5l7 7-7 7"/>
+    {%- when 'globe' -%}
+      <circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5s1.1-6.1 3.4-8.5z"/>
   {%- endcase -%}
 </svg>

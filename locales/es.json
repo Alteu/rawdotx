@@ -23,7 +23,9 @@
     "navigation": "Pie de página",
     "all_rights_reserved": "Todos los derechos reservados.",
     "socials": "Redes",
-    "legal": "Legal"
+    "legal": "Legal",
+    "shop": "Tienda",
+    "tagline": "Skates para mouse, glasspads y mangas para gamers."
   },
   "localization": {
     "country_label": "País/región",
@@ -67,7 +69,11 @@
     "taxes_and_shipping": "Impuestos y envío calculados al pagar.",
     "checkout": "Pagar",
     "empty": "Tu carrito está vacío.",
-    "continue_shopping": "Seguir comprando"
+    "continue_shopping": "Seguir comprando",
+    "decrease": "Disminuir la cantidad de {{ title }}",
+    "increase": "Aumentar la cantidad de {{ title }}",
+    "updated": "Carrito actualizado",
+    "update_error": "No se pudo actualizar el carrito. Inténtalo de nuevo."
   },
   "collections": {
     "empty": "Todavía no hay productos."

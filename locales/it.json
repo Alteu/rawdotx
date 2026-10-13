@@ -23,7 +23,9 @@
     "navigation": "Piè di pagina",
     "all_rights_reserved": "Tutti i diritti riservati.",
     "socials": "Social",
-    "legal": "Note legali"
+    "legal": "Note legali",
+    "shop": "Negozio",
+    "tagline": "Pattini per mouse, glasspad e maniche per gamer."
   },
   "localization": {
     "country_label": "Paese/regione",
@@ -67,7 +69,11 @@
     "taxes_and_shipping": "Tasse e spedizione calcolate al checkout.",
     "checkout": "Vai al pagamento",
     "empty": "Il tuo carrello è vuoto.",
-    "continue_shopping": "Continua lo shopping"
+    "continue_shopping": "Continua lo shopping",
+    "decrease": "Diminuisci la quantità di {{ title }}",
+    "increase": "Aumenta la quantità di {{ title }}",
+    "updated": "Carrello aggiornato",
+    "update_error": "Impossibile aggiornare il carrello. Riprova."
   },
   "collections": {
     "empty": "Ancora nessun prodotto."

@@ -10,6 +10,9 @@
 <html lang="{{ request.locale.iso_code }}" dir="{{ text_direction }}">
   <head>
     {% render 'meta-tags' %}
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
     {%- if settings.show_intro -%}
       <script>
         try {
@@ -41,15 +44,22 @@
 
     {% sections 'header-group' %}
 
-    {%- unless request.page_type == 'index' -%}
+    {%- if request.page_type == 'policy' -%}
+      {% render 'backdrop', variant: 'paper' %}
+    {%- elsif request.page_type != 'index' -%}
       {% render 'backdrop' %}
-    {%- endunless -%}
+    {%- endif -%}
 
     <main id="MainContent" tabindex="-1">
       {%- if request.page_type == 'policy' -%}
-        {% render 'policy-hero' %}
+        <div class="policy-layout page-width">
+          {% render 'policy-index', part: 'title' %}
+          <div class="policy-layout__body">{{ content_for_layout }}</div>
+          {% render 'policy-index', part: 'index' %}
+        </div>
+      {%- else -%}
+        {{ content_for_layout }}
       {%- endif -%}
-      {{ content_for_layout }}
     </main>
 
     {% sections 'footer-group' %}
@@ -64,7 +74,10 @@
         "addError": {{ 'products.add_error' | t | json }},
         "soldOut": {{ 'products.sold_out' | t | json }},
         "unavailable": {{ 'products.unavailable' | t | json }},
-        "cartAddUrl": {{ routes.cart_add_url | append: '.js' | json }}
+        "cartAddUrl": {{ routes.cart_add_url | append: '.js' | json }},
+        "cartChangeUrl": {{ routes.cart_change_url | append: '.js' | json }},
+        "cartUpdated": {{ 'cart.updated' | t | json }},
+        "cartUpdateError": {{ 'cart.update_error' | t | json }}
       }
     </script>
   </body>

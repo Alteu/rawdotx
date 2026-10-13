@@ -30,7 +30,7 @@
   {%- endif -%}
 {%- endcapture -%}
 
-<header class="site-header">
+<header class="site-header" data-header>
   <div class="site-header__inner page-width">
     <a class="site-header__logo" href="{{ routes.root_url }}">
       {% render 'logo-mark' %}
@@ -45,6 +45,7 @@
 
     <div class="site-header__actions">
       <div class="site-header__localization">
+        {% render 'icon', name: 'globe' %}
         {% render 'localization-form', id_prefix: 'HeaderLocalization' %}
       </div>
       <button
@@ -62,23 +63,30 @@
         </a>
       {%- endif -%}
       <a class="site-header__cart" href="{{ routes.cart_url }}">
-        <span>{{ 'header.cart' | t }}</span>
-        <span class="site-header__cart-count"
-          >(<span data-cart-count>{{ cart.item_count }}</span>)</span
+        <span class="site-header__cart-label">{{ 'header.cart' | t }}</span>
+        <span
+          class="site-header__cart-count"
+          data-cart-badge
+          {% if cart.item_count == 0 %}
+            data-empty
+          {% endif %}
+          aria-hidden="true"
         >
+          <span data-cart-count>{{ cart.item_count }}</span>
+        </span>
         <span class="visually-hidden">{{ 'header.cart_count' | t: count: cart.item_count }}</span>
       </a>
 
       <details class="site-header__menu">
         <summary class="site-header__icon">
-          {% render 'icon', name: 'menu' %}
+          <span class="site-header__burger" aria-hidden="true"><span></span></span>
           <span class="visually-hidden">{{ 'header.menu' | t }}</span>
         </summary>
         <div class="site-header__menu-panel">
           <nav aria-label="{{ 'header.navigation' | t }}">
-            <ul class="site-header__menu-links" role="list">
+            <ol class="site-header__menu-links" role="list">
               {{ nav_links }}
-            </ul>
+            </ol>
           </nav>
           <button
             type="button"
@@ -88,7 +96,10 @@
           >
             {{- 'header.about' | t -}}
           </button>
-          {% render 'localization-form', id_prefix: 'MenuLocalization' %}
+          <div class="site-header__localization site-header__localization--menu">
+            {% render 'icon', name: 'globe' %}
+            {% render 'localization-form', id_prefix: 'MenuLocalization' %}
+          </div>
         </div>
       </details>
     </div>

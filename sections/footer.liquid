@@ -7,7 +7,7 @@
   endfor
 -%}
 <footer class="site-footer">
-  <div class="site-footer__inner page-width">
+  <div class="site-footer__top page-width">
     <div class="site-footer__brand">
       <a href="{{ routes.root_url }}" class="site-footer__logo">
         <img
@@ -18,32 +18,64 @@
           loading="lazy"
         >
       </a>
-      <p>© {{ 'now' | date: '%Y' }} rawdot. {{ 'footer.all_rights_reserved' | t }}</p>
+      <p class="site-footer__tagline">{{ 'footer.tagline' | t }}</p>
     </div>
 
-    <nav class="site-footer__nav" aria-label="{{ 'footer.navigation' | t }}">
-      <ul role="list">
-        {%- if socials_url != blank -%}
+    <nav class="site-footer__columns" aria-label="{{ 'footer.navigation' | t }}">
+      <div class="site-footer__column">
+        <p class="section-label">{{ 'footer.shop' | t }}</p>
+        <ul role="list">
           <li>
-            <a href="{{ socials_url }}" target="_blank" rel="noopener">{{ 'footer.socials' | t }}</a>
+            <a href="{{ routes.root_url }}#skates" data-category-link="skates">{{ 'categories.skates' | t }}</a>
           </li>
-        {%- endif -%}
-        {%- if has_policies -%}
           <li>
-            <details class="footer-menu">
-              <summary>{{ 'footer.legal' | t }}</summary>
-              <ul class="footer-menu__list" role="list">
-                {%- for policy in shop.policies -%}
-                  <li>
-                    <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
-                  </li>
-                {%- endfor -%}
-              </ul>
-            </details>
+            <a href="{{ routes.root_url }}#glasspads" data-category-link="glasspads">
+              {{- 'categories.glasspads' | t -}}
+            </a>
           </li>
-        {%- endif -%}
-      </ul>
+          <li>
+            <a href="{{ routes.root_url }}#arm-sleeves" data-category-link="arm-sleeves">
+              {{- 'categories.arm_sleeves' | t -}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="site-footer__column">
+        <p class="section-label">rawdot</p>
+        <ul role="list">
+          <li>
+            <button type="button" data-dialog-open="AboutDialog" aria-haspopup="dialog">
+              {{- 'header.about' | t -}}
+            </button>
+          </li>
+          {%- if socials_url != blank -%}
+            <li>
+              <a href="{{ socials_url }}" target="_blank" rel="noopener">
+                {{- 'footer.socials' | t }}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+      {%- if has_policies -%}
+        <div class="site-footer__column">
+          <p class="section-label">{{ 'footer.legal' | t }}</p>
+          <ul role="list">
+            {%- for policy in shop.policies -%}
+              <li>
+                <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
     </nav>
+  </div>
+
+  <div class="site-footer__bottom page-width">
+    <p>© {{ 'now' | date: '%Y' }} rawdot. {{ 'footer.all_rights_reserved' | t }}</p>
+    {% render 'logo-mark', class: 'site-footer__mark' %}
   </div>
 </footer>
 

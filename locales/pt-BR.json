@@ -23,7 +23,9 @@
     "navigation": "Rodapé",
     "all_rights_reserved": "Todos os direitos reservados.",
     "socials": "Redes sociais",
-    "legal": "Jurídico"
+    "legal": "Jurídico",
+    "shop": "Loja",
+    "tagline": "Skates para mouse, glasspads e mangas para gamers."
   },
   "localization": {
     "country_label": "País/região",
@@ -67,7 +69,11 @@
     "taxes_and_shipping": "Impostos e frete calculados no checkout.",
     "checkout": "Finalizar compra",
     "empty": "Seu carrinho está vazio.",
-    "continue_shopping": "Continuar comprando"
+    "continue_shopping": "Continuar comprando",
+    "decrease": "Diminuir a quantidade de {{ title }}",
+    "increase": "Aumentar a quantidade de {{ title }}",
+    "updated": "Carrinho atualizado",
+    "update_error": "Não foi possível atualizar o carrinho. Tente novamente."
   },
   "collections": {
     "empty": "Nenhum produto ainda."

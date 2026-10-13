@@ -11,6 +11,27 @@ function announce(message) {
   });
 }
 
+/* Header cart badge: shows the count, filled once the cart has items, with a small bump on change. */
+function setCartCount(count) {
+  document.querySelectorAll('[data-cart-count]').forEach((el) => {
+    el.textContent = count;
+  });
+  document.querySelectorAll('[data-cart-badge]').forEach((badge) => {
+    badge.toggleAttribute('data-empty', count === 0);
+    badge.classList.remove('is-bumped');
+    requestAnimationFrame(() => badge.classList.add('is-bumped'));
+    setTimeout(() => badge.classList.remove('is-bumped'), 350);
+  });
+}
+
+/* Header gets a soft shadow once the page scrolls under it. */
+const headerSection = document.querySelector('.section-header');
+if (headerSection) {
+  const onScroll = () => headerSection.classList.toggle('is-scrolled', window.scrollY > 4);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
 /* Category tabs and product slides on the homepage. */
 class ProductShowcase extends HTMLElement {
   connectedCallback() {
@@ -139,9 +160,7 @@ document.addEventListener('submit', async (event) => {
     });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const cart = await fetch(`${window.Shopify?.routes?.root || '/'}cart.js`).then((r) => r.json());
-    document.querySelectorAll('[data-cart-count]').forEach((el) => {
-      el.textContent = cart.item_count;
-    });
+    setCartCount(cart.item_count);
     label.textContent = strings.addToCart;
     button.hidden = true;
     const goToCart = form.querySelector('[data-go-to-cart]');
@@ -155,6 +174,76 @@ document.addEventListener('submit', async (event) => {
     button.disabled = false;
     button.removeAttribute('aria-busy');
   }
+});
+
+/* Cart page: quantity changes and removals apply right away, without an "Update cart" button. */
+let cartTimer;
+let cartRequest = Promise.resolve();
+
+function setCartBusy(busy) {
+  document.querySelector('[data-cart-form]')?.toggleAttribute('aria-busy', busy);
+}
+
+function changeCartLine(line, quantity) {
+  cartRequest = cartRequest.then(async () => {
+    setCartBusy(true);
+    const focusedId = document.activeElement?.id;
+    try {
+      const response = await fetch(strings.cartChangeUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ line: Number(line), quantity }),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const cart = await response.json();
+      setCartCount(cart.item_count);
+      // Re-render the cart from the server so prices, discounts and totals stay exact.
+      const html = await fetch(window.location.pathname).then((r) => r.text());
+      const fresh = new DOMParser().parseFromString(html, 'text/html').querySelector('[data-cart]');
+      const current = document.querySelector('[data-cart]');
+      if (fresh && current) current.replaceWith(fresh);
+      document.getElementById(focusedId)?.focus({ preventScroll: true });
+      announce(strings.cartUpdated);
+    } catch (error) {
+      announce(strings.cartUpdateError);
+      console.warn('rawdot: cart update failed', error);
+    } finally {
+      setCartBusy(false);
+    }
+  });
+}
+
+document.addEventListener('click', (event) => {
+  const step = event.target.closest('[data-quantity-step]');
+  if (step) {
+    const input = document.getElementById(step.getAttribute('aria-controls'));
+    if (!input) return;
+    input.value = Math.max(0, (Number(input.value) || 0) + Number(step.dataset.quantityStep));
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+    return;
+  }
+  const remove = event.target.closest('.cart-item__remove[data-line]');
+  if (remove && strings.cartChangeUrl) {
+    event.preventDefault();
+    changeCartLine(remove.dataset.line, 0);
+  }
+});
+
+document.addEventListener('change', (event) => {
+  const input = event.target.closest('[data-cart-form] .quantity__input');
+  if (!input || !strings.cartChangeUrl) return;
+  clearTimeout(cartTimer);
+  // Wait briefly so several quick + taps become one request.
+  cartTimer = setTimeout(() => changeCartLine(input.dataset.line, Math.max(0, Number(input.value) || 0)), 350);
+});
+
+// Enter in a quantity field applies the change instead of submitting the whole form.
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Enter') return;
+  const input = event.target.closest('[data-cart-form] .quantity__input');
+  if (!input) return;
+  event.preventDefault();
+  input.dispatchEvent(new Event('change', { bubbles: true }));
 });
 
 /* "See more" scrolls smoothly to the product's guide (respecting reduced motion). */

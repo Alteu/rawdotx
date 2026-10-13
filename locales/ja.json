@@ -22,7 +22,9 @@
     "navigation": "フッター",
     "all_rights_reserved": "All rights reserved.",
     "socials": "SNS",
-    "legal": "法的情報"
+    "legal": "法的情報",
+    "shop": "ショップ",
+    "tagline": "ゲーマーのためのマウスソール、ガラスパッド、アームスリーブ。"
   },
   "localization": {
     "country_label": "国/地域",
@@ -66,7 +68,11 @@
     "taxes_and_shipping": "税金と送料はチェックアウト時に計算されます。",
     "checkout": "購入手続きへ",
     "empty": "カートは空です。",
-    "continue_shopping": "買い物を続ける"
+    "continue_shopping": "買い物を続ける",
+    "decrease": "{{ title }} の数量を減らす",
+    "increase": "{{ title }} の数量を増やす",
+    "updated": "カートを更新しました",
+    "update_error": "カートを更新できませんでした。もう一度お試しください。"
   },
   "collections": {
     "empty": "まだ製品がありません。"

@@ -27,7 +27,9 @@
     "navigation": "تذييل الصفحة",
     "all_rights_reserved": "جميع الحقوق محفوظة.",
     "socials": "حساباتنا",
-    "legal": "الشؤون القانونية"
+    "legal": "الشؤون القانونية",
+    "shop": "المتجر",
+    "tagline": "أرجل ماوس وقواعد زجاجية وأكمام ذراع للاعبين."
   },
   "localization": {
     "country_label": "الدولة/المنطقة",
@@ -71,7 +73,11 @@
     "taxes_and_shipping": "تُحتسب الضرائب والشحن عند الدفع.",
     "checkout": "إتمام الشراء",
     "empty": "سلتك فارغة.",
-    "continue_shopping": "متابعة التسوق"
+    "continue_shopping": "متابعة التسوق",
+    "decrease": "تقليل كمية {{ title }}",
+    "increase": "زيادة كمية {{ title }}",
+    "updated": "تم تحديث السلة",
+    "update_error": "تعذر تحديث السلة. حاول مرة أخرى."
   },
   "collections": {
     "empty": "لا توجد منتجات بعد."

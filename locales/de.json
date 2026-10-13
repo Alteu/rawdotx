@@ -23,7 +23,9 @@
     "navigation": "Fußzeile",
     "all_rights_reserved": "Alle Rechte vorbehalten.",
     "socials": "Socials",
-    "legal": "Rechtliches"
+    "legal": "Rechtliches",
+    "shop": "Shop",
+    "tagline": "Mausfüße, Glasspads und Armsleeves für Gamer."
   },
   "localization": {
     "country_label": "Land/Region",
@@ -67,7 +69,11 @@
     "taxes_and_shipping": "Steuern und Versand werden an der Kasse berechnet.",
     "checkout": "Zur Kasse",
     "empty": "Dein Warenkorb ist leer.",
-    "continue_shopping": "Weiter einkaufen"
+    "continue_shopping": "Weiter einkaufen",
+    "decrease": "Menge für {{ title }} verringern",
+    "increase": "Menge für {{ title }} erhöhen",
+    "updated": "Warenkorb aktualisiert",
+    "update_error": "Der Warenkorb konnte nicht aktualisiert werden. Versuche es erneut."
   },
   "collections": {
     "empty": "Noch keine Produkte."

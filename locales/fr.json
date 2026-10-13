@@ -23,7 +23,9 @@
     "navigation": "Pied de page",
     "all_rights_reserved": "Tous droits réservés.",
     "socials": "Réseaux",
-    "legal": "Mentions légales"
+    "legal": "Mentions légales",
+    "shop": "Boutique",
+    "tagline": "Patins de souris, glasspads et manchons pour gamers."
   },
   "localization": {
     "country_label": "Pays/région",
@@ -67,7 +69,11 @@
     "taxes_and_shipping": "Taxes et frais de livraison calculés au paiement.",
     "checkout": "Paiement",
     "empty": "Votre panier est vide.",
-    "continue_shopping": "Continuer vos achats"
+    "continue_shopping": "Continuer vos achats",
+    "decrease": "Diminuer la quantité de {{ title }}",
+    "increase": "Augmenter la quantité de {{ title }}",
+    "updated": "Panier mis à jour",
+    "update_error": "Le panier n'a pas pu être mis à jour. Réessayez."
   },
   "collections": {
     "empty": "Aucun produit pour le moment."
