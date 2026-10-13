@@ -55,7 +55,6 @@
     "notify_success": "¡Gracias! Te escribiremos cuando esté disponible.",
     "specifications": "Especificaciones",
     "about": "Acerca del producto",
-    "view_full_page": "Ver página completa del producto",
     "in_stock": "Disponible",
     "notify_consent": "Al registrarte, aceptas recibir correos de rawdot sobre este producto. Puedes darte de baja cuando quieras. Consulta nuestra [privacy]Política de privacidad[/privacy]."
   },
@@ -141,8 +140,8 @@
       "a4": "{{ name }} está hecho para mousepads de tela y de vidrio.",
       "q5": "¿Cuál es la diferencia entre Ice Version y Control Version?",
       "a5": "Ice Version es nuestro patín de velocidad, para un deslizamiento rápido y de baja fricción. Control Version es nuestro patín de control, con más frenado para un apuntado preciso y controlado.",
-      "q6": "¿Los puntos cambian el seguimiento de mi ratón?",
-      "a6": "No, si se aplican de forma uniforme. Los puntos nivelados mantienen el sensor a una altura constante, así el seguimiento sigue siendo fiable. Si el ratón se tambalea, ajusta o añade un punto hasta que quede plano."
+      "q6": "¿Los puntos afectan al sensor?",
+      "a6": "No. Los puntos van en la base, alrededor de los bordes y lejos de la abertura del sensor, así que nunca lo tocan ni lo cubren. Bien aplicados, mantienen el ratón nivelado y el seguimiento constante."
     },
     "soon": {
       "label": "01 / resumen",
@@ -151,19 +150,17 @@
   },
   "about": {
     "label": "Sobre nosotros",
-    "heading": "rawdot",
-    "quote": "“rawdot nació de un problema práctico: reemplazar las patas de ratón desgastadas en México solía ser más complicado que el propio producto.”",
-    "description": "Los ratones gaming pueden durar años mientras sus patas originales se desgastan poco a poco. Los puntos universales se convirtieron en una alternativa más flexible—creada desde la perspectiva de un gamer en México.",
-    "values_label": "Lo que nos define",
-    "follow": "Sigue a rawdot",
-    "value_1_title": "Nacimos en México",
-    "value_1_text": "rawdot surgió de un problema real y local: era difícil encontrar buenos patines de repuesto.",
-    "value_2_title": "Hecho por gamers",
-    "value_2_text": "Diseñamos lo que nosotros mismos queremos usar, desde la experiencia.",
-    "value_3_title": "Claro desde el inicio",
-    "value_3_text": "Productos sencillos, empaque claro e instrucciones fáciles de seguir.",
-    "value_4_title": "Hecho para crecer",
-    "value_4_text": "Primero los patines; los glasspads y las mangas vienen en camino."
+    "heading": "RAWDOT",
+    "story_label": "Cómo empezó",
+    "lead": "RAWDOT empezó con un gamer y un problema: reemplazar los patines gastados del ratón en México era caro, y encontrar unos buenos era casi imposible.",
+    "step_1_title": "El problema",
+    "step_1_text": "Los patines de calidad eran caros y difíciles de conseguir en México, aunque todo ratón los necesita tarde o temprano.",
+    "step_2_title": "Nuestra respuesta",
+    "step_2_text": "Hicimos los nuestros: puntos de patín universales, a un precio para que los gamers en México por fin tuvieran calidad sin pagar de más.",
+    "step_3_title": "Hacia el mundo",
+    "step_3_text": "Los puntos resultaron tan buenos como cualquiera en el mercado, así que abrimos RAWDOT a jugadores de todo el mundo.",
+    "step_4_title": "Lo siguiente: glasspads",
+    "step_4_text": "Un buen glasspad es igual de caro de conseguir en México. Misma idea, siguiente producto: equipo de calidad a un precio justo."
   },
   "reviews": {
     "label": "Reseñas",

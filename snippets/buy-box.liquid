@@ -15,6 +15,7 @@
   @param {boolean} [coming_soon] - Show as coming soon (not purchasable)
   @param {string} [heading_tag] - Heading element for the name, "h1" or "h2" (default "h2")
   @param {boolean} [eager] - Load the media eagerly (first visible product)
+  @param {string} [more_href] - Where "See more" scrolls to (the product's guide); without it, "See more" opens the details dialog
   @param {string} [versions] - Version switch (e.g. Ice Version / Control Version), shown at the top of the panel
 {% enddoc %}
 {%- liquid
@@ -107,9 +108,13 @@
       <p class="buy-box__tagline">{{ tagline | escape }}</p>
     {%- endif -%}
 
-    <button type="button" class="buy-box__more" data-dialog-open="{{ id }}-details" aria-haspopup="dialog">
-      {{- 'products.see_more' | t }} +
-    </button>
+    {%- if more_href != blank -%}
+      <a class="buy-box__more" href="{{ more_href }}" data-scroll-to>{{ 'products.see_more' | t }} +</a>
+    {%- else -%}
+      <button type="button" class="buy-box__more" data-dialog-open="{{ id }}-details" aria-haspopup="dialog">
+        {{- 'products.see_more' | t }} +
+      </button>
+    {%- endif -%}
 
     {%- unless is_coming_soon or product.has_only_default_variant -%}
       <variant-picker class="variant-picker" data-form-id="{{ form_id }}">
@@ -259,13 +264,6 @@
       {%- if details != blank -%}
         <div class="rte">{{ details }}</div>
       {%- endif -%}
-
-      {%- unless is_coming_soon -%}
-        <a class="details-dialog__link" href="{{ product.url }}">
-          {{- 'products.view_full_page' | t -}}
-          {%- render 'icon', name: 'arrow-right' -%}
-        </a>
-      {%- endunless -%}
     </div>
   </dialog>
 </article>

@@ -55,7 +55,6 @@
     "notify_success": "Grazie! Ti scriveremo quando sarà disponibile.",
     "specifications": "Specifiche",
     "about": "Informazioni",
-    "view_full_page": "Vedi la pagina completa del prodotto",
     "in_stock": "Disponibile",
     "notify_consent": "Iscrivendoti accetti di ricevere e-mail da rawdot su questo prodotto. Puoi annullare l'iscrizione in qualsiasi momento. Consulta la nostra [privacy]Informativa sulla privacy[/privacy]."
   },
@@ -141,8 +140,8 @@
       "a4": "{{ name }} è pensato per tappetini in tessuto e in vetro.",
       "q5": "Qual è la differenza tra Ice Version e Control Version?",
       "a5": "Ice Version è il nostro piedino speed, per una scorrevolezza rapida e a basso attrito. Control Version è il nostro piedino control, con più frenata per una mira precisa e controllata.",
-      "q6": "I dot cambiano il tracciamento del mouse?",
-      "a6": "No, se applicati in modo uniforme. I dot a livello mantengono il sensore a un'altezza costante, così il tracciamento resta affidabile. Se il mouse dondola, regola o aggiungi un dot finché non appoggia in piano."
+      "q6": "I dot influiscono sul sensore?",
+      "a6": "No. I dot si applicano sulla base, lungo i bordi e lontano dall'apertura del sensore, quindi non lo toccano né lo coprono mai. Applicati in modo uniforme, mantengono il mouse in piano e il tracciamento costante."
     },
     "soon": {
       "label": "01 / panoramica",
@@ -151,19 +150,17 @@
   },
   "about": {
     "label": "Chi siamo",
-    "heading": "rawdot",
-    "quote": "«rawdot è nato da un problema pratico: sostituire i piedini usurati del mouse in Messico era spesso più complicato del prodotto stesso.»",
-    "description": "I mouse da gaming possono durare anni, mentre i piedini originali si consumano poco a poco. I dot universali sono diventati un'alternativa più flessibile, pensata dal punto di vista di un gamer in Messico.",
-    "values_label": "I nostri valori",
-    "follow": "Segui rawdot",
-    "value_1_title": "Nato in Messico",
-    "value_1_text": "rawdot è nato da un problema reale e locale: trovare buoni piedini di ricambio era difficile.",
-    "value_2_title": "Fatto da gamer",
-    "value_2_text": "Progettiamo ciò che vogliamo usare noi stessi, partendo dall'esperienza.",
-    "value_3_title": "Chiaro per scelta",
-    "value_3_text": "Prodotti semplici, confezioni chiare e istruzioni facili da seguire.",
-    "value_4_title": "Pensato per crescere",
-    "value_4_text": "Prima i piedini, poi tappetini in vetro e manicotti in arrivo."
+    "heading": "RAWDOT",
+    "story_label": "Come è iniziato",
+    "lead": "RAWDOT è nato da un gamer e da un problema: in Messico sostituire i piedini usurati del mouse costava caro, e trovarne di buoni era quasi impossibile.",
+    "step_1_title": "Il problema",
+    "step_1_text": "I piedini di qualità in Messico erano cari e difficili da trovare, anche se ogni mouse prima o poi ne ha bisogno.",
+    "step_2_title": "La nostra risposta",
+    "step_2_text": "Abbiamo creato i nostri: dot universali, a un prezzo che permette finalmente ai gamer messicani di avere qualità senza spendere troppo.",
+    "step_3_title": "Verso il mondo",
+    "step_3_text": "I dot si sono rivelati all'altezza dei migliori, così abbiamo aperto RAWDOT ai giocatori di tutto il mondo.",
+    "step_4_title": "Prossimo passo: tappetini in vetro",
+    "step_4_text": "Un buon tappetino in vetro in Messico è altrettanto caro. Stessa idea, nuovo prodotto: qualità a un prezzo giusto."
   },
   "reviews": {
     "label": "Recensioni",

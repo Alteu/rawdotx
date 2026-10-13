@@ -55,7 +55,6 @@
     "notify_success": "Obrigado! Enviaremos um e-mail quando estiver disponível.",
     "specifications": "Especificações",
     "about": "Sobre",
-    "view_full_page": "Ver página completa do produto",
     "in_stock": "Em estoque",
     "notify_consent": "Ao se inscrever, você concorda em receber e-mails da rawdot sobre este produto. Cancele quando quiser. Veja nossa [privacy]Política de Privacidade[/privacy]."
   },
@@ -141,8 +140,8 @@
       "a4": "O {{ name }} foi feito para mousepads de tecido e de vidro.",
       "q5": "Qual é a diferença entre Ice Version e Control Version?",
       "a5": "O Ice Version é nosso skate de velocidade, para um deslize rápido e de baixo atrito. O Control Version é nosso skate de controle, com mais frenagem para uma mira precisa e controlada.",
-      "q6": "Os dots mudam o rastreamento do meu mouse?",
-      "a6": "Não, se aplicados por igual. Dots nivelados mantêm o sensor a uma altura constante, então o rastreamento continua confiável. Se o mouse balançar, ajuste ou adicione um dot até ele ficar plano."
+      "q6": "Os dots afetam o sensor?",
+      "a6": "Não. Os dots ficam na base, nas bordas e longe da abertura do sensor, então nunca encostam nele nem o cobrem. Aplicados por igual, mantêm o mouse nivelado e o rastreamento constante."
     },
     "soon": {
       "label": "01 / visão geral",
@@ -151,19 +150,17 @@
   },
   "about": {
     "label": "Sobre nós",
-    "heading": "rawdot",
-    "quote": "“A rawdot nasceu de um problema prático: trocar skates de mouse gastos no México costumava ser mais complicado do que o próprio produto.”",
-    "description": "Mouses gamer podem durar anos enquanto os skates originais se desgastam aos poucos. Os dots universais se tornaram uma alternativa mais flexível, criada do ponto de vista de um gamer no México.",
-    "values_label": "No que acreditamos",
-    "follow": "Siga a rawdot",
-    "value_1_title": "Nascido no México",
-    "value_1_text": "A rawdot nasceu de um problema real e local: era difícil encontrar bons skates de reposição.",
-    "value_2_title": "Feito por gamers",
-    "value_2_text": "Criamos o que nós mesmos queremos usar, a partir da experiência.",
-    "value_3_title": "Claro por padrão",
-    "value_3_text": "Produtos simples, embalagem clara e instruções fáceis de seguir.",
-    "value_4_title": "Feito para crescer",
-    "value_4_text": "Primeiro os skates; mousepads de vidro e mangas estão a caminho."
+    "heading": "RAWDOT",
+    "story_label": "Como começou",
+    "lead": "A RAWDOT começou com um gamer e um problema: trocar skates gastos no México era caro, e achar bons era quase impossível.",
+    "step_1_title": "O problema",
+    "step_1_text": "Skates de qualidade eram caros e difíceis de comprar no México, mesmo que todo mouse precise de novos cedo ou tarde.",
+    "step_2_title": "Nossa resposta",
+    "step_2_text": "Criamos os nossos: dots universais, com um preço para que gamers no México finalmente tivessem qualidade sem pagar a mais.",
+    "step_3_title": "Para o mundo",
+    "step_3_text": "Os dots ficaram tão bons quanto qualquer outro no mercado, então abrimos a RAWDOT para jogadores do mundo todo.",
+    "step_4_title": "Próximo passo: mousepads de vidro",
+    "step_4_text": "Um bom mousepad de vidro é igualmente caro no México. Mesma ideia, próximo produto: qualidade a um preço justo."
   },
   "reviews": {
     "label": "Avaliações",

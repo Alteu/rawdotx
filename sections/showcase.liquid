@@ -60,6 +60,10 @@
               assign first_block_seen = true
             endunless
             assign versions = ''
+            assign more_href = ''
+            if block.settings.guide != 'none' and block.settings.guide != blank
+              assign more_href = '#guide-' | append: block.id
+            endif
             assign category_key = 'categories.' | append: category_id | replace: '-', '_'
             assign category_label = category_key | t
             assign eyebrow = 'rawdot / ' | append: category_label
@@ -104,7 +108,8 @@
               coming_soon: block.settings.coming_soon,
               eager: eager,
               eyebrow: eyebrow,
-              versions: versions
+              versions: versions,
+              more_href: more_href
             %}
           </div>
         {%- endfor -%}
@@ -132,6 +137,7 @@
         {%- if block.settings.guide != 'none' and block.settings.guide != blank -%}
           <div
             class="showcase__guide"
+            id="guide-{{ block.id }}"
             data-guide-for="{{ block.id }}"
             {% if category_index != 1 %}
               hidden

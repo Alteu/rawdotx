@@ -55,7 +55,6 @@
     "notify_success": "Merci ! Nous vous écrirons dès que ce sera disponible.",
     "specifications": "Caractéristiques",
     "about": "À propos",
-    "view_full_page": "Voir la fiche produit complète",
     "in_stock": "En stock",
     "notify_consent": "En vous inscrivant, vous acceptez de recevoir des e-mails de rawdot concernant ce produit. Désinscription possible à tout moment. Consultez notre [privacy]Politique de confidentialité[/privacy]."
   },
@@ -141,8 +140,8 @@
       "a4": "{{ name }} est conçu pour les tapis en tissu et en verre.",
       "q5": "Quelle est la différence entre Ice Version et Control Version ?",
       "a5": "Ice Version est notre patin vitesse, pour une glisse rapide à faible friction. Control Version est notre patin contrôle, avec plus de freinage pour une visée précise et maîtrisée.",
-      "q6": "Les pastilles modifient-elles le suivi de ma souris ?",
-      "a6": "Non, si elles sont posées régulièrement. Des pastilles à niveau gardent le capteur à une hauteur constante, pour un suivi fiable. Si la souris bascule, ajustez ou ajoutez une pastille jusqu'à ce qu'elle repose à plat."
+      "q6": "Les pastilles affectent-elles le capteur ?",
+      "a6": "Non. Les pastilles se placent sur la base, le long des bords et loin de l'ouverture du capteur : elles ne le touchent ni ne le couvrent jamais. Posées régulièrement, elles gardent la souris à plat et le suivi reste constant."
     },
     "soon": {
       "label": "01 / aperçu",
@@ -151,19 +150,17 @@
   },
   "about": {
     "label": "À propos",
-    "heading": "rawdot",
-    "quote": "« rawdot est né d'un problème concret : remplacer des patins de souris usés au Mexique était souvent plus compliqué que le produit lui-même. »",
-    "description": "Une souris gaming peut durer des années pendant que ses patins d'origine s'usent peu à peu. Les pastilles universelles sont devenues une alternative plus flexible, pensée du point de vue d'un joueur au Mexique.",
-    "values_label": "Nos valeurs",
-    "follow": "Suivre rawdot",
-    "value_1_title": "Né au Mexique",
-    "value_1_text": "rawdot est né d'un vrai problème local : de bons patins de remplacement étaient difficiles à trouver.",
-    "value_2_title": "Créé par des joueurs",
-    "value_2_text": "Nous concevons ce que nous voulons utiliser nous-mêmes, à partir de notre expérience.",
-    "value_3_title": "Clair avant tout",
-    "value_3_text": "Des produits simples, un emballage clair et des instructions faciles à suivre.",
-    "value_4_title": "Fait pour grandir",
-    "value_4_text": "D'abord les patins, puis les tapis en verre et les manchons."
+    "heading": "RAWDOT",
+    "story_label": "Nos débuts",
+    "lead": "RAWDOT est né d'un joueur et d'un problème : au Mexique, remplacer des patins de souris usés coûtait cher, et en trouver de bons était presque impossible.",
+    "step_1_title": "Le problème",
+    "step_1_text": "Les patins de qualité étaient trop chers et difficiles à trouver au Mexique, alors que chaque souris finit par en avoir besoin.",
+    "step_2_title": "Notre réponse",
+    "step_2_text": "Nous avons créé les nôtres : des pastilles universelles, à un prix qui permet enfin aux joueurs mexicains d'avoir de la qualité sans payer trop cher.",
+    "step_3_title": "Vers le monde",
+    "step_3_text": "Les pastilles se sont révélées à la hauteur des meilleures, alors nous avons ouvert RAWDOT aux joueurs du monde entier.",
+    "step_4_title": "Prochaine étape : les tapis en verre",
+    "step_4_text": "Un bon tapis en verre est tout aussi cher au Mexique. Même idée, prochain produit : du matériel de qualité à un prix juste."
   },
   "reviews": {
     "label": "Avis",

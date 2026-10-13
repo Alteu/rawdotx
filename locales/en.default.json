@@ -55,7 +55,6 @@
     "notify_success": "Thanks! We'll email you when it's available.",
     "specifications": "Specifications",
     "about": "About",
-    "view_full_page": "View full product page",
     "in_stock": "In stock",
     "notify_consent": "By signing up, you agree to get emails from rawdot about this product. Unsubscribe anytime. See our [privacy]Privacy Policy[/privacy]."
   },
@@ -104,9 +103,9 @@
       "label": "02 / in the box",
       "heading": "What's included",
       "image_alt": "Package contents: 20 skate dots and 1 alcohol prep pad",
-      "dots_name": "{{ name }} skate dots",
+      "dots_name": "{{ name }} Skate Dots",
       "dots_detail": "6.5 mm diameter · 0.8 mm thick",
-      "pad_name": "Alcohol prep pad",
+      "pad_name": "Alcohol Prep Pad",
       "pad_detail": "Individually wrapped, for cleaning the mouse base before application",
       "quantity": {
         "one": "{{ count }} pc",
@@ -141,8 +140,8 @@
       "a4": "{{ name }} is made for both cloth and glass mousepads.",
       "q5": "What is the difference between Ice Version and Control Version?",
       "a5": "Ice Version is our speed skate, for a fast, low-friction glide. Control Version is our control skate, with more stopping power for precise, controlled aim.",
-      "q6": "Will the dots change how my mouse tracks?",
-      "a6": "Not when they are applied evenly. Dots that sit level keep the sensor at a consistent height, so tracking stays reliable. If the mouse rocks, adjust or add a dot until it sits flat."
+      "q6": "Will the dots affect my sensor?",
+      "a6": "No. The dots sit on the base around the edges, away from the sensor opening, so they never touch or cover the sensor. Applied evenly, they keep the mouse level and tracking stays consistent."
     },
     "soon": {
       "label": "01 / overview",
@@ -151,19 +150,17 @@
   },
   "about": {
     "label": "About us",
-    "heading": "rawdot",
-    "quote": "“rawdot began from a practical problem: replacing worn mouse skates in Mexico was often more complicated than the product itself.”",
-    "description": "Gaming mice can last for years while their original skates gradually wear down. Universal dots became a more flexible alternative—one created from the perspective of a gamer in Mexico.",
-    "values_label": "What we stand for",
-    "follow": "Follow rawdot",
-    "value_1_title": "Started in Mexico",
-    "value_1_text": "rawdot grew out of a real, local problem: good replacement skates were hard to find.",
-    "value_2_title": "Made by gamers",
-    "value_2_text": "We design what we want to use ourselves, from first-hand experience.",
-    "value_3_title": "Clear by default",
-    "value_3_text": "Simple products, clear packaging and instructions you can actually follow.",
-    "value_4_title": "Built to grow",
-    "value_4_text": "Skates first, with glasspads and arm sleeves on the way."
+    "heading": "RAWDOT",
+    "story_label": "How it started",
+    "lead": "RAWDOT started with one gamer and one problem: replacing worn-out mouse skates in Mexico was expensive, and good ones were almost impossible to find.",
+    "step_1_title": "The problem",
+    "step_1_text": "Quality skates were overpriced and hard to buy in Mexico, even though every mouse needs new ones sooner or later.",
+    "step_2_title": "Our answer",
+    "step_2_text": "We made our own: universal skate dots, priced so gamers in Mexico could finally get quality without overpaying.",
+    "step_3_title": "Going global",
+    "step_3_text": "The dots turned out good enough to stand next to anything out there, so we opened RAWDOT to players worldwide.",
+    "step_4_title": "Next: glasspads",
+    "step_4_text": "A good glasspad is just as expensive to get in Mexico. Same idea, next product: quality gear at a fair price."
   },
   "reviews": {
     "label": "Reviews",

@@ -157,6 +157,17 @@ document.addEventListener('submit', async (event) => {
   }
 });
 
+/* "See more" scrolls smoothly to the product's guide (respecting reduced motion). */
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('[data-scroll-to]');
+  if (!link) return;
+  const target = document.querySelector(link.getAttribute('href'));
+  if (!target) return;
+  event.preventDefault();
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+});
+
 /* Remove the logo intro once it has played. */
 const intro = document.querySelector('.intro');
 if (intro) {
