@@ -109,6 +109,7 @@
               badge: block.settings.badge,
               tagline: block.settings.tagline,
               image: block.settings.image,
+              image_asset: block.settings.image_asset,
               specs: specs,
               details: block.settings.details,
               coming_soon: block.settings.coming_soon,
@@ -231,6 +232,12 @@
           "id": "image",
           "label": "Image",
           "info": "Overrides the product's media. Transparent PNG/WebP works best. 3D models from the product's media are used when no image is set."
+        },
+        {
+          "type": "text",
+          "id": "image_asset",
+          "label": "Theme image file",
+          "info": "Used when no image or product media is set, e.g. glasspad-draft.webp"
         },
         {
           "type": "header",

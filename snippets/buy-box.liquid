@@ -10,6 +10,7 @@
   @param {string} [badge] - Short type label, e.g. "Speed" or "Control"
   @param {string} [tagline] - One sentence: what it is and why it matters
   @param {image} [image] - Image used instead of the product media
+  @param {string} [image_asset] - Theme asset file name, used when there is no image or product media (e.g. draft pictures)
   @param {string} [specs] - Key specs as "value|label" pairs separated by "~~"
   @param {string} [details] - Extra rich text shown under "See more"
   @param {boolean} [coming_soon] - Show as coming soon (not purchasable)
@@ -67,6 +68,16 @@
             fetchpriority: image_priority,
             alt: display_title
         }}
+      {%- elsif image_asset != blank -%}
+        <img
+          class="buy-box__asset"
+          src="{{ image_asset | asset_url }}"
+          alt="{{ display_title | escape }}"
+          width="1200"
+          height="1200"
+          loading="{{ image_loading }}"
+          fetchpriority="{{ image_priority }}"
+        >
       {%- else -%}
         <div class="buy-box__placeholder">
           {% render 'logo-mark' %}
