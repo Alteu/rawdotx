@@ -15,7 +15,9 @@
   @param {boolean} [coming_soon] - Show as coming soon (not purchasable)
   @param {string} [heading_tag] - Heading element for the name, "h1" or "h2" (default "h2")
   @param {boolean} [eager] - Load the media eagerly (first visible product)
-  @param {string} [more_href] - Where "See more" scrolls to (the product's guide); without it, "See more" opens the details dialog
+  @param {string} [extra_specs] - Details shown under "See more" that aren't in the fact row, as "value|label" pairs separated by "~~". When set, the dialog shows these instead of repeating the fact row and product description.
+  @param {string} [guide_id] - ID of this product's guide; "See more" then lists links into it
+  @param {string} [guide_type] - "skates" or "coming_soon": which guide links to list
   @param {string} [versions] - Version switch (e.g. Ice Version / Control Version), shown at the top of the panel
 {% enddoc %}
 {%- liquid
@@ -108,13 +110,9 @@
       <p class="buy-box__tagline">{{ tagline | escape }}</p>
     {%- endif -%}
 
-    {%- if more_href != blank -%}
-      <a class="buy-box__more" href="{{ more_href }}" data-scroll-to>{{ 'products.see_more' | t }} +</a>
-    {%- else -%}
-      <button type="button" class="buy-box__more" data-dialog-open="{{ id }}-details" aria-haspopup="dialog">
-        {{- 'products.see_more' | t }} +
-      </button>
-    {%- endif -%}
+    <button type="button" class="buy-box__more" data-dialog-open="{{ id }}-details" aria-haspopup="dialog">
+      {{- 'products.see_more' | t }} +
+    </button>
 
     {%- unless is_coming_soon or product.has_only_default_variant -%}
       <variant-picker class="variant-picker" data-form-id="{{ form_id }}">
@@ -243,10 +241,11 @@
         </div>
       {%- endif -%}
 
-      {%- if spec_items.size > 0 -%}
-        <h3>{{ 'products.specifications' | t }}</h3>
+      {%- assign extra_items = extra_specs | split: '~~' -%}
+      {%- if extra_items.size > 0 -%}
+        <h3>{{ 'products.details' | t }}</h3>
         <dl class="details-dialog__specs">
-          {%- for spec in spec_items -%}
+          {%- for spec in extra_items -%}
             {%- assign spec_parts = spec | split: '|' -%}
             <div>
               <dt>{{ spec_parts[1] | escape }}</dt>
@@ -254,15 +253,45 @@
             </div>
           {%- endfor -%}
         </dl>
-      {%- endif -%}
-
-      {%- if product.description != blank -%}
-        <h3>{{ 'products.about' | t }}</h3>
-        <div class="rte">{{ product.description }}</div>
+      {%- else -%}
+        {%- if spec_items.size > 0 -%}
+          <h3>{{ 'products.specifications' | t }}</h3>
+          <dl class="details-dialog__specs">
+            {%- for spec in spec_items -%}
+              {%- assign spec_parts = spec | split: '|' -%}
+              <div>
+                <dt>{{ spec_parts[1] | escape }}</dt>
+                <dd>{{ spec_parts[0] | escape }}</dd>
+              </div>
+            {%- endfor -%}
+          </dl>
+        {%- endif -%}
+        {%- if product.description != blank -%}
+          <h3>{{ 'products.about' | t }}</h3>
+          <div class="rte">{{ product.description }}</div>
+        {%- endif -%}
       {%- endif -%}
 
       {%- if details != blank -%}
         <div class="rte">{{ details }}</div>
+      {%- endif -%}
+
+      {%- if guide_type == 'skates' -%}
+        <h3>{{ 'products.in_the_guide' | t }}</h3>
+        <ul class="guide-links" role="list">
+          <li>
+            <a href="#GuidePlacement-{{ guide_id }}" data-scroll-to>{{ 'guide.placement.heading' | t }}</a>
+          </li>
+          <li>
+            <a href="#GuideIncluded-{{ guide_id }}" data-scroll-to>{{ 'guide.included.heading' | t }}</a>
+          </li>
+          <li>
+            <a href="#GuideInstall-{{ guide_id }}" data-scroll-to>{{ 'guide.install.heading' | t }}</a>
+          </li>
+          <li>
+            <a href="#GuideFaq-{{ guide_id }}" data-scroll-to>{{ 'guide.faq.heading' | t }}</a>
+          </li>
+        </ul>
       {%- endif -%}
     </div>
   </dialog>

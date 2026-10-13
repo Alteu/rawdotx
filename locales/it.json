@@ -22,10 +22,8 @@
   "footer": {
     "navigation": "Piè di pagina",
     "all_rights_reserved": "Tutti i diritti riservati.",
-    "faq": "FAQ",
-    "contact": "Contatti",
-    "terms": "Termini",
-    "privacy": "Privacy"
+    "socials": "Social",
+    "legal": "Note legali"
   },
   "localization": {
     "country_label": "Paese/regione",
@@ -56,7 +54,9 @@
     "specifications": "Specifiche",
     "about": "Informazioni",
     "in_stock": "Disponibile",
-    "notify_consent": "Iscrivendoti accetti di ricevere e-mail da rawdot su questo prodotto. Puoi annullare l'iscrizione in qualsiasi momento. Consulta la nostra [privacy]Informativa sulla privacy[/privacy]."
+    "notify_consent": "Iscrivendoti accetti di ricevere e-mail da rawdot su questo prodotto. Puoi annullare l'iscrizione in qualsiasi momento. Consulta la nostra [privacy]Informativa sulla privacy[/privacy].",
+    "details": "Dettagli",
+    "in_the_guide": "Nella guida"
   },
   "cart": {
     "title": "Carrello",

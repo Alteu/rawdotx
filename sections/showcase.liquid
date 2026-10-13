@@ -60,10 +60,16 @@
               assign first_block_seen = true
             endunless
             assign versions = ''
-            assign more_href = ''
-            if block.settings.guide != 'none' and block.settings.guide != blank
-              assign more_href = '#guide-' | append: block.id
-            endif
+            capture extra_specs
+              for i in (1..4)
+                assign value_key = 'detail_' | append: i | append: '_value'
+                assign label_key = 'detail_' | append: i | append: '_label'
+                if block.settings[value_key] != blank
+                  echo block.settings[value_key] | append: '|' | append: block.settings[label_key] | append: '~~'
+                endif
+              endfor
+            endcapture
+            assign extra_specs = extra_specs | strip | remove_last: '~~'
             assign category_key = 'categories.' | append: category_id | replace: '-', '_'
             assign category_label = category_key | t
             assign eyebrow = 'rawdot / ' | append: category_label
@@ -109,7 +115,9 @@
               eager: eager,
               eyebrow: eyebrow,
               versions: versions,
-              more_href: more_href
+              extra_specs: extra_specs,
+              guide_id: block.id,
+              guide_type: block.settings.guide
             %}
           </div>
         {%- endfor -%}
@@ -236,6 +244,18 @@
         { "type": "text", "id": "spec_3_label", "label": "Spec 3 label" },
         { "type": "text", "id": "spec_4_value", "label": "Spec 4 value" },
         { "type": "text", "id": "spec_4_label", "label": "Spec 4 label" },
+        {
+          "type": "header",
+          "content": "More details (shown under \"See more\")"
+        },
+        { "type": "text", "id": "detail_1_value", "label": "Detail 1 value" },
+        { "type": "text", "id": "detail_1_label", "label": "Detail 1 label" },
+        { "type": "text", "id": "detail_2_value", "label": "Detail 2 value" },
+        { "type": "text", "id": "detail_2_label", "label": "Detail 2 label" },
+        { "type": "text", "id": "detail_3_value", "label": "Detail 3 value" },
+        { "type": "text", "id": "detail_3_label", "label": "Detail 3 label" },
+        { "type": "text", "id": "detail_4_value", "label": "Detail 4 value" },
+        { "type": "text", "id": "detail_4_label", "label": "Detail 4 label" },
         {
           "type": "select",
           "id": "guide",

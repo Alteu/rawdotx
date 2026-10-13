@@ -22,10 +22,8 @@
   "footer": {
     "navigation": "Fußzeile",
     "all_rights_reserved": "Alle Rechte vorbehalten.",
-    "faq": "FAQ",
-    "contact": "Kontakt",
-    "terms": "AGB",
-    "privacy": "Datenschutz"
+    "socials": "Socials",
+    "legal": "Rechtliches"
   },
   "localization": {
     "country_label": "Land/Region",
@@ -56,7 +54,9 @@
     "specifications": "Technische Daten",
     "about": "Über das Produkt",
     "in_stock": "Auf Lager",
-    "notify_consent": "Mit der Anmeldung stimmst du zu, E-Mails von rawdot zu diesem Produkt zu erhalten. Abmeldung jederzeit möglich. Siehe unsere [privacy]Datenschutzerklärung[/privacy]."
+    "notify_consent": "Mit der Anmeldung stimmst du zu, E-Mails von rawdot zu diesem Produkt zu erhalten. Abmeldung jederzeit möglich. Siehe unsere [privacy]Datenschutzerklärung[/privacy].",
+    "details": "Details",
+    "in_the_guide": "Im Guide"
   },
   "cart": {
     "title": "Warenkorb",

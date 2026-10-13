@@ -1,5 +1,10 @@
 {%- liquid
-  assign faq_url = routes.root_url | append: '#faq'
+  assign socials_url = settings.social_links_url | default: settings.social_instagram
+  assign has_policies = false
+  for policy in shop.policies
+    assign has_policies = true
+    break
+  endfor
 -%}
 <footer class="site-footer">
   <div class="site-footer__inner page-width">
@@ -18,42 +23,23 @@
 
     <nav class="site-footer__nav" aria-label="{{ 'footer.navigation' | t }}">
       <ul role="list">
-        {%- if settings.social_instagram != blank -%}
-          <li><a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a></li>
-        {%- endif -%}
-        {%- if settings.social_tiktok != blank -%}
-          <li><a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">TikTok</a></li>
-        {%- endif -%}
-        <li>
-          <a href="{{ faq_url }}">{{ 'footer.faq' | t }}</a>
-        </li>
-        {%- if settings.contact_email != blank -%}
+        {%- if socials_url != blank -%}
           <li>
-            <a href="mailto:{{ settings.contact_email }}">{{ 'footer.contact' | t }}</a>
-          </li>
-        {%- elsif shop.contact_information.url != blank -%}
-          <li>
-            <a href="{{ shop.contact_information.url }}">{{ 'footer.contact' | t }}</a>
+            <a href="{{ socials_url }}" target="_blank" rel="noopener">{{ 'footer.socials' | t }}</a>
           </li>
         {%- endif -%}
-        {%- if shop.terms_of_service.url != blank -%}
+        {%- if has_policies -%}
           <li>
-            <a href="{{ shop.terms_of_service.url }}">{{ 'footer.terms' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if shop.privacy_policy.url != blank -%}
-          <li>
-            <a href="{{ shop.privacy_policy.url }}">{{ 'footer.privacy' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if shop.refund_policy.url != blank -%}
-          <li>
-            <a href="{{ shop.refund_policy.url }}">{{ shop.refund_policy.title | escape }}</a>
-          </li>
-        {%- endif -%}
-        {%- if shop.shipping_policy.url != blank -%}
-          <li>
-            <a href="{{ shop.shipping_policy.url }}">{{ shop.shipping_policy.title | escape }}</a>
+            <details class="footer-menu">
+              <summary>{{ 'footer.legal' | t }}</summary>
+              <ul class="footer-menu__list" role="list">
+                {%- for policy in shop.policies -%}
+                  <li>
+                    <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </details>
           </li>
         {%- endif -%}
       </ul>

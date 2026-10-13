@@ -21,10 +21,8 @@
   "footer": {
     "navigation": "フッター",
     "all_rights_reserved": "All rights reserved.",
-    "faq": "FAQ",
-    "contact": "お問い合わせ",
-    "terms": "利用規約",
-    "privacy": "プライバシー"
+    "socials": "SNS",
+    "legal": "法的情報"
   },
   "localization": {
     "country_label": "国/地域",
@@ -55,7 +53,9 @@
     "specifications": "仕様",
     "about": "製品について",
     "in_stock": "在庫あり",
-    "notify_consent": "登録すると、この製品に関するrawdotからのメールを受け取ることに同意したことになります。配信はいつでも停止できます。[privacy]プライバシーポリシー[/privacy]をご確認ください。"
+    "notify_consent": "登録すると、この製品に関するrawdotからのメールを受け取ることに同意したことになります。配信はいつでも停止できます。[privacy]プライバシーポリシー[/privacy]をご確認ください。",
+    "details": "詳細",
+    "in_the_guide": "ガイド内"
   },
   "cart": {
     "title": "カート",

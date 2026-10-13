@@ -21,10 +21,8 @@
   "footer": {
     "navigation": "页脚",
     "all_rights_reserved": "保留所有权利。",
-    "faq": "常见问题",
-    "contact": "联系我们",
-    "terms": "条款",
-    "privacy": "隐私"
+    "socials": "社交媒体",
+    "legal": "法律信息"
   },
   "localization": {
     "country_label": "国家/地区",
@@ -55,7 +53,9 @@
     "specifications": "规格",
     "about": "关于产品",
     "in_stock": "有货",
-    "notify_consent": "注册即表示您同意接收 rawdot 关于此产品的邮件。可随时退订。请查看我们的[privacy]隐私政策[/privacy]。"
+    "notify_consent": "注册即表示您同意接收 rawdot 关于此产品的邮件。可随时退订。请查看我们的[privacy]隐私政策[/privacy]。",
+    "details": "详细信息",
+    "in_the_guide": "指南目录"
   },
   "cart": {
     "title": "购物车",

@@ -1,24 +1,29 @@
 {% doc %}
-  "About us" side sheet, opened from the header (right side): how RAWDOT started, as a short timeline.
+  "About us" view, opened from the header: how RAWDOT started. Full screen, split into a black brand
+  panel (real wordmark, lead) and the story as a four-step timeline. Stacks on small screens.
 {% enddoc %}
-<dialog class="details-dialog about-dialog" id="AboutDialog" aria-labelledby="AboutDialogTitle">
-  <div class="about-dialog__hero scheme-dark">
-    <form method="dialog" class="about-dialog__close">
-      <button type="submit" class="button button--icon">
-        {% render 'icon', name: 'close' %}
-        <span class="visually-hidden">{{ 'accessibility.close' | t }}</span>
-      </button>
-    </form>
-    {% render 'logo-mark', class: 'about-dialog__mark' %}
-    <div>
-      <p class="section-label">{{ 'about.label' | t }}</p>
-      <h2 class="about-dialog__title" id="AboutDialogTitle">{{ 'about.heading' | t }}</h2>
-    </div>
+<dialog class="about-dialog" id="AboutDialog" aria-labelledby="AboutDialogTitle">
+  <form method="dialog" class="about-dialog__close">
+    <button type="submit" class="button button--icon">
+      {% render 'icon', name: 'close' %}
+      <span class="visually-hidden">{{ 'accessibility.close' | t }}</span>
+    </button>
+  </form>
+
+  <div class="about-dialog__brand scheme-dark">
+    <p class="section-label">{{ 'about.label' | t }}</p>
+    <h2 class="about-dialog__title" id="AboutDialogTitle">
+      <img
+        src="{{ 'rawdot-wordmark-inverted.png' | asset_url }}"
+        alt="{{ 'about.heading' | t | escape }}"
+        width="362"
+        height="260"
+      >
+    </h2>
+    <p class="about-dialog__lead">{{ 'about.lead' | t }}</p>
   </div>
 
-  <div class="about-dialog__body">
-    <p class="about-dialog__lead">{{ 'about.lead' | t }}</p>
-
+  <div class="about-dialog__story">
     <p class="section-label">{{ 'about.story_label' | t }}</p>
     <ol class="about-timeline" role="list">
       {%- for i in (1..4) -%}
@@ -27,6 +32,7 @@
           assign text_key = 'about.step_' | append: i | append: '_text'
         -%}
         <li class="about-timeline__step">
+          <span class="about-timeline__number" aria-hidden="true">0{{ i }}</span>
           <h3>{{ title_key | t }}</h3>
           <p>{{ text_key | t }}</p>
         </li>

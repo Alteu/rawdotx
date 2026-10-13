@@ -22,10 +22,8 @@
   "footer": {
     "navigation": "Pie de página",
     "all_rights_reserved": "Todos los derechos reservados.",
-    "faq": "FAQ",
-    "contact": "Contacto",
-    "terms": "Términos",
-    "privacy": "Privacidad"
+    "socials": "Redes",
+    "legal": "Legal"
   },
   "localization": {
     "country_label": "País/región",
@@ -56,7 +54,9 @@
     "specifications": "Especificaciones",
     "about": "Acerca del producto",
     "in_stock": "Disponible",
-    "notify_consent": "Al registrarte, aceptas recibir correos de rawdot sobre este producto. Puedes darte de baja cuando quieras. Consulta nuestra [privacy]Política de privacidad[/privacy]."
+    "notify_consent": "Al registrarte, aceptas recibir correos de rawdot sobre este producto. Puedes darte de baja cuando quieras. Consulta nuestra [privacy]Política de privacidad[/privacy].",
+    "details": "Detalles",
+    "in_the_guide": "En la guía"
   },
   "cart": {
     "title": "Carrito",

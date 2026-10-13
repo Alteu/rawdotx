@@ -20,7 +20,15 @@
             "spec_3_label": "Diameter",
             "spec_4_value": "0.8 mm",
             "spec_4_label": "Thickness",
-            "guide": "skates"
+            "guide": "skates",
+            "detail_1_value": "Speed",
+            "detail_1_label": "Type",
+            "detail_2_value": "Circular dots",
+            "detail_2_label": "Shape",
+            "detail_3_value": "Any mouse (universal)",
+            "detail_3_label": "Fits",
+            "detail_4_value": "Cloth and glass mousepads",
+            "detail_4_label": "Surfaces"
           }
         },
         "control-version": {
@@ -39,7 +47,15 @@
             "spec_3_value": "6.5 mm",
             "spec_3_label": "Diameter",
             "spec_4_value": "0.8 mm",
-            "spec_4_label": "Thickness"
+            "spec_4_label": "Thickness",
+            "detail_1_value": "Control",
+            "detail_1_label": "Type",
+            "detail_2_value": "Circular dots",
+            "detail_2_label": "Shape",
+            "detail_3_value": "Any mouse (universal)",
+            "detail_3_label": "Fits",
+            "detail_4_value": "Cloth and glass mousepads",
+            "detail_4_label": "Surfaces"
           }
         },
         "glasspad": {
@@ -54,7 +70,9 @@
             "spec_2_value": "Micro-etched",
             "spec_2_label": "Surface",
             "badge": "Speed",
-            "guide": "coming_soon"
+            "guide": "coming_soon",
+            "detail_1_value": "Speed",
+            "detail_1_label": "Type"
           }
         },
         "arm-sleeve": {

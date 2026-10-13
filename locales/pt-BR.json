@@ -22,10 +22,8 @@
   "footer": {
     "navigation": "Rodapé",
     "all_rights_reserved": "Todos os direitos reservados.",
-    "faq": "FAQ",
-    "contact": "Contato",
-    "terms": "Termos",
-    "privacy": "Privacidade"
+    "socials": "Redes sociais",
+    "legal": "Jurídico"
   },
   "localization": {
     "country_label": "País/região",
@@ -56,7 +54,9 @@
     "specifications": "Especificações",
     "about": "Sobre",
     "in_stock": "Em estoque",
-    "notify_consent": "Ao se inscrever, você concorda em receber e-mails da rawdot sobre este produto. Cancele quando quiser. Veja nossa [privacy]Política de Privacidade[/privacy]."
+    "notify_consent": "Ao se inscrever, você concorda em receber e-mails da rawdot sobre este produto. Cancele quando quiser. Veja nossa [privacy]Política de Privacidade[/privacy].",
+    "details": "Detalhes",
+    "in_the_guide": "No guia"
   },
   "cart": {
     "title": "Carrinho",

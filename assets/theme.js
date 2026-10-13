@@ -164,6 +164,7 @@ document.addEventListener('click', (event) => {
   const target = document.querySelector(link.getAttribute('href'));
   if (!target) return;
   event.preventDefault();
+  link.closest('dialog')?.close();
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
 });

@@ -103,6 +103,12 @@
     "settings": [
       {
         "type": "url",
+        "id": "social_links_url",
+        "label": "Socials link (Linktree)",
+        "info": "The footer's \"Socials\" link. Falls back to Instagram when empty."
+      },
+      {
+        "type": "url",
         "id": "social_instagram",
         "label": "Instagram"
       },

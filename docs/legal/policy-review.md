@@ -27,7 +27,7 @@ Reviewed 13 October 2026: the six policies published on rawdot.shop (Terms of Se
 
 ## Theme-side changes already made
 
-- The footer links to Shopify's policy pages (Terms, Privacy, Refund, Shipping), so there is one source of truth. The old site's separate "Terms v1.2" pop-up, which differed from the Shopify policies, is gone.
+- The footer's "Legal" menu links to Shopify's policy pages (Terms, Privacy, Refund, Shipping), so there is one source of truth. The old site's separate "Terms v1.2" pop-up, which differed from the Shopify policies, is gone.
 - The notify-me form shows a consent notice and links to the Privacy Policy.
 - Prices always show the currency code, so customers aren't misled about the currency.
 

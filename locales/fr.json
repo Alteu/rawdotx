@@ -22,10 +22,8 @@
   "footer": {
     "navigation": "Pied de page",
     "all_rights_reserved": "Tous droits réservés.",
-    "faq": "FAQ",
-    "contact": "Contact",
-    "terms": "Conditions",
-    "privacy": "Confidentialité"
+    "socials": "Réseaux",
+    "legal": "Mentions légales"
   },
   "localization": {
     "country_label": "Pays/région",
@@ -56,7 +54,9 @@
     "specifications": "Caractéristiques",
     "about": "À propos",
     "in_stock": "En stock",
-    "notify_consent": "En vous inscrivant, vous acceptez de recevoir des e-mails de rawdot concernant ce produit. Désinscription possible à tout moment. Consultez notre [privacy]Politique de confidentialité[/privacy]."
+    "notify_consent": "En vous inscrivant, vous acceptez de recevoir des e-mails de rawdot concernant ce produit. Désinscription possible à tout moment. Consultez notre [privacy]Politique de confidentialité[/privacy].",
+    "details": "Détails",
+    "in_the_guide": "Dans le guide"
   },
   "cart": {
     "title": "Panier",

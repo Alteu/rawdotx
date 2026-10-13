@@ -80,6 +80,14 @@
               {{ nav_links }}
             </ul>
           </nav>
+          <button
+            type="button"
+            class="site-header__menu-about"
+            data-dialog-open="AboutDialog"
+            aria-haspopup="dialog"
+          >
+            {{- 'header.about' | t -}}
+          </button>
           {% render 'localization-form', id_prefix: 'MenuLocalization' %}
         </div>
       </details>

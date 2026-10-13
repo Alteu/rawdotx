@@ -22,10 +22,8 @@
   "footer": {
     "navigation": "Footer",
     "all_rights_reserved": "All rights reserved.",
-    "faq": "FAQ",
-    "contact": "Contact",
-    "terms": "Terms",
-    "privacy": "Privacy"
+    "socials": "Socials",
+    "legal": "Legal"
   },
   "localization": {
     "country_label": "Country/region",
@@ -56,7 +54,9 @@
     "specifications": "Specifications",
     "about": "About",
     "in_stock": "In stock",
-    "notify_consent": "By signing up, you agree to get emails from rawdot about this product. Unsubscribe anytime. See our [privacy]Privacy Policy[/privacy]."
+    "notify_consent": "By signing up, you agree to get emails from rawdot about this product. Unsubscribe anytime. See our [privacy]Privacy Policy[/privacy].",
+    "details": "Details",
+    "in_the_guide": "In the guide"
   },
   "cart": {
     "title": "Cart",
