@@ -1902,3 +1902,233 @@ select:focus-visible {
 .site-header__menu-about:hover {
   color: var(--color-foreground);
 }
+
+/* ---------- Page background (original site): dot grid, drifting light, floating rings ---------- */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.backdrop::before,
+.backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.backdrop::before {
+  background-image:
+    radial-gradient(circle, rgb(150 152 148 / 0.28) 1.5px, transparent 1.5px),
+    radial-gradient(circle, rgb(150 152 148 / 0.1) 3.5px, transparent 3.5px);
+  background-size:
+    28px 28px,
+    84px 84px;
+  background-position:
+    0 0,
+    14px 14px;
+}
+
+.backdrop::after {
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 45% 38% at 18% 22%, rgb(255 255 255 / 0.95), transparent 68%),
+    radial-gradient(ellipse 34% 32% at 85% 78%, rgb(240 240 236 / 0.85), transparent 68%),
+    radial-gradient(ellipse 26% 24% at 74% 18%, rgb(220 221 216 / 0.5), transparent 70%);
+  animation: backdrop-drift 32s ease-in-out infinite alternate;
+}
+
+.backdrop__ring {
+  position: absolute;
+  border: 1px solid rgb(140 142 138 / 0.18);
+  border-radius: 50%;
+  animation: backdrop-float 18s ease-in-out infinite alternate;
+}
+
+.backdrop__ring--1 {
+  width: 520px;
+  height: 520px;
+  inset-inline-end: -160px;
+  top: 8vh;
+}
+
+.backdrop__ring--2 {
+  width: 280px;
+  height: 280px;
+  inset-inline-start: -80px;
+  top: 52vh;
+  animation-duration: 24s;
+  animation-direction: alternate-reverse;
+}
+
+.backdrop__ring--3 {
+  width: 180px;
+  height: 180px;
+  inset-inline-end: 8%;
+  bottom: 12vh;
+  animation-duration: 14s;
+}
+
+@keyframes backdrop-drift {
+  to {
+    transform: translate(6%, 4%) scale(1.06);
+  }
+}
+
+@keyframes backdrop-float {
+  to {
+    transform: translate(12px, -16px) scale(1.03);
+  }
+}
+
+/* ---------- Policy pages (terms, privacy, refunds, shipping) ---------- */
+.policy-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 90% at 50% 0%, rgb(255 255 255 / 0.07), transparent 70%), var(--color-background);
+}
+
+.policy-hero::after {
+  content: '';
+  position: absolute;
+  width: 26rem;
+  aspect-ratio: 1;
+  inset-inline-end: -6rem;
+  top: -9rem;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.policy-hero__inner {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  padding-block: clamp(2.5rem, 7vw, 4.5rem) 0;
+}
+
+.policy-hero__title {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.policy-tabs ul {
+  display: flex;
+  gap: 1.75rem;
+  overflow-x: auto;
+  margin: 1rem 0 0;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+.policy-tabs a {
+  display: block;
+  padding-block: 0.9rem;
+  border-block-end: 2px solid transparent;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.policy-tabs a:hover,
+.policy-tabs a[aria-current='page'] {
+  color: var(--color-foreground);
+}
+
+.policy-tabs a[aria-current='page'] {
+  border-color: var(--color-foreground);
+}
+
+/* Shopify renders the policy text; its own title is replaced by the band above (kept for screen readers). */
+.shopify-policy__container.shopify-policy__container {
+  max-width: 48rem;
+  margin: clamp(2rem, 5vw, 3.5rem) auto clamp(3rem, 8vw, 6rem);
+  padding-inline: var(--page-margin);
+}
+
+.shopify-policy__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.shopify-policy__body {
+  padding: clamp(1.5rem, 5vw, 3.25rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 0.82);
+  box-shadow: 0 30px 60px -40px rgb(17 18 20 / 0.25);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.shopify-policy__body .rte {
+  max-width: 66ch;
+}
+
+.shopify-policy__body :is(h1, h2, h3, h4) {
+  margin-block: 2.25em 0.5em;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.shopify-policy__body h2 {
+  font-size: 1.375rem;
+}
+
+.shopify-policy__body :is(h3, h4) {
+  font-size: 1.0625rem;
+}
+
+.shopify-policy__body :is(h1, h2, h3, h4):first-child {
+  margin-block-start: 0;
+}
+
+.shopify-policy__body :is(p, li) {
+  color: color-mix(in srgb, var(--color-foreground) 82%, transparent);
+}
+
+.shopify-policy__body strong {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
+.shopify-policy__body ul,
+.shopify-policy__body ol {
+  padding-inline-start: 1.25em;
+}
+
+.shopify-policy__body li + li {
+  margin-block-start: 0.35em;
+}
+
+.shopify-policy__body a {
+  color: var(--color-foreground);
+  text-underline-offset: 0.2em;
+}
+
+.shopify-policy__body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.shopify-policy__body :is(th, td) {
+  padding: 0.6rem 0.75rem 0.6rem 0;
+  border-block-end: 1px solid var(--color-border);
+  text-align: start;
+  vertical-align: top;
+}

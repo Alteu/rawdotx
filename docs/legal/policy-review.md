@@ -33,4 +33,4 @@ Reviewed 13 October 2026: the six policies published on rawdot.shop (Terms of Se
 
 ## Next step
 
-Once you've decided on the return window and filled in your legal details (name, address, RFC, phone, city for jurisdiction), I can draft replacement texts for each policy in English and Spanish for a lawyer to check.
+Replacement texts for every policy, in Spanish and English, were drafted on 13 Oct 2026 in the owner's Claude Doc "rawdot — Políticas legales" (all sales final, with only the legally required exceptions). The owner fills in the bracketed details and pastes them into Shopify. A lawyer should check them before selling outside Mexico.

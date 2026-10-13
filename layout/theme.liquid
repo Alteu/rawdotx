@@ -41,7 +41,14 @@
 
     {% sections 'header-group' %}
 
+    {%- unless request.page_type == 'index' -%}
+      {% render 'backdrop' %}
+    {%- endunless -%}
+
     <main id="MainContent" tabindex="-1">
+      {%- if request.page_type == 'policy' -%}
+        {% render 'policy-hero' %}
+      {%- endif -%}
       {{ content_for_layout }}
     </main>
 
