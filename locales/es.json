@@ -95,7 +95,7 @@
     "placement": {
       "label": "01 / colocación",
       "heading": "Colocaciones recomendadas",
-      "description": "Distribuciones sugeridas para seis ratones populares. Empieza aquí y ajusta según tu agarre.",
+      "description": "Distribuciones sugeridas para seis ratones populares. Úsalas como punto de partida: menos puntos dan un deslizamiento más rápido, más puntos añaden control.",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
@@ -103,9 +103,15 @@
     "included": {
       "label": "02 / en la caja",
       "heading": "Qué incluye",
-      "dots": "Puntos de PTFE Ice Version: 6.5 mm de diámetro, 0.8 mm de grosor.",
-      "pad": "Toallita de alcohol isopropílico empaquetada individualmente, para limpiar la base del ratón antes de aplicar.",
-      "image_alt": "Contenido del paquete: 20 puntos Ice Version y 1 toallita de alcohol"
+      "image_alt": "Contenido del paquete: 20 puntos de patín y 1 toallita con alcohol",
+      "dots_name": "Puntos de patín {{ name }}",
+      "dots_detail": "6.5 mm de diámetro · 0.8 mm de grosor",
+      "pad_name": "Toallita con alcohol",
+      "pad_detail": "Empaquetada individualmente, para limpiar la base del ratón antes de aplicar",
+      "quantity": {
+        "one": "{{ count }} pza",
+        "other": "{{ count }} pzas"
+      }
     },
     "install": {
       "label": "03 / instalación",
@@ -125,18 +131,22 @@
     "faq": {
       "label": "04 / FAQ",
       "heading": "Preguntas frecuentes",
-      "q1": "¿El Ice Version se adapta a mi ratón?",
-      "a1": "En la mayoría de los casos, sí. Los puntos son universales: en lugar de ajustarse a un modelo, se colocan alrededor de los bordes de la base. Mantén el ratón nivelado y deja el sensor libre.",
+      "q1": "¿{{ name }} se adapta a mi ratón?",
+      "a1": "Sí. Los puntos {{ name }} son universales, así que se adaptan a cualquier ratón. Colócalos donde estaban los patines originales, lejos de la abertura del sensor, y repártelos de forma uniforme para que el ratón quede plano.",
       "q2": "¿Cuántos puntos debo usar?",
-      "a2": "Empieza con una distribución equilibrada en las zonas de contacto exteriores y ajusta solo si es necesario. No hay un número único para cada ratón; la guía de colocación de arriba muestra distribuciones sugeridas.",
+      "a2": "Empieza con una de las distribuciones recomendadas. Menos puntos dan un deslizamiento más rápido y ligero; más puntos añaden contacto y control. Ajusta hasta que se sienta bien.",
       "q3": "¿Tengo que quitar los patines originales?",
       "a3": "Sí. Retira primero los patines originales y cualquier resto de adhesivo, luego limpia la base con la toallita incluida y deja que se seque por completo.",
-      "q4": "¿En qué mousepads funciona?",
-      "a4": "El Ice Version está hecho para mousepads de tela y de vidrio.",
+      "q4": "¿En qué mousepads funciona {{ name }}?",
+      "a4": "{{ name }} está hecho para mousepads de tela y de vidrio.",
       "q5": "¿Cuál es la diferencia entre Ice Version y Control Version?",
-      "a5": "Ice Version es nuestro patín de velocidad, hecho para un deslizamiento rápido y de baja fricción. Control Version, próximamente, está diseñado para más frenado y precisión.",
-      "q6": "¿Qué viene en la caja?",
-      "a6": "20 puntos de PTFE y una toallita de alcohol isopropílico empaquetada individualmente."
+      "a5": "Ice Version es nuestro patín de velocidad, para un deslizamiento rápido y de baja fricción. Control Version es nuestro patín de control, con más frenado para un apuntado preciso y controlado.",
+      "q6": "¿Los puntos cambian el seguimiento de mi ratón?",
+      "a6": "No, si se aplican de forma uniforme. Los puntos nivelados mantienen el sensor a una altura constante, así el seguimiento sigue siendo fiable. Si el ratón se tambalea, ajusta o añade un punto hasta que quede plano."
+    },
+    "soon": {
+      "label": "01 / resumen",
+      "text": "Más detalles muy pronto. Recibe un correo cuando salga a la venta."
     }
   },
   "about": {
@@ -144,13 +154,19 @@
     "heading": "rawdot",
     "quote": "“rawdot nació de un problema práctico: reemplazar las patas de ratón desgastadas en México solía ser más complicado que el propio producto.”",
     "description": "Los ratones gaming pueden durar años mientras sus patas originales se desgastan poco a poco. Los puntos universales se convirtieron en una alternativa más flexible—creada desde la perspectiva de un gamer en México.",
-    "principle_1_title": "Universal por diseño",
-    "principle_1_description": "Elige la colocación en lugar de depender de una forma exacta.",
-    "principle_2_title": "Construido desde la experiencia",
-    "principle_2_description": "Un problema real, encontrado de primera mano.",
-    "principle_3_title": "Claro, no complicado",
-    "principle_3_description": "Producto, empaque e instrucciones pensados para ser más fáciles de entender.",
-    "principle_4_title": "Rendimiento accesible",
-    "principle_4_description": "Un reemplazo de calidad sin complejidad innecesaria."
+    "values_label": "Lo que nos define",
+    "follow": "Sigue a rawdot",
+    "value_1_title": "Nacimos en México",
+    "value_1_text": "rawdot surgió de un problema real y local: era difícil encontrar buenos patines de repuesto.",
+    "value_2_title": "Hecho por gamers",
+    "value_2_text": "Diseñamos lo que nosotros mismos queremos usar, desde la experiencia.",
+    "value_3_title": "Claro desde el inicio",
+    "value_3_text": "Productos sencillos, empaque claro e instrucciones fáciles de seguir.",
+    "value_4_title": "Hecho para crecer",
+    "value_4_text": "Primero los patines; los glasspads y las mangas vienen en camino."
+  },
+  "reviews": {
+    "label": "Reseñas",
+    "heading": "Reseñas de clientes"
   }
 }

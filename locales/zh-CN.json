@@ -93,7 +93,7 @@
     "placement": {
       "label": "01 / 贴法",
       "heading": "推荐贴法",
-      "description": "六款热门鼠标的圆点贴法示例。先从这里开始，再根据你的握法微调。",
+      "description": "六款热门鼠标的圆点贴法建议。以此为起点：圆点越少滑动越快，圆点越多控制越稳。",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
@@ -101,9 +101,14 @@
     "included": {
       "label": "02 / 包装清单",
       "heading": "包装内含",
-      "dots": "Ice Version PTFE 圆点：直径 6.5 毫米，厚 0.8 毫米。",
-      "pad": "独立包装的异丙醇酒精棉片，用于贴装前清洁鼠标底部。",
-      "image_alt": "包装内容：20 个 Ice Version 圆点和 1 片酒精棉片"
+      "image_alt": "包装内容：20 个圆点脚贴和 1 片酒精棉片",
+      "dots_name": "{{ name }} 圆点脚贴",
+      "dots_detail": "直径 6.5 毫米 · 厚 0.8 毫米",
+      "pad_name": "酒精棉片",
+      "pad_detail": "独立包装，用于贴装前清洁鼠标底部",
+      "quantity": {
+        "other": "{{ count }} 个"
+      }
     },
     "install": {
       "label": "03 / 安装",
@@ -123,18 +128,22 @@
     "faq": {
       "label": "04 / 常见问题",
       "heading": "常见问题",
-      "q1": "Ice Version 适合我的鼠标吗？",
-      "a1": "大多数情况下适合。圆点为通用设计：无需匹配特定型号，只需贴在底部边缘。保持鼠标水平，不要遮挡传感器。",
+      "q1": "{{ name }} 适合我的鼠标吗？",
+      "a1": "适合。{{ name }} 圆点为通用设计，适用于任何鼠标。将它们贴在原装脚贴的位置，避开传感器开口，并均匀分布，让鼠标平稳放置。",
       "q2": "应该用几个圆点？",
-      "a2": "先在外侧接触区域均衡贴好，只在需要时调整。没有固定数量；上方的贴法指南提供了参考布局。",
+      "a2": "先从推荐贴法之一开始。圆点越少，滑动越快越轻；圆点越多，接触和控制越多。调整到手感合适为止。",
       "q3": "需要移除原装脚贴吗？",
       "a3": "需要。先移除原装脚贴和残胶，再用附带的酒精棉片清洁底部，并让其完全干燥。",
-      "q4": "适用于哪些鼠标垫？",
-      "a4": "Ice Version 适用于布面和玻璃鼠标垫。",
+      "q4": "{{ name }} 适用于哪些鼠标垫？",
+      "a4": "{{ name }} 适用于布面和玻璃鼠标垫。",
       "q5": "Ice Version 和 Control Version 有什么区别？",
-      "a5": "Ice Version 是我们的速度型脚贴，带来快速、低摩擦的滑动。即将推出的 Control Version 注重更强的制动力和精准度。",
-      "q6": "包装里有什么？",
-      "a6": "20 个 PTFE 圆点和 1 片独立包装的异丙醇酒精棉片。"
+      "a5": "Ice Version 是我们的速度型脚贴，带来快速、低摩擦的滑动。Control Version 是我们的控制型脚贴，制动力更强，瞄准更精准稳定。",
+      "q6": "圆点会改变鼠标的追踪吗？",
+      "a6": "只要贴得均匀就不会。水平的圆点让传感器保持一致的高度，追踪依然可靠。如果鼠标晃动，请调整或增加圆点，直到放置平稳。"
+    },
+    "soon": {
+      "label": "01 / 概览",
+      "text": "更多详情即将公布。上市时通过邮件通知你。"
     }
   },
   "about": {
@@ -142,13 +151,19 @@
     "heading": "rawdot",
     "quote": "“rawdot 源于一个实际问题：在墨西哥更换磨损的鼠标脚贴，往往比产品本身还要麻烦。”",
     "description": "游戏鼠标可以用很多年，而原装脚贴会逐渐磨损。通用圆点脚贴成了更灵活的选择——从一位墨西哥玩家的视角出发而设计。",
-    "principle_1_title": "通用设计",
-    "principle_1_description": "自由选择贴法，而不依赖某一种固定形状。",
-    "principle_2_title": "源于经验",
-    "principle_2_description": "一个亲身遇到的真实问题。",
-    "principle_3_title": "清晰，不复杂",
-    "principle_3_description": "产品、包装和说明都更易于理解。",
-    "principle_4_title": "实惠的性能",
-    "principle_4_description": "高品质的替换方案，没有多余的复杂。"
+    "values_label": "我们的理念",
+    "follow": "关注 rawdot",
+    "value_1_title": "源自墨西哥",
+    "value_1_text": "rawdot 源于一个真实的本地问题：好的替换脚贴很难买到。",
+    "value_2_title": "玩家打造",
+    "value_2_text": "我们根据亲身经验，设计自己想用的产品。",
+    "value_3_title": "清晰为本",
+    "value_3_text": "简单的产品、清晰的包装和易于遵循的说明。",
+    "value_4_title": "持续成长",
+    "value_4_text": "先从脚贴开始，玻璃鼠标垫和电竞袖套也在路上。"
+  },
+  "reviews": {
+    "label": "评价",
+    "heading": "客户评价"
   }
 }

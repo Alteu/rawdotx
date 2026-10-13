@@ -95,7 +95,7 @@
     "placement": {
       "label": "01 / posicionamento",
       "heading": "Posicionamentos recomendados",
-      "description": "Layouts sugeridos para seis mouses populares. Comece por aqui e ajuste à sua pegada.",
+      "description": "Layouts sugeridos para seis mouses populares. Use como ponto de partida: menos dots dão um deslize mais rápido, mais dots adicionam controle.",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
@@ -103,9 +103,15 @@
     "included": {
       "label": "02 / na caixa",
       "heading": "O que vem incluso",
-      "dots": "Dots de PTFE Ice Version: 6,5 mm de diâmetro, 0,8 mm de espessura.",
-      "pad": "Lenço com álcool isopropílico embalado individualmente, para limpar a base do mouse antes da aplicação.",
-      "image_alt": "Conteúdo: 20 dots Ice Version e 1 lenço com álcool"
+      "image_alt": "Conteúdo: 20 dots de skate e 1 lenço com álcool",
+      "dots_name": "Dots de skate {{ name }}",
+      "dots_detail": "6,5 mm de diâmetro · 0,8 mm de espessura",
+      "pad_name": "Lenço com álcool",
+      "pad_detail": "Embalado individualmente, para limpar a base do mouse antes da aplicação",
+      "quantity": {
+        "one": "{{ count }} un.",
+        "other": "{{ count }} un."
+      }
     },
     "install": {
       "label": "03 / instalação",
@@ -125,18 +131,22 @@
     "faq": {
       "label": "04 / FAQ",
       "heading": "Perguntas frequentes",
-      "q1": "O Ice Version serve no meu mouse?",
-      "a1": "Na maioria dos casos, sim. Os dots são universais: em vez de servirem a um modelo, você os posiciona nas bordas da base. Mantenha o mouse nivelado e o sensor livre.",
+      "q1": "O {{ name }} serve no meu mouse?",
+      "a1": "Sim. Os dots {{ name }} são universais e servem em qualquer mouse. Coloque-os onde ficavam os skates originais, longe da abertura do sensor, e distribua-os por igual para o mouse ficar plano.",
       "q2": "Quantos dots devo usar?",
-      "a2": "Comece com um layout equilibrado nas áreas de contato externas e ajuste só se precisar. Não há um número único; o guia de posicionamento acima mostra layouts sugeridos.",
+      "a2": "Comece com um dos layouts recomendados. Menos dots dão um deslize mais rápido e leve; mais dots adicionam contato e controle. Ajuste até ficar do seu jeito.",
       "q3": "Preciso remover os skates originais?",
       "a3": "Sim. Remova primeiro os skates originais e qualquer resto de adesivo, depois limpe a base com o lenço incluso e deixe secar completamente.",
-      "q4": "Em quais mousepads funciona?",
-      "a4": "O Ice Version foi feito para mousepads de tecido e de vidro.",
+      "q4": "Em quais mousepads o {{ name }} funciona?",
+      "a4": "O {{ name }} foi feito para mousepads de tecido e de vidro.",
       "q5": "Qual é a diferença entre Ice Version e Control Version?",
-      "a5": "O Ice Version é nosso skate de velocidade, para um deslize rápido e de baixo atrito. O Control Version, em breve, é pensado para mais frenagem e precisão.",
-      "q6": "O que vem na caixa?",
-      "a6": "20 dots de PTFE e um lenço com álcool isopropílico embalado individualmente."
+      "a5": "O Ice Version é nosso skate de velocidade, para um deslize rápido e de baixo atrito. O Control Version é nosso skate de controle, com mais frenagem para uma mira precisa e controlada.",
+      "q6": "Os dots mudam o rastreamento do meu mouse?",
+      "a6": "Não, se aplicados por igual. Dots nivelados mantêm o sensor a uma altura constante, então o rastreamento continua confiável. Se o mouse balançar, ajuste ou adicione um dot até ele ficar plano."
+    },
+    "soon": {
+      "label": "01 / visão geral",
+      "text": "Mais detalhes em breve. Receba um e-mail no lançamento."
     }
   },
   "about": {
@@ -144,13 +154,19 @@
     "heading": "rawdot",
     "quote": "“A rawdot nasceu de um problema prático: trocar skates de mouse gastos no México costumava ser mais complicado do que o próprio produto.”",
     "description": "Mouses gamer podem durar anos enquanto os skates originais se desgastam aos poucos. Os dots universais se tornaram uma alternativa mais flexível, criada do ponto de vista de um gamer no México.",
-    "principle_1_title": "Universal por natureza",
-    "principle_1_description": "Escolha o posicionamento em vez de depender de um formato exato.",
-    "principle_2_title": "Feito a partir da experiência",
-    "principle_2_description": "Um problema real, vivido na prática.",
-    "principle_3_title": "Claro, não complicado",
-    "principle_3_description": "Produto, embalagem e instruções pensados para serem fáceis de entender.",
-    "principle_4_title": "Desempenho acessível",
-    "principle_4_description": "Uma reposição de qualidade, sem complexidade desnecessária."
+    "values_label": "No que acreditamos",
+    "follow": "Siga a rawdot",
+    "value_1_title": "Nascido no México",
+    "value_1_text": "A rawdot nasceu de um problema real e local: era difícil encontrar bons skates de reposição.",
+    "value_2_title": "Feito por gamers",
+    "value_2_text": "Criamos o que nós mesmos queremos usar, a partir da experiência.",
+    "value_3_title": "Claro por padrão",
+    "value_3_text": "Produtos simples, embalagem clara e instruções fáceis de seguir.",
+    "value_4_title": "Feito para crescer",
+    "value_4_text": "Primeiro os skates; mousepads de vidro e mangas estão a caminho."
+  },
+  "reviews": {
+    "label": "Avaliações",
+    "heading": "Avaliações de clientes"
   }
 }

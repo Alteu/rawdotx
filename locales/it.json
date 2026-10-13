@@ -95,7 +95,7 @@
     "placement": {
       "label": "01 / posizionamento",
       "heading": "Posizionamenti consigliati",
-      "description": "Disposizioni suggerite per sei mouse popolari. Parti da qui e adatta alla tua impugnatura.",
+      "description": "Disposizioni suggerite per sei mouse popolari. Usale come punto di partenza: meno dot per una scorrevolezza più veloce, più dot per più controllo.",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
@@ -103,9 +103,15 @@
     "included": {
       "label": "02 / nella confezione",
       "heading": "Cosa è incluso",
-      "dots": "Dot in PTFE Ice Version: 6,5 mm di diametro, 0,8 mm di spessore.",
-      "pad": "Salvietta di alcol isopropilico confezionata singolarmente, per pulire la base del mouse prima dell'applicazione.",
-      "image_alt": "Contenuto: 20 dot Ice Version e 1 salvietta all'alcol"
+      "image_alt": "Contenuto: 20 dot per mouse e 1 salvietta all'alcol",
+      "dots_name": "Dot per mouse {{ name }}",
+      "dots_detail": "6,5 mm di diametro · 0,8 mm di spessore",
+      "pad_name": "Salvietta all'alcol",
+      "pad_detail": "Confezionata singolarmente, per pulire la base del mouse prima dell'applicazione",
+      "quantity": {
+        "one": "{{ count }} pz",
+        "other": "{{ count }} pz"
+      }
     },
     "install": {
       "label": "03 / installazione",
@@ -125,18 +131,22 @@
     "faq": {
       "label": "04 / FAQ",
       "heading": "Domande frequenti",
-      "q1": "Ice Version è compatibile con il mio mouse?",
-      "a1": "Nella maggior parte dei casi, sì. I dot sono universali: invece di adattarsi a un modello, si posizionano lungo i bordi della base. Tieni il mouse in piano e lascia libero il sensore.",
+      "q1": "{{ name }} è compatibile con il mio mouse?",
+      "a1": "Sì. I dot {{ name }} sono universali e si adattano a qualsiasi mouse. Posizionali dove si trovavano i piedini originali, lontano dall'apertura del sensore, e distribuiscili in modo uniforme perché il mouse appoggi in piano.",
       "q2": "Quanti dot devo usare?",
-      "a2": "Inizia con una disposizione bilanciata sulle aree di contatto esterne e regola solo se necessario. Non esiste un numero unico; la guida al posizionamento qui sopra mostra disposizioni suggerite.",
+      "a2": "Inizia con una delle disposizioni consigliate. Meno dot danno una scorrevolezza più veloce e leggera; più dot aggiungono contatto e controllo. Regola finché non ti trovi bene.",
       "q3": "Devo rimuovere i piedini originali?",
       "a3": "Sì. Rimuovi prima i piedini originali e ogni residuo di adesivo, poi pulisci la base con la salvietta inclusa e lasciala asciugare completamente.",
-      "q4": "Su quali tappetini funziona?",
-      "a4": "Ice Version è pensato per tappetini in tessuto e in vetro.",
+      "q4": "Su quali tappetini funziona {{ name }}?",
+      "a4": "{{ name }} è pensato per tappetini in tessuto e in vetro.",
       "q5": "Qual è la differenza tra Ice Version e Control Version?",
-      "a5": "Ice Version è il nostro piedino speed, per una scorrevolezza rapida e a basso attrito. Control Version, in arrivo, è progettato per più frenata e precisione.",
-      "q6": "Cosa c'è nella confezione?",
-      "a6": "20 dot in PTFE e una salvietta di alcol isopropilico confezionata singolarmente."
+      "a5": "Ice Version è il nostro piedino speed, per una scorrevolezza rapida e a basso attrito. Control Version è il nostro piedino control, con più frenata per una mira precisa e controllata.",
+      "q6": "I dot cambiano il tracciamento del mouse?",
+      "a6": "No, se applicati in modo uniforme. I dot a livello mantengono il sensore a un'altezza costante, così il tracciamento resta affidabile. Se il mouse dondola, regola o aggiungi un dot finché non appoggia in piano."
+    },
+    "soon": {
+      "label": "01 / panoramica",
+      "text": "Maggiori dettagli in arrivo. Ricevi un'e-mail al lancio."
     }
   },
   "about": {
@@ -144,13 +154,19 @@
     "heading": "rawdot",
     "quote": "«rawdot è nato da un problema pratico: sostituire i piedini usurati del mouse in Messico era spesso più complicato del prodotto stesso.»",
     "description": "I mouse da gaming possono durare anni, mentre i piedini originali si consumano poco a poco. I dot universali sono diventati un'alternativa più flessibile, pensata dal punto di vista di un gamer in Messico.",
-    "principle_1_title": "Universale per design",
-    "principle_1_description": "Scegli il posizionamento invece di dipendere da una forma esatta.",
-    "principle_2_title": "Nato dall'esperienza",
-    "principle_2_description": "Un problema reale, vissuto in prima persona.",
-    "principle_3_title": "Chiaro, non complicato",
-    "principle_3_description": "Prodotto, confezione e istruzioni pensati per essere facili da capire.",
-    "principle_4_title": "Prestazioni accessibili",
-    "principle_4_description": "Un ricambio di qualità senza complessità inutili."
+    "values_label": "I nostri valori",
+    "follow": "Segui rawdot",
+    "value_1_title": "Nato in Messico",
+    "value_1_text": "rawdot è nato da un problema reale e locale: trovare buoni piedini di ricambio era difficile.",
+    "value_2_title": "Fatto da gamer",
+    "value_2_text": "Progettiamo ciò che vogliamo usare noi stessi, partendo dall'esperienza.",
+    "value_3_title": "Chiaro per scelta",
+    "value_3_text": "Prodotti semplici, confezioni chiare e istruzioni facili da seguire.",
+    "value_4_title": "Pensato per crescere",
+    "value_4_text": "Prima i piedini, poi tappetini in vetro e manicotti in arrivo."
+  },
+  "reviews": {
+    "label": "Recensioni",
+    "heading": "Recensioni dei clienti"
   }
 }

@@ -1201,21 +1201,32 @@ select:focus-visible {
 }
 
 .included-list li {
-  display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: 1rem;
+  display: flex;
   align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
   padding-block: 1.25rem;
   border-block-end: 1px solid var(--color-border);
 }
 
-.included-list strong {
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: -0.06em;
+.included-list__item {
+  display: grid;
+  gap: 0.25rem;
 }
 
-.included-list span {
+.included-list__item strong {
+  font-weight: 600;
+}
+
+.included-list__item span {
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+}
+
+.included-list__qty {
+  flex: none;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
   color: var(--color-muted);
 }
 
@@ -1598,53 +1609,155 @@ select:focus-visible {
 }
 
 /* ---------- About side sheet ---------- */
-.about {
+.about-dialog {
+  width: min(36rem, 100%);
+}
+
+.about-dialog__hero {
+  position: relative;
+  display: grid;
   gap: 1.25rem;
+  padding: 2rem 2rem 2.5rem;
 }
 
-.about__mark {
-  width: 2.5rem;
-  color: var(--color-foreground);
+.about-dialog__close {
+  position: absolute;
+  inset-block-start: 0.75rem;
+  inset-inline-end: 0.75rem;
 }
 
-.about__heading {
-  font-size: 2rem;
+.about-dialog__mark {
+  width: 3.5rem;
+}
+
+.about-dialog__title {
+  font-size: clamp(2.5rem, 7vw, 3.5rem);
   font-weight: 600;
-  letter-spacing: -0.05em;
-  color: var(--color-foreground);
+  letter-spacing: -0.06em;
+  line-height: 1;
 }
 
-.about__quote p {
-  font-size: 1.25rem;
+.about-dialog__body {
+  display: grid;
+  gap: 1.25rem;
+  padding: 2rem;
+}
+
+.about-dialog__quote p {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1.3;
-  color: var(--color-foreground);
 }
 
-.about__principles {
-  display: grid;
-  gap: 1rem;
-  margin-block-start: 0.5rem;
+.about-dialog__story {
+  color: var(--color-muted);
 }
 
-.about__principles li {
+.about-dialog__body > .section-label {
+  margin-block-start: 1rem;
+}
+
+.about-dialog__values {
   display: grid;
-  gap: 0.25rem;
+  gap: 1.25rem 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .about-dialog__values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.about-dialog__values li {
+  display: grid;
+  align-content: start;
+  gap: 0.375rem;
   padding-block-start: 1rem;
+  border-block-start: 1px solid var(--color-foreground);
+}
+
+.about-dialog__number {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+}
+
+.about-dialog__values h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.about-dialog__values p {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.about-dialog__follow {
+  display: grid;
+  gap: 0.75rem;
+  margin-block-start: 1rem;
+  padding-block-start: 1.5rem;
   border-block-start: 1px solid var(--color-border);
 }
 
-.about__principles h3 {
-  margin: 0;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: normal;
-  text-transform: none;
-  color: var(--color-foreground);
+.about-dialog__follow ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
 }
 
-.about__principles p {
-  font-size: 0.875rem;
+.about-dialog__follow a {
+  font-size: 0.9375rem;
+  text-underline-offset: 0.2em;
+}
+
+/* ---------- Reviews ---------- */
+.reviews {
+  padding-block: clamp(4rem, 9vw, 7rem);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.reviews[hidden] {
+  display: none;
+}
+
+.reviews__list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(70vw, 20rem);
+  gap: 1rem;
+  margin-block-start: 2.5rem;
+  padding-block-end: 0.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+
+.reviews__item {
+  scroll-snap-align: start;
+}
+
+.reviews__item img {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.reviews__item figcaption {
+  margin-block-start: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--color-muted);
+}
+
+.guide__soon {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.guide__soon dl {
+  justify-self: stretch;
 }

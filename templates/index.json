@@ -20,7 +20,7 @@
             "spec_3_label": "Diameter",
             "spec_4_value": "0.8 mm",
             "spec_4_label": "Thickness",
-            "guide": "ice_version"
+            "guide": "skates"
           }
         },
         "control-version": {
@@ -29,7 +29,17 @@
             "category": "skates",
             "coming_soon": true,
             "title": "Control Version",
-            "badge": "Control"
+            "badge": "Control",
+            "guide": "skates",
+            "tagline": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+            "spec_1_value": "100%",
+            "spec_1_label": "PTFE",
+            "spec_2_value": "20",
+            "spec_2_label": "Dots",
+            "spec_3_value": "6.5 mm",
+            "spec_3_label": "Diameter",
+            "spec_4_value": "0.8 mm",
+            "spec_4_label": "Thickness"
           }
         },
         "glasspad": {
@@ -42,7 +52,9 @@
             "spec_1_value": "Frosted",
             "spec_1_label": "Finish",
             "spec_2_value": "Micro-etched",
-            "spec_2_label": "Surface"
+            "spec_2_label": "Surface",
+            "badge": "Speed",
+            "guide": "coming_soon"
           }
         },
         "arm-sleeve": {
@@ -50,7 +62,8 @@
           "settings": {
             "category": "arm-sleeves",
             "coming_soon": true,
-            "title": "Arm Sleeve"
+            "title": "Arm Sleeve",
+            "guide": "coming_soon"
           }
         }
       },
@@ -63,9 +76,16 @@
       "settings": {
         "heading": "rawdot — mouse skates, glasspads and gaming arm sleeves"
       }
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+        "category": "skates"
+      }
     }
   },
   "order": [
-    "showcase"
+    "showcase",
+    "reviews"
   ]
 }

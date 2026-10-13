@@ -1,0 +1,90 @@
+{%- liquid
+  assign has_reviews = false
+  for block in section.blocks
+    if block.settings.image != blank
+      assign has_reviews = true
+      break
+    endif
+  endfor
+-%}
+{%- if has_reviews or request.design_mode -%}
+  <div
+    class="reviews page-width"
+    id="reviews"
+    {% if section.settings.category != 'all' %}
+      data-category-only="{{ section.settings.category }}"
+    {% endif %}
+  >
+    <div class="guide__header">
+      <p class="section-label">{{ 'reviews.label' | t }}</p>
+      <h2 class="guide__heading">{{ 'reviews.heading' | t }}</h2>
+    </div>
+
+    {%- if has_reviews -%}
+      <ul class="reviews__list" role="list">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.image == blank -%}{%- continue -%}{%- endif -%}
+          <li class="reviews__item" {{ block.shopify_attributes }}>
+            <figure>
+              {{
+                block.settings.image
+                | image_url: width: 900
+                | image_tag:
+                  widths: '360, 540, 720, 900',
+                  sizes: '(min-width: 990px) 24vw, 70vw',
+                  loading: 'lazy',
+                  alt: block.settings.alt
+              }}
+              {%- if block.settings.name != blank -%}
+                <figcaption>{{ block.settings.name | escape }}</figcaption>
+              {%- endif -%}
+            </figure>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- else -%}
+      <p class="guide__intro">
+        Add review screenshots in this section's blocks. This message only shows in the theme editor.
+      </p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Reviews",
+  "class": "section-reviews",
+  "settings": [
+    {
+      "type": "select",
+      "id": "category",
+      "label": "Show with",
+      "info": "On the homepage, the reviews only appear while this category is selected.",
+      "options": [
+        { "value": "skates", "label": "Skates" },
+        { "value": "glasspads", "label": "Glasspads" },
+        { "value": "arm-sleeves", "label": "Arm sleeves" },
+        { "value": "all", "label": "All categories" }
+      ],
+      "default": "skates"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review screenshot",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Screenshot" },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "What the review says",
+          "info": "Short text version of the screenshot, for screen readers and search engines."
+        },
+        { "type": "text", "id": "name", "label": "Customer name or handle (optional)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Reviews" }]
+}
+{% endschema %}

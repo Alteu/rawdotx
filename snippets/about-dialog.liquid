@@ -1,34 +1,55 @@
 {% doc %}
-  "About us" side sheet, opened from the header (right side). Holds the rawdot origin story.
+  "About us" side sheet, opened from the header (right side): the rawdot story and what the brand stands for.
 {% enddoc %}
 <dialog class="details-dialog about-dialog" id="AboutDialog" aria-labelledby="AboutDialogTitle">
-  <div class="details-dialog__header">
-    <p class="details-dialog__title">{{ 'about.label' | t }}</p>
-    <form method="dialog">
+  <div class="about-dialog__hero scheme-dark">
+    <form method="dialog" class="about-dialog__close">
       <button type="submit" class="button button--icon">
         {% render 'icon', name: 'close' %}
         <span class="visually-hidden">{{ 'accessibility.close' | t }}</span>
       </button>
     </form>
+    <p class="section-label">{{ 'about.label' | t }}</p>
+    {% render 'logo-mark', class: 'about-dialog__mark' %}
+    <h2 class="about-dialog__title" id="AboutDialogTitle">{{ 'about.heading' | t }}</h2>
   </div>
-  <div class="details-dialog__body about">
-    {% render 'logo-mark', class: 'about__mark' %}
-    <h2 class="about__heading" id="AboutDialogTitle">{{ 'about.heading' | t }}</h2>
-    <blockquote class="about__quote">
+
+  <div class="about-dialog__body">
+    <blockquote class="about-dialog__quote">
       <p>{{ 'about.quote' | t }}</p>
     </blockquote>
-    <p>{{ 'about.description' | t }}</p>
-    <ul class="about__principles" role="list">
+    <p class="about-dialog__story">{{ 'about.description' | t }}</p>
+
+    <p class="section-label">{{ 'about.values_label' | t }}</p>
+    <ol class="about-dialog__values" role="list">
       {%- for i in (1..4) -%}
         {%- liquid
-          assign title_key = 'about.principle_' | append: i | append: '_title'
-          assign text_key = 'about.principle_' | append: i | append: '_description'
+          assign title_key = 'about.value_' | append: i | append: '_title'
+          assign text_key = 'about.value_' | append: i | append: '_text'
         -%}
         <li>
+          <span class="about-dialog__number" aria-hidden="true">0{{ i }}</span>
           <h3>{{ title_key | t }}</h3>
           <p>{{ text_key | t }}</p>
         </li>
       {%- endfor -%}
-    </ul>
+    </ol>
+
+    <div class="about-dialog__follow">
+      <p class="section-label">{{ 'about.follow' | t }}</p>
+      <ul role="list">
+        {%- if settings.social_instagram != blank -%}
+          <li><a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a></li>
+        {%- endif -%}
+        {%- if settings.social_tiktok != blank -%}
+          <li><a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">TikTok</a></li>
+        {%- endif -%}
+        {%- if settings.contact_email != blank -%}
+          <li>
+            <a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </div>
   </div>
 </dialog>

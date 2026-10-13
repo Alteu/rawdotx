@@ -93,7 +93,7 @@
     {%- endif -%}
 
     <div class="buy-box__tags">
-      {%- if badge != blank -%}
+      {%- if badge != blank and versions == blank -%}
         <span class="buy-box__badge">{{ badge | escape }}</span>
       {%- endif -%}
       {%- if is_coming_soon -%}

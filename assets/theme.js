@@ -51,6 +51,10 @@ class ProductShowcase extends HTMLElement {
     this.panels.forEach((panel) => {
       panel.hidden = panel.dataset.panel !== category;
     });
+    // Sections tied to one category (e.g. skate reviews) only show with that category.
+    document.querySelectorAll('[data-category-only]').forEach((element) => {
+      element.hidden = element.dataset.categoryOnly !== category;
+    });
     document.querySelectorAll('[data-category-link]').forEach((link) => {
       if (link.dataset.categoryLink === category) link.setAttribute('aria-current', 'true');
       else link.removeAttribute('aria-current');

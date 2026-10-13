@@ -76,9 +76,11 @@
                     data-show-slide="{{ option.id }}"
                     aria-pressed="{% if option.id == block.id %}true{% else %}false{% endif %}"
                   >
-                    <span class="versions__name">{{ option_name | escape }}</span>
                     {%- if option.settings.badge != blank -%}
-                      <span class="versions__type">{{ option.settings.badge | escape }}</span>
+                      <span class="versions__name">{{ option.settings.badge | escape }}</span>
+                      <span class="visually-hidden">{{ option_name | escape }}</span>
+                    {%- else -%}
+                      <span class="versions__name">{{ option_name | escape }}</span>
                     {%- endif -%}
                   </button>
                 {%- endfor -%}
@@ -114,7 +116,20 @@
           {%- continue -%}
         {%- endif -%}
         {%- assign category_index = category_index | plus: 1 -%}
-        {%- if block.settings.guide == 'ice_version' -%}
+        {%- liquid
+          capture guide_specs
+            for i in (1..4)
+              assign value_key = 'spec_' | append: i | append: '_value'
+              assign label_key = 'spec_' | append: i | append: '_label'
+              if block.settings[value_key] != blank
+                echo block.settings[value_key] | append: '|' | append: block.settings[label_key] | append: '~~'
+              endif
+            endfor
+          endcapture
+          assign guide_specs = guide_specs | strip | remove_last: '~~'
+          assign guide_name = block.settings.title | default: block.settings.product.title
+        -%}
+        {%- if block.settings.guide != 'none' and block.settings.guide != blank -%}
           <div
             class="showcase__guide"
             data-guide-for="{{ block.id }}"
@@ -122,7 +137,16 @@
               hidden
             {% endif %}
           >
-            {% render 'guide-ice-version' %}
+            {%- if block.settings.guide == 'skates' -%}
+              {% render 'guide-skates', id: block.id, name: guide_name, anchor: forloop.first %}
+            {%- else -%}
+              {% render 'guide-coming-soon',
+                id: block.id,
+                name: guide_name,
+                tagline: block.settings.tagline,
+                specs: guide_specs
+              %}
+            {%- endif -%}
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -210,10 +234,11 @@
           "type": "select",
           "id": "guide",
           "label": "Guide below the product",
-          "info": "Placement, what's included, installation and FAQ shown under the product while it is selected.",
+          "info": "Shown under the product while it is selected.",
           "options": [
             { "value": "none", "label": "None" },
-            { "value": "ice_version", "label": "Ice Version skates" }
+            { "value": "skates", "label": "Skates guide (placement, install, FAQ)" },
+            { "value": "coming_soon", "label": "Coming soon (facts and notify me)" }
           ],
           "default": "none"
         },
