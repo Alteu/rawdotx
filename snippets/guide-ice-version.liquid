@@ -1,0 +1,147 @@
+{% doc %}
+  Product guide for the Ice Version skates, shown below the first screen while Ice Version is selected:
+  recommended placements, what's included, installation and FAQ.
+  Installation images exist in English and Spanish; other languages show the English images with the
+  steps written out as text underneath.
+{% enddoc %}
+{%- liquid
+  assign cards = 'gpro,finalmouse,viper' | split: ','
+  assign language = request.locale.iso_code | split: '-' | first
+  if language == 'es'
+    assign install_language = 'es'
+  else
+    assign install_language = 'en'
+  endif
+-%}
+<div class="guide">
+  <section class="guide__section page-width" aria-labelledby="GuidePlacement">
+    <div class="guide__header">
+      <p class="section-label">{{ 'guide.placement.label' | t }}</p>
+      <h2 class="guide__heading" id="GuidePlacement">{{ 'guide.placement.heading' | t }}</h2>
+      <p class="guide__intro">{{ 'guide.placement.description' | t }}</p>
+    </div>
+    <ul class="placement-grid" role="list">
+      {%- for card in cards -%}
+        {%- liquid
+          assign alt_key = 'guide.placement.' | append: card | append: '_alt'
+          assign base = 'placement-' | append: card
+          assign src_480 = base | append: '-480.webp' | asset_url
+          assign src_960 = base | append: '-960.webp' | asset_url
+          assign src_1536 = base | append: '-1536.webp' | asset_url
+        -%}
+        <li class="placement-card">
+          <img
+            src="{{ src_960 }}"
+            srcset="{{ src_480 }} 480w, {{ src_960 }} 960w, {{ src_1536 }} 1536w"
+            sizes="(min-width: 990px) 31vw, 92vw"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            alt="{{ alt_key | t | escape }}"
+          >
+          <p>{{ alt_key | t }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+
+  <section class="guide__section page-width" aria-labelledby="GuideIncluded">
+    <div class="guide__split">
+      <div class="guide__header">
+        <p class="section-label">{{ 'guide.included.label' | t }}</p>
+        <h2 class="guide__heading" id="GuideIncluded">{{ 'guide.included.heading' | t }}</h2>
+        <ul class="included-list" role="list">
+          <li>
+            <strong>20 ×</strong>
+            <span>{{ 'guide.included.dots' | t }}</span>
+          </li>
+          <li>
+            <strong>1 ×</strong>
+            <span>{{ 'guide.included.pad' | t }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="guide__photo">
+        <img
+          src="{{ 'rawdot-contents-full-960.webp' | asset_url }}"
+          srcset="{{ 'rawdot-contents-full-480.webp' | asset_url }} 480w, {{ 'rawdot-contents-full-960.webp' | asset_url }} 960w, {{ 'rawdot-contents-full-1536.webp' | asset_url }} 1536w"
+          sizes="(min-width: 990px) 50vw, 92vw"
+          width="1536"
+          height="1024"
+          loading="lazy"
+          alt="{{ 'guide.included.image_alt' | t | escape }}"
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="guide__section page-width" aria-labelledby="GuideInstall">
+    <div class="guide__header">
+      <p class="section-label">{{ 'guide.install.label' | t }}</p>
+      <h2 class="guide__heading" id="GuideInstall">{{ 'guide.install.heading' | t }}</h2>
+      <p class="guide__intro">{{ 'guide.install.description' | t }}</p>
+    </div>
+    <div class="install-images">
+      {%- for pair in (1..2) -%}
+        {%- liquid
+          if pair == 1
+            assign steps = '12'
+          else
+            assign steps = '34'
+          endif
+          assign base = 'install-' | append: install_language | append: '-' | append: steps
+          assign src_480 = base | append: '-480.webp' | asset_url
+          assign src_960 = base | append: '-960.webp' | asset_url
+          assign src_1536 = base | append: '-1536.webp' | asset_url
+          assign alt_key = 'guide.install.image_' | append: steps | append: '_alt'
+        -%}
+        <img
+          src="{{ src_960 }}"
+          srcset="{{ src_480 }} 480w, {{ src_960 }} 960w, {{ src_1536 }} 1536w"
+          sizes="(min-width: 990px) 46vw, 92vw"
+          width="1536"
+          height="1024"
+          loading="lazy"
+          alt="{{ alt_key | t | escape }}"
+        >
+      {%- endfor -%}
+    </div>
+    <ol
+      class="install-steps{% if language == 'en' or language == 'es' %} visually-hidden{% endif %}"
+      role="list"
+    >
+      {%- for i in (1..4) -%}
+        {%- liquid
+          assign title_key = 'guide.install.step_' | append: i | append: '_title'
+          assign text_key = 'guide.install.step_' | append: i | append: '_text'
+        -%}
+        <li class="install-step">
+          <span class="install-step__number" aria-hidden="true">0{{ i }}</span>
+          <h3>{{ title_key | t }}</h3>
+          <p>{{ text_key | t }}</p>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </section>
+
+  <section class="guide__section page-width" id="faq" aria-labelledby="GuideFaq">
+    <div class="guide__split">
+      <div class="guide__header">
+        <p class="section-label">{{ 'guide.faq.label' | t }}</p>
+        <h2 class="guide__heading" id="GuideFaq">{{ 'guide.faq.heading' | t }}</h2>
+      </div>
+      <div class="faq-list">
+        {%- for i in (1..6) -%}
+          {%- liquid
+            assign q_key = 'guide.faq.q' | append: i
+            assign a_key = 'guide.faq.a' | append: i
+          -%}
+          <details class="faq-item">
+            <summary>{{ q_key | t }}</summary>
+            <p>{{ a_key | t }}</p>
+          </details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>

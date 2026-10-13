@@ -16,7 +16,8 @@
       "one": "{{ count }} Artikel im Warenkorb",
       "other": "{{ count }} Artikel im Warenkorb"
     },
-    "menu": "Menü"
+    "menu": "Menü",
+    "about": "Über uns"
   },
   "footer": {
     "navigation": "Fußzeile",
@@ -37,7 +38,6 @@
     "arm_sleeves": "Armsleeves"
   },
   "showcase": {
-    "categories": "Produktkategorien",
     "versions": "Versionen"
   },
   "products": {
@@ -91,26 +91,28 @@
     "use_at_checkout": "Nutze diesen Code an der Kasse:",
     "add_to_apple_wallet": "Zu Apple Wallet hinzufügen"
   },
-  "home": {
+  "guide": {
     "placement": {
       "label": "01 / Platzierung",
-      "heading": "Passt zu jeder Form.",
-      "description": "Sechs beliebte Mäuse, dieselben Ice Version Dots. Platziere sie dort, wo die Maus Kontakt braucht.",
+      "heading": "Empfohlene Platzierungen",
+      "description": "Vorgeschlagene Dot-Layouts für sechs beliebte Mäuse. Starte hier und passe sie an deinen Griff an.",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
     },
-    "pouch": {
-      "label": "02 / im Beutel",
-      "heading": "Nur das Nötige.",
-      "intro": "Alles, was du brauchst – nichts, was du nicht brauchst.",
-      "image_alt": "Inhalt: 20 Mouse-Skate-Dots und 1 Alkoholtupfer",
-      "dots": "Ice Version Mouse-Skate-Dots aus PTFE.",
-      "pad": "Einzeln verpackter Isopropylalkohol-Tupfer. Reinige die Mausunterseite und lass sie vollständig trocknen."
+    "included": {
+      "label": "02 / im Lieferumfang",
+      "heading": "Lieferumfang",
+      "dots": "Ice Version PTFE-Dots: 6,5 mm Durchmesser, 0,8 mm Stärke.",
+      "pad": "Einzeln verpackter Isopropylalkohol-Tupfer zum Reinigen der Mausunterseite vor dem Aufkleben.",
+      "image_alt": "Inhalt: 20 Ice Version Dots und 1 Alkoholtupfer"
     },
     "install": {
       "label": "03 / Montage",
-      "heading": "Nimm dir Zeit für die Oberfläche.",
+      "heading": "Montage",
+      "description": "Vier Schritte. Eine saubere, trockene Fläche sorgt für den besten Halt.",
+      "image_12_alt": "Schritte 1 und 2: alte Skates entfernen und Unterseite reinigen",
+      "image_34_alt": "Schritte 3 und 4: Dots ausrichten und andrücken",
       "step_1_title": "Entfernen",
       "step_1_text": "Entferne alle vorhandenen Skates vorsichtig, inklusive doppelseitigem Klebeband. Achte darauf, dass keine Rückstände bleiben.",
       "step_2_title": "Reinigen",
@@ -120,35 +122,35 @@
       "step_4_title": "Andrücken",
       "step_4_text": "Sobald alle Dots sitzen, drücke jeden einige Sekunden fest an, damit er sicher haftet."
     },
-    "origin": {
-      "label": "04 / der Ursprung",
-      "quote": "„rawdot entstand aus einem praktischen Problem: Abgenutzte Mouse-Skates in Mexiko zu ersetzen war oft komplizierter als das Produkt selbst.“",
-      "description": "Gaming-Mäuse halten jahrelang, während sich ihre Original-Skates langsam abnutzen. Universelle Dots wurden zu einer flexibleren Alternative – entwickelt aus der Sicht eines Gamers in Mexiko.",
-      "principle_1_title": "Universell gedacht",
-      "principle_1_description": "Wähle die Platzierung, statt von einer exakten Form abhängig zu sein.",
-      "principle_2_title": "Aus Erfahrung entwickelt",
-      "principle_2_description": "Ein echtes Problem, selbst erlebt.",
-      "principle_3_title": "Klar, nicht kompliziert",
-      "principle_3_description": "Produkt, Verpackung und Anleitung leicht verständlich gestaltet.",
-      "principle_4_title": "Zugängliche Performance",
-      "principle_4_description": "Ein hochwertiger Ersatz ohne unnötige Komplexität."
-    },
     "faq": {
-      "label": "05 / Fragen",
-      "heading": "Einfach gehalten.",
-      "description": "Nützliche Antworten, ohne den Lärm typischer Gaming-Shops.",
-      "q1": "Was sind universelle Mouse-Skate-Dots?",
-      "a1": "Kleine runde Skates, die sich um verschiedene Mausformen platzieren lassen, statt nur zu einem Modell zu passen.",
-      "q2": "Passt die Ice Version auf meine Maus?",
-      "a2": "Universelle Dots lassen sich flexibel auf vielen Mausformen platzieren. Halte die Maus stabil und den Sensor frei.",
-      "q3": "Wie viele Dots sollte ich verwenden?",
-      "a3": "Beginne mit einer ausgewogenen Platzierung an den äußeren Kontaktflächen und passe nur bei Bedarf an. Es gibt keine feste Zahl für jede Maus.",
-      "q4": "Für welche Oberflächen ist die Ice Version gedacht?",
-      "a4": "Für Stoff- und Glas-Mauspads.",
-      "q5": "Was ist in der Packung?",
-      "a5": "20 PTFE-Dots und ein einzeln verpackter Isopropylalkohol-Tupfer.",
-      "q6": "Wie bestelle ich?",
-      "a6": "Wähle die Ice Version oben auf der Seite, lege sie in den Warenkorb und gehe zur sicheren Kasse."
+      "label": "04 / FAQ",
+      "heading": "Häufige Fragen",
+      "q1": "Passt die Ice Version auf meine Maus?",
+      "a1": "In den meisten Fällen ja. Die Dots sind universell: Statt zu einem Modell zu passen, platzierst du sie an den Rändern der Unterseite. Halte die Maus waagerecht und den Sensor frei.",
+      "q2": "Wie viele Dots sollte ich verwenden?",
+      "a2": "Beginne mit einem ausgewogenen Layout an den äußeren Kontaktflächen und passe nur bei Bedarf an. Es gibt keine feste Zahl; die Platzierungsanleitung oben zeigt Vorschläge.",
+      "q3": "Muss ich die Original-Skates entfernen?",
+      "a3": "Ja. Entferne zuerst die Original-Skates und Kleberreste, reinige dann die Unterseite mit dem beiliegenden Tupfer und lass sie vollständig trocknen.",
+      "q4": "Auf welchen Mauspads funktioniert sie?",
+      "a4": "Die Ice Version ist für Stoff- und Glas-Mauspads gemacht.",
+      "q5": "Was ist der Unterschied zwischen Ice Version und Control Version?",
+      "a5": "Die Ice Version ist unser Speed-Skate für ein schnelles Gleiten mit wenig Reibung. Die Control Version, bald erhältlich, ist für mehr Bremskraft und Präzision ausgelegt.",
+      "q6": "Was ist im Lieferumfang?",
+      "a6": "20 PTFE-Dots und ein einzeln verpackter Isopropylalkohol-Tupfer."
     }
+  },
+  "about": {
+    "label": "Über uns",
+    "heading": "rawdot",
+    "quote": "„rawdot entstand aus einem praktischen Problem: Abgenutzte Mouse-Skates in Mexiko zu ersetzen war oft komplizierter als das Produkt selbst.“",
+    "description": "Gaming-Mäuse halten jahrelang, während sich ihre Original-Skates langsam abnutzen. Universelle Dots wurden zu einer flexibleren Alternative – entwickelt aus der Sicht eines Gamers in Mexiko.",
+    "principle_1_title": "Universell gedacht",
+    "principle_1_description": "Wähle die Platzierung, statt von einer exakten Form abhängig zu sein.",
+    "principle_2_title": "Aus Erfahrung entwickelt",
+    "principle_2_description": "Ein echtes Problem, selbst erlebt.",
+    "principle_3_title": "Klar, nicht kompliziert",
+    "principle_3_description": "Produkt, Verpackung und Anleitung leicht verständlich gestaltet.",
+    "principle_4_title": "Zugängliche Performance",
+    "principle_4_description": "Ein hochwertiger Ersatz ohne unnötige Komplexität."
   }
 }

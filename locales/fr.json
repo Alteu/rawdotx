@@ -16,7 +16,8 @@
       "one": "{{ count }} article dans le panier",
       "other": "{{ count }} articles dans le panier"
     },
-    "menu": "Menu"
+    "menu": "Menu",
+    "about": "À propos"
   },
   "footer": {
     "navigation": "Pied de page",
@@ -37,7 +38,6 @@
     "arm_sleeves": "Manchons"
   },
   "showcase": {
-    "categories": "Catégories de produits",
     "versions": "Versions"
   },
   "products": {
@@ -91,26 +91,28 @@
     "use_at_checkout": "Utilisez ce code lors du paiement :",
     "add_to_apple_wallet": "Ajouter à Apple Wallet"
   },
-  "home": {
+  "guide": {
     "placement": {
       "label": "01 / placement",
-      "heading": "S'adapte à chaque forme.",
-      "description": "Six souris populaires, les mêmes pastilles Ice Version. Placez-les là où la souris a besoin de contact.",
+      "heading": "Placements recommandés",
+      "description": "Dispositions suggérées pour six souris populaires. Commencez ici, puis ajustez selon votre prise en main.",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
     },
-    "pouch": {
-      "label": "02 / dans la pochette",
-      "heading": "Juste l'essentiel.",
-      "intro": "Tout ce qu'il vous faut, rien de plus.",
-      "image_alt": "Contenu : 20 pastilles de patins et 1 lingette à l'alcool",
-      "dots": "Pastilles de patins en PTFE Ice Version.",
-      "pad": "Lingette à l'alcool isopropylique emballée individuellement. Nettoyez la surface de la souris, puis laissez sécher complètement."
+    "included": {
+      "label": "02 / dans la boîte",
+      "heading": "Contenu de la boîte",
+      "dots": "Pastilles PTFE Ice Version : 6,5 mm de diamètre, 0,8 mm d'épaisseur.",
+      "pad": "Lingette à l'alcool isopropylique emballée individuellement, pour nettoyer la base de la souris avant la pose.",
+      "image_alt": "Contenu : 20 pastilles Ice Version et 1 lingette à l'alcool"
     },
     "install": {
       "label": "03 / installation",
-      "heading": "Prenez le temps de préparer la surface.",
+      "heading": "Comment installer",
+      "description": "Quatre étapes. Une surface propre et sèche assure la meilleure adhérence.",
+      "image_12_alt": "Étapes 1 et 2 : retirer les anciens patins et nettoyer la base",
+      "image_34_alt": "Étapes 3 et 4 : aligner les pastilles et les presser en place",
       "step_1_title": "Retirer",
       "step_1_text": "Retirez soigneusement tous les patins existants, y compris l'adhésif double face. Assurez-vous qu'il ne reste aucun résidu.",
       "step_2_title": "Nettoyer",
@@ -120,35 +122,35 @@
       "step_4_title": "Presser",
       "step_4_text": "Une fois toutes les pastilles en place, appuyez fermement sur chacune quelques secondes pour bien les fixer."
     },
-    "origin": {
-      "label": "04 / l'origine",
-      "quote": "« rawdot est né d'un problème concret : remplacer des patins de souris usés au Mexique était souvent plus compliqué que le produit lui-même. »",
-      "description": "Une souris gaming peut durer des années pendant que ses patins d'origine s'usent peu à peu. Les pastilles universelles sont devenues une alternative plus flexible, pensée du point de vue d'un joueur au Mexique.",
-      "principle_1_title": "Universel par conception",
-      "principle_1_description": "Choisissez le placement au lieu de dépendre d'une forme exacte.",
-      "principle_2_title": "Né de l'expérience",
-      "principle_2_description": "Un vrai problème, vécu personnellement.",
-      "principle_3_title": "Clair, pas compliqué",
-      "principle_3_description": "Produit, emballage et instructions conçus pour être faciles à comprendre.",
-      "principle_4_title": "Performance accessible",
-      "principle_4_description": "Un remplacement de qualité, sans complexité inutile."
-    },
     "faq": {
-      "label": "05 / questions",
-      "heading": "Restons simples.",
-      "description": "Des réponses utiles, sans le bruit des boutiques gaming.",
-      "q1": "Que sont les pastilles de patins universelles ?",
-      "a1": "De petits patins ronds que l'on place autour de différentes formes de souris, au lieu d'être conçus pour un seul modèle.",
-      "q2": "L'Ice Version est-il compatible avec ma souris ?",
-      "a2": "Les pastilles universelles se placent librement sur de nombreuses formes de souris. Gardez la souris stable et laissez le capteur dégagé.",
-      "q3": "Combien de pastilles utiliser ?",
-      "a3": "Commencez par un placement équilibré autour des zones de contact extérieures et ajustez seulement si nécessaire. Il n'y a pas de nombre unique pour toutes les souris.",
-      "q4": "Sur quelles surfaces utiliser l'Ice Version ?",
-      "a4": "Sur les tapis en tissu et en verre.",
-      "q5": "Que contient l'emballage ?",
-      "a5": "20 pastilles en PTFE et une lingette à l'alcool isopropylique emballée individuellement.",
-      "q6": "Comment commander ?",
-      "a6": "Choisissez l'Ice Version en haut de la page, ajoutez-le au panier et passez au paiement sécurisé."
+      "label": "04 / FAQ",
+      "heading": "Questions fréquentes",
+      "q1": "Ice Version est-il compatible avec ma souris ?",
+      "a1": "Dans la plupart des cas, oui. Les pastilles sont universelles : au lieu de correspondre à un modèle, elles se placent sur les bords de la base. Gardez la souris à plat et laissez le capteur dégagé.",
+      "q2": "Combien de pastilles utiliser ?",
+      "a2": "Commencez par une disposition équilibrée sur les zones de contact extérieures et ajustez seulement si nécessaire. Il n'y a pas de nombre unique ; le guide de placement ci-dessus montre des dispositions suggérées.",
+      "q3": "Dois-je retirer les patins d'origine ?",
+      "a3": "Oui. Retirez d'abord les patins d'origine et tout résidu d'adhésif, puis nettoyez la base avec la lingette fournie et laissez sécher complètement.",
+      "q4": "Sur quels tapis fonctionne-t-il ?",
+      "a4": "Ice Version est conçu pour les tapis en tissu et en verre.",
+      "q5": "Quelle est la différence entre Ice Version et Control Version ?",
+      "a5": "Ice Version est notre patin vitesse, pour une glisse rapide et à faible friction. Control Version, bientôt disponible, est conçu pour plus de freinage et de précision.",
+      "q6": "Que contient la boîte ?",
+      "a6": "20 pastilles en PTFE et une lingette à l'alcool isopropylique emballée individuellement."
     }
+  },
+  "about": {
+    "label": "À propos",
+    "heading": "rawdot",
+    "quote": "« rawdot est né d'un problème concret : remplacer des patins de souris usés au Mexique était souvent plus compliqué que le produit lui-même. »",
+    "description": "Une souris gaming peut durer des années pendant que ses patins d'origine s'usent peu à peu. Les pastilles universelles sont devenues une alternative plus flexible, pensée du point de vue d'un joueur au Mexique.",
+    "principle_1_title": "Universel par conception",
+    "principle_1_description": "Choisissez le placement au lieu de dépendre d'une forme exacte.",
+    "principle_2_title": "Né de l'expérience",
+    "principle_2_description": "Un vrai problème, vécu personnellement.",
+    "principle_3_title": "Clair, pas compliqué",
+    "principle_3_description": "Produit, emballage et instructions conçus pour être faciles à comprendre.",
+    "principle_4_title": "Performance accessible",
+    "principle_4_description": "Un remplacement de qualité, sans complexité inutile."
   }
 }

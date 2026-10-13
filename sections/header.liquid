@@ -47,6 +47,14 @@
       <div class="site-header__localization">
         {% render 'localization-form', id_prefix: 'HeaderLocalization' %}
       </div>
+      <button
+        type="button"
+        class="site-header__text-link"
+        data-dialog-open="AboutDialog"
+        aria-haspopup="dialog"
+      >
+        {{- 'header.about' | t -}}
+      </button>
       {%- if shop.customer_accounts_enabled -%}
         <a class="site-header__icon" href="{{ routes.account_url }}">
           {% render 'icon', name: 'account' %}

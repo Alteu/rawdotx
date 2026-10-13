@@ -59,34 +59,30 @@
               assign eager = true
               assign first_block_seen = true
             endunless
-            assign scene_links = ''
+            assign versions = ''
             assign category_key = 'categories.' | append: category_id | replace: '-', '_'
             assign category_label = category_key | t
             assign eyebrow = 'rawdot / ' | append: category_label
           -%}
           {%- if category_total > 1 -%}
-            {%- capture scene_links -%}
-              {%- for option in section.blocks -%}
-                {%- if option.settings.category != category_id or option.id == block.id -%}{%- continue -%}{%- endif -%}
-                {%- liquid
-                  assign option_name = option.settings.title | default: option.settings.product.title
-                  assign option_image = option.settings.image | default: option.settings.product.featured_media.preview_image
-                -%}
-                <button type="button" class="scene-chip" data-show-slide="{{ option.id }}">
-                  <span class="scene-chip__thumb">
-                    {%- if option_image != blank -%}
-                      {{ option_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}
-                    {%- else -%}
-                      {% render 'logo-mark' %}
+            {%- capture versions -%}
+              <div class="versions" role="group" aria-label="{{ 'showcase.versions' | t }}">
+                {%- for option in section.blocks -%}
+                  {%- if option.settings.category != category_id -%}{%- continue -%}{%- endif -%}
+                  {%- assign option_name = option.settings.title | default: option.settings.product.title -%}
+                  <button
+                    type="button"
+                    class="versions__item"
+                    data-show-slide="{{ option.id }}"
+                    aria-pressed="{% if option.id == block.id %}true{% else %}false{% endif %}"
+                  >
+                    <span class="versions__name">{{ option_name | escape }}</span>
+                    {%- if option.settings.badge != blank -%}
+                      <span class="versions__type">{{ option.settings.badge | escape }}</span>
                     {%- endif -%}
-                  </span>
-                  <span class="scene-chip__text">
-                    <span class="scene-chip__name">{{ option_name | escape }}</span>
-                    <span class="scene-chip__type">{{ option.settings.badge | escape }}</span>
-                  </span>
-                  {% render 'icon', name: 'arrow-right' %}
-                </button>
-              {%- endfor -%}
+                  </button>
+                {%- endfor -%}
+              </div>
             {%- endcapture -%}
           {%- endif -%}
           <div
@@ -106,11 +102,30 @@
               coming_soon: block.settings.coming_soon,
               eager: eager,
               eyebrow: eyebrow,
-              scene_links: scene_links
+              versions: versions
             %}
           </div>
         {%- endfor -%}
       </div>
+
+      {%- assign category_index = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.settings.category != category_id -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- assign category_index = category_index | plus: 1 -%}
+        {%- if block.settings.guide == 'ice_version' -%}
+          <div
+            class="showcase__guide"
+            data-guide-for="{{ block.id }}"
+            {% if category_index != 1 %}
+              hidden
+            {% endif %}
+          >
+            {% render 'guide-ice-version' %}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
     </section>
   {%- endfor -%}
 </product-showcase>
@@ -191,6 +206,17 @@
         { "type": "text", "id": "spec_3_label", "label": "Spec 3 label" },
         { "type": "text", "id": "spec_4_value", "label": "Spec 4 value" },
         { "type": "text", "id": "spec_4_label", "label": "Spec 4 label" },
+        {
+          "type": "select",
+          "id": "guide",
+          "label": "Guide below the product",
+          "info": "Placement, what's included, installation and FAQ shown under the product while it is selected.",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "ice_version", "label": "Ice Version skates" }
+          ],
+          "default": "none"
+        },
         {
           "type": "richtext",
           "id": "details",

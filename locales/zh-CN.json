@@ -15,7 +15,8 @@
     "cart_count": {
       "other": "购物车中有 {{ count }} 件商品"
     },
-    "menu": "菜单"
+    "menu": "菜单",
+    "about": "关于"
   },
   "footer": {
     "navigation": "页脚",
@@ -36,7 +37,6 @@
     "arm_sleeves": "电竞袖套"
   },
   "showcase": {
-    "categories": "产品类别",
     "versions": "版本"
   },
   "products": {
@@ -89,26 +89,28 @@
     "use_at_checkout": "结账时使用此代码：",
     "add_to_apple_wallet": "添加到 Apple 钱包"
   },
-  "home": {
+  "guide": {
     "placement": {
       "label": "01 / 贴法",
-      "heading": "适配各种形状。",
-      "description": "六款热门鼠标，同一套 Ice Version 圆点脚贴。贴在鼠标需要接触的位置即可。",
+      "heading": "推荐贴法",
+      "description": "六款热门鼠标的圆点贴法示例。先从这里开始，再根据你的握法微调。",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
     },
-    "pouch": {
-      "label": "02 / 包装内容",
-      "heading": "只有你需要的。",
-      "intro": "你需要的都在，多余的都没有。",
-      "image_alt": "包装内容：20 个鼠标脚贴圆点和 1 片酒精棉片",
-      "dots": "Ice Version PTFE 鼠标脚贴圆点。",
-      "pad": "独立包装的异丙醇酒精棉片。清洁鼠标底面后，请让其完全干燥。"
+    "included": {
+      "label": "02 / 包装清单",
+      "heading": "包装内含",
+      "dots": "Ice Version PTFE 圆点：直径 6.5 毫米，厚 0.8 毫米。",
+      "pad": "独立包装的异丙醇酒精棉片，用于贴装前清洁鼠标底部。",
+      "image_alt": "包装内容：20 个 Ice Version 圆点和 1 片酒精棉片"
     },
     "install": {
       "label": "03 / 安装",
-      "heading": "处理表面，别着急。",
+      "heading": "安装方法",
+      "description": "四个步骤。表面干净干燥，粘贴最牢固。",
+      "image_12_alt": "步骤 1 和 2：移除旧脚贴并清洁底部",
+      "image_34_alt": "步骤 3 和 4：对齐圆点并按压固定",
       "step_1_title": "移除",
       "step_1_text": "小心移除所有原有脚贴，包括双面胶，确保不留残胶。",
       "step_2_title": "清洁",
@@ -118,35 +120,35 @@
       "step_4_title": "按压",
       "step_4_text": "所有圆点贴好后，用力按压每个圆点几秒钟，确保牢固粘贴。"
     },
-    "origin": {
-      "label": "04 / 起源",
-      "quote": "“rawdot 源于一个实际问题：在墨西哥更换磨损的鼠标脚贴，往往比产品本身还要麻烦。”",
-      "description": "游戏鼠标可以用很多年，而原装脚贴会逐渐磨损。通用圆点脚贴成了更灵活的选择——从一位墨西哥玩家的视角出发而设计。",
-      "principle_1_title": "通用设计",
-      "principle_1_description": "自由选择贴法，而不依赖某一种固定形状。",
-      "principle_2_title": "源于经验",
-      "principle_2_description": "一个亲身遇到的真实问题。",
-      "principle_3_title": "清晰，不复杂",
-      "principle_3_description": "产品、包装和说明都更易于理解。",
-      "principle_4_title": "实惠的性能",
-      "principle_4_description": "高品质的替换方案，没有多余的复杂。"
-    },
     "faq": {
-      "label": "05 / 常见问题",
-      "heading": "简单直接。",
-      "description": "有用的回答，没有电竞店的噪音。",
-      "q1": "什么是通用鼠标脚贴圆点？",
-      "a1": "可以贴在不同形状鼠标上的小圆形脚贴，而不是只适配某一款型号。",
-      "q2": "Ice Version 适合我的鼠标吗？",
-      "a2": "通用圆点可灵活贴在多种鼠标形状上。请保持鼠标平稳，不要遮挡传感器。",
-      "q3": "应该用几个圆点？",
-      "a3": "先在外侧接触区域均衡地贴好，只在需要时调整。没有适用于所有鼠标的固定数量。",
-      "q4": "Ice Version 适用于哪些表面？",
-      "a4": "布面和玻璃鼠标垫都可以。",
-      "q5": "包装里有什么？",
-      "a5": "20 个 PTFE 圆点和 1 片独立包装的异丙醇酒精棉片。",
-      "q6": "如何下单？",
-      "a6": "在页面顶部选择 Ice Version，加入购物车，然后进入安全结账。"
+      "label": "04 / 常见问题",
+      "heading": "常见问题",
+      "q1": "Ice Version 适合我的鼠标吗？",
+      "a1": "大多数情况下适合。圆点为通用设计：无需匹配特定型号，只需贴在底部边缘。保持鼠标水平，不要遮挡传感器。",
+      "q2": "应该用几个圆点？",
+      "a2": "先在外侧接触区域均衡贴好，只在需要时调整。没有固定数量；上方的贴法指南提供了参考布局。",
+      "q3": "需要移除原装脚贴吗？",
+      "a3": "需要。先移除原装脚贴和残胶，再用附带的酒精棉片清洁底部，并让其完全干燥。",
+      "q4": "适用于哪些鼠标垫？",
+      "a4": "Ice Version 适用于布面和玻璃鼠标垫。",
+      "q5": "Ice Version 和 Control Version 有什么区别？",
+      "a5": "Ice Version 是我们的速度型脚贴，带来快速、低摩擦的滑动。即将推出的 Control Version 注重更强的制动力和精准度。",
+      "q6": "包装里有什么？",
+      "a6": "20 个 PTFE 圆点和 1 片独立包装的异丙醇酒精棉片。"
     }
+  },
+  "about": {
+    "label": "关于我们",
+    "heading": "rawdot",
+    "quote": "“rawdot 源于一个实际问题：在墨西哥更换磨损的鼠标脚贴，往往比产品本身还要麻烦。”",
+    "description": "游戏鼠标可以用很多年，而原装脚贴会逐渐磨损。通用圆点脚贴成了更灵活的选择——从一位墨西哥玩家的视角出发而设计。",
+    "principle_1_title": "通用设计",
+    "principle_1_description": "自由选择贴法，而不依赖某一种固定形状。",
+    "principle_2_title": "源于经验",
+    "principle_2_description": "一个亲身遇到的真实问题。",
+    "principle_3_title": "清晰，不复杂",
+    "principle_3_description": "产品、包装和说明都更易于理解。",
+    "principle_4_title": "实惠的性能",
+    "principle_4_description": "高品质的替换方案，没有多余的复杂。"
   }
 }

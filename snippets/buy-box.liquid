@@ -15,7 +15,7 @@
   @param {boolean} [coming_soon] - Show as coming soon (not purchasable)
   @param {string} [heading_tag] - Heading element for the name, "h1" or "h2" (default "h2")
   @param {boolean} [eager] - Load the media eagerly (first visible product)
-  @param {string} [scene_links] - Clickable labels for the other versions, shown on the stage
+  @param {string} [versions] - Version switch (e.g. Ice Version / Control Version), shown at the top of the panel
 {% enddoc %}
 {%- liquid
   assign heading_tag = heading_tag | default: 'h2'
@@ -71,13 +71,10 @@
         </div>
       {%- endif -%}
     </div>
-
-    {%- if scene_links != blank -%}
-      <div class="buy-box__scene-links">{{ scene_links }}</div>
-    {%- endif -%}
   </div>
 
   <div class="buy-box__panel">
+    {{ versions }}
     {%- if eyebrow != blank -%}
       <p class="buy-box__eyebrow">{{ eyebrow | escape }}</p>
     {%- endif -%}

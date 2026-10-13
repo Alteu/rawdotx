@@ -16,7 +16,8 @@
       "one": "{{ count }} articolo nel carrello",
       "other": "{{ count }} articoli nel carrello"
     },
-    "menu": "Menu"
+    "menu": "Menu",
+    "about": "Chi siamo"
   },
   "footer": {
     "navigation": "Piè di pagina",
@@ -37,7 +38,6 @@
     "arm_sleeves": "Manicotti"
   },
   "showcase": {
-    "categories": "Categorie di prodotti",
     "versions": "Versioni"
   },
   "products": {
@@ -91,26 +91,28 @@
     "use_at_checkout": "Usa questo codice al checkout:",
     "add_to_apple_wallet": "Aggiungi ad Apple Wallet"
   },
-  "home": {
+  "guide": {
     "placement": {
       "label": "01 / posizionamento",
-      "heading": "Si adatta a ogni forma.",
-      "description": "Sei mouse popolari, gli stessi dot Ice Version. Posizionali dove il mouse ha bisogno di contatto.",
+      "heading": "Posizionamenti consigliati",
+      "description": "Disposizioni suggerite per sei mouse popolari. Parti da qui e adatta alla tua impugnatura.",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
     },
-    "pouch": {
-      "label": "02 / nella bustina",
-      "heading": "Solo l'essenziale.",
-      "intro": "Tutto ciò che ti serve, niente di superfluo.",
-      "image_alt": "Contenuto: 20 dot per mouse e 1 salvietta imbevuta di alcol",
-      "dots": "Dot per mouse in PTFE Ice Version.",
-      "pad": "Salvietta di alcol isopropilico confezionata singolarmente. Pulisci la superficie del mouse e lasciala asciugare completamente."
+    "included": {
+      "label": "02 / nella confezione",
+      "heading": "Cosa è incluso",
+      "dots": "Dot in PTFE Ice Version: 6,5 mm di diametro, 0,8 mm di spessore.",
+      "pad": "Salvietta di alcol isopropilico confezionata singolarmente, per pulire la base del mouse prima dell'applicazione.",
+      "image_alt": "Contenuto: 20 dot Ice Version e 1 salvietta all'alcol"
     },
     "install": {
       "label": "03 / installazione",
-      "heading": "Prenditi il tempo per la superficie.",
+      "heading": "Come installare",
+      "description": "Quattro passaggi. Una superficie pulita e asciutta garantisce la migliore adesione.",
+      "image_12_alt": "Passaggi 1 e 2: rimuovi i vecchi piedini e pulisci la base",
+      "image_34_alt": "Passaggi 3 e 4: allinea i dot e premili in posizione",
       "step_1_title": "Rimuovi",
       "step_1_text": "Rimuovi con cura tutti i piedini esistenti, compreso l'adesivo biadesivo. Assicurati che non restino residui.",
       "step_2_title": "Pulisci",
@@ -120,35 +122,35 @@
       "step_4_title": "Premi",
       "step_4_text": "Quando tutti i dot sono in posizione, premi con decisione ciascuno per qualche secondo per farli aderire bene."
     },
-    "origin": {
-      "label": "04 / l'origine",
-      "quote": "«rawdot è nato da un problema pratico: sostituire i piedini usurati del mouse in Messico era spesso più complicato del prodotto stesso.»",
-      "description": "I mouse da gaming possono durare anni, mentre i piedini originali si consumano poco a poco. I dot universali sono diventati un'alternativa più flessibile, pensata dal punto di vista di un gamer in Messico.",
-      "principle_1_title": "Universale per design",
-      "principle_1_description": "Scegli il posizionamento invece di dipendere da una forma esatta.",
-      "principle_2_title": "Nato dall'esperienza",
-      "principle_2_description": "Un problema reale, vissuto in prima persona.",
-      "principle_3_title": "Chiaro, non complicato",
-      "principle_3_description": "Prodotto, confezione e istruzioni pensati per essere facili da capire.",
-      "principle_4_title": "Prestazioni accessibili",
-      "principle_4_description": "Un ricambio di qualità senza complessità inutili."
-    },
     "faq": {
-      "label": "05 / domande",
-      "heading": "Semplice.",
-      "description": "Risposte utili, senza il rumore dei negozi gaming.",
-      "q1": "Cosa sono i dot universali per mouse?",
-      "a1": "Piccoli piedini rotondi che si posizionano su diverse forme di mouse, invece di adattarsi a un solo modello.",
-      "q2": "Ice Version è compatibile con il mio mouse?",
-      "a2": "I dot universali si posizionano liberamente su molte forme di mouse. Mantieni il mouse stabile e lascia libero il sensore.",
-      "q3": "Quanti dot devo usare?",
-      "a3": "Inizia con un posizionamento bilanciato lungo le aree di contatto esterne e regola solo se necessario. Non esiste un numero unico per ogni mouse.",
-      "q4": "Su quali superfici si usa Ice Version?",
-      "a4": "Su tappetini in tessuto e in vetro.",
-      "q5": "Cosa c'è nella confezione?",
-      "a5": "20 dot in PTFE e una salvietta di alcol isopropilico confezionata singolarmente.",
-      "q6": "Come ordino?",
-      "a6": "Scegli Ice Version in cima alla pagina, aggiungilo al carrello e procedi al pagamento sicuro."
+      "label": "04 / FAQ",
+      "heading": "Domande frequenti",
+      "q1": "Ice Version è compatibile con il mio mouse?",
+      "a1": "Nella maggior parte dei casi, sì. I dot sono universali: invece di adattarsi a un modello, si posizionano lungo i bordi della base. Tieni il mouse in piano e lascia libero il sensore.",
+      "q2": "Quanti dot devo usare?",
+      "a2": "Inizia con una disposizione bilanciata sulle aree di contatto esterne e regola solo se necessario. Non esiste un numero unico; la guida al posizionamento qui sopra mostra disposizioni suggerite.",
+      "q3": "Devo rimuovere i piedini originali?",
+      "a3": "Sì. Rimuovi prima i piedini originali e ogni residuo di adesivo, poi pulisci la base con la salvietta inclusa e lasciala asciugare completamente.",
+      "q4": "Su quali tappetini funziona?",
+      "a4": "Ice Version è pensato per tappetini in tessuto e in vetro.",
+      "q5": "Qual è la differenza tra Ice Version e Control Version?",
+      "a5": "Ice Version è il nostro piedino speed, per una scorrevolezza rapida e a basso attrito. Control Version, in arrivo, è progettato per più frenata e precisione.",
+      "q6": "Cosa c'è nella confezione?",
+      "a6": "20 dot in PTFE e una salvietta di alcol isopropilico confezionata singolarmente."
     }
+  },
+  "about": {
+    "label": "Chi siamo",
+    "heading": "rawdot",
+    "quote": "«rawdot è nato da un problema pratico: sostituire i piedini usurati del mouse in Messico era spesso più complicato del prodotto stesso.»",
+    "description": "I mouse da gaming possono durare anni, mentre i piedini originali si consumano poco a poco. I dot universali sono diventati un'alternativa più flessibile, pensata dal punto di vista di un gamer in Messico.",
+    "principle_1_title": "Universale per design",
+    "principle_1_description": "Scegli il posizionamento invece di dipendere da una forma esatta.",
+    "principle_2_title": "Nato dall'esperienza",
+    "principle_2_description": "Un problema reale, vissuto in prima persona.",
+    "principle_3_title": "Chiaro, non complicato",
+    "principle_3_description": "Prodotto, confezione e istruzioni pensati per essere facili da capire.",
+    "principle_4_title": "Prestazioni accessibili",
+    "principle_4_description": "Un ricambio di qualità senza complessità inutili."
   }
 }

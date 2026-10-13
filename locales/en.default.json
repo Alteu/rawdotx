@@ -16,7 +16,8 @@
       "one": "{{ count }} item in cart",
       "other": "{{ count }} items in cart"
     },
-    "menu": "Menu"
+    "menu": "Menu",
+    "about": "About"
   },
   "footer": {
     "navigation": "Footer",
@@ -37,7 +38,6 @@
     "arm_sleeves": "Arm sleeves"
   },
   "showcase": {
-    "categories": "Product categories",
     "versions": "Versions"
   },
   "products": {
@@ -91,26 +91,28 @@
     "use_at_checkout": "Use this code at checkout:",
     "add_to_apple_wallet": "Add to Apple Wallet"
   },
-  "home": {
+  "guide": {
     "placement": {
       "label": "01 / placement",
-      "heading": "Fits every shape.",
-      "description": "Six popular mice — same Ice Version dots. Place them where the mouse needs contact.",
+      "heading": "Recommended placements",
+      "description": "Suggested dot layouts for six popular mice. Start here, then fine-tune to your grip.",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
     },
-    "pouch": {
-      "label": "02 / in the pouch",
-      "heading": "Only what you need.",
-      "intro": "Everything you need — nothing you don't.",
-      "image_alt": "Package contents: 20 mouse skate dots and 1 alcohol prep pad",
-      "dots": "Ice Version PTFE mouse skate dots.",
-      "pad": "Individually wrapped isopropyl alcohol prep pad. Clean the mouse surface, then let it dry completely."
+    "included": {
+      "label": "02 / in the box",
+      "heading": "What's included",
+      "dots": "Ice Version PTFE dots: 6.5 mm diameter, 0.8 mm thick.",
+      "pad": "Individually wrapped isopropyl alcohol prep pad, for cleaning the mouse base before application.",
+      "image_alt": "Package contents: 20 Ice Version dots and 1 alcohol prep pad"
     },
     "install": {
       "label": "03 / installation",
-      "heading": "Take your time with the surface.",
+      "heading": "How to install",
+      "description": "Four steps. A clean, dry surface gives the strongest bond.",
+      "image_12_alt": "Steps 1 and 2: remove the old skates and clean the base",
+      "image_34_alt": "Steps 3 and 4: align the dots and press them in place",
       "step_1_title": "Remove",
       "step_1_text": "Carefully remove all existing skates, including any double-sided adhesive. Make sure no residue is left behind.",
       "step_2_title": "Clean",
@@ -120,35 +122,35 @@
       "step_4_title": "Press",
       "step_4_text": "Once all dots are in place, press firmly on each one for a few seconds to make sure it bonds."
     },
-    "origin": {
-      "label": "04 / the origin",
-      "quote": "“rawdot began from a practical problem: replacing worn mouse skates in Mexico was often more complicated than the product itself.”",
-      "description": "Gaming mice can last for years while their original skates gradually wear down. Universal dots became a more flexible alternative—one created from the perspective of a gamer in Mexico.",
-      "principle_1_title": "Universal by design",
-      "principle_1_description": "Choose placement instead of depending on one exact shape.",
-      "principle_2_title": "Built from experience",
-      "principle_2_description": "A real problem, encountered first-hand.",
-      "principle_3_title": "Clear, not complicated",
-      "principle_3_description": "Product, packaging, and instructions made easier to understand.",
-      "principle_4_title": "Accessible performance",
-      "principle_4_description": "A quality replacement without unnecessary complexity."
-    },
     "faq": {
-      "label": "05 / questions",
-      "heading": "Keep it simple.",
-      "description": "Useful answers, without the gaming-store noise.",
-      "q1": "What are universal mouse skate dots?",
-      "a1": "Small circular skates that can be placed around different mouse shapes, rather than matching one exact model.",
-      "q2": "Will the Ice Version fit my mouse?",
-      "a2": "Universal dots are designed for flexible placement across many mouse shapes. Keep the mouse stable and leave the sensor unobstructed.",
-      "q3": "How many dots should I use?",
-      "a3": "Start with balanced placement around the outer contact areas and adjust only when necessary. There is no single number for every mouse.",
-      "q4": "What surfaces is the Ice Version designed for?",
-      "a4": "Both cloth and glass mousepads.",
-      "q5": "What comes inside the package?",
-      "a5": "20 PTFE dots and one individually wrapped isopropyl alcohol prep pad.",
-      "q6": "How do I order?",
-      "a6": "Choose the Ice Version at the top of the page, add it to your cart and continue to secure checkout."
+      "label": "04 / FAQ",
+      "heading": "Frequently asked questions",
+      "q1": "Will Ice Version fit my mouse?",
+      "a1": "In most cases, yes. The dots are universal: instead of matching one model, you place them around the edges of the base. Keep the mouse level and leave the sensor uncovered.",
+      "q2": "How many dots should I use?",
+      "a2": "Start with a balanced layout around the outer contact areas and adjust only if needed. There is no single number for every mouse; the placement guide above shows suggested layouts.",
+      "q3": "Do I need to remove my original skates?",
+      "a3": "Yes. Remove the original skates and any leftover adhesive first, then clean the base with the included prep pad and let it dry completely.",
+      "q4": "Which mousepads does it work on?",
+      "a4": "Ice Version is made for both cloth and glass mousepads.",
+      "q5": "What is the difference between Ice Version and Control Version?",
+      "a5": "Ice Version is our speed skate, made for a fast, low-friction glide. Control Version, coming soon, is designed for more stopping power and precision.",
+      "q6": "What's in the box?",
+      "a6": "20 PTFE dots and one individually wrapped isopropyl alcohol prep pad."
     }
+  },
+  "about": {
+    "label": "About us",
+    "heading": "rawdot",
+    "quote": "“rawdot began from a practical problem: replacing worn mouse skates in Mexico was often more complicated than the product itself.”",
+    "description": "Gaming mice can last for years while their original skates gradually wear down. Universal dots became a more flexible alternative—one created from the perspective of a gamer in Mexico.",
+    "principle_1_title": "Universal by design",
+    "principle_1_description": "Choose placement instead of depending on one exact shape.",
+    "principle_2_title": "Built from experience",
+    "principle_2_description": "A real problem, encountered first-hand.",
+    "principle_3_title": "Clear, not complicated",
+    "principle_3_description": "Product, packaging, and instructions made easier to understand.",
+    "principle_4_title": "Accessible performance",
+    "principle_4_description": "A quality replacement without unnecessary complexity."
   }
 }

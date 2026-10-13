@@ -70,8 +70,13 @@ class ProductShowcase extends HTMLElement {
     current?.classList.remove('is-active');
     target.classList.add('is-active');
 
-    const chip = target.querySelector('[data-show-slide]');
-    (chip || target.querySelector('.buy-box__title'))?.focus({ preventScroll: true });
+    // Show the guide (placement, installation, FAQ…) that belongs to the selected version.
+    const panel = target.closest('[data-panel]');
+    panel?.querySelectorAll('[data-guide-for]').forEach((guide) => {
+      guide.hidden = guide.dataset.guideFor !== id;
+    });
+
+    target.querySelector(`.versions [data-show-slide="${CSS.escape(id)}"]`)?.focus({ preventScroll: true });
     const title = target.querySelector('.buy-box__title')?.textContent.trim();
     if (title) announce(title);
   }
@@ -159,6 +164,7 @@ if (intro) {
 document.addEventListener('click', (event) => {
   const opener = event.target.closest('[data-dialog-open]');
   if (opener) {
+    opener.closest('details')?.removeAttribute('open');
     document.getElementById(opener.dataset.dialogOpen)?.showModal();
     return;
   }
