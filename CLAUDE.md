@@ -5,7 +5,7 @@ Direct-to-consumer store for rawdot gaming peripherals: mouse skates, glasspads,
 ## Project status
 
 - **Phase: technical foundation.** No storefront code exists yet. Do not start building the theme until the owner approves the next phase.
-- **Design is intentionally undefined.** Colors, typography, layouts, animations and visual style are not decided. Do not choose, propose or imply any of them, and do not create mockups or wireframes, browse the existing site for inspiration, or suggest visual references unless asked. Design decisions are made with the owner in a later phase and recorded here once approved.
+- **Design is not finalized.** Direction: build on the current theme's look (see **Store**), but specific colors, typography, layouts and animations are confirmed with the owner before use. Don't invent a new visual style or copy other brands' designs. Design decisions are made with the owner and recorded here once approved.
 
 ## Brand rules
 
@@ -42,7 +42,7 @@ The theme must work in **any language** from day one:
 - Existing themes, which must **never** be modified, pushed to, published, unpublished, renamed or deleted:
   - `Rawdot/main` (#197611290993), the **live** theme. It is connected to a different GitHub repository, `Rawdot/main`; never push to that repository.
   - `Horizon` (#197598708081) and `External Redirect` (#197598675313), both unpublished.
-- Do not download, read or reuse the current theme's code or design. The new theme starts from Shopify's Skeleton Theme.
+- **Design starting point (owner decision, 13 Oct 2026):** the current theme's look and content, adapted to the buying patterns in `docs/research/wallhack-analysis.md`. Its code is in `Alteu/Rawdot` (read-only reference). Findings are in `docs/research/current-theme-review.md`. Port the look and content, not the code wholesale. The new theme still starts from Shopify's Skeleton Theme.
 - CLI access is through a Theme Access password (themes only, no admin access). In cloud sessions it is a network secret on the environment, injected by the agent proxy, so the CLI gets the placeholder `shptka_placeholder`.
 - Allowed CLI writes: `shopify theme dev` (temporary development theme) and `shopify theme push --theme <new theme id>` to the new theme only. Never use `--live`, `--allow-live`, `theme publish` or `theme delete`, and never push without an explicit `--theme` ID.
 
