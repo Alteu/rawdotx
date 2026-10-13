@@ -25,7 +25,10 @@ class ProductShowcase extends HTMLElement {
       });
       tab.addEventListener('keydown', (event) => this.onTabKeydown(event));
     });
-    this.panels.forEach((panel) => this.setUpSlides(panel));
+    this.addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-show-slide]');
+      if (trigger) this.showSlide(trigger.dataset.showSlide);
+    });
 
     window.addEventListener('hashchange', () => this.selectFromHash());
     if (!this.selectFromHash()) this.select(this.dataset.defaultCategory, false);
@@ -71,34 +74,22 @@ class ProductShowcase extends HTMLElement {
     this.select(this.tabs[next].dataset.category, true);
   }
 
-  setUpSlides(panel) {
-    const track = panel.querySelector('[data-track]');
-    const count = panel.querySelector('[data-slide-count]');
-    const prev = panel.querySelector('[data-slide-prev]');
-    const next = panel.querySelector('[data-slide-next]');
-    if (!track || !count) return;
-    const slides = [...track.children];
+  // Versions (e.g. Ice Version / Control Version) are switched by clicking them in the panel or on the stage.
+  showSlide(id) {
+    const target = this.querySelector(`[data-slide="${CSS.escape(id)}"]`);
+    if (!target || target.classList.contains('is-active')) return;
+    const slides = [...target.parentElement.children];
+    const current = slides.find((slide) => slide.classList.contains('is-active'));
+    const forward = slides.indexOf(target) > slides.indexOf(current);
 
-    const currentIndex = () => Math.round(Math.abs(track.scrollLeft) / track.clientWidth);
-    const update = () => {
-      const index = currentIndex();
-      count.textContent = count.dataset.template.replace('[current]', index + 1).replace('[total]', slides.length);
-      prev.disabled = index === 0;
-      next.disabled = index === slides.length - 1;
-    };
-    const go = (step) => {
-      const rtl = getComputedStyle(track).direction === 'rtl';
-      track.scrollBy({ left: step * track.clientWidth * (rtl ? -1 : 1), behavior: 'smooth' });
-    };
+    target.parentElement.dataset.direction = forward ? 'forward' : 'back';
+    current?.classList.remove('is-active');
+    target.classList.add('is-active');
 
-    prev.addEventListener('click', () => go(-1));
-    next.addEventListener('click', () => go(1));
-    track.addEventListener('scrollend', update);
-    track.addEventListener('scroll', () => {
-      clearTimeout(this.scrollTimer);
-      this.scrollTimer = setTimeout(update, 120);
-    });
-    update();
+    const pressed = target.querySelector(`.versions [data-show-slide="${CSS.escape(id)}"]`);
+    pressed?.focus({ preventScroll: true });
+    const title = target.querySelector('.buy-box__title')?.textContent.trim();
+    if (title) announce(title);
   }
 }
 customElements.define('product-showcase', ProductShowcase);
@@ -172,6 +163,13 @@ document.addEventListener('submit', async (event) => {
     button.removeAttribute('aria-busy');
   }
 });
+
+/* Remove the logo intro once it has played. */
+const intro = document.querySelector('.intro');
+if (intro) {
+  if (document.documentElement.classList.contains('no-intro')) intro.remove();
+  else intro.addEventListener('animationend', (event) => event.target === intro && intro.remove());
+}
 
 /* "See more" and "Notify me" open the product details dialog. */
 document.addEventListener('click', (event) => {

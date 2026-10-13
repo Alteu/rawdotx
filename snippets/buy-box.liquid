@@ -1,19 +1,21 @@
 {% doc %}
-  The sell-first product unit: media, name, type, key specs, options and add-to-cart on one screen,
-  with longer details in a dialog ("See more"). Products that are blank or marked coming soon show a
-  notify-me form instead of add-to-cart.
+  The sell-first product unit: a media stage plus a spec-sheet panel with name, type, key specs,
+  options and add-to-cart with price, all on one screen. Longer details open in a dialog ("See more").
+  Products that are blank or marked coming soon show a notify-me form instead of add-to-cart.
 
   @param {string} id - Unique ID for this buy box (used for element IDs)
   @param {product} [product] - The Shopify product; leave blank for a product that doesn't exist yet
   @param {string} [title] - Display name; falls back to the product title
   @param {string} [badge] - Short type label, e.g. "Speed" or "Control"
   @param {string} [tagline] - One sentence: what it is and why it matters
-  @param {image} [image] - Image used when the product has no media
+  @param {image} [image] - Image used instead of the product media
   @param {string} [specs] - Key specs as "value|label" pairs separated by "~~"
   @param {string} [details] - Extra rich text shown under "See more"
   @param {boolean} [coming_soon] - Show as coming soon (not purchasable)
   @param {string} [heading_tag] - Heading element for the name, "h1" or "h2" (default "h2")
   @param {boolean} [eager] - Load the media eagerly (first visible product)
+  @param {string} [versions] - Version switcher markup, rendered in the panel
+  @param {string} [scene_links] - Clickable chips for the other versions, rendered on the stage
 {% enddoc %}
 {%- liquid
   assign heading_tag = heading_tag | default: 'h2'
@@ -38,56 +40,81 @@
   endif
 -%}
 
-<article class="buy-box" id="{{ id }}" data-buy-box>
-  <div class="buy-box__header">
+<article class="buy-box" id="{{ id }}" aria-labelledby="{{ id }}-title" data-buy-box>
+  <div class="buy-box__stage">
     {%- if badge != blank -%}
-      <p class="buy-box__badge">{{ badge | escape }}</p>
+      <p class="buy-box__watermark" aria-hidden="true">{{ badge | escape }}</p>
     {%- endif -%}
-    <{{ heading_tag }} class="buy-box__title" id="{{ id }}-title">{{ display_title | escape }}</{{ heading_tag }}>
-    {%- if tagline != blank -%}
-      <p class="buy-box__tagline">{{ tagline | escape }}</p>
+
+    <div class="buy-box__media{% if is_coming_soon %} buy-box__media--soon{% endif %}">
+      {%- if model != blank -%}
+        {{
+          model
+          | model_viewer_tag:
+            image_size: '1200x',
+            reveal: 'auto',
+            camera-controls: '',
+            auto-rotate: '',
+            interaction-prompt: 'none'
+        }}
+      {%- elsif media_image != blank -%}
+        {{
+          media_image
+          | image_url: width: 1600
+          | image_tag:
+            widths: '480, 720, 960, 1280, 1600',
+            sizes: '(min-width: 990px) 55vw, 100vw',
+            loading: image_loading,
+            fetchpriority: image_priority,
+            alt: display_title
+        }}
+      {%- else -%}
+        <div class="buy-box__placeholder">
+          {% render 'logo-mark' %}
+          <span class="buy-box__placeholder-label">{{ 'products.coming_soon' | t }}</span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if scene_links != blank -%}
+      <div class="buy-box__scene-links">{{ scene_links }}</div>
     {%- endif -%}
   </div>
 
-  <div class="buy-box__media">
-    {%- if model != blank -%}
-      {{
-        model
-        | model_viewer_tag: image_size: '1200x', reveal: 'auto', camera-controls: '', interaction-prompt: 'none'
-      }}
-    {%- elsif media_image != blank -%}
-      {{
-        media_image
-        | image_url: width: 1600
-        | image_tag:
-          widths: '480, 720, 960, 1280, 1600',
-          sizes: '(min-width: 990px) 55vw, 100vw',
-          loading: image_loading,
-          fetchpriority: image_priority,
-          alt: display_title
-      }}
-    {%- else -%}
-      <div class="buy-box__placeholder">
-        {% render 'logo-mark' %}
+  <div class="buy-box__panel">
+    <div class="buy-box__header">
+      <div class="buy-box__meta">
+        {%- if badge != blank -%}
+          <p class="buy-box__badge">{{ badge | escape }}</p>
+        {%- endif -%}
+        {%- if is_coming_soon -%}
+          <p class="buy-box__status">{{ 'products.coming_soon' | t }}</p>
+        {%- elsif current_variant.available -%}
+          <p class="buy-box__status buy-box__status--live">{{ 'products.in_stock' | t }}</p>
+        {%- endif -%}
       </div>
-    {%- endif -%}
-  </div>
+      <{{ heading_tag }} class="buy-box__title" id="{{ id }}-title">{{ display_title | escape }}</{{ heading_tag }}>
+      {%- if tagline != blank -%}
+        <p class="buy-box__tagline">{{ tagline | escape }}</p>
+      {%- endif -%}
+    </div>
 
-  <div class="buy-box__body">
     {%- if spec_items.size > 0 -%}
       <ul class="buy-box__specs" role="list">
         {%- for spec in spec_items -%}
           {%- assign spec_parts = spec | split: '|' -%}
           <li>
-            <span class="buy-box__spec-value">{{ spec_parts[0] | escape }}</span>
             <span class="buy-box__spec-label">{{ spec_parts[1] | escape }}</span>
+            <span class="buy-box__spec-value">{{ spec_parts[0] | escape }}</span>
           </li>
         {%- endfor -%}
       </ul>
     {%- endif -%}
 
+    {{ versions }}
+
     {%- unless is_coming_soon or product.has_only_default_variant -%}
-      <variant-picker class="variant-picker" data-form-id="{{ id }}-form">
+      <variant-picker class="variant-picker" data-form-id="{{ form_id }}">
         {%- for option in product.options_with_values -%}
           {%- assign option_index = forloop.index0 -%}
           <fieldset class="variant-picker__option">
@@ -124,62 +151,64 @@
         </script>
       </variant-picker>
     {%- endunless -%}
-  </div>
 
-  <div class="buy-box__actions">
-    <button
-      type="button"
-      class="button button--secondary"
-      data-dialog-open="{{ id }}-details"
-      aria-haspopup="dialog"
-    >
-      {{- 'products.see_more' | t -}}
-    </button>
-
-    {%- if is_coming_soon -%}
+    <div class="buy-box__actions">
       <button
         type="button"
-        class="button button--primary buy-box__primary"
+        class="button button--secondary"
         data-dialog-open="{{ id }}-details"
         aria-haspopup="dialog"
       >
-        <span>{{ 'products.coming_soon' | t }}</span>
-        <span>{{ 'products.notify_me' | t }}</span>
+        <span class="buy-box__more-label">{{ 'products.see_more' | t }}</span>
+        <span aria-hidden="true">+</span>
       </button>
-    {%- else -%}
-      {%- form 'product', product, id: form_id, class: 'buy-box__form', data-product-form: '' -%}
-        <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+
+      {%- if is_coming_soon -%}
         <button
-          type="submit"
-          name="add"
+          type="button"
           class="button button--primary buy-box__primary"
-          data-add-button
-          {% unless current_variant.available %}
-            disabled
-          {% endunless %}
+          data-dialog-open="{{ id }}-details"
+          aria-haspopup="dialog"
         >
-          <span data-add-label>
-            {%- if current_variant.available -%}
-              {{ 'products.add_to_cart' | t }}
-            {%- else -%}
-              {{ 'products.sold_out' | t }}
-            {%- endif -%}
-          </span>
-          <span data-price>{{ current_variant.price | money_with_currency }}</span>
+          <span>{{ 'products.notify_me' | t }}</span>
+          <span class="buy-box__primary-meta">{{ 'products.coming_soon' | t }}</span>
         </button>
-        <a
-          class="button button--primary buy-box__primary buy-box__go-to-cart"
-          href="{{ routes.cart_url }}"
-          hidden
-          data-go-to-cart
-        >
-          {{ 'products.go_to_cart' | t }}
-        </a>
-      {%- endform -%}
-    {%- endif -%}
+      {%- else -%}
+        {%- form 'product', product, id: form_id, class: 'buy-box__form', data-product-form: '' -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+          <button
+            type="submit"
+            name="add"
+            class="button button--primary buy-box__primary"
+            data-add-button
+            {% unless current_variant.available %}
+              disabled
+            {% endunless %}
+          >
+            <span data-add-label>
+              {%- if current_variant.available -%}
+                {{ 'products.add_to_cart' | t }}
+              {%- else -%}
+                {{ 'products.sold_out' | t }}
+              {%- endif -%}
+            </span>
+            <span class="buy-box__primary-meta" data-price>{{ current_variant.price | money_with_currency }}</span>
+          </button>
+          <a
+            class="button button--primary buy-box__primary buy-box__go-to-cart"
+            href="{{ routes.cart_url }}"
+            hidden
+            data-go-to-cart
+          >
+            <span>{{ 'products.go_to_cart' | t }}</span>
+            <span class="buy-box__primary-meta">{% render 'icon', name: 'arrow-right' %}</span>
+          </a>
+        {%- endform -%}
+      {%- endif -%}
+    </div>
   </div>
 
-  <dialog class="details-dialog" id="{{ id }}-details" aria-labelledby="{{ id }}-details-title">
+  <dialog class="details-dialog scheme-dark" id="{{ id }}-details" aria-labelledby="{{ id }}-details-title">
     <div class="details-dialog__header">
       <p class="details-dialog__title" id="{{ id }}-details-title">{{ display_title | escape }}</p>
       <form method="dialog">
@@ -244,7 +273,10 @@
       {%- endif -%}
 
       {%- unless is_coming_soon -%}
-        <a class="details-dialog__link" href="{{ product.url }}">{{ 'products.view_full_page' | t }}</a>
+        <a class="details-dialog__link" href="{{ product.url }}">
+          {{- 'products.view_full_page' | t }}
+          {%- render 'icon', name: 'arrow-right' -%}
+        </a>
       {%- endunless -%}
     </div>
   </dialog>

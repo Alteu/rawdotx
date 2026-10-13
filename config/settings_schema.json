@@ -11,6 +11,10 @@
     "name": "Colors",
     "settings": [
       {
+        "type": "header",
+        "content": "Light areas (cart, pages)"
+      },
+      {
         "type": "color",
         "id": "color_background",
         "label": "Background",
@@ -20,25 +24,59 @@
         "type": "color",
         "id": "color_foreground",
         "label": "Text and buttons",
-        "default": "#111111"
+        "default": "#0b0b0b"
       },
       {
         "type": "color",
         "id": "color_surface",
-        "label": "Media background",
-        "default": "#f4f4f4"
+        "label": "Panels",
+        "default": "#f3f3f3"
       },
       {
         "type": "color",
         "id": "color_muted",
         "label": "Secondary text",
-        "default": "#5e5e5e"
+        "default": "#5c5c5c"
       },
       {
         "type": "color",
         "id": "color_border",
         "label": "Borders",
-        "default": "#d9d9d9"
+        "default": "#dcdcdc"
+      },
+      {
+        "type": "header",
+        "content": "Dark areas (header, product stage, footer)"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_background",
+        "label": "Background",
+        "default": "#0b0b0b"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_foreground",
+        "label": "Text and buttons",
+        "default": "#f4f4f4"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_surface",
+        "label": "Panels",
+        "default": "#151515"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_muted",
+        "label": "Secondary text",
+        "default": "#9b9b9b"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_border",
+        "label": "Borders",
+        "default": "#2a2a2a"
       }
     ]
   },
@@ -50,6 +88,13 @@
         "id": "favicon",
         "label": "Favicon",
         "info": "Square image, at least 96 × 96 px."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_intro",
+        "label": "Logo intro animation",
+        "info": "Plays once per visit. Skipped for visitors who prefer reduced motion.",
+        "default": true
       }
     ]
   },

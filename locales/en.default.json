@@ -33,10 +33,7 @@
   },
   "showcase": {
     "categories": "Product categories",
-    "slide": "product",
-    "slide_count": "{{ current }} of {{ total }}",
-    "previous": "Previous product",
-    "next": "Next product"
+    "versions": "Versions"
   },
   "products": {
     "add_to_cart": "Add to cart",
@@ -53,7 +50,8 @@
     "notify_success": "Thanks! We'll email you when it's available.",
     "specifications": "Specifications",
     "about": "About",
-    "view_full_page": "View full product page"
+    "view_full_page": "View full product page",
+    "in_stock": "In stock"
   },
   "cart": {
     "title": "Cart",

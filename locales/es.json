@@ -33,10 +33,7 @@
   },
   "showcase": {
     "categories": "Categorías de productos",
-    "slide": "producto",
-    "slide_count": "{{ current }} de {{ total }}",
-    "previous": "Producto anterior",
-    "next": "Producto siguiente"
+    "versions": "Versiones"
   },
   "products": {
     "add_to_cart": "Agregar al carrito",
@@ -53,7 +50,8 @@
     "notify_success": "¡Gracias! Te escribiremos cuando esté disponible.",
     "specifications": "Especificaciones",
     "about": "Acerca del producto",
-    "view_full_page": "Ver página completa del producto"
+    "view_full_page": "Ver página completa del producto",
+    "in_stock": "Disponible"
   },
   "cart": {
     "title": "Carrito",

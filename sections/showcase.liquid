@@ -14,24 +14,36 @@
   assign first_block_seen = false
 -%}
 
-<product-showcase class="showcase" data-default-category="{{ active_category }}">
+<product-showcase class="showcase scheme-dark" data-default-category="{{ active_category }}">
   <h1 class="visually-hidden">{{ section.settings.heading | default: shop.name | escape }}</h1>
 
-  <div class="showcase__tabs page-width" role="tablist" aria-label="{{ 'showcase.categories' | t }}">
-    {%- for category_id in present_categories -%}
-      {%- assign category_key = 'categories.' | append: category_id | replace: '-', '_' -%}
-      <a
-        class="showcase__tab"
-        href="#{{ category_id }}"
-        id="{{ section.id }}-tab-{{ category_id }}"
-        role="tab"
-        aria-controls="{{ category_id }}"
-        aria-selected="{% if category_id == active_category %}true{% else %}false{% endif %}"
-        data-category="{{ category_id }}"
-      >
-        {{- category_key | t -}}
-      </a>
-    {%- endfor -%}
+  <div class="showcase__bar page-width">
+    <div class="showcase__tabs" role="tablist" aria-label="{{ 'showcase.categories' | t }}">
+      {%- for category_id in present_categories -%}
+        {%- liquid
+          assign category_key = 'categories.' | append: category_id | replace: '-', '_'
+          assign category_total = 0
+          for block in section.blocks
+            if block.settings.category == category_id
+              assign category_total = category_total | plus: 1
+            endif
+          endfor
+        -%}
+        <a
+          class="showcase__tab"
+          href="#{{ category_id }}"
+          id="{{ section.id }}-tab-{{ category_id }}"
+          role="tab"
+          aria-controls="{{ category_id }}"
+          aria-selected="{% if category_id == active_category %}true{% else %}false{% endif %}"
+          data-category="{{ category_id }}"
+        >
+          <span class="showcase__tab-index" aria-hidden="true">0{{ forloop.index }}</span>
+          <span>{{ category_key | t }}</span>
+          <sup class="showcase__tab-count" aria-hidden="true">{{ category_total }}</sup>
+        </a>
+      {%- endfor -%}
+    </div>
   </div>
 
   {%- for category_id in present_categories -%}
@@ -50,8 +62,11 @@
       role="tabpanel"
       aria-labelledby="{{ section.id }}-tab-{{ category_id }}"
       data-panel="{{ category_id }}"
+      {% unless category_id == active_category %}
+        hidden
+      {% endunless %}
     >
-      <div class="showcase__track" data-track>
+      <div class="showcase__slides">
         {%- for block in section.blocks -%}
           {%- if block.settings.category != category_id -%}
             {%- continue -%}
@@ -73,12 +88,63 @@
               assign eager = true
               assign first_block_seen = true
             endunless
+            assign versions = ''
+            assign scene_links = ''
           -%}
+          {%- if category_total > 1 -%}
+            {%- capture versions -%}
+              <div class="versions" role="group" aria-label="{{ 'showcase.versions' | t }}">
+                {%- for option in section.blocks -%}
+                  {%- if option.settings.category != category_id -%}{%- continue -%}{%- endif -%}
+                  {%- liquid
+                    assign option_name = option.settings.title | default: option.settings.product.title
+                    assign option_soon = option.settings.coming_soon
+                    if option.settings.product == blank
+                      assign option_soon = true
+                    endif
+                  -%}
+                  <button
+                    type="button"
+                    class="versions__item"
+                    data-show-slide="{{ option.id }}"
+                    aria-pressed="{% if option.id == block.id %}true{% else %}false{% endif %}"
+                  >
+                    <span class="versions__name">{{ option_name | escape }}</span>
+                    <span class="versions__type">
+                      {{- option.settings.badge | escape -}}
+                      {%- if option_soon %} · {{ 'products.coming_soon' | t }}{% endif -%}
+                    </span>
+                  </button>
+                {%- endfor -%}
+              </div>
+            {%- endcapture -%}
+            {%- capture scene_links -%}
+              {%- for option in section.blocks -%}
+                {%- if option.settings.category != category_id or option.id == block.id -%}{%- continue -%}{%- endif -%}
+                {%- liquid
+                  assign option_name = option.settings.title | default: option.settings.product.title
+                  assign option_image = option.settings.image | default: option.settings.product.featured_media.preview_image
+                -%}
+                <button type="button" class="scene-chip" data-show-slide="{{ option.id }}">
+                  <span class="scene-chip__thumb">
+                    {%- if option_image != blank -%}
+                      {{ option_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}
+                    {%- else -%}
+                      {% render 'logo-mark' %}
+                    {%- endif -%}
+                  </span>
+                  <span class="scene-chip__text">
+                    <span class="scene-chip__name">{{ option_name | escape }}</span>
+                    <span class="scene-chip__type">{{ option.settings.badge | escape }}</span>
+                  </span>
+                  {% render 'icon', name: 'arrow-right' %}
+                </button>
+              {%- endfor -%}
+            {%- endcapture -%}
+          {%- endif -%}
           <div
-            class="showcase__slide"
-            role="group"
-            aria-roledescription="{{ 'showcase.slide' | t }}"
-            aria-label="{{ 'showcase.slide_count' | t: current: category_index, total: category_total }}"
+            class="showcase__slide{% if category_index == 1 %} is-active{% endif %}"
+            data-slide="{{ block.id }}"
             {{ block.shopify_attributes }}
           >
             {% render 'buy-box',
@@ -91,31 +157,13 @@
               specs: specs,
               details: block.settings.details,
               coming_soon: block.settings.coming_soon,
-              eager: eager
+              eager: eager,
+              versions: versions,
+              scene_links: scene_links
             %}
           </div>
         {%- endfor -%}
       </div>
-
-      {%- if category_total > 1 -%}
-        <div class="showcase__controls page-width">
-          <button type="button" class="button button--icon" data-slide-prev>
-            {% render 'icon', name: 'arrow-left' %}
-            <span class="visually-hidden">{{ 'showcase.previous' | t }}</span>
-          </button>
-          <p
-            class="showcase__count"
-            data-slide-count
-            data-template="{{ 'showcase.slide_count' | t: current: '[current]', total: '[total]' | escape }}"
-          >
-            {{ 'showcase.slide_count' | t: current: 1, total: category_total }}
-          </p>
-          <button type="button" class="button button--icon" data-slide-next>
-            {% render 'icon', name: 'arrow-right' %}
-            <span class="visually-hidden">{{ 'showcase.next' | t }}</span>
-          </button>
-        </div>
-      {%- endif -%}
     </div>
   {%- endfor -%}
 </product-showcase>
@@ -171,7 +219,7 @@
           "type": "text",
           "id": "badge",
           "label": "Type label",
-          "info": "For example: Speed, Control."
+          "info": "For example: Speed, Control. Also shown large and faint behind the product."
         },
         {
           "type": "text",
@@ -182,7 +230,7 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image",
-          "info": "Overrides the product's media. 3D models from the product's media are used when no image is set."
+          "info": "Overrides the product's media. Transparent PNG/WebP works best. 3D models from the product's media are used when no image is set."
         },
         {
           "type": "header",

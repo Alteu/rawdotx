@@ -10,6 +10,19 @@
 <html lang="{{ request.locale.iso_code }}" dir="{{ text_direction }}">
   <head>
     {% render 'meta-tags' %}
+    {%- if settings.show_intro and request.design_mode == false -%}
+      <script>
+        try {
+          if (sessionStorage.getItem('rawdot-intro') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('no-intro');
+          } else {
+            sessionStorage.setItem('rawdot-intro', '1');
+          }
+        } catch (e) {
+          document.documentElement.classList.add('no-intro');
+        }
+      </script>
+    {%- endif -%}
     {% render 'css-variables' %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
@@ -19,6 +32,9 @@
   </head>
 
   <body class="template-{{ request.page_type | handle }}">
+    {%- if settings.show_intro and request.design_mode == false -%}
+      {% render 'intro' %}
+    {%- endif -%}
     <a class="skip-link visually-hidden-focusable" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
 
     {% sections 'header-group' %}
