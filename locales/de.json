@@ -1,0 +1,154 @@
+{
+  "accessibility": {
+    "skip_to_content": "Zum Inhalt springen",
+    "close": "Schließen"
+  },
+  "general": {
+    "page": "Seite {{ page }}",
+    "not_found_title": "Seite nicht gefunden",
+    "not_found_text": "Die gesuchte Seite existiert nicht."
+  },
+  "header": {
+    "navigation": "Hauptmenü",
+    "account": "Konto",
+    "cart": "Warenkorb",
+    "cart_count": {
+      "one": "{{ count }} Artikel im Warenkorb",
+      "other": "{{ count }} Artikel im Warenkorb"
+    },
+    "menu": "Menü"
+  },
+  "footer": {
+    "navigation": "Fußzeile",
+    "all_rights_reserved": "Alle Rechte vorbehalten.",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "terms": "AGB",
+    "privacy": "Datenschutz"
+  },
+  "localization": {
+    "country_label": "Land/Region",
+    "language_label": "Sprache",
+    "update": "Aktualisieren"
+  },
+  "categories": {
+    "skates": "Skates",
+    "glasspads": "Glas-Mauspads",
+    "arm_sleeves": "Armsleeves"
+  },
+  "showcase": {
+    "categories": "Produktkategorien",
+    "versions": "Versionen"
+  },
+  "products": {
+    "add_to_cart": "In den Warenkorb",
+    "adding": "Wird hinzugefügt…",
+    "added": "Zum Warenkorb hinzugefügt",
+    "add_error": "Konnte nicht hinzugefügt werden. Bitte versuche es erneut.",
+    "go_to_cart": "Zum Warenkorb",
+    "sold_out": "Ausverkauft",
+    "unavailable": "Nicht verfügbar",
+    "see_more": "Mehr ansehen",
+    "coming_soon": "Bald erhältlich",
+    "notify_me": "Benachrichtigen",
+    "notify_label": "Per E-Mail benachrichtigen, sobald verfügbar",
+    "notify_success": "Danke! Wir melden uns, sobald es verfügbar ist.",
+    "specifications": "Technische Daten",
+    "about": "Über das Produkt",
+    "view_full_page": "Ganze Produktseite ansehen",
+    "in_stock": "Auf Lager",
+    "notify_consent": "Mit der Anmeldung stimmst du zu, E-Mails von rawdot zu diesem Produkt zu erhalten. Abmeldung jederzeit möglich. Siehe unsere [privacy]Datenschutzerklärung[/privacy]."
+  },
+  "cart": {
+    "title": "Warenkorb",
+    "quantity_for": "Menge für {{ title }}",
+    "remove": "Entfernen",
+    "update": "Warenkorb aktualisieren",
+    "subtotal": "Zwischensumme",
+    "taxes_and_shipping": "Steuern und Versand werden an der Kasse berechnet.",
+    "checkout": "Zur Kasse",
+    "empty": "Dein Warenkorb ist leer.",
+    "continue_shopping": "Weiter einkaufen"
+  },
+  "collections": {
+    "empty": "Noch keine Produkte."
+  },
+  "search": {
+    "title": "Suche",
+    "label": "Produkte suchen",
+    "submit": "Suchen",
+    "results_count": {
+      "one": "{{ count }} Ergebnis für „{{ terms }}“",
+      "other": "{{ count }} Ergebnisse für „{{ terms }}“"
+    }
+  },
+  "password": {
+    "label": "Passwort",
+    "submit": "Eintreten"
+  },
+  "gift_card": {
+    "expired": "Dieser Geschenkgutschein ist abgelaufen.",
+    "use_at_checkout": "Nutze diesen Code an der Kasse:",
+    "add_to_apple_wallet": "Zu Apple Wallet hinzufügen"
+  },
+  "home": {
+    "placement": {
+      "label": "01 / Platzierung",
+      "heading": "Passt zu jeder Form.",
+      "description": "Sechs beliebte Mäuse, dieselben Ice Version Dots. Platziere sie dort, wo die Maus Kontakt braucht.",
+      "gpro_alt": "G Pro Wireless · G Pro X Super",
+      "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
+      "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
+    },
+    "pouch": {
+      "label": "02 / im Beutel",
+      "heading": "Nur das Nötige.",
+      "intro": "Alles, was du brauchst – nichts, was du nicht brauchst.",
+      "image_alt": "Inhalt: 20 Mouse-Skate-Dots und 1 Alkoholtupfer",
+      "dots": "Ice Version Mouse-Skate-Dots aus PTFE.",
+      "pad": "Einzeln verpackter Isopropylalkohol-Tupfer. Reinige die Mausunterseite und lass sie vollständig trocknen."
+    },
+    "install": {
+      "label": "03 / Montage",
+      "heading": "Nimm dir Zeit für die Oberfläche.",
+      "step_1_title": "Entfernen",
+      "step_1_text": "Entferne alle vorhandenen Skates vorsichtig, inklusive doppelseitigem Klebeband. Achte darauf, dass keine Rückstände bleiben.",
+      "step_2_title": "Reinigen",
+      "step_2_text": "Wische jede Skate-Fläche mit dem Alkoholtupfer ab, um Staub, Fett oder Kleberreste zu entfernen. Vollständig trocknen lassen.",
+      "step_3_title": "Ausrichten",
+      "step_3_text": "Wähle die passende Dot-Größe. Richte jeden Dot am Rand der Maus aus – für Balance und Stabilität.",
+      "step_4_title": "Andrücken",
+      "step_4_text": "Sobald alle Dots sitzen, drücke jeden einige Sekunden fest an, damit er sicher haftet."
+    },
+    "origin": {
+      "label": "04 / der Ursprung",
+      "quote": "„rawdot entstand aus einem praktischen Problem: Abgenutzte Mouse-Skates in Mexiko zu ersetzen war oft komplizierter als das Produkt selbst.“",
+      "description": "Gaming-Mäuse halten jahrelang, während sich ihre Original-Skates langsam abnutzen. Universelle Dots wurden zu einer flexibleren Alternative – entwickelt aus der Sicht eines Gamers in Mexiko.",
+      "principle_1_title": "Universell gedacht",
+      "principle_1_description": "Wähle die Platzierung, statt von einer exakten Form abhängig zu sein.",
+      "principle_2_title": "Aus Erfahrung entwickelt",
+      "principle_2_description": "Ein echtes Problem, selbst erlebt.",
+      "principle_3_title": "Klar, nicht kompliziert",
+      "principle_3_description": "Produkt, Verpackung und Anleitung leicht verständlich gestaltet.",
+      "principle_4_title": "Zugängliche Performance",
+      "principle_4_description": "Ein hochwertiger Ersatz ohne unnötige Komplexität."
+    },
+    "faq": {
+      "label": "05 / Fragen",
+      "heading": "Einfach gehalten.",
+      "description": "Nützliche Antworten, ohne den Lärm typischer Gaming-Shops.",
+      "q1": "Was sind universelle Mouse-Skate-Dots?",
+      "a1": "Kleine runde Skates, die sich um verschiedene Mausformen platzieren lassen, statt nur zu einem Modell zu passen.",
+      "q2": "Passt die Ice Version auf meine Maus?",
+      "a2": "Universelle Dots lassen sich flexibel auf vielen Mausformen platzieren. Halte die Maus stabil und den Sensor frei.",
+      "q3": "Wie viele Dots sollte ich verwenden?",
+      "a3": "Beginne mit einer ausgewogenen Platzierung an den äußeren Kontaktflächen und passe nur bei Bedarf an. Es gibt keine feste Zahl für jede Maus.",
+      "q4": "Für welche Oberflächen ist die Ice Version gedacht?",
+      "a4": "Für Stoff- und Glas-Mauspads.",
+      "q5": "Was ist in der Packung?",
+      "a5": "20 PTFE-Dots und ein einzeln verpackter Isopropylalkohol-Tupfer.",
+      "q6": "Wie bestelle ich?",
+      "a6": "Wähle die Ice Version oben auf der Seite, lege sie in den Warenkorb und gehe zur sicheren Kasse."
+    }
+  }
+}

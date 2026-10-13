@@ -1,0 +1,152 @@
+{
+  "accessibility": {
+    "skip_to_content": "コンテンツへスキップ",
+    "close": "閉じる"
+  },
+  "general": {
+    "page": "{{ page }}ページ",
+    "not_found_title": "ページが見つかりません",
+    "not_found_text": "お探しのページは存在しません。"
+  },
+  "header": {
+    "navigation": "メイン",
+    "account": "アカウント",
+    "cart": "カート",
+    "cart_count": {
+      "other": "カート内の商品 {{ count }} 点"
+    },
+    "menu": "メニュー"
+  },
+  "footer": {
+    "navigation": "フッター",
+    "all_rights_reserved": "All rights reserved.",
+    "faq": "FAQ",
+    "contact": "お問い合わせ",
+    "terms": "利用規約",
+    "privacy": "プライバシー"
+  },
+  "localization": {
+    "country_label": "国/地域",
+    "language_label": "言語",
+    "update": "更新"
+  },
+  "categories": {
+    "skates": "マウスソール",
+    "glasspads": "ガラスマウスパッド",
+    "arm_sleeves": "アームスリーブ"
+  },
+  "showcase": {
+    "categories": "製品カテゴリー",
+    "versions": "バージョン"
+  },
+  "products": {
+    "add_to_cart": "カートに追加",
+    "adding": "追加中…",
+    "added": "カートに追加しました",
+    "add_error": "カートに追加できませんでした。もう一度お試しください。",
+    "go_to_cart": "カートを見る",
+    "sold_out": "売り切れ",
+    "unavailable": "購入不可",
+    "see_more": "詳しく見る",
+    "coming_soon": "近日発売",
+    "notify_me": "入荷を通知",
+    "notify_label": "入荷時にメールでお知らせします",
+    "notify_success": "ありがとうございます！入荷時にメールでお知らせします。",
+    "specifications": "仕様",
+    "about": "製品について",
+    "view_full_page": "製品ページをすべて見る",
+    "in_stock": "在庫あり",
+    "notify_consent": "登録すると、この製品に関するrawdotからのメールを受け取ることに同意したことになります。配信はいつでも停止できます。[privacy]プライバシーポリシー[/privacy]をご確認ください。"
+  },
+  "cart": {
+    "title": "カート",
+    "quantity_for": "{{ title }}の数量",
+    "remove": "削除",
+    "update": "カートを更新",
+    "subtotal": "小計",
+    "taxes_and_shipping": "税金と送料はチェックアウト時に計算されます。",
+    "checkout": "購入手続きへ",
+    "empty": "カートは空です。",
+    "continue_shopping": "買い物を続ける"
+  },
+  "collections": {
+    "empty": "まだ製品がありません。"
+  },
+  "search": {
+    "title": "検索",
+    "label": "製品を検索",
+    "submit": "検索",
+    "results_count": {
+      "other": "「{{ terms }}」の検索結果 {{ count }} 件"
+    }
+  },
+  "password": {
+    "label": "パスワード",
+    "submit": "入る"
+  },
+  "gift_card": {
+    "expired": "このギフトカードは有効期限が切れています。",
+    "use_at_checkout": "チェックアウト時にこのコードをご利用ください：",
+    "add_to_apple_wallet": "Apple Walletに追加"
+  },
+  "home": {
+    "placement": {
+      "label": "01 / 配置",
+      "heading": "どんな形にもフィット。",
+      "description": "人気の6つのマウスに、同じIce Versionドット。マウスが接地すべき場所に貼るだけ。",
+      "gpro_alt": "G Pro Wireless · G Pro X Super",
+      "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
+      "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
+    },
+    "pouch": {
+      "label": "02 / 同梱物",
+      "heading": "必要なものだけ。",
+      "intro": "必要なものはすべて、余計なものは何もなし。",
+      "image_alt": "内容物：マウスソールドット20個とアルコールパッド1枚",
+      "dots": "Ice Version PTFEマウスソールドット。",
+      "pad": "個包装のイソプロピルアルコールパッド。マウスの表面を拭き、完全に乾かしてください。"
+    },
+    "install": {
+      "label": "03 / 取り付け",
+      "heading": "表面の準備は丁寧に。",
+      "step_1_title": "はがす",
+      "step_1_text": "既存のソールを両面テープも含めて丁寧にはがし、粘着の残りがないようにします。",
+      "step_2_title": "拭く",
+      "step_2_text": "アルコールパッドで各ソール部分を拭き、ほこり・油分・粘着の残りを取り除きます。完全に乾かしてください。",
+      "step_3_title": "合わせる",
+      "step_3_text": "適切なサイズのドットを選び、バランスと安定性のためにマウスの縁に合わせて配置します。",
+      "step_4_title": "押さえる",
+      "step_4_text": "すべてのドットを配置したら、しっかり接着するよう各ドットを数秒間強く押さえます。"
+    },
+    "origin": {
+      "label": "04 / はじまり",
+      "quote": "「rawdotは実用的な問題から生まれました。メキシコでは、すり減ったマウスソールの交換が製品そのものより面倒なことが多かったのです。」",
+      "description": "ゲーミングマウスは何年も使える一方、純正ソールは少しずつすり減っていきます。ユニバーサルドットは、メキシコのゲーマーの視点から生まれた、より柔軟な選択肢です。",
+      "principle_1_title": "ユニバーサル設計",
+      "principle_1_description": "特定の形に縛られず、配置を自分で選べます。",
+      "principle_2_title": "経験から生まれた",
+      "principle_2_description": "自ら直面した、本当の課題から。",
+      "principle_3_title": "わかりやすく、シンプルに",
+      "principle_3_description": "製品・パッケージ・説明書をわかりやすく。",
+      "principle_4_title": "手の届くパフォーマンス",
+      "principle_4_description": "余計な複雑さのない、高品質な交換用ソール。"
+    },
+    "faq": {
+      "label": "05 / よくある質問",
+      "heading": "シンプルに。",
+      "description": "ゲーミングショップの雑音なしに、役立つ答えを。",
+      "q1": "ユニバーサルマウスソールドットとは？",
+      "a1": "特定のモデル専用ではなく、さまざまな形のマウスに配置できる小さな円形ソールです。",
+      "q2": "Ice Versionは私のマウスに合いますか？",
+      "a2": "ユニバーサルドットは多くのマウス形状に柔軟に配置できるよう設計されています。マウスが安定するようにし、センサーを塞がないでください。",
+      "q3": "ドットは何個使えばいいですか？",
+      "a3": "外側の接地部分にバランスよく配置し、必要なときだけ調整してください。すべてのマウスに共通の個数はありません。",
+      "q4": "Ice Versionはどの表面向けですか？",
+      "a4": "布製とガラス製のマウスパッドの両方です。",
+      "q5": "パッケージには何が入っていますか？",
+      "a5": "PTFEドット20個と、個包装のイソプロピルアルコールパッド1枚です。",
+      "q6": "注文方法は？",
+      "a6": "ページ上部でIce Versionを選び、カートに追加して安全な決済に進んでください。"
+    }
+  }
+}

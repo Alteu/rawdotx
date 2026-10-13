@@ -19,7 +19,12 @@
     "menu": "Menú"
   },
   "footer": {
-    "navigation": "Pie de página"
+    "navigation": "Pie de página",
+    "all_rights_reserved": "Todos los derechos reservados.",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "terms": "Términos",
+    "privacy": "Privacidad"
   },
   "localization": {
     "country_label": "País/región",
@@ -51,7 +56,8 @@
     "specifications": "Especificaciones",
     "about": "Acerca del producto",
     "view_full_page": "Ver página completa del producto",
-    "in_stock": "Disponible"
+    "in_stock": "Disponible",
+    "notify_consent": "Al registrarte, aceptas recibir correos de rawdot sobre este producto. Puedes darte de baja cuando quieras. Consulta nuestra [privacy]Política de privacidad[/privacy]."
   },
   "cart": {
     "title": "Carrito",
@@ -84,5 +90,65 @@
     "expired": "Esta tarjeta de regalo ha vencido.",
     "use_at_checkout": "Usa este código al pagar:",
     "add_to_apple_wallet": "Agregar a Apple Wallet"
+  },
+  "home": {
+    "placement": {
+      "label": "01 / colocación",
+      "heading": "Se adapta a cada forma.",
+      "description": "Seis ratones populares — los mismos puntos Ice Version. Colócalos donde el ratón necesita contacto.",
+      "gpro_alt": "G Pro Wireless · G Pro X Super",
+      "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
+      "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
+    },
+    "pouch": {
+      "label": "02 / en la bolsa",
+      "heading": "Solo lo necesario.",
+      "intro": "Todo lo que necesitas — nada más.",
+      "image_alt": "Contenido del paquete: 20 puntos de patín y 1 toallita de alcohol",
+      "dots": "Puntos de patín PTFE Ice Version.",
+      "pad": "Toallita de alcohol isopropílico empaquetada individualmente. Limpia la superficie del ratón y déjala secar completamente."
+    },
+    "install": {
+      "label": "03 / instalación",
+      "heading": "Tómate tu tiempo con la superficie.",
+      "step_1_title": "Retirar",
+      "step_1_text": "Retira con cuidado todos los patines existentes, incluido el adhesivo de doble cara. Asegúrate de que no quede residuo.",
+      "step_2_title": "Limpiar",
+      "step_2_text": "Limpia cada zona con la toallita de alcohol para quitar polvo, grasa o restos de adhesivo. Deja secar por completo.",
+      "step_3_title": "Alinear",
+      "step_3_text": "Elige el punto del tamaño adecuado. Alinea cada punto con el borde del ratón para lograr equilibrio y estabilidad.",
+      "step_4_title": "Presionar",
+      "step_4_text": "Cuando todos los puntos estén colocados, presiona firmemente cada uno durante unos segundos para que se adhiera bien."
+    },
+    "origin": {
+      "label": "04 / el origen",
+      "quote": "“rawdot nació de un problema práctico: reemplazar las patas de ratón desgastadas en México solía ser más complicado que el propio producto.”",
+      "description": "Los ratones gaming pueden durar años mientras sus patas originales se desgastan poco a poco. Los puntos universales se convirtieron en una alternativa más flexible—creada desde la perspectiva de un gamer en México.",
+      "principle_1_title": "Universal por diseño",
+      "principle_1_description": "Elige la colocación en lugar de depender de una forma exacta.",
+      "principle_2_title": "Construido desde la experiencia",
+      "principle_2_description": "Un problema real, encontrado de primera mano.",
+      "principle_3_title": "Claro, no complicado",
+      "principle_3_description": "Producto, empaque e instrucciones pensados para ser más fáciles de entender.",
+      "principle_4_title": "Rendimiento accesible",
+      "principle_4_description": "Un reemplazo de calidad sin complejidad innecesaria."
+    },
+    "faq": {
+      "label": "05 / preguntas",
+      "heading": "Simple y directo.",
+      "description": "Respuestas útiles, sin el ruido de las tiendas gamer.",
+      "q1": "¿Qué son los puntos universales de patín?",
+      "a1": "Pequeños patines circulares que pueden colocarse alrededor de diferentes formas de ratón, en lugar de ajustarse a un modelo exacto.",
+      "q2": "¿El Ice Version se adapta a mi ratón?",
+      "a2": "Los puntos universales están diseñados para colocarse de forma flexible en muchas formas de ratón. Mantén el ratón estable y deja el sensor libre.",
+      "q3": "¿Cuántos puntos debo usar?",
+      "a3": "Empieza con una colocación equilibrada alrededor de las áreas de contacto exteriores y ajusta solo cuando sea necesario. No hay un número único para cada ratón.",
+      "q4": "¿Para qué superficies está diseñado el Ice Version?",
+      "a4": "Para mousepads de tela y vidrio.",
+      "q5": "¿Qué incluye el paquete?",
+      "a5": "20 puntos de PTFE y una toallita de alcohol isopropílico empaquetada individualmente.",
+      "q6": "¿Cómo hago un pedido?",
+      "a6": "Elige el Ice Version en la parte superior de la página, agrégalo al carrito y continúa al pago seguro."
+    }
   }
 }

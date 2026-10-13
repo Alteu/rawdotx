@@ -1,0 +1,154 @@
+{
+  "accessibility": {
+    "skip_to_content": "Vai al contenuto",
+    "close": "Chiudi"
+  },
+  "general": {
+    "page": "Pagina {{ page }}",
+    "not_found_title": "Pagina non trovata",
+    "not_found_text": "La pagina che cerchi non esiste."
+  },
+  "header": {
+    "navigation": "Principale",
+    "account": "Account",
+    "cart": "Carrello",
+    "cart_count": {
+      "one": "{{ count }} articolo nel carrello",
+      "other": "{{ count }} articoli nel carrello"
+    },
+    "menu": "Menu"
+  },
+  "footer": {
+    "navigation": "Piè di pagina",
+    "all_rights_reserved": "Tutti i diritti riservati.",
+    "faq": "FAQ",
+    "contact": "Contatti",
+    "terms": "Termini",
+    "privacy": "Privacy"
+  },
+  "localization": {
+    "country_label": "Paese/regione",
+    "language_label": "Lingua",
+    "update": "Aggiorna"
+  },
+  "categories": {
+    "skates": "Skates",
+    "glasspads": "Tappetini in vetro",
+    "arm_sleeves": "Manicotti"
+  },
+  "showcase": {
+    "categories": "Categorie di prodotti",
+    "versions": "Versioni"
+  },
+  "products": {
+    "add_to_cart": "Aggiungi al carrello",
+    "adding": "Aggiunta in corso…",
+    "added": "Aggiunto al carrello",
+    "add_error": "Impossibile aggiungere al carrello. Riprova.",
+    "go_to_cart": "Vai al carrello",
+    "sold_out": "Esaurito",
+    "unavailable": "Non disponibile",
+    "see_more": "Scopri di più",
+    "coming_soon": "Prossimamente",
+    "notify_me": "Avvisami",
+    "notify_label": "Ricevi un'e-mail quando sarà disponibile",
+    "notify_success": "Grazie! Ti scriveremo quando sarà disponibile.",
+    "specifications": "Specifiche",
+    "about": "Informazioni",
+    "view_full_page": "Vedi la pagina completa del prodotto",
+    "in_stock": "Disponibile",
+    "notify_consent": "Iscrivendoti accetti di ricevere e-mail da rawdot su questo prodotto. Puoi annullare l'iscrizione in qualsiasi momento. Consulta la nostra [privacy]Informativa sulla privacy[/privacy]."
+  },
+  "cart": {
+    "title": "Carrello",
+    "quantity_for": "Quantità di {{ title }}",
+    "remove": "Rimuovi",
+    "update": "Aggiorna carrello",
+    "subtotal": "Subtotale",
+    "taxes_and_shipping": "Tasse e spedizione calcolate al checkout.",
+    "checkout": "Vai al pagamento",
+    "empty": "Il tuo carrello è vuoto.",
+    "continue_shopping": "Continua lo shopping"
+  },
+  "collections": {
+    "empty": "Ancora nessun prodotto."
+  },
+  "search": {
+    "title": "Cerca",
+    "label": "Cerca prodotti",
+    "submit": "Cerca",
+    "results_count": {
+      "one": "{{ count }} risultato per \"{{ terms }}\"",
+      "other": "{{ count }} risultati per \"{{ terms }}\""
+    }
+  },
+  "password": {
+    "label": "Password",
+    "submit": "Entra"
+  },
+  "gift_card": {
+    "expired": "Questa carta regalo è scaduta.",
+    "use_at_checkout": "Usa questo codice al checkout:",
+    "add_to_apple_wallet": "Aggiungi ad Apple Wallet"
+  },
+  "home": {
+    "placement": {
+      "label": "01 / posizionamento",
+      "heading": "Si adatta a ogni forma.",
+      "description": "Sei mouse popolari, gli stessi dot Ice Version. Posizionali dove il mouse ha bisogno di contatto.",
+      "gpro_alt": "G Pro Wireless · G Pro X Super",
+      "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
+      "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
+    },
+    "pouch": {
+      "label": "02 / nella bustina",
+      "heading": "Solo l'essenziale.",
+      "intro": "Tutto ciò che ti serve, niente di superfluo.",
+      "image_alt": "Contenuto: 20 dot per mouse e 1 salvietta imbevuta di alcol",
+      "dots": "Dot per mouse in PTFE Ice Version.",
+      "pad": "Salvietta di alcol isopropilico confezionata singolarmente. Pulisci la superficie del mouse e lasciala asciugare completamente."
+    },
+    "install": {
+      "label": "03 / installazione",
+      "heading": "Prenditi il tempo per la superficie.",
+      "step_1_title": "Rimuovi",
+      "step_1_text": "Rimuovi con cura tutti i piedini esistenti, compreso l'adesivo biadesivo. Assicurati che non restino residui.",
+      "step_2_title": "Pulisci",
+      "step_2_text": "Pulisci ogni zona con la salvietta all'alcol per eliminare polvere, grasso o residui di adesivo. Lascia asciugare completamente.",
+      "step_3_title": "Allinea",
+      "step_3_text": "Scegli il dot della misura giusta. Allinea ogni dot al bordo del mouse per equilibrio e stabilità.",
+      "step_4_title": "Premi",
+      "step_4_text": "Quando tutti i dot sono in posizione, premi con decisione ciascuno per qualche secondo per farli aderire bene."
+    },
+    "origin": {
+      "label": "04 / l'origine",
+      "quote": "«rawdot è nato da un problema pratico: sostituire i piedini usurati del mouse in Messico era spesso più complicato del prodotto stesso.»",
+      "description": "I mouse da gaming possono durare anni, mentre i piedini originali si consumano poco a poco. I dot universali sono diventati un'alternativa più flessibile, pensata dal punto di vista di un gamer in Messico.",
+      "principle_1_title": "Universale per design",
+      "principle_1_description": "Scegli il posizionamento invece di dipendere da una forma esatta.",
+      "principle_2_title": "Nato dall'esperienza",
+      "principle_2_description": "Un problema reale, vissuto in prima persona.",
+      "principle_3_title": "Chiaro, non complicato",
+      "principle_3_description": "Prodotto, confezione e istruzioni pensati per essere facili da capire.",
+      "principle_4_title": "Prestazioni accessibili",
+      "principle_4_description": "Un ricambio di qualità senza complessità inutili."
+    },
+    "faq": {
+      "label": "05 / domande",
+      "heading": "Semplice.",
+      "description": "Risposte utili, senza il rumore dei negozi gaming.",
+      "q1": "Cosa sono i dot universali per mouse?",
+      "a1": "Piccoli piedini rotondi che si posizionano su diverse forme di mouse, invece di adattarsi a un solo modello.",
+      "q2": "Ice Version è compatibile con il mio mouse?",
+      "a2": "I dot universali si posizionano liberamente su molte forme di mouse. Mantieni il mouse stabile e lascia libero il sensore.",
+      "q3": "Quanti dot devo usare?",
+      "a3": "Inizia con un posizionamento bilanciato lungo le aree di contatto esterne e regola solo se necessario. Non esiste un numero unico per ogni mouse.",
+      "q4": "Su quali superfici si usa Ice Version?",
+      "a4": "Su tappetini in tessuto e in vetro.",
+      "q5": "Cosa c'è nella confezione?",
+      "a5": "20 dot in PTFE e una salvietta di alcol isopropilico confezionata singolarmente.",
+      "q6": "Come ordino?",
+      "a6": "Scegli Ice Version in cima alla pagina, aggiungilo al carrello e procedi al pagamento sicuro."
+    }
+  }
+}
