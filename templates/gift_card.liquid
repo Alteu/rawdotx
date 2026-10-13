@@ -1,0 +1,32 @@
+{% layout none %}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    {% render 'meta-tags' %}
+    {% render 'css-variables' %}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body class="template-gift-card">
+    <main class="main-page page-width">
+      {% render 'logo-mark', class: 'main-password__logo' %}
+      <h1 class="page-title">{{ gift_card.balance | money_with_currency }}</h1>
+      {%- if gift_card.enabled == false or gift_card.expired -%}
+        <p>{{ 'gift_card.expired' | t }}</p>
+      {%- endif -%}
+      <p>{{ 'gift_card.use_at_checkout' | t }}</p>
+      <p class="gift-card__code">{{ gift_card.code | format_code }}</p>
+      {%- if gift_card.pass_url -%}
+        <a href="{{ gift_card.pass_url }}">
+          <img
+            src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
+            alt="{{ 'gift_card.add_to_apple_wallet' | t }}"
+            width="120"
+            height="40"
+          >
+        </a>
+      {%- endif -%}
+      <a class="button button--primary" href="{{ shop.url }}">{{ 'cart.continue_shopping' | t }}</a>
+    </main>
+  </body>
+</html>

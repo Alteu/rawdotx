@@ -1,0 +1,36 @@
+{%- liquid
+  comment
+    Key specs come from the product metafield custom.key_specs (list of single-line text),
+    each entry written as "value|label", e.g. "0.8 mm|Thickness". Without it, no spec row is shown.
+  endcomment
+  assign specs = product.metafields.custom.key_specs.value | join: '~~'
+-%}
+<div class="main-product">
+  {% render 'buy-box',
+    id: section.id,
+    product: product,
+    title: product.title,
+    badge: product.metafields.custom.type_label.value,
+    tagline: product.metafields.custom.tagline.value,
+    specs: specs,
+    coming_soon: section.settings.coming_soon,
+    heading_tag: 'h1',
+    eager: true
+  %}
+</div>
+
+{% schema %}
+{
+  "name": "Product",
+  "class": "section-main-product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "coming_soon",
+      "label": "Show as coming soon",
+      "info": "Use on a product template assigned to products that aren't for sale yet.",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

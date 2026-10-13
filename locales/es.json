@@ -1,0 +1,90 @@
+{
+  "accessibility": {
+    "skip_to_content": "Ir al contenido",
+    "close": "Cerrar"
+  },
+  "general": {
+    "page": "Página {{ page }}",
+    "not_found_title": "Página no encontrada",
+    "not_found_text": "La página que buscas no existe."
+  },
+  "header": {
+    "navigation": "Principal",
+    "account": "Cuenta",
+    "cart": "Carrito",
+    "cart_count": {
+      "one": "{{ count }} artículo en el carrito",
+      "other": "{{ count }} artículos en el carrito"
+    },
+    "menu": "Menú"
+  },
+  "footer": {
+    "navigation": "Pie de página"
+  },
+  "localization": {
+    "country_label": "País/región",
+    "language_label": "Idioma",
+    "update": "Actualizar"
+  },
+  "categories": {
+    "skates": "Skates",
+    "glasspads": "Glasspads",
+    "arm_sleeves": "Mangas"
+  },
+  "showcase": {
+    "categories": "Categorías de productos",
+    "slide": "producto",
+    "slide_count": "{{ current }} de {{ total }}",
+    "previous": "Producto anterior",
+    "next": "Producto siguiente"
+  },
+  "products": {
+    "add_to_cart": "Agregar al carrito",
+    "adding": "Agregando…",
+    "added": "Agregado al carrito",
+    "add_error": "No se pudo agregar al carrito. Inténtalo de nuevo.",
+    "go_to_cart": "Ir al carrito",
+    "sold_out": "Agotado",
+    "unavailable": "No disponible",
+    "see_more": "Ver más",
+    "coming_soon": "Próximamente",
+    "notify_me": "Avísame",
+    "notify_label": "Recibe un correo cuando esté disponible",
+    "notify_success": "¡Gracias! Te escribiremos cuando esté disponible.",
+    "specifications": "Especificaciones",
+    "about": "Acerca del producto",
+    "view_full_page": "Ver página completa del producto"
+  },
+  "cart": {
+    "title": "Carrito",
+    "quantity_for": "Cantidad de {{ title }}",
+    "remove": "Eliminar",
+    "update": "Actualizar carrito",
+    "subtotal": "Subtotal",
+    "taxes_and_shipping": "Impuestos y envío calculados al pagar.",
+    "checkout": "Pagar",
+    "empty": "Tu carrito está vacío.",
+    "continue_shopping": "Seguir comprando"
+  },
+  "collections": {
+    "empty": "Todavía no hay productos."
+  },
+  "search": {
+    "title": "Buscar",
+    "label": "Buscar productos",
+    "submit": "Buscar",
+    "results_count": {
+      "one": "{{ count }} resultado para \"{{ terms }}\"",
+      "other": "{{ count }} resultados para \"{{ terms }}\""
+    }
+  },
+  "password": {
+    "label": "Contraseña",
+    "submit": "Entrar"
+  },
+  "gift_card": {
+    "expired": "Esta tarjeta de regalo ha vencido.",
+    "use_at_checkout": "Usa este código al pagar:",
+    "add_to_apple_wallet": "Agregar a Apple Wallet"
+  }
+}

@@ -1,0 +1,93 @@
+{%- liquid
+  assign skates_url = routes.root_url | append: '#skates'
+  assign glasspads_url = routes.root_url | append: '#glasspads'
+  assign sleeves_url = routes.root_url | append: '#arm-sleeves'
+-%}
+{%- capture nav_links -%}
+  {%- if section.settings.menu.links.size > 0 -%}
+    {%- for link in section.settings.menu.links -%}
+      <li>
+        <a
+          href="{{ link.url }}"
+          {% if link.active %}
+            aria-current="page"
+          {% endif %}
+        >
+          {{- link.title | escape -}}
+        </a>
+      </li>
+    {%- endfor -%}
+  {%- else -%}
+    <li>
+      <a href="{{ skates_url }}" data-category-link="skates">{{ 'categories.skates' | t }}</a>
+    </li>
+    <li>
+      <a href="{{ glasspads_url }}" data-category-link="glasspads">{{ 'categories.glasspads' | t }}</a>
+    </li>
+    <li>
+      <a href="{{ sleeves_url }}" data-category-link="arm-sleeves">{{ 'categories.arm_sleeves' | t }}</a>
+    </li>
+  {%- endif -%}
+{%- endcapture -%}
+
+<header class="site-header">
+  <div class="site-header__inner page-width">
+    <a class="site-header__logo" href="{{ routes.root_url }}">
+      {% render 'logo-mark' %}
+      <span class="visually-hidden">{{ shop.name }}</span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="{{ 'header.navigation' | t }}">
+      <ul class="site-header__links" role="list">
+        {{ nav_links }}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <div class="site-header__localization">
+        {% render 'localization-form', id_prefix: 'HeaderLocalization' %}
+      </div>
+      {%- if shop.customer_accounts_enabled -%}
+        <a class="site-header__icon" href="{{ routes.account_url }}">
+          {% render 'icon', name: 'account' %}
+          <span class="visually-hidden">{{ 'header.account' | t }}</span>
+        </a>
+      {%- endif -%}
+      <a class="site-header__cart" href="{{ routes.cart_url }}">
+        <span>{{ 'header.cart' | t }}</span>
+        <span class="site-header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+        <span class="visually-hidden">{{ 'header.cart_count' | t: count: cart.item_count }}</span>
+      </a>
+
+      <details class="site-header__menu">
+        <summary class="site-header__icon">
+          {% render 'icon', name: 'menu' %}
+          <span class="visually-hidden">{{ 'header.menu' | t }}</span>
+        </summary>
+        <div class="site-header__menu-panel">
+          <nav aria-label="{{ 'header.navigation' | t }}">
+            <ul class="site-header__menu-links" role="list">
+              {{ nav_links }}
+            </ul>
+          </nav>
+          {% render 'localization-form', id_prefix: 'MenuLocalization' %}
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "info": "Leave empty to link to the skates, glasspads and arm sleeves on the homepage."
+    }
+  ]
+}
+{% endschema %}

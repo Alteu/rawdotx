@@ -1,0 +1,43 @@
+<footer class="site-footer">
+  <div class="site-footer__inner page-width">
+    <div class="site-footer__brand">
+      {% render 'logo-mark' %}
+      <p>
+        © {{ 'now' | date: '%Y' }}
+        {{ shop.name }}
+      </p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="{{ 'footer.navigation' | t }}">
+      <ul role="list">
+        {%- for policy in shop.policies -%}
+          <li>
+            <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+          </li>
+        {%- endfor -%}
+        {%- if settings.social_instagram != blank -%}
+          <li>
+            <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_tiktok != blank -%}
+          <li>
+            <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">TikTok</a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </nav>
+
+    <div class="site-footer__localization">
+      {% render 'localization-form', id_prefix: 'FooterLocalization' %}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section-footer",
+  "settings": []
+}
+{% endschema %}

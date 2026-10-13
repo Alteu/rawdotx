@@ -1,0 +1,45 @@
+<!doctype html>
+{%- liquid
+  assign rtl_languages = 'ar,he,fa,ur'
+  assign language_code = request.locale.iso_code | split: '-' | first
+  assign text_direction = 'ltr'
+  if rtl_languages contains language_code
+    assign text_direction = 'rtl'
+  endif
+-%}
+<html lang="{{ request.locale.iso_code }}" dir="{{ text_direction }}">
+  <head>
+    {% render 'meta-tags' %}
+    {% render 'css-variables' %}
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'theme.js' | asset_url }}" type="module"></script>
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="template-{{ request.page_type | handle }}">
+    <a class="skip-link visually-hidden-focusable" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    <p class="visually-hidden" role="status" aria-live="polite" data-live-region></p>
+    <script type="application/json" id="ThemeStrings">
+      {
+        "addToCart": {{ 'products.add_to_cart' | t | json }},
+        "adding": {{ 'products.adding' | t | json }},
+        "added": {{ 'products.added' | t | json }},
+        "addError": {{ 'products.add_error' | t | json }},
+        "soldOut": {{ 'products.sold_out' | t | json }},
+        "unavailable": {{ 'products.unavailable' | t | json }},
+        "cartAddUrl": {{ routes.cart_add_url | append: '.js' | json }}
+      }
+    </script>
+  </body>
+</html>

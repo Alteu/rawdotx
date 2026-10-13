@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "showcase": {
+      "type": "showcase",
+      "blocks": {
+        "ice-version": {
+          "type": "item",
+          "settings": {
+            "category": "skates",
+            "product": "https-rawdot-shop",
+            "coming_soon": false,
+            "title": "Ice Version",
+            "badge": "Speed",
+            "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+            "spec_1_value": "100%",
+            "spec_1_label": "PTFE",
+            "spec_2_value": "20",
+            "spec_2_label": "Dots",
+            "spec_3_value": "6.5 mm",
+            "spec_3_label": "Diameter",
+            "spec_4_value": "0.8 mm",
+            "spec_4_label": "Thickness",
+            "details": "<p><strong>In the pouch:</strong> 20 PTFE dots and 1 individually wrapped alcohol prep pad.</p><p>Universal dots fit around different mouse shapes. Start with balanced placement around the outer contact areas, keep the sensor clear, and adjust only when needed.</p>"
+          }
+        },
+        "control-version": {
+          "type": "item",
+          "settings": {
+            "category": "skates",
+            "coming_soon": true,
+            "title": "Control Version",
+            "badge": "Control"
+          }
+        },
+        "glasspad": {
+          "type": "item",
+          "settings": {
+            "category": "glasspads",
+            "coming_soon": true,
+            "title": "Glasspad"
+          }
+        },
+        "arm-sleeve": {
+          "type": "item",
+          "settings": {
+            "category": "arm-sleeves",
+            "coming_soon": true,
+            "title": "Arm Sleeve"
+          }
+        }
+      },
+      "block_order": ["ice-version", "control-version", "glasspad", "arm-sleeve"],
+      "settings": {
+        "heading": "rawdot — mouse skates, glasspads and gaming arm sleeves"
+      }
+    }
+  },
+  "order": ["showcase"]
+}
