@@ -5,7 +5,14 @@ Direct-to-consumer store for rawdot gaming peripherals: mouse skates, glasspads,
 ## Project status
 
 - **Phase: technical foundation.** No storefront code exists yet. Do not start building the theme until the owner approves the next phase.
-- **Design is not finalized.** Direction: build on the current theme's look (see **Store**), but specific colors, typography, layouts and animations are confirmed with the owner before use. Don't invent a new visual style or copy other brands' designs. Design decisions are made with the owner and recorded here once approved.
+- **Design is not finalized.** Specific typography, layouts and animations are confirmed with the owner before use. Don't invent a new visual style or copy other brands' designs.
+
+## Design decisions (approved 13 Oct 2026)
+
+- **Sell first, explain second.** A visitor's first screen shows the product, its price and add-to-cart, with no scrolling, on desktop and mobile. Story, placement guide, installation and FAQ come after, or on demand. Wallhack's buying patterns are the model (`docs/research/wallhack-analysis.md`); the model is _how it sells_, not its look.
+- **Black-and-white base.** Keep the monochrome look of the current site.
+- **No blue accent.** It only existed because of the Ice Version's name. Buy buttons are solid black (white on dark backgrounds). A product-specific accent may be revisited later with the owner.
+- **No oversized editorial headlines** like the current site's "One shape. More freedom." Headings are compact and informational: product name, what it is, price.
 
 ## Brand rules
 
