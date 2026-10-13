@@ -14,16 +14,18 @@ function announce(message) {
 /* Category tabs and product slides on the homepage. */
 class ProductShowcase extends HTMLElement {
   connectedCallback() {
-    this.tabs = [...this.querySelectorAll('[role="tab"]')];
     this.panels = [...this.querySelectorAll('[data-panel]')];
     if (this.panels.length === 0) return;
 
-    this.tabs.forEach((tab) => {
-      tab.addEventListener('click', (event) => {
+    // The category links in the header (Skates, Glasspads, Arm sleeves) switch categories in place.
+    document.querySelectorAll('[data-category-link]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        if (!this.hasPanel(link.dataset.categoryLink)) return;
         event.preventDefault();
-        this.select(tab.dataset.category, true);
+        link.closest('details')?.removeAttribute('open');
+        this.select(link.dataset.categoryLink, true);
+        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
-      tab.addEventListener('keydown', (event) => this.onTabKeydown(event));
     });
     this.addEventListener('click', (event) => {
       const trigger = event.target.closest('[data-show-slide]');
@@ -34,19 +36,18 @@ class ProductShowcase extends HTMLElement {
     if (!this.selectFromHash()) this.select(this.dataset.defaultCategory, false);
   }
 
+  hasPanel(id) {
+    return this.panels.some((panel) => panel.dataset.panel === id);
+  }
+
   selectFromHash() {
     const id = decodeURIComponent(window.location.hash.slice(1));
-    if (!this.panels.some((panel) => panel.dataset.panel === id)) return false;
+    if (!this.hasPanel(id)) return false;
     this.select(id, false);
     return true;
   }
 
   select(category, updateUrl) {
-    this.tabs.forEach((tab) => {
-      const selected = tab.dataset.category === category;
-      tab.setAttribute('aria-selected', String(selected));
-      tab.tabIndex = selected ? 0 : -1;
-    });
     this.panels.forEach((panel) => {
       panel.hidden = panel.dataset.panel !== category;
     });
@@ -55,23 +56,6 @@ class ProductShowcase extends HTMLElement {
       else link.removeAttribute('aria-current');
     });
     if (updateUrl) history.replaceState(null, '', `#${category}`);
-  }
-
-  onTabKeydown(event) {
-    const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
-    if (!keys.includes(event.key)) return;
-    event.preventDefault();
-    const rtl = getComputedStyle(this).direction === 'rtl';
-    const index = this.tabs.indexOf(event.currentTarget);
-    let next = index;
-    if (event.key === 'Home') next = 0;
-    else if (event.key === 'End') next = this.tabs.length - 1;
-    else {
-      const forward = (event.key === 'ArrowRight') !== rtl;
-      next = (index + (forward ? 1 : -1) + this.tabs.length) % this.tabs.length;
-    }
-    this.tabs[next].focus();
-    this.select(this.tabs[next].dataset.category, true);
   }
 
   // Versions (e.g. Ice Version / Control Version) are switched by clicking them in the panel or on the stage.
@@ -86,8 +70,8 @@ class ProductShowcase extends HTMLElement {
     current?.classList.remove('is-active');
     target.classList.add('is-active');
 
-    const pressed = target.querySelector(`.versions [data-show-slide="${CSS.escape(id)}"]`);
-    pressed?.focus({ preventScroll: true });
+    const chip = target.querySelector('[data-show-slide]');
+    (chip || target.querySelector('.buy-box__title'))?.focus({ preventScroll: true });
     const title = target.querySelector('.buy-box__title')?.textContent.trim();
     if (title) announce(title);
   }

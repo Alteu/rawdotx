@@ -10,10 +10,10 @@
 <html lang="{{ request.locale.iso_code }}" dir="{{ text_direction }}">
   <head>
     {% render 'meta-tags' %}
-    {%- if settings.show_intro and request.design_mode == false -%}
+    {%- if settings.show_intro -%}
       <script>
         try {
-          if (sessionStorage.getItem('rawdot-intro') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          if (sessionStorage.getItem('rawdot-intro')) {
             document.documentElement.classList.add('no-intro');
           } else {
             sessionStorage.setItem('rawdot-intro', '1');
@@ -32,7 +32,7 @@
   </head>
 
   <body class="template-{{ request.page_type | handle }}">
-    {%- if settings.show_intro and request.design_mode == false -%}
+    {%- if settings.show_intro -%}
       {% render 'intro' %}
     {%- endif -%}
     <a class="skip-link visually-hidden-focusable" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>

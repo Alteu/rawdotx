@@ -1,9 +1,9 @@
 {% doc %}
   Logo intro: the "r" of the rawdot mark draws itself, the dot glides into place, then the screen lifts away.
-  Plays once per browser session. Skipped in the theme editor, when disabled in theme settings,
-  and for visitors who prefer reduced motion (see the inline check in layout/theme.liquid).
+  Plays once per browser tab session and can be turned off in theme settings. Visitors who prefer reduced
+  motion get a short fade of the finished logo instead (see base.css).
 {% enddoc %}
-<div class="intro scheme-dark" aria-hidden="true">
+<div class="intro" aria-hidden="true">
   <svg class="intro__mark" viewBox="-30 -30 551 546" fill="none">
     <path
       class="intro__stroke"

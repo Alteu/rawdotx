@@ -1,0 +1,39 @@
+<div class="story-section page-width" id="pouch">
+  <div class="story-section__split">
+    <div class="story-section__header">
+      <p class="section-label">{{ 'home.pouch.label' | t }}</p>
+      <h2 class="story-section__heading">{{ 'home.pouch.heading' | t }}</h2>
+      <p class="story-section__intro">{{ 'home.pouch.intro' | t }}</p>
+      <ul class="pouch-list" role="list">
+        <li>
+          <strong>20</strong>
+          <span>{{ 'home.pouch.dots' | t }}</span>
+        </li>
+        <li>
+          <strong>01</strong>
+          <span>{{ 'home.pouch.pad' | t }}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="pouch-photo">
+      <img
+        src="{{ 'rawdot-contents-full-960.webp' | asset_url }}"
+        srcset="{{ 'rawdot-contents-full-480.webp' | asset_url }} 480w, {{ 'rawdot-contents-full-960.webp' | asset_url }} 960w, {{ 'rawdot-contents-full-1536.webp' | asset_url }} 1536w"
+        sizes="(min-width: 990px) 50vw, 92vw"
+        width="1536"
+        height="1024"
+        loading="lazy"
+        alt="{{ 'home.pouch.image_alt' | t | escape }}"
+      >
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "In the pouch",
+  "class": "section-story",
+  "settings": [],
+  "presets": [{ "name": "In the pouch" }]
+}
+{% endschema %}

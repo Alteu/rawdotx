@@ -5,7 +5,7 @@
   endcomment
   assign specs = product.metafields.custom.key_specs.value | join: '~~'
 -%}
-<div class="main-product scheme-dark">
+<div class="main-product">
   {% render 'buy-box',
     id: section.id,
     product: product,
@@ -15,6 +15,7 @@
     specs: specs,
     coming_soon: section.settings.coming_soon,
     heading_tag: 'h1',
+    eyebrow: 'rawdot',
     eager: true
   %}
 </div>

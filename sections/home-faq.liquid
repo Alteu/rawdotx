@@ -1,0 +1,35 @@
+<div class="story-section page-width" id="faq">
+  <div class="story-section__split">
+    <div class="story-section__header">
+      <p class="section-label">{{ 'home.faq.label' | t }}</p>
+      <h2 class="story-section__heading">{{ 'home.faq.heading' | t }}</h2>
+      <p class="story-section__intro">{{ 'home.faq.description' | t }}</p>
+    </div>
+    <div class="faq-list">
+      {%- for i in (1..6) -%}
+        {%- liquid
+          assign q_key = 'home.faq.q' | append: i
+          assign a_key = 'home.faq.a' | append: i
+        -%}
+        <details
+          class="faq-item"
+          {% if forloop.first %}
+            open
+          {% endif %}
+        >
+          <summary>{{ q_key | t }}</summary>
+          <p>{{ a_key | t }}</p>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "class": "section-story",
+  "settings": [],
+  "presets": [{ "name": "FAQ" }]
+}
+{% endschema %}

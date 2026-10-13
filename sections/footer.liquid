@@ -1,36 +1,63 @@
+{%- liquid
+  assign faq_url = routes.root_url | append: '#faq'
+-%}
 <footer class="site-footer">
   <div class="site-footer__inner page-width">
     <div class="site-footer__brand">
-      {% render 'logo-mark' %}
-      <p>
-        © {{ 'now' | date: '%Y' }}
-        {{ shop.name }}
-      </p>
+      <a href="{{ routes.root_url }}" class="site-footer__logo">
+        <img
+          src="{{ 'rawdot-wordmark-inverted.png' | asset_url }}"
+          alt="{{ shop.name | escape }}"
+          width="74"
+          height="53"
+          loading="lazy"
+        >
+      </a>
+      <p>© {{ 'now' | date: '%Y' }} rawdot. {{ 'footer.all_rights_reserved' | t }}</p>
     </div>
 
     <nav class="site-footer__nav" aria-label="{{ 'footer.navigation' | t }}">
       <ul role="list">
-        {%- for policy in shop.policies -%}
-          <li>
-            <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
-          </li>
-        {%- endfor -%}
         {%- if settings.social_instagram != blank -%}
-          <li>
-            <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a>
-          </li>
+          <li><a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a></li>
         {%- endif -%}
         {%- if settings.social_tiktok != blank -%}
+          <li><a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">TikTok</a></li>
+        {%- endif -%}
+        <li>
+          <a href="{{ faq_url }}">{{ 'footer.faq' | t }}</a>
+        </li>
+        {%- if settings.contact_email != blank -%}
           <li>
-            <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">TikTok</a>
+            <a href="mailto:{{ settings.contact_email }}">{{ 'footer.contact' | t }}</a>
+          </li>
+        {%- elsif shop.contact_information.url != blank -%}
+          <li>
+            <a href="{{ shop.contact_information.url }}">{{ 'footer.contact' | t }}</a>
+          </li>
+        {%- endif -%}
+        {%- if shop.terms_of_service.url != blank -%}
+          <li>
+            <a href="{{ shop.terms_of_service.url }}">{{ 'footer.terms' | t }}</a>
+          </li>
+        {%- endif -%}
+        {%- if shop.privacy_policy.url != blank -%}
+          <li>
+            <a href="{{ shop.privacy_policy.url }}">{{ 'footer.privacy' | t }}</a>
+          </li>
+        {%- endif -%}
+        {%- if shop.refund_policy.url != blank -%}
+          <li>
+            <a href="{{ shop.refund_policy.url }}">{{ shop.refund_policy.title | escape }}</a>
+          </li>
+        {%- endif -%}
+        {%- if shop.shipping_policy.url != blank -%}
+          <li>
+            <a href="{{ shop.shipping_policy.url }}">{{ shop.shipping_policy.title | escape }}</a>
           </li>
         {%- endif -%}
       </ul>
     </nav>
-
-    <div class="site-footer__localization">
-      {% render 'localization-form', id_prefix: 'FooterLocalization' %}
-    </div>
   </div>
 </footer>
 

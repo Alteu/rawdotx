@@ -12,71 +12,71 @@
     "settings": [
       {
         "type": "header",
-        "content": "Light areas (cart, pages)"
+        "content": "Page"
       },
       {
         "type": "color",
         "id": "color_background",
         "label": "Background",
-        "default": "#ffffff"
+        "default": "#fbfbf9"
       },
       {
         "type": "color",
         "id": "color_foreground",
         "label": "Text and buttons",
-        "default": "#0b0b0b"
+        "default": "#111214"
       },
       {
         "type": "color",
         "id": "color_surface",
         "label": "Panels",
-        "default": "#f3f3f3"
+        "default": "#f1f1ee"
       },
       {
         "type": "color",
         "id": "color_muted",
         "label": "Secondary text",
-        "default": "#5c5c5c"
+        "default": "#6b6c69"
       },
       {
         "type": "color",
         "id": "color_border",
         "label": "Borders",
-        "default": "#dcdcdc"
+        "default": "#deded9"
       },
       {
         "type": "header",
-        "content": "Dark areas (header, product stage, footer)"
+        "content": "Dark areas (header, footer)"
       },
       {
         "type": "color",
         "id": "color_dark_background",
         "label": "Background",
-        "default": "#0b0b0b"
+        "default": "#0d0e0e"
       },
       {
         "type": "color",
         "id": "color_dark_foreground",
         "label": "Text and buttons",
-        "default": "#f4f4f4"
+        "default": "#f4f4ef"
       },
       {
         "type": "color",
         "id": "color_dark_surface",
         "label": "Panels",
-        "default": "#151515"
+        "default": "#1a1b1b"
       },
       {
         "type": "color",
         "id": "color_dark_muted",
         "label": "Secondary text",
-        "default": "#9b9b9b"
+        "default": "#9a9b97"
       },
       {
         "type": "color",
         "id": "color_dark_border",
         "label": "Borders",
-        "default": "#2a2a2a"
+        "default": "#2b2c2c"
       }
     ]
   },
@@ -99,7 +99,7 @@
     ]
   },
   {
-    "name": "Social media",
+    "name": "Social media and contact",
     "settings": [
       {
         "type": "url",
@@ -110,6 +110,12 @@
         "type": "url",
         "id": "social_tiktok",
         "label": "TikTok"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Contact email",
+        "default": "rawdot.shop@outlook.com"
       }
     ]
   }

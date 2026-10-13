@@ -49,11 +49,43 @@
           }
         }
       },
-      "block_order": ["ice-version", "control-version", "glasspad", "arm-sleeve"],
+      "block_order": [
+        "ice-version",
+        "control-version",
+        "glasspad",
+        "arm-sleeve"
+      ],
       "settings": {
         "heading": "rawdot — mouse skates, glasspads and gaming arm sleeves"
       }
+    },
+    "placement": {
+      "type": "home-placement",
+      "settings": {}
+    },
+    "pouch": {
+      "type": "home-pouch",
+      "settings": {}
+    },
+    "install": {
+      "type": "home-install",
+      "settings": {}
+    },
+    "origin": {
+      "type": "home-origin",
+      "settings": {}
+    },
+    "faq": {
+      "type": "home-faq",
+      "settings": {}
     }
   },
-  "order": ["showcase"]
+  "order": [
+    "showcase",
+    "placement",
+    "pouch",
+    "install",
+    "origin",
+    "faq"
+  ]
 }

@@ -55,7 +55,9 @@
       {%- endif -%}
       <a class="site-header__cart" href="{{ routes.cart_url }}">
         <span>{{ 'header.cart' | t }}</span>
-        <span class="site-header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+        <span class="site-header__cart-count"
+          >(<span data-cart-count>{{ cart.item_count }}</span>)</span
+        >
         <span class="visually-hidden">{{ 'header.cart_count' | t: count: cart.item_count }}</span>
       </a>
 

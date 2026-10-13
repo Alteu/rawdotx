@@ -1,0 +1,28 @@
+<div class="story-section page-width" id="installation">
+  <div class="story-section__header">
+    <p class="section-label">{{ 'home.install.label' | t }}</p>
+    <h2 class="story-section__heading">{{ 'home.install.heading' | t }}</h2>
+  </div>
+  <ol class="install-steps" role="list">
+    {%- for i in (1..4) -%}
+      {%- liquid
+        assign title_key = 'home.install.step_' | append: i | append: '_title'
+        assign text_key = 'home.install.step_' | append: i | append: '_text'
+      -%}
+      <li class="install-step">
+        <span class="install-step__number" aria-hidden="true">0{{ i }}</span>
+        <h3>{{ title_key | t }}</h3>
+        <p>{{ text_key | t }}</p>
+      </li>
+    {%- endfor -%}
+  </ol>
+</div>
+
+{% schema %}
+{
+  "name": "Installation steps",
+  "class": "section-story",
+  "settings": [],
+  "presets": [{ "name": "Installation steps" }]
+}
+{% endschema %}
