@@ -23,6 +23,8 @@
         }
       </script>
     {%- endif -%}
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {{ settings.type_body_font | font_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
     {% render 'css-variables' %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}

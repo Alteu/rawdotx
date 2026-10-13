@@ -1,7 +1,16 @@
 {% doc %}
   Exposes theme settings as CSS custom properties. `.scheme-dark` switches an area to the dark palette.
 {% enddoc %}
+{%- liquid
+  assign body_font = settings.type_body_font
+  assign body_font_medium = body_font | font_modify: 'weight', '500'
+  assign body_font_semibold = body_font | font_modify: 'weight', '600'
+-%}
 {% style %}
+  {{ body_font | font_face: font_display: 'swap' }}
+  {{ body_font_medium | font_face: font_display: 'swap' }}
+  {{ body_font_semibold | font_face: font_display: 'swap' }}
+
   :root {
     --color-background: {{ settings.color_background }};
     --color-foreground: {{ settings.color_foreground }};
@@ -14,7 +23,7 @@
     --page-margin: clamp(1rem, 3.5vw, 2.5rem);
     --header-height: 3.75rem;
     --radius: 0.5rem;
-    --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    --font-body: {{ body_font.family }}, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Roboto Mono', Menlo, Consolas, monospace;
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   }

@@ -81,6 +81,18 @@
     ]
   },
   {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Font",
+        "default": "jost_n4",
+        "info": "Owner choice (13 Oct 2026): Jost. Medium and semibold weights load automatically."
+      }
+    ]
+  },
+  {
     "name": "Brand",
     "settings": [
       {
