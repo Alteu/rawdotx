@@ -4,7 +4,7 @@ Direct-to-consumer store for rawdot gaming peripherals: mouse skates, glasspads,
 
 ## Project status
 
-- **Phase: technical foundation.** No storefront code exists yet. Do not start building the theme until the owner approves the next phase.
+- **Phase: build (approved 13 Oct 2026).** First version of the new theme exists in this repo and in the store as the unpublished theme `rawdot (new theme)` (#208512188785). Publishing it is the owner's decision.
 - **Design is not finalized.** Specific typography, layouts and animations are confirmed with the owner before use. Don't invent a new visual style or copy other brands' designs.
 
 ## Design decisions (approved 13 Oct 2026)
@@ -49,20 +49,21 @@ The theme must work in **any language** from day one:
 - Existing themes, which must **never** be modified, pushed to, published, unpublished, renamed or deleted:
   - `Rawdot/main` (#197611290993), the **live** theme. It is connected to a different GitHub repository, `Rawdot/main`; never push to that repository.
   - `Horizon` (#197598708081) and `External Redirect` (#197598675313), both unpublished.
-- **Design starting point (owner decision, 13 Oct 2026):** the current theme's look and content, adapted to the buying patterns in `docs/research/wallhack-analysis.md`. Its code is in `Alteu/Rawdot` (read-only reference). Findings are in `docs/research/current-theme-review.md`. Port the look and content, not the code wholesale. The new theme still starts from Shopify's Skeleton Theme.
+- **Design starting point (owner decision, 13 Oct 2026):** the current theme's look and content, adapted to the buying patterns in `docs/research/wallhack-analysis.md`. Its code is in `Alteu/Rawdot` (read-only reference). Findings are in `docs/research/current-theme-review.md`. Port the look and content, not the code wholesale.
 - CLI access is through a Theme Access password (themes only, no admin access). In cloud sessions it is a network secret on the environment, injected by the agent proxy, so the CLI gets the placeholder `shptka_placeholder`.
-- Allowed CLI writes: `shopify theme dev` (temporary development theme) and `shopify theme push --theme <new theme id>` to the new theme only. Never use `--live`, `--allow-live`, `theme publish` or `theme delete`, and never push without an explicit `--theme` ID.
+- **New theme:** `rawdot (new theme)` (#208512188785), unpublished. Preview: `https://rawdot.shop/?preview_theme_id=208512188785`.
+- Allowed CLI writes: `shopify theme dev` (temporary development theme) and `shopify theme push --theme 208512188785` to the new theme only. Never use `--live`, `--allow-live`, `theme publish` or `theme delete`, and never push without an explicit `--theme` ID.
 
 ## Architecture
 
 - **Native Shopify Online Store 2.0 theme**: Liquid, HTML, CSS, vanilla JavaScript, sections and blocks, editable in the theme editor.
-- Starting point (when approved): Shopify's **Skeleton Theme**, a minimal starter with no visual design.
+- Structure: classic Online Store 2.0 (`sections/` + JSON templates + section groups), so the owner can edit everything in the theme editor. Shopify's current Skeleton Theme forbids sections and JSON templates, so it is used only as a reference for utilities (meta tags, reset).
 - Shopify owns products, collections, inventory, customer accounts, cart, checkout, payments, orders, discounts and analytics. **Do not build custom backend infrastructure**; use native Shopify features and apps.
 - Not using Hydrogen/headless. Revisit only with the owner, if a requirement can't be met by a theme.
 - Theme folders live at the **repository root** (`assets/ blocks/ config/ layout/ locales/ sections/ snippets/ templates/`), the structure the Shopify GitHub integration and `shopify theme dev` expect.
 
 ```
-<theme folders>        Shopify theme (added when the build phase starts)
+assets/ config/ layout/ locales/ sections/ snippets/ templates/   Shopify theme
 brand/                 brand assets (logo)
 docs/research/         reference research (e.g. wallhack-analysis.md; patterns only, never copy designs)
 tests/                 Playwright tests
@@ -109,6 +110,14 @@ playwright.config.ts   browser test config
 - Work on short-lived branches: `feat/…`, `fix/…`, `chore/…`, `docs/…`. Open a PR into `staging`; `staging` goes to `main` once approved.
 - **Shopify commits theme-editor changes back to the connected branch** (`config/settings_data.json`, `templates/*.json`, `sections/*.json`). Pull before starting work. Treat those files as owner-managed content, and don't reformat or overwrite them.
 - Commits: [Conventional Commits](https://www.conventionalcommits.org/) (`feat: add product grid section`). One logical change per commit, so any change can be reverted on its own.
+
+## Theme map
+
+- `sections/showcase.liquid`: homepage. Category tabs (skates, glasspads, arm sleeves) with one product per slide. Each product is an `item` block (product picker, coming-soon toggle, name, type label, one-line description, image, 4 key specs, extra details).
+- `snippets/buy-box.liquid`: the sell-first product unit, shared by the homepage and product pages. Media (3D model if the product has one, else image, else logo placeholder), name, type, specs, option buttons, add-to-cart with price, "See more" dialog, notify-me form (Shopify customer form, tagged `notify-me,notify-<handle>`) for coming-soon items.
+- `sections/main-product.liquid`: product page. Reads optional product metafields `custom.type_label`, `custom.tagline` and `custom.key_specs` (list of "value|label").
+- `assets/theme.js`: progressive enhancement only (tabs, slides, variant picker, AJAX add-to-cart, dialogs, localization auto-submit, model viewer loading). `assets/base.css`: all styles, logical properties only.
+- Prices use `money_with_currency` so the currency is always visible.
 
 ## Development and testing
 
