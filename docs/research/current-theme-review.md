@@ -1,10 +1,21 @@
 # Current theme review (`Alteu/Rawdot`, live theme `Rawdot/main`)
 
-Reviewed 13 October 2026 from the code at commit `b48dec6`. The owner decided to use the current design as the starting point and adapt it to the buying patterns in `wallhack-analysis.md`. The visual review (screenshots) is still pending: `rawdot.shop` isn't in the cloud environment's allowed domains.
+Reviewed 13 October 2026 from the code at commit `b48dec6`, and visually on rawdot.shop (desktop 1440px and iPhone 13: homepage, product page, empty cart). The owner decided to use the current design as the starting point and adapt it to the buying patterns in `wallhack-analysis.md`.
 
 The theme is small and custom: 8 sections, 6 snippets, 8 templates, one CSS file (47 KB), one JS file (13 KB, deferred, no libraries), English + Spanish.
 
+## The look today
+
+- Monochrome: off-white sections with a faint dot-grid background and soft circular shapes, alternating with near-black sections that use soft spotlight gradients. One accent colour, a bright blue (`#45a1fe`), used only on add-to-cart buttons and the placement/installation markers.
+- Typography: one grotesque sans-serif. Very large, tightly spaced bold headlines ("One shape. More freedom.", "Keep it simple."), small spaced-out uppercase labels with numbering ("01 / THE PRODUCT" … "08 / QUESTIONS"), quiet grey body text.
+- Editorial pacing: alternating two-column text blocks, a four-number fact row (100% PTFE · 20 dots · 6.5 mm · 0.8 mm), a spec table with thin dividers, dark product shots of the black packaging, and scroll-reveal animations.
+- The overall impression is calm, premium and "engineered". It reads more like a product launch page than a store.
+
 ## Keep (worth carrying over)
+
+**Look and feel (owner to confirm)**
+
+- The monochrome base with one accent colour, the big tight headlines, the numbered section labels, the fact row, the thin-line spec table, the light/dark rhythm, and the dot motif (which echoes the logo and the product itself).
 
 **Content and assets**
 
@@ -37,6 +48,17 @@ The theme is small and custom: 8 sections, 6 snippets, 8 templates, one CSS file
 11. **The terms of service live in a pop-up with hard-coded text** instead of Shopify's policy pages, and these are needed for worldwide selling (shipping, refunds).
 12. **Product URL handle is `https-rawdot-shop`** (`/products/https-rawdot-shop`). That's a poor, confusing URL for search engines. Renaming it in the Shopify admin (with Shopify's automatic redirect) would be an owner decision.
 13. **About 7 MB of unused images** in `assets/` (duplicate box PNGs, package-contents PNGs, symbol sources). They aren't loaded by visitors, but they bloat the theme.
+
+## Seen on the live site
+
+- **Prices appear in pesos without saying so.** A visitor from outside Mexico is switched to the MX market and sees **"$ 199.00"**, which is 199 MXN but reads as 199 US dollars. This affects every international visitor.
+- **Add to cart is far from the top.** On desktop, the first add-to-cart button is about 2.5 screens down; on a phone, about 4 screens down. On the product page it comes after the full description, a bullet list **and** a spec table that repeats it.
+- **The closing call to action has no button.** "Ready when your setup is." ends the homepage without a way to buy (the `cta.button` text exists in the locale files but isn't rendered).
+- **The hero is mostly empty space** around the large wordmark. No product image or price appears on the first screen.
+- **The product's name in Shopify is "Rawdot Ice Version"** (mixed case), so it appears like that on the product page, in the cart and at checkout. This is fixed in the Shopify admin product title, not in the theme.
+- **The product page's back link goes to "← Cart"** rather than the shop or home. Quantity is a plain number field.
+- **Placement photos have mouse names baked in**, and the installation images have instruction text baked in (see point 3 above).
+- **The site is already light:** about 1.7 MB for the homepage on desktop and 1.2–1.3 MB for the product page, far lighter than Wallhack's ~13 MB. Keep it that way.
 
 ## Suggested approach
 
