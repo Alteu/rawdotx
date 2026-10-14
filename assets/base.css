@@ -1872,130 +1872,188 @@ select:focus-visible {
   letter-spacing: 0.08em;
 }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (compact, as on the original site) ---------- */
+/* Soft light from the left, a dot grid fading in from the right and one thin ring, all drawn as backgrounds. */
 .section-footer {
   position: relative;
-  overflow: hidden;
-  background: radial-gradient(60% 90% at 0% 0%, rgb(255 255 255 / 0.07), transparent 70%), var(--color-background);
+  background:
+    radial-gradient(circle at 100% 0%, transparent 13.9rem, rgb(255 255 255 / 0.09) 14rem, transparent 14.1rem),
+    radial-gradient(45% 140% at 0% 0%, rgb(255 255 255 / 0.07), transparent 70%), var(--color-background);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06);
 }
 
-/* Original-site motifs on black: a faint dot grid fading out and one thin ring. */
 .section-footer::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgb(255 255 255 / 0.09) 1.2px, transparent 1.4px);
-  background-size: 28px 28px;
-  mask-image: linear-gradient(to left, #000, transparent 65%);
-  pointer-events: none;
-}
-
-.section-footer::after {
-  content: '';
-  position: absolute;
-  width: 34rem;
-  aspect-ratio: 1;
-  inset-inline-end: -12rem;
-  inset-block-start: -14rem;
-  border: 1px solid rgb(255 255 255 / 0.08);
-  border-radius: 50%;
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to left, #000, transparent 55%);
   pointer-events: none;
 }
 
 .site-footer {
   position: relative;
-  z-index: 1;
 }
 
-.site-footer__top {
-  display: grid;
-  gap: 2.5rem;
-  padding-block: clamp(3rem, 7vw, 5rem) 2.5rem;
-}
-
-.site-footer__brand {
-  display: grid;
-  gap: 1.25rem;
-  align-content: start;
-}
-
-.site-footer__logo {
-  display: inline-block;
-  width: fit-content;
-}
-
-.site-footer__logo img {
-  width: 5.5rem;
-  height: auto;
-}
-
-.site-footer__tagline {
-  max-width: 22rem;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  color: var(--color-muted);
-}
-
-.site-footer__columns {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem 1.5rem;
-}
-
-.site-footer__column {
-  display: grid;
-  gap: 1rem;
-  align-content: start;
-}
-
-.site-footer__column ul {
-  display: grid;
-  gap: 0.625rem;
-}
-
-.site-footer__column :is(a, button) {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--color-foreground);
-  font: inherit;
-  font-size: 0.9375rem;
-  text-align: start;
-  text-decoration: none;
-  opacity: 0.8;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.site-footer__column :is(a, button):hover {
-  opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-
-.site-footer__bottom {
+.site-footer__inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding-block: 1.5rem;
-  border-block-start: 1px solid rgb(255 255 255 / 0.08);
+  gap: 1.5rem 2rem;
+  padding-block: 2.25rem;
   font-size: 0.75rem;
   color: var(--color-muted);
 }
 
-.site-footer__mark {
-  width: 1rem;
-  color: var(--color-muted);
+.site-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 
-@media (min-width: 750px) {
-  .site-footer__top {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+.site-footer__logo {
+  display: inline-flex;
+  padding-inline-end: 1.25rem;
+  border-inline-end: 1px solid rgb(255 255 255 / 0.12);
+  transition: opacity 0.2s ease;
+}
+
+.site-footer__logo:hover {
+  opacity: 0.8;
+}
+
+.site-footer__logo img {
+  width: 3.5rem;
+  height: auto;
+}
+
+.site-footer__nav > ul {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Socials and Legal: quiet uppercase links with a small icon, underlined from the left on hover. */
+.site-footer__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2.75rem;
+  padding-inline: 0.75rem;
+  color: var(--color-foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0.75;
+  cursor: pointer;
+  list-style: none;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer__link::-webkit-details-marker {
+  display: none;
+}
+
+.site-footer__link::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0.75rem;
+  inset-block-end: 0.6rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.site-footer__link:hover,
+.footer-menu[open] > .site-footer__link {
+  opacity: 1;
+}
+
+.site-footer__link:hover::after {
+  transform: scaleX(1);
+}
+
+.site-footer__arrow {
+  width: 0.625rem;
+  height: 0.625rem;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.site-footer__link:hover .site-footer__arrow {
+  transform: translate(2px, -2px);
+}
+
+.site-footer__chevron {
+  width: 0.625rem;
+  height: 0.375rem;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.footer-menu[open] .site-footer__chevron {
+  transform: rotate(180deg);
+}
+
+/* The Legal menu opens upward as a small dark card. */
+.footer-menu {
+  position: relative;
+}
+
+.footer-menu__list {
+  position: absolute;
+  inset-block-end: calc(100% + 0.25rem);
+  inset-inline-end: 0;
+  z-index: 5;
+  display: grid;
+  min-width: 13rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: #1a1b1d;
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.1),
+    0 24px 48px -16px rgb(0 0 0 / 0.7);
+  white-space: nowrap;
+  animation: footer-menu-in 0.25s var(--ease-out);
+}
+
+@keyframes footer-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.375rem);
+  }
+}
+
+.footer-menu__list a {
+  display: block;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.3125rem;
+  color: var(--color-foreground);
+  font-size: 0.875rem;
+  text-decoration: none;
+  opacity: 0.8;
+  transition:
+    background-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.footer-menu__list a:hover {
+  background: rgb(255 255 255 / 0.07);
+  opacity: 1;
+}
+
+@media (max-width: 749px) {
+  .site-footer__nav {
+    margin-inline-start: -0.75rem;
   }
 
-  .site-footer__columns {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .footer-menu__list {
+    inset-inline: 0 auto;
   }
 }
 
