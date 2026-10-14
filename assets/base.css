@@ -897,6 +897,9 @@ select:focus-visible {
 
 .buy-box__media img.buy-box__asset {
   height: auto;
+}
+
+.buy-box__media img.buy-box__asset--cutout {
   border-radius: 0;
   box-shadow: none;
   filter: drop-shadow(0 24px 30px rgb(17 18 20 / 0.22));
