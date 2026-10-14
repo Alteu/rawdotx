@@ -56,7 +56,8 @@
     "in_stock": "En stock",
     "notify_consent": "En vous inscrivant, vous acceptez de recevoir des e-mails de rawdot concernant ce produit. Désinscription possible à tout moment. Consultez notre [privacy]Politique de confidentialité[/privacy].",
     "details": "Détails",
-    "in_the_guide": "Dans le guide"
+    "in_the_guide": "Dans le guide",
+    "image_of": "Image {{ number }} sur {{ total }}"
   },
   "cart": {
     "title": "Panier",

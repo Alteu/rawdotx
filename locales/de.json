@@ -56,7 +56,8 @@
     "in_stock": "Auf Lager",
     "notify_consent": "Mit der Anmeldung stimmst du zu, E-Mails von rawdot zu diesem Produkt zu erhalten. Abmeldung jederzeit möglich. Siehe unsere [privacy]Datenschutzerklärung[/privacy].",
     "details": "Details",
-    "in_the_guide": "Im Guide"
+    "in_the_guide": "Im Guide",
+    "image_of": "Bild {{ number }} von {{ total }}"
   },
   "cart": {
     "title": "Warenkorb",

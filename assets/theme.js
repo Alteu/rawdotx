@@ -108,6 +108,49 @@ class ProductShowcase extends HTMLElement {
 }
 customElements.define('product-showcase', ProductShowcase);
 
+/* Product photos: swipe on phones (scroll snap), dots to jump between them on any screen. */
+class MediaGallery extends HTMLElement {
+  connectedCallback() {
+    this.track = this.querySelector('[data-gallery-track]');
+    this.dots = [...this.querySelectorAll('[data-gallery-dot]')];
+    this.dots.forEach((dot) => dot.addEventListener('click', () => this.go(Number(dot.dataset.galleryDot))));
+    this.track.addEventListener('scroll', () => this.sync(), { passive: true });
+    this.track.addEventListener('keydown', (event) => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
+      if (!step) return;
+      event.preventDefault();
+      const rtl = getComputedStyle(this).direction === 'rtl' ? -1 : 1;
+      this.go(this.index() + step * rtl);
+    });
+  }
+
+  // Distance between two photos (slide width plus any gap), so dots and arrows land exactly on a photo.
+  step() {
+    const slides = this.track.children;
+    return slides.length > 1 ? Math.abs(slides[1].offsetLeft - slides[0].offsetLeft) : this.track.clientWidth;
+  }
+
+  index() {
+    return Math.round(Math.abs(this.track.scrollLeft) / this.step());
+  }
+
+  go(i) {
+    const target = Math.max(0, Math.min(this.dots.length - 1, i));
+    const rtl = getComputedStyle(this).direction === 'rtl' ? -1 : 1;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.track.scrollTo({ left: rtl * target * this.step(), behavior: reduce ? 'auto' : 'smooth' });
+  }
+
+  sync() {
+    const current = this.index();
+    this.dots.forEach((dot, i) => {
+      if (i === current) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  }
+}
+customElements.define('media-gallery', MediaGallery);
+
 /* Option buttons (size, material…) select the matching variant. */
 class VariantPicker extends HTMLElement {
   connectedCallback() {

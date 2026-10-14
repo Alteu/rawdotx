@@ -9,8 +9,8 @@
   @param {string} [eyebrow] - Small line above the name, e.g. "rawdot / skates"
   @param {string} [badge] - Short type label, e.g. "Speed" or "Control"
   @param {string} [tagline] - One sentence: what it is and why it matters
-  @param {image} [image] - Image used instead of the product media
-  @param {string} [image_asset] - Theme asset file name, used when there is no image or product media. Photos get the usual rounded corners and shadow; a file whose name contains "-cutout" (transparent background) gets a soft drop shadow instead.
+  @param {image} [image] - Image shown first, before the product's own images
+  @param {string} [image_asset] - Theme asset file names, separated by commas, used when there is no image or product media. Photos get the usual rounded corners and shadow; a file whose name contains "-cutout" (transparent background) gets a soft drop shadow instead.
   @param {string} [specs] - Key specs as "value|label" pairs separated by "~~"
   @param {string} [details] - Extra rich text shown under "See more"
   @param {boolean} [coming_soon] - Show as coming soon (not purchasable)
@@ -30,7 +30,6 @@
   endif
   assign current_variant = product.selected_or_first_available_variant
   assign model = product.media | where: 'media_type', 'model' | first
-  assign media_image = image | default: product.featured_media.preview_image
   assign spec_items = specs | split: '~~'
   assign notify_tag = product.handle | default: display_title | handle
   assign form_id = id | append: '-form'
@@ -57,32 +56,107 @@
             auto-rotate: '',
             interaction-prompt: 'none'
         }}
-      {%- elsif media_image != blank -%}
-        {{
-          media_image
-          | image_url: width: 1600
-          | image_tag:
-            widths: '480, 720, 960, 1280, 1600',
-            sizes: '(min-width: 990px) 50vw, 90vw',
-            loading: image_loading,
-            fetchpriority: image_priority,
-            alt: display_title
-        }}
-      {%- elsif image_asset != blank -%}
-        <img
-          class="buy-box__asset{% if image_asset contains '-cutout' %} buy-box__asset--cutout{% endif %}"
-          src="{{ image_asset | asset_url }}"
-          alt="{{ display_title | escape }}"
-          width="1200"
-          height="1200"
-          loading="{{ image_loading }}"
-          fetchpriority="{{ image_priority }}"
-        >
       {%- else -%}
-        <div class="buy-box__placeholder">
-          {% render 'logo-mark' %}
-          <span>{{ 'products.coming_soon' | t }}</span>
-        </div>
+        {%- liquid
+          assign slide_count = 0
+          assign product_images = product.media | where: 'media_type', 'image'
+        -%}
+        {%- capture slides -%}
+          {%- if image != blank -%}
+            {%- assign slide_count = slide_count | plus: 1 -%}
+            <div class="gallery__slide">
+              {{
+                image
+                | image_url: width: 1600
+                | image_tag:
+                  widths: '480, 720, 960, 1280, 1600',
+                  sizes: '(min-width: 990px) 50vw, 90vw',
+                  loading: image_loading,
+                  fetchpriority: image_priority,
+                  alt: display_title
+              }}
+            </div>
+          {%- endif -%}
+          {%- for media in product_images -%}
+            {%- liquid
+              assign slide_count = slide_count | plus: 1
+              assign slide_loading = 'lazy'
+              assign slide_priority = 'auto'
+              if slide_count == 1
+                assign slide_loading = image_loading
+                assign slide_priority = image_priority
+              endif
+              assign slide_alt = media.alt | default: display_title
+            -%}
+            <div class="gallery__slide">
+              {{
+                media.preview_image
+                | image_url: width: 1600
+                | image_tag:
+                  widths: '480, 720, 960, 1280, 1600',
+                  sizes: '(min-width: 990px) 50vw, 90vw',
+                  loading: slide_loading,
+                  fetchpriority: slide_priority,
+                  alt: slide_alt
+              }}
+            </div>
+          {%- endfor -%}
+          {%- if slide_count == 0 and image_asset != blank -%}
+            {%- assign asset_files = image_asset | split: ',' -%}
+            {%- for file in asset_files -%}
+              {%- liquid
+                assign file_name = file | strip
+                assign slide_count = slide_count | plus: 1
+                assign slide_loading = 'lazy'
+                assign slide_priority = 'auto'
+                if slide_count == 1
+                  assign slide_loading = image_loading
+                  assign slide_priority = image_priority
+                endif
+              -%}
+              <div class="gallery__slide">
+                <img
+                  class="buy-box__asset{% if file_name contains '-cutout' %} buy-box__asset--cutout{% endif %}"
+                  src="{{ file_name | asset_url }}"
+                  alt="{{ display_title | escape }}"
+                  width="1200"
+                  height="1200"
+                  loading="{{ slide_loading }}"
+                  fetchpriority="{{ slide_priority }}"
+                >
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endcapture -%}
+
+        {%- if slide_count == 0 -%}
+          <div class="buy-box__placeholder">
+            {% render 'logo-mark' %}
+            <span>{{ 'products.coming_soon' | t }}</span>
+          </div>
+        {%- elsif slide_count == 1 -%}
+          {{ slides }}
+        {%- else -%}
+          <media-gallery class="gallery">
+            <div class="gallery__track" data-gallery-track tabindex="0" aria-label="{{ display_title | escape }}">
+              {{ slides }}
+            </div>
+            <div class="gallery__dots">
+              {%- for i in (1..slide_count) -%}
+                <button
+                  type="button"
+                  class="gallery__dot"
+                  data-gallery-dot="{{ forloop.index0 }}"
+                  {% if forloop.first %}
+                    aria-current="true"
+                  {% endif %}
+                >
+                  <span class="visually-hidden">{{ 'products.image_of' | t: number: i, total: slide_count }}</span>
+                </button>
+              {%- endfor -%}
+            </div>
+          </media-gallery>
+        {%- endif -%}
       {%- endif -%}
     </div>
   </div>

@@ -55,7 +55,8 @@
     "in_stock": "在庫あり",
     "notify_consent": "登録すると、この製品に関するrawdotからのメールを受け取ることに同意したことになります。配信はいつでも停止できます。[privacy]プライバシーポリシー[/privacy]をご確認ください。",
     "details": "詳細",
-    "in_the_guide": "ガイド内"
+    "in_the_guide": "ガイド内",
+    "image_of": "画像 {{ number }}/{{ total }}"
   },
   "cart": {
     "title": "カート",

@@ -55,7 +55,8 @@
     "in_stock": "有货",
     "notify_consent": "注册即表示您同意接收 rawdot 关于此产品的邮件。可随时退订。请查看我们的[privacy]隐私政策[/privacy]。",
     "details": "详细信息",
-    "in_the_guide": "指南目录"
+    "in_the_guide": "指南目录",
+    "image_of": "第 {{ number }} 张，共 {{ total }} 张"
   },
   "cart": {
     "title": "购物车",

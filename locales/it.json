@@ -56,7 +56,8 @@
     "in_stock": "Disponibile",
     "notify_consent": "Iscrivendoti accetti di ricevere e-mail da rawdot su questo prodotto. Puoi annullare l'iscrizione in qualsiasi momento. Consulta la nostra [privacy]Informativa sulla privacy[/privacy].",
     "details": "Dettagli",
-    "in_the_guide": "Nella guida"
+    "in_the_guide": "Nella guida",
+    "image_of": "Immagine {{ number }} di {{ total }}"
   },
   "cart": {
     "title": "Carrello",

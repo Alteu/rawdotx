@@ -905,6 +905,93 @@ select:focus-visible {
   filter: drop-shadow(0 24px 30px rgb(17 18 20 / 0.22));
 }
 
+/* Several photos: a swipeable track with round dots (the brand dot) under it. */
+.gallery {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.gallery__track {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  /* Room for the photo's shadow, which the scroll area would otherwise cut off. */
+  padding-block: 1rem 4.5rem;
+  margin-block: -1rem -4rem;
+}
+
+/* Phones: the track reaches the screen edges so the photo's shadow is never cut at the sides. */
+@media (max-width: 989px) {
+  .gallery__track {
+    width: calc(100% + 2 * var(--page-margin));
+    margin-inline: calc(-1 * var(--page-margin));
+    padding-inline: var(--page-margin);
+    scroll-padding-inline: var(--page-margin);
+    gap: calc(2 * var(--page-margin));
+  }
+}
+
+.gallery__track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery__track:focus-visible {
+  outline-offset: -2px;
+}
+
+.gallery__slide {
+  display: grid;
+  place-items: center;
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: center;
+}
+
+.gallery__dots {
+  position: relative;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.gallery__dot {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.gallery__dot::before {
+  content: '';
+  width: 0.4375rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--color-muted);
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.3s var(--ease-out);
+}
+
+.gallery__dot:hover::before {
+  box-shadow: inset 0 0 0 1px var(--color-foreground);
+}
+
+.gallery__dot[aria-current]::before {
+  background: var(--color-foreground);
+  box-shadow: none;
+  transform: scale(1.15);
+}
+
 .buy-box__media model-viewer {
   width: 100%;
   height: 100%;
