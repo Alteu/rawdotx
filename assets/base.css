@@ -2700,6 +2700,198 @@ select:focus-visible {
   vertical-align: top;
 }
 
+/* ---------- Toasts (cart added / removed) ---------- */
+.toasts {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  display: grid;
+  justify-items: center;
+  padding-inline: var(--page-margin);
+  pointer-events: none;
+}
+
+/* Phones on pages with the fixed buy bar: sit above it. */
+@media (max-width: 989px) {
+  .template-index .toasts,
+  .template-product .toasts {
+    inset-block-end: calc(5.25rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (min-width: 990px) {
+  .toasts {
+    justify-items: end;
+    inset-block-end: 1.5rem;
+  }
+}
+
+.toast {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  width: min(25rem, 100%);
+  padding: 0.75rem 0.5rem 0.75rem 0.875rem;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  background: radial-gradient(120% 140% at 0% 0%, rgb(255 255 255 / 0.08), transparent 60%), #111214;
+  color: #fbfbf9;
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.16),
+    0 18px 40px -12px rgb(17 18 20 / 0.55);
+  pointer-events: auto;
+  animation: toast-in 0.4s var(--ease-out);
+}
+
+.toast.is-leaving {
+  animation: toast-out 0.26s ease-in forwards;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.98);
+  }
+}
+
+@keyframes toast-out {
+  to {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.98);
+  }
+}
+
+/* The brand dot pops in as the confirmation mark. */
+.toast__mark {
+  flex: none;
+  width: 0.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fbfbf9;
+  animation: toast-dot 0.5s 0.1s var(--ease-out) both;
+}
+
+@keyframes toast-dot {
+  from {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.6);
+  }
+}
+
+.toast__image {
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.375rem;
+  background: #fbfbf9;
+  object-fit: contain;
+}
+
+.toast__text {
+  display: grid;
+  gap: 0.125rem;
+  min-width: 0;
+  margin-inline-end: auto;
+}
+
+.toast__message {
+  overflow: hidden;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: rgb(251 251 249 / 0.6);
+}
+
+.toast__title {
+  overflow: hidden;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toast__action {
+  flex: none;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 0.3125rem;
+  background: #fbfbf9;
+  color: #111214;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s var(--ease-out);
+}
+
+.toast__action:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.toast__close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: rgb(251 251 249 / 0.55);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.toast__close:hover {
+  color: #fbfbf9;
+}
+
+.toast__close svg {
+  width: 0.625rem;
+  height: 0.625rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.toast :focus-visible {
+  outline-color: #fbfbf9;
+}
+
+/* Thin line along the bottom that runs down until the toast closes. */
+.toast__timer {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 2px;
+  background: rgb(251 251 249 / 0.35);
+  transform-origin: left;
+  animation: toast-timer var(--toast-ms, 5s) linear forwards;
+}
+
+.toast.is-paused .toast__timer {
+  animation-play-state: paused;
+}
+
+@keyframes toast-timer {
+  to {
+    transform: scaleX(0);
+  }
+}
+
 /* ---------- Experimental Canvas UI effects (?fx=1 only) ---------- */
 .fx-canvas {
   display: block;

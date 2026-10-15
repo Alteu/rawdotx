@@ -5,7 +5,16 @@
     <form action="{{ routes.cart_url }}" method="post" class="main-cart__form" id="CartForm" data-cart-form>
       <ul class="cart-items" role="list">
         {%- for item in cart.items -%}
-          <li class="cart-item">
+          <li
+            class="cart-item"
+            data-cart-line="{{ forloop.index }}"
+            data-variant-id="{{ item.variant_id }}"
+            data-quantity="{{ item.quantity }}"
+            data-title="{{ item.product.title | escape }}"
+            {% if item.image %}
+              data-image="{{ item.image | image_url: width: 160 }}"
+            {% endif %}
+          >
             <a class="cart-item__media" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
               {%- if item.image -%}
                 {{ item.image | image_url: width: 240 | image_tag: loading: 'lazy', alt: '' }}

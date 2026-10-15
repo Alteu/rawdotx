@@ -170,5 +170,12 @@
   "reviews": {
     "label": "Bewertungen",
     "heading": "Kundenbewertungen"
+  },
+  "toast": {
+    "added": "In den Warenkorb gelegt",
+    "removed": "Aus dem Warenkorb entfernt",
+    "view_cart": "Warenkorb ansehen",
+    "undo": "Rückgängig",
+    "dismiss": "Schließen"
   }
 }

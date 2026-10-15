@@ -11,6 +11,111 @@ function announce(message) {
   });
 }
 
+/* Toasts: a small black card for cart changes, with the product photo and one action (view cart / undo).
+   One at a time; disappears after 5 s, paused while hovered or focused. */
+const toastRegion = document.querySelector('[data-toasts]');
+const TOAST_MS = 5000;
+
+function dismissToast(toast) {
+  if (!toast || toast.classList.contains('is-leaving')) return;
+  toast.classList.add('is-leaving');
+  setTimeout(() => toast.remove(), 260);
+}
+
+function showToast({ message, title, image, action }) {
+  if (!toastRegion) return;
+  toastRegion.querySelectorAll('.toast').forEach(dismissToast);
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.style.setProperty('--toast-ms', `${TOAST_MS}ms`);
+
+  const mark = document.createElement('span');
+  mark.className = 'toast__mark';
+  mark.setAttribute('aria-hidden', 'true');
+  toast.append(mark);
+
+  if (image) {
+    const img = document.createElement('img');
+    img.className = 'toast__image';
+    img.src = image;
+    img.alt = '';
+    img.width = 48;
+    img.height = 48;
+    toast.append(img);
+  }
+
+  const text = document.createElement('div');
+  text.className = 'toast__text';
+  const messageEl = document.createElement('p');
+  messageEl.className = 'toast__message';
+  messageEl.textContent = message;
+  text.append(messageEl);
+  if (title) {
+    const titleEl = document.createElement('p');
+    titleEl.className = 'toast__title';
+    titleEl.textContent = title;
+    text.append(titleEl);
+  }
+  toast.append(text);
+
+  if (action) {
+    const el = document.createElement(action.href ? 'a' : 'button');
+    el.className = 'toast__action';
+    el.textContent = action.label;
+    if (action.href) el.href = action.href;
+    else el.type = 'button';
+    if (action.onClick) {
+      el.addEventListener('click', () => {
+        dismissToast(toast);
+        action.onClick();
+      });
+    }
+    toast.append(el);
+  }
+
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'toast__close';
+  close.setAttribute('aria-label', strings.toastDismiss || 'Dismiss');
+  close.innerHTML = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8"/></svg>';
+  close.addEventListener('click', () => dismissToast(toast));
+  toast.append(close);
+
+  const timer = document.createElement('span');
+  timer.className = 'toast__timer';
+  timer.setAttribute('aria-hidden', 'true');
+  toast.append(timer);
+
+  // Count down only while the toast isn't hovered or focused.
+  let remaining = TOAST_MS;
+  let started = Date.now();
+  let timeout = setTimeout(() => dismissToast(toast), remaining);
+  const pause = () => {
+    clearTimeout(timeout);
+    remaining -= Date.now() - started;
+    toast.classList.add('is-paused');
+  };
+  const resume = () => {
+    if (toast.matches(':hover, :focus-within')) return;
+    started = Date.now();
+    clearTimeout(timeout);
+    timeout = setTimeout(() => dismissToast(toast), Math.max(remaining, 1200));
+    toast.classList.remove('is-paused');
+  };
+  toast.addEventListener('pointerenter', pause);
+  toast.addEventListener('pointerleave', resume);
+  toast.addEventListener('focusin', pause);
+  toast.addEventListener('focusout', () => setTimeout(resume));
+
+  toastRegion.append(toast);
+}
+
+function sizedImage(url, width) {
+  if (!url) return '';
+  return `${url}${url.includes('?') ? '&' : '?'}width=${width}`;
+}
+
 /* Header cart badge: shows the count, filled once the cart has items, with a small bump on change. */
 function setCartCount(count) {
   document.querySelectorAll('[data-cart-count]').forEach((el) => {
@@ -202,13 +307,20 @@ document.addEventListener('submit', async (event) => {
       body: new FormData(form),
     });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const item = await response.json();
     const cart = await fetch(`${window.Shopify?.routes?.root || '/'}cart.js`).then((r) => r.json());
     setCartCount(cart.item_count);
     label.textContent = strings.addToCart;
     button.hidden = true;
     const goToCart = form.querySelector('[data-go-to-cart]');
     goToCart.hidden = false;
-    announce(strings.added);
+    const variant = item.variant_title && !/default/i.test(item.variant_title) ? ` · ${item.variant_title}` : '';
+    showToast({
+      message: strings.toastAdded,
+      title: `${item.product_title || ''}${variant}`,
+      image: sizedImage(item.image, 160),
+      action: { label: strings.toastViewCart, href: strings.cartUrl },
+    });
   } catch (error) {
     label.textContent = strings.addToCart;
     announce(strings.addError);
@@ -227,10 +339,55 @@ function setCartBusy(busy) {
   document.querySelector('[data-cart-form]')?.toggleAttribute('aria-busy', busy);
 }
 
-function changeCartLine(line, quantity) {
+// Re-render the cart from the server so prices, discounts and totals stay exact.
+async function refreshCart(count) {
+  setCartCount(count);
+  const current = document.querySelector('[data-cart]');
+  if (!current) return;
+  const focusedId = document.activeElement?.id;
+  const html = await fetch(window.location.pathname).then((r) => r.text());
+  const fresh = new DOMParser().parseFromString(html, 'text/html').querySelector('[data-cart]');
+  if (fresh) current.replaceWith(fresh);
+  if (focusedId) document.getElementById(focusedId)?.focus({ preventScroll: true });
+}
+
+function restoreCartLine(removed) {
   cartRequest = cartRequest.then(async () => {
     setCartBusy(true);
-    const focusedId = document.activeElement?.id;
+    try {
+      const response = await fetch(strings.cartAddUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ items: [{ id: Number(removed.variantId), quantity: Number(removed.quantity) }] }),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const cart = await fetch(`${window.Shopify?.routes?.root || '/'}cart.js`).then((r) => r.json());
+      await refreshCart(cart.item_count);
+      announce(strings.cartUpdated);
+    } catch (error) {
+      announce(strings.cartUpdateError);
+      console.warn('rawdot: undo failed', error);
+    } finally {
+      setCartBusy(false);
+    }
+  });
+}
+
+function changeCartLine(line, quantity) {
+  // Remember what is being removed, so the toast can put it back.
+  const row = document.querySelector(`[data-cart-line="${CSS.escape(String(line))}"]`);
+  const removed =
+    quantity === 0 && row
+      ? {
+          variantId: row.dataset.variantId,
+          quantity: row.dataset.quantity,
+          title: row.dataset.title,
+          image: row.dataset.image,
+        }
+      : null;
+
+  cartRequest = cartRequest.then(async () => {
+    setCartBusy(true);
     try {
       const response = await fetch(strings.cartChangeUrl, {
         method: 'POST',
@@ -239,14 +396,17 @@ function changeCartLine(line, quantity) {
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const cart = await response.json();
-      setCartCount(cart.item_count);
-      // Re-render the cart from the server so prices, discounts and totals stay exact.
-      const html = await fetch(window.location.pathname).then((r) => r.text());
-      const fresh = new DOMParser().parseFromString(html, 'text/html').querySelector('[data-cart]');
-      const current = document.querySelector('[data-cart]');
-      if (fresh && current) current.replaceWith(fresh);
-      document.getElementById(focusedId)?.focus({ preventScroll: true });
-      announce(strings.cartUpdated);
+      await refreshCart(cart.item_count);
+      if (removed) {
+        showToast({
+          message: strings.toastRemoved,
+          title: removed.title,
+          image: removed.image,
+          action: { label: strings.toastUndo, onClick: () => restoreCartLine(removed) },
+        });
+      } else {
+        announce(strings.cartUpdated);
+      }
     } catch (error) {
       announce(strings.cartUpdateError);
       console.warn('rawdot: cart update failed', error);

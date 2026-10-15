@@ -170,5 +170,12 @@
   "reviews": {
     "label": "Reseñas",
     "heading": "Reseñas de clientes"
+  },
+  "toast": {
+    "added": "Agregado al carrito",
+    "removed": "Eliminado del carrito",
+    "view_cart": "Ver carrito",
+    "undo": "Deshacer",
+    "dismiss": "Cerrar"
   }
 }

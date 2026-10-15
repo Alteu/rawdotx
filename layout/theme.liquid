@@ -66,6 +66,7 @@
     {% render 'about-dialog' %}
 
     <p class="visually-hidden" role="status" aria-live="polite" data-live-region></p>
+    <div class="toasts" role="status" aria-live="polite" data-toasts></div>
     <script type="application/json" id="ThemeStrings">
       {
         "addToCart": {{ 'products.add_to_cart' | t | json }},
@@ -78,6 +79,12 @@
         "cartChangeUrl": {{ routes.cart_change_url | append: '.js' | json }},
         "cartUpdated": {{ 'cart.updated' | t | json }},
         "cartUpdateError": {{ 'cart.update_error' | t | json }},
+        "cartUrl": {{ routes.cart_url | json }},
+        "toastAdded": {{ 'toast.added' | t | json }},
+        "toastRemoved": {{ 'toast.removed' | t | json }},
+        "toastViewCart": {{ 'toast.view_cart' | t | json }},
+        "toastUndo": {{ 'toast.undo' | t | json }},
+        "toastDismiss": {{ 'toast.dismiss' | t | json }},
         "fxScriptUrl": {{ 'fx-canvas.js' | asset_url | json }},
         "fxMarkUrl": {{ 'rawdot-mark.svg' | asset_url | json }}
       }

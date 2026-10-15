@@ -167,5 +167,12 @@
   "reviews": {
     "label": "レビュー",
     "heading": "お客様のレビュー"
+  },
+  "toast": {
+    "added": "カートに追加しました",
+    "removed": "カートから削除しました",
+    "view_cart": "カートを見る",
+    "undo": "元に戻す",
+    "dismiss": "閉じる"
   }
 }
