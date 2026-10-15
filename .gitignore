@@ -24,3 +24,6 @@ Thumbs.db
 /_*.js
 /_*.mjs
 /.*.mjs
+/audit-*.cjs
+/audit-*.js
+/audit-*.mjs
