@@ -2970,42 +2970,6 @@ select:focus-visible {
   }
 }
 
-/* ---------- Experimental Canvas UI effects (?fx=1 only) ---------- */
-.fx-canvas {
-  display: block;
-  pointer-events: auto;
-}
-
-.about-dialog__brand.has-fx {
-  position: relative;
-  isolation: isolate;
-}
-
-.fx-canvas--about {
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: -1;
-  width: 100%;
-  height: 48%;
-}
-
-.buy-box__placeholder.has-fx {
-  position: relative;
-  overflow: hidden;
-}
-
-.fx-canvas--halftone {
-  position: absolute;
-  inset: 4% 0 auto;
-  width: 100%;
-  height: 74%;
-}
-
-.buy-box__placeholder.has-fx span {
-  position: absolute;
-  inset-block-end: 11%;
-}
-
 /* ---------- Price: old price struck through, sale tag ---------- */
 .price__compare {
   margin-inline-end: 0.5em;

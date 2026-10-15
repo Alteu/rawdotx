@@ -179,12 +179,20 @@
             "image_asset": "review-9.webp",
             "alt": "Muy buena calidad y funcionan perfectamente en glass pad."
           }
+        },
+        "review-10": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-10.webp",
+            "alt": "Me acaban de llegar, los probé y qué sensación tan hermosa. Recomendadísimos con mousepad de tela."
+          }
         }
       },
       "block_order": [
         "review-7",
         "review-2",
         "review-6",
+        "review-10",
         "review-1",
         "review-5",
         "review-8",
