@@ -173,7 +173,8 @@
     "label": "Reseñas",
     "heading": "Reseñas de clientes",
     "photos_label": "Fotos de clientes",
-    "photo_alt": "Foto de un cliente: mouse con rawdot dots instalados"
+    "photo_alt": "Foto de un cliente: mouse con rawdot dots instalados",
+    "photos_heading": "En el mouse de nuestros clientes"
   },
   "toast": {
     "added": "Agregado al carrito",

@@ -173,7 +173,8 @@
     "label": "Reviews",
     "heading": "Customer reviews",
     "photos_label": "Customer photos",
-    "photo_alt": "Customer photo: a mouse with rawdot dots installed"
+    "photo_alt": "Customer photo: a mouse with rawdot dots installed",
+    "photos_heading": "On our customers' mice"
   },
   "toast": {
     "added": "Added to cart",

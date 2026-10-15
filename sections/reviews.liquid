@@ -1,9 +1,5 @@
 {%- liquid
   assign has_reviews = false
-  assign photo_files = section.settings.photos | split: ','
-  if photo_files.size > 0
-    assign has_reviews = true
-  endif
   for block in section.blocks
     if block.settings.image != blank or block.settings.image_asset != blank
       assign has_reviews = true
@@ -23,20 +19,6 @@
       <p class="section-label">{{ 'reviews.label' | t }}</p>
       <h2 class="guide__heading">{{ 'reviews.heading' | t }}</h2>
     </div>
-
-    {%- if photo_files.size > 0 -%}
-      <div class="reviews__photos">
-        <p class="section-label">{{ 'reviews.photos_label' | t }}</p>
-        <ul class="reviews__photo-list" role="list">
-          {%- assign photo_alt = 'reviews.photo_alt' | t -%}
-          {%- for file in photo_files -%}
-            <li class="reviews__photo">
-              {%- render 'theme-image', file: file, alt: photo_alt, sizes: '(min-width: 990px) 15rem, 56vw' -%}
-            </li>
-          {%- endfor -%}
-        </ul>
-      </div>
-    {%- endif -%}
 
     {%- if has_reviews -%}
       <ul class="reviews__list" role="list">
@@ -93,12 +75,6 @@
         { "value": "all", "label": "All categories" }
       ],
       "default": "skates"
-    },
-    {
-      "type": "text",
-      "id": "photos",
-      "label": "Customer photos",
-      "info": "Theme file names separated by commas (4:5 photos of customers' mice), shown as a row above the review screenshots."
     }
   ],
   "blocks": [

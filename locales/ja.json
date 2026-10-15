@@ -170,7 +170,8 @@
     "label": "レビュー",
     "heading": "お客様のレビュー",
     "photos_label": "お客様の写真",
-    "photo_alt": "お客様の写真：rawdot ドットを貼ったマウス"
+    "photo_alt": "お客様の写真：rawdot ドットを貼ったマウス",
+    "photos_heading": "お客様のマウスに"
   },
   "toast": {
     "added": "カートに追加しました",

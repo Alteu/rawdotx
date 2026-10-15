@@ -173,7 +173,8 @@
     "label": "Avis",
     "heading": "Avis clients",
     "photos_label": "Photos de clients",
-    "photo_alt": "Photo client : une souris équipée de dots rawdot"
+    "photo_alt": "Photo client : une souris équipée de dots rawdot",
+    "photos_heading": "Sur les souris de nos clients"
   },
   "toast": {
     "added": "Ajouté au panier",

@@ -170,7 +170,8 @@
     "label": "评价",
     "heading": "客户评价",
     "photos_label": "顾客照片",
-    "photo_alt": "顾客照片：贴了 rawdot 贴点的鼠标"
+    "photo_alt": "顾客照片：贴了 rawdot 贴点的鼠标",
+    "photos_heading": "装在顾客的鼠标上"
   },
   "toast": {
     "added": "已加入购物车",

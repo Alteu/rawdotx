@@ -114,8 +114,7 @@
     "reviews": {
       "type": "reviews",
       "settings": {
-        "category": "skates",
-        "photos": "customer-photo-1.webp, customer-photo-2.webp, customer-photo-3.webp, customer-photo-4.webp, customer-photo-5.webp, customer-photo-6.webp, customer-photo-7.webp, customer-photo-8.webp, customer-photo-9.webp, customer-photo-10.webp, customer-photo-11.webp"
+        "category": "skates"
       },
       "blocks": {
         "review-1": {
@@ -201,10 +200,18 @@
         "review-4",
         "review-3"
       ]
+    },
+    "customer-photos": {
+      "type": "customer-photos",
+      "settings": {
+        "category": "skates",
+        "photos": "customer-photo-1.webp, customer-photo-2.webp, customer-photo-3.webp, customer-photo-4.webp, customer-photo-5.webp, customer-photo-6.webp, customer-photo-7.webp, customer-photo-8.webp, customer-photo-9.webp, customer-photo-10.webp, customer-photo-11.webp"
+      }
     }
   },
   "order": [
     "showcase",
-    "reviews"
+    "reviews",
+    "customer-photos"
   ]
 }
