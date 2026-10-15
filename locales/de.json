@@ -171,7 +171,9 @@
   },
   "reviews": {
     "label": "Bewertungen",
-    "heading": "Kundenbewertungen"
+    "heading": "Kundenbewertungen",
+    "photos_label": "Kundenfotos",
+    "photo_alt": "Kundenfoto: eine Maus mit rawdot Dots"
   },
   "toast": {
     "added": "In den Warenkorb gelegt",

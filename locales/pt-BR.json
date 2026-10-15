@@ -171,7 +171,9 @@
   },
   "reviews": {
     "label": "Avaliações",
-    "heading": "Avaliações de clientes"
+    "heading": "Avaliações de clientes",
+    "photos_label": "Fotos de clientes",
+    "photo_alt": "Foto de cliente: mouse com dots rawdot instalados"
   },
   "toast": {
     "added": "Adicionado ao carrinho",
