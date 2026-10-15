@@ -344,3 +344,86 @@ if (document.querySelector('model-viewer')) {
     },
   ]);
 }
+
+/* Experimental Canvas UI effects, for trying them out only: open the preview with ?fx=1 (?fx=0 turns them
+   off again). The script is never loaded otherwise, and never with reduced motion. */
+function readFxFlag() {
+  const param = new URLSearchParams(window.location.search).get('fx');
+  try {
+    if (param !== null) sessionStorage.setItem('rawdot-fx', param);
+    return sessionStorage.getItem('rawdot-fx') === '1';
+  } catch {
+    return param === '1';
+  }
+}
+
+function startFx() {
+  const fx = window.RawdotFx;
+  if (!fx) return;
+
+  // About: the rawdot mark as white dust that scatters around the cursor and springs back.
+  const dialog = document.getElementById('AboutDialog');
+  const brand = dialog?.querySelector('.about-dialog__brand');
+  let aboutStarted = false;
+  const startAbout = () => {
+    if (aboutStarted || !brand || !dialog.open) return;
+    aboutStarted = true;
+    const canvas = document.createElement('canvas');
+    canvas.className = 'fx-canvas fx-canvas--about';
+    canvas.setAttribute('aria-hidden', 'true');
+    brand.prepend(canvas);
+    brand.classList.add('has-fx');
+    fx.createParticleObject(
+      { canvas },
+      {
+        src: strings.fxMarkUrl,
+        color: '#fbfbf9',
+        count: 14000,
+        size: 2.2,
+        sizeVariance: 0.5,
+        radius: 110,
+        strength: 1.2,
+        swirl: 0.6,
+        scale: 1.7,
+        floatIntensity: 0.4,
+        rotationIntensity: 0.2,
+        orbit: false,
+        zoom: false,
+      },
+    );
+  };
+  if (dialog) new MutationObserver(startAbout).observe(dialog, { attributes: true, attributeFilter: ['open'] });
+
+  // Arm sleeves (no photo yet): the mark as a slowly turning 3D object printed in halftone dots.
+  document.querySelectorAll('[data-panel="arm-sleeves"] .buy-box__placeholder').forEach((placeholder) => {
+    placeholder.querySelector('.logo-mark')?.remove();
+    const canvas = document.createElement('canvas');
+    canvas.className = 'fx-canvas fx-canvas--halftone';
+    canvas.setAttribute('aria-hidden', 'true');
+    placeholder.prepend(canvas);
+    placeholder.classList.add('has-fx');
+    fx.createDitheredObject(
+      { canvas },
+      {
+        src: strings.fxMarkUrl,
+        method: 'halftone',
+        gridSize: 5,
+        grayscale: true,
+        background: '',
+        scale: 2,
+        autoRotate: true,
+        autoRotateSpeed: 0.8,
+        floatIntensity: 0.6,
+        orbit: false,
+        zoom: false,
+      },
+    );
+  });
+}
+
+if (readFxFlag() && strings.fxScriptUrl && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const script = document.createElement('script');
+  script.src = strings.fxScriptUrl;
+  script.onload = startFx;
+  document.head.append(script);
+}
