@@ -1,0 +1,31 @@
+{% doc %}
+  Prints one editor text (showcase block or product section setting) in the visitor's language.
+
+  Editor texts are typed in English. In the primary language the typed text is looked up as
+  content.<handleized text> in the locale file. In other languages Shopify may return its own
+  (machine) translation of the setting, so the English source is read from the locale key
+  blocks.<scope>.<field> instead, then looked up the same way. Without any translation the text
+  prints as typed.
+
+  @param {object} settings - The block or section settings
+  @param {string} scope - Block ID (or "product") used for the blocks.* source key
+  @param {string} field - Setting ID, e.g. "tagline" or "spec_1_value"
+{% enddoc %}
+{%- liquid
+  assign source = settings[field]
+  unless request.locale.primary
+    assign source_key = 'blocks.' | append: scope | append: '.' | append: field | replace: '-', '_'
+    assign source_try = source_key | t
+    unless source_try contains 'ranslation missing' or source_try contains '=>'
+      assign source = source_try
+    endunless
+  endunless
+  if source != blank
+    assign content_key = source | handleize | replace: '-', '_' | prepend: 'content.'
+    assign content_try = content_key | t
+    unless content_try contains 'ranslation missing' or content_try contains '=>'
+      assign source = content_try
+    endunless
+  endif
+  echo source
+-%}

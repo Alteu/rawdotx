@@ -33,7 +33,17 @@
 {%- if seo_description != blank %}
   <meta name="description" content="{{ seo_description | escape }}">
 {%- endif %}
-{%- if request.page_type == 'search' or request.page_type == 'cart' or request.page_type == 'customers/account' %}
+{%- liquid
+  assign noindex = false
+  if request.page_type == 'search' or request.page_type == 'cart' or request.page_type contains 'customers/'
+    assign noindex = true
+  endif
+  # Thin listing pages: the store sells from the homepage.
+  if request.page_type == 'list-collections' or request.page_type == 'collection'
+    assign noindex = true
+  endif
+-%}
+{%- if noindex %}
   <meta name="robots" content="noindex, follow">
 {%- endif %}
 <link rel="canonical" href="{{ canonical_url }}">
@@ -50,7 +60,17 @@
 {%- endif %}
 
 <meta property="og:site_name" content="rawdot">
-<meta property="og:locale" content="{{ request.locale.iso_code | replace: '-', '_' }}">
+{%- liquid
+  case request.locale.iso_code
+    when 'es'
+      assign og_locale = 'es_MX'
+    when 'en'
+      assign og_locale = 'en_US'
+    else
+      assign og_locale = request.locale.iso_code | replace: '-', '_'
+  endcase
+-%}
+<meta property="og:locale" content="{{ og_locale }}">
 <meta property="og:url" content="{{ og_url }}">
 <meta property="og:title" content="{{ og_title | escape }}">
 <meta property="og:type" content="{{ og_type }}">

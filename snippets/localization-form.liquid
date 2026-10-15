@@ -16,7 +16,8 @@
   endif
 -%}
 {%- if has_countries or has_languages -%}
-  {%- form 'localization', class: 'localization-form', data-localization-form: '' -%}
+  {%- assign form_id = id_prefix | append: '-form' -%}
+  {%- form 'localization', id: form_id, class: 'localization-form', data-localization-form: '' -%}
     {%- if has_countries -%}
       <div class="localization-form__field">
         <label class="visually-hidden" for="{{ id_prefix }}-country">{{ 'localization.country_label' | t }}</label>

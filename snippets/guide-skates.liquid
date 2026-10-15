@@ -50,7 +50,7 @@
   </section>
 
   <section class="guide__section page-width" aria-labelledby="GuideIncluded-{{ id }}">
-    <div class="guide__split">
+    <div class="guide__split guide__split--centered">
       <div class="guide__header">
         <p class="section-label">{{ 'guide.included.label' | t }}</p>
         <h2 class="guide__heading" id="GuideIncluded-{{ id }}">{{ 'guide.included.heading' | t }}</h2>
@@ -73,13 +73,10 @@
       </div>
       {%- if included != blank -%}
         <div class="guide__photo guide__photo--cutout">
-          <img
-            src="{{ included | asset_url }}"
-            width="1400"
-            height="934"
-            loading="lazy"
-            alt="{{ 'guide.included.image_alt' | t | escape }}"
-          >
+          {%- liquid
+            assign included_alt = 'guide.included.image_alt' | t
+            render 'theme-image', file: included, alt: included_alt, sizes: '(min-width: 990px) 50vw, 92vw'
+          -%}
         </div>
       {%- else -%}
         <div class="guide__photo">
@@ -129,7 +126,7 @@
       {%- endfor -%}
     </div>
     <ol
-      class="install-steps{% if language == 'en' or language == 'es' %} visually-hidden{% endif %}"
+      class="install-steps{% if language == 'en' or language == 'es' %} install-steps--small-only{% endif %}"
       role="list"
     >
       {%- for i in (1..4) -%}

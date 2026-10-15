@@ -91,15 +91,13 @@
                 endif
               -%}
               <div class="gallery__slide">
-                <img
-                  class="buy-box__asset{% if file_name contains '-cutout' %} buy-box__asset--cutout{% endif %}"
-                  src="{{ file_name | asset_url }}"
-                  alt="{{ display_title | escape }}"
-                  width="1200"
-                  height="1200"
-                  loading="{{ slide_loading }}"
-                  fetchpriority="{{ slide_priority }}"
-                >
+                {%- liquid
+                  assign asset_class = 'buy-box__asset'
+                  if file_name contains '-cutout'
+                    assign asset_class = 'buy-box__asset buy-box__asset--cutout'
+                  endif
+                  render 'theme-image', file: file_name, alt: display_title, class: asset_class, sizes: '(min-width: 990px) 50vw, 92vw', loading: slide_loading, priority: slide_priority
+                -%}
               </div>
             {%- endfor -%}
           {%- endif -%}
@@ -191,6 +189,17 @@
       {%- elsif current_variant.available -%}
         <span class="buy-box__tag">{{ 'products.in_stock' | t }}</span>
       {%- endif -%}
+      {%- unless is_coming_soon -%}
+        {%- if current_variant.compare_at_price > current_variant.price -%}
+          {%- assign saving = current_variant.compare_at_price
+            | minus: current_variant.price
+            | times: 100.0
+            | divided_by: current_variant.compare_at_price
+            | round
+          -%}
+          <span class="buy-box__tag buy-box__tag--sale">−{{ saving }}%</span>
+        {%- endif -%}
+      {%- endunless -%}
     </div>
 
     {%- if tagline != blank -%}
@@ -232,7 +241,8 @@
                 "id": {{ variant.id }},
                 "options": {{ variant.options | json }},
                 "available": {{ variant.available | json }},
-                "price": {{ variant.price | money_with_currency | json }}
+                {%- capture variant_price -%}{%- render 'price', variant: variant -%}{%- endcapture %}
+                "price": {{ variant_price | strip | json }}
               }{% unless forloop.last %},{% endunless %}
             {%- endfor -%}
           ]
@@ -270,7 +280,7 @@
                 {{ 'products.sold_out' | t }}
               {%- endif -%}
             </span>
-            <span class="buy-bar__meta" data-price>{{ current_variant.price | money_with_currency }}</span>
+            <span class="buy-bar__meta" data-price>{% render 'price', variant: current_variant %}</span>
           </button>
           <a class="buy-bar buy-bar--done" href="{{ routes.cart_url }}" hidden data-go-to-cart>
             <span>{{ 'products.go_to_cart' | t }}</span>

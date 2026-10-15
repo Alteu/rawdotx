@@ -74,7 +74,7 @@
         >
           <span data-cart-count>{{ cart.item_count }}</span>
         </span>
-        <span class="visually-hidden">{{ 'header.cart_count' | t: count: cart.item_count }}</span>
+        <span class="visually-hidden" data-cart-count-label>{{ 'header.cart_count' | t: count: cart.item_count }}</span>
       </a>
 
       <details class="site-header__menu">

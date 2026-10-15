@@ -59,7 +59,9 @@
     {%- if settings.show_intro -%}
       <script>
         try {
-          if (sessionStorage.getItem('rawdot-intro')) {
+          // Visitors from an ad or campaign link (utm_*, fbclid, gclid, ttclid…) go straight to the product.
+          var fromAd = /[?&](utm_[a-z]+|fbclid|gclid|gbraid|wbraid|ttclid|msclkid)=/i.test(location.search);
+          if (fromAd || sessionStorage.getItem('rawdot-intro')) {
             document.documentElement.classList.add('no-intro');
           } else {
             sessionStorage.setItem('rawdot-intro', '1');
@@ -116,6 +118,8 @@
         "adding": {{ 'products.adding' | t | json }},
         "added": {{ 'products.added' | t | json }},
         "addError": {{ 'products.add_error' | t | json }},
+        "cartCountOne": {{ 'header.cart_count' | t: count: 1 | replace: '1', '[count]' | json }},
+        "cartCountOther": {{ 'header.cart_count' | t: count: 7 | replace: '7', '[count]' | json }},
         "soldOut": {{ 'products.sold_out' | t | json }},
         "unavailable": {{ 'products.unavailable' | t | json }},
         "cartAddUrl": {{ routes.cart_add_url | append: '.js' | json }},

@@ -7,8 +7,14 @@
         {%- for item in cart.items -%}
           <li
             class="cart-item"
-            data-cart-line="{{ forloop.index }}"
+            data-cart-line="{{ item.key }}"
             data-variant-id="{{ item.variant_id }}"
+            {% if item.properties.size > 0 %}
+              data-properties="{{ item.properties | json | escape }}"
+            {% endif %}
+            {% if item.selling_plan_allocation %}
+              data-selling-plan="{{ item.selling_plan_allocation.selling_plan.id }}"
+            {% endif %}
             data-quantity="{{ item.quantity }}"
             data-title="{{ item.product.title | escape }}"
             {% if item.image %}
@@ -37,6 +43,7 @@
                 <button
                   type="button"
                   class="quantity__button"
+                  id="QuantityMinus-{{ item.key }}"
                   data-quantity-step="-1"
                   aria-controls="Quantity-{{ item.key }}"
                 >
@@ -54,11 +61,12 @@
                   value="{{ item.quantity }}"
                   min="0"
                   inputmode="numeric"
-                  data-line="{{ forloop.index }}"
+                  data-line="{{ item.key }}"
                 >
                 <button
                   type="button"
                   class="quantity__button"
+                  id="QuantityPlus-{{ item.key }}"
                   data-quantity-step="1"
                   aria-controls="Quantity-{{ item.key }}"
                 >
@@ -66,7 +74,12 @@
                   <span class="visually-hidden">{{ 'cart.increase' | t: title: item.product.title }}</span>
                 </button>
               </div>
-              <a class="cart-item__remove" href="{{ item.url_to_remove }}" data-line="{{ forloop.index }}">
+              <a
+                class="cart-item__remove"
+                id="Remove-{{ item.key }}"
+                href="{{ item.url_to_remove }}"
+                data-line="{{ item.key }}"
+              >
                 {{- 'cart.remove' | t -}}
                 <span class="visually-hidden">{{ item.product.title | escape }}</span>
               </a>
@@ -81,7 +94,7 @@
         </button>
         <div class="main-cart__summary">
           {%- for discount in cart.cart_level_discount_applications -%}
-            <p>{{ discount.title | escape }} (−{{ discount.total_allocated_amount | money }})</p>
+            <p>{{ discount.title | escape }} (−{{ discount.total_allocated_amount | money_with_currency }})</p>
           {%- endfor -%}
           <p class="main-cart__total">
             <span>{{ 'cart.subtotal' | t }}</span>

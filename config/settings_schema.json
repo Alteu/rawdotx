@@ -105,7 +105,7 @@
         "type": "checkbox",
         "id": "show_intro",
         "label": "Logo intro animation",
-        "info": "Plays once per visit. Skipped for visitors who prefer reduced motion.",
+        "info": "Plays once per visit. Skipped for visitors arriving from an ad or campaign link; visitors who prefer reduced motion see a short fade instead.",
         "default": true
       }
     ]

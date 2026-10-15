@@ -121,6 +121,11 @@ function setCartCount(count) {
   document.querySelectorAll('[data-cart-count]').forEach((el) => {
     el.textContent = count;
   });
+  // The visually hidden "n items in cart" text that screen readers hear.
+  const label = count === 1 ? strings.cartCountOne : strings.cartCountOther;
+  document.querySelectorAll('[data-cart-count-label]').forEach((el) => {
+    if (label) el.textContent = label.replace('[count]', count);
+  });
   document.querySelectorAll('[data-cart-badge]').forEach((badge) => {
     badge.toggleAttribute('data-empty', count === 0);
     badge.classList.remove('is-bumped');
@@ -158,7 +163,10 @@ class ProductShowcase extends HTMLElement {
       if (trigger) this.showSlide(trigger.dataset.showSlide);
     });
 
-    window.addEventListener('hashchange', () => this.selectFromHash());
+    // Back/forward to a URL without a known category (e.g. the plain homepage) shows the default one.
+    window.addEventListener('hashchange', () => {
+      if (!this.selectFromHash()) this.select(this.dataset.defaultCategory, false);
+    });
     if (!this.selectFromHash()) this.select(this.dataset.defaultCategory, false);
   }
 
@@ -306,7 +314,15 @@ document.addEventListener('submit', async (event) => {
       headers: { Accept: 'application/json' },
       body: new FormData(form),
     });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    if (!response.ok) {
+      // Shopify explains stock limits and similar problems in `description`.
+      const failure = new Error(`HTTP ${response.status}`);
+      failure.description = await response
+        .json()
+        .then((data) => data.description || '')
+        .catch(() => '');
+      throw failure;
+    }
     const item = await response.json();
     const cart = await fetch(`${window.Shopify?.routes?.root || '/'}cart.js`).then((r) => r.json());
     setCartCount(cart.item_count);
@@ -323,7 +339,7 @@ document.addEventListener('submit', async (event) => {
     });
   } catch (error) {
     label.textContent = strings.addToCart;
-    announce(strings.addError);
+    showToast({ message: strings.addError, title: error.description || '', action: null });
     console.warn('rawdot: add to cart failed', error);
   } finally {
     button.disabled = false;
@@ -332,7 +348,7 @@ document.addEventListener('submit', async (event) => {
 });
 
 /* Cart page: quantity changes and removals apply right away, without an "Update cart" button. */
-let cartTimer;
+const cartTimers = new Map();
 let cartRequest = Promise.resolve();
 
 function setCartBusy(busy) {
@@ -351,6 +367,19 @@ async function refreshCart(count) {
   if (focusedId) document.getElementById(focusedId)?.focus({ preventScroll: true });
 }
 
+// The line as it was, with its properties and subscription plan, so undo restores it exactly.
+function removedItem(removed) {
+  const item = { id: Number(removed.variantId), quantity: Number(removed.quantity) };
+  try {
+    const properties = JSON.parse(removed.properties || 'null');
+    if (properties && Object.keys(properties).length > 0) item.properties = properties;
+  } catch {
+    /* no properties */
+  }
+  if (removed.sellingPlan) item.selling_plan = Number(removed.sellingPlan);
+  return item;
+}
+
 function restoreCartLine(removed) {
   cartRequest = cartRequest.then(async () => {
     setCartBusy(true);
@@ -358,7 +387,7 @@ function restoreCartLine(removed) {
       const response = await fetch(strings.cartAddUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ items: [{ id: Number(removed.variantId), quantity: Number(removed.quantity) }] }),
+        body: JSON.stringify({ items: [removedItem(removed)] }),
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const cart = await fetch(`${window.Shopify?.routes?.root || '/'}cart.js`).then((r) => r.json());
@@ -373,15 +402,18 @@ function restoreCartLine(removed) {
   });
 }
 
-function changeCartLine(line, quantity) {
+// `key` is the cart line's key, so queued changes still reach the right line after another one is removed.
+function changeCartLine(key, quantity) {
   // Remember what is being removed, so the toast can put it back.
-  const row = document.querySelector(`[data-cart-line="${CSS.escape(String(line))}"]`);
+  const row = document.querySelector(`[data-cart-line="${CSS.escape(String(key))}"]`);
   const changed = row ? { title: row.dataset.title, image: row.dataset.image } : null;
   const removed =
     quantity === 0 && row
       ? {
           variantId: row.dataset.variantId,
           quantity: row.dataset.quantity,
+          properties: row.dataset.properties,
+          sellingPlan: row.dataset.sellingPlan,
           title: row.dataset.title,
           image: row.dataset.image,
         }
@@ -393,7 +425,7 @@ function changeCartLine(line, quantity) {
       const response = await fetch(strings.cartChangeUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ line: Number(line), quantity }),
+        body: JSON.stringify({ id: String(key), quantity }),
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const cart = await response.json();
@@ -443,9 +475,16 @@ document.addEventListener('click', (event) => {
 document.addEventListener('change', (event) => {
   const input = event.target.closest('[data-cart-form] .quantity__input');
   if (!input || !strings.cartChangeUrl) return;
-  clearTimeout(cartTimer);
-  // Wait briefly so several quick + taps become one request.
-  cartTimer = setTimeout(() => changeCartLine(input.dataset.line, Math.max(0, Number(input.value) || 0)), 350);
+  const key = input.dataset.line;
+  clearTimeout(cartTimers.get(key));
+  // Wait briefly so several quick + taps on the same line become one request.
+  cartTimers.set(
+    key,
+    setTimeout(() => {
+      cartTimers.delete(key);
+      changeCartLine(key, Math.max(0, Number(input.value) || 0));
+    }, 350),
+  );
 });
 
 // Enter in a quantity field applies the change instead of submitting the whole form.
@@ -481,7 +520,12 @@ document.addEventListener('click', (event) => {
   const opener = event.target.closest('[data-dialog-open]');
   if (opener) {
     opener.closest('details')?.removeAttribute('open');
-    document.getElementById(opener.dataset.dialogOpen)?.showModal();
+    const dialog = document.getElementById(opener.dataset.dialogOpen);
+    if (!dialog) return;
+    // Opening moves focus into the dialog; keep the page exactly where it was.
+    const { scrollX, scrollY } = window;
+    dialog.showModal();
+    window.scrollTo(scrollX, scrollY);
     return;
   }
   // Close a dialog when its backdrop is clicked.
@@ -493,6 +537,27 @@ if (window.location.search.includes('customer_posted=true') || window.location.h
   const form = document.getElementById(window.location.hash.slice(1));
   form?.closest('dialog')?.showModal();
 }
+
+/* Small menus built on <details> (footer Legal, phone menu) close with Escape or a click outside. */
+function openMenus() {
+  return [...document.querySelectorAll('details.footer-menu[open], details.site-header__menu[open]')];
+}
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  openMenus().forEach((menu) => {
+    menu.removeAttribute('open');
+    if (menu.contains(document.activeElement)) menu.querySelector('summary')?.focus();
+  });
+});
+document.addEventListener('click', (event) => {
+  openMenus().forEach((menu) => {
+    if (!menu.contains(event.target)) menu.removeAttribute('open');
+  });
+});
+// The page behind the open phone menu doesn't scroll.
+document.querySelectorAll('details.site-header__menu').forEach((menu) => {
+  menu.addEventListener('toggle', () => document.documentElement.classList.toggle('menu-open', menu.open));
+});
 
 /* Country and language selectors apply as soon as they change. */
 document.querySelectorAll('[data-localization-form] select').forEach((select) => {

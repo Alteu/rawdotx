@@ -1,0 +1,14 @@
+{% doc %}
+  Price of a variant with its currency code. When the variant has a higher compare-at price, the old
+  price shows struck through before it.
+
+  @param {variant} variant - The product variant
+{% enddoc %}
+{%- if variant.compare_at_price > variant.price -%}
+  <s class="price__compare">
+    <span class="visually-hidden">{{ 'products.regular_price' | t }}</span>
+    {{- variant.compare_at_price | money_without_trailing_zeros -}}
+  </s>
+  <span class="visually-hidden">{{ 'products.sale_price' | t }}</span>
+{%- endif -%}
+{{ variant.price | money_with_currency }}

@@ -1,0 +1,25 @@
+{% doc %}
+  Prints the spec_1..4 or detail_1..4 settings as "value|label" pairs separated by "~~", each text
+  translated with block-text.
+
+  @param {object} settings - The block or section settings
+  @param {string} scope - Block ID (or "product")
+  @param {string} prefix - "spec" or "detail"
+{% enddoc %}
+{%- liquid
+  assign pairs = ''
+  for i in (1..4)
+    assign value_key = prefix | append: '_' | append: i | append: '_value'
+    assign label_key = prefix | append: '_' | append: i | append: '_label'
+    if settings[value_key] != blank
+      capture pair_value
+        render 'block-text', settings: settings, scope: scope, field: value_key
+      endcapture
+      capture pair_label
+        render 'block-text', settings: settings, scope: scope, field: label_key
+      endcapture
+      assign pairs = pairs | append: pair_value | append: '|' | append: pair_label | append: '~~'
+    endif
+  endfor
+  echo pairs | remove_last: '~~'
+-%}

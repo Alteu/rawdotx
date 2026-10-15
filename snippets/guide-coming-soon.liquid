@@ -3,7 +3,7 @@
   notify-me button. Shown below the first screen while that product is selected.
 
   @param {string} id - Unique ID (the showcase block ID); the notify dialog is "{id}-details"
-  @param {string} name - Product name
+  @param {string} name - Product name (alt text of the photos)
   @param {string} [tagline] - One-line description
   @param {string} [specs] - Known facts as "value|label" pairs separated by "~~"
   @param {string} [photos] - In-use and detail photos: theme file names separated by commas. Photos sit two per row at their own proportions; files named -cutout float without a frame.
@@ -14,7 +14,7 @@
     <div class="guide__split">
       <div class="guide__header">
         <p class="section-label">{{ 'guide.soon.label' | t }}</p>
-        <h2 class="guide__heading" id="GuideSoon-{{ id }}">{{ name | escape }}</h2>
+        <h2 class="guide__heading" id="GuideSoon-{{ id }}">{{ 'products.details' | t }}</h2>
         {%- if tagline != blank -%}
           <p class="guide__intro">{{ tagline | escape }}</p>
         {%- endif -%}
@@ -31,15 +31,12 @@
             {%- endfor -%}
           </dl>
         {%- endif -%}
-        <p class="guide__intro">{{ 'guide.soon.text' | t }}</p>
-        <button
-          type="button"
-          class="button button--primary"
-          data-dialog-open="{{ id }}-details"
-          aria-haspopup="dialog"
-        >
-          {{- 'products.notify_me' | t -}}
-        </button>
+        <p class="guide__intro">
+          {{ 'guide.soon.text' | t }}
+          <button type="button" class="guide__notify-link" data-dialog-open="{{ id }}-details" aria-haspopup="dialog">
+            {{- 'products.notify_me' | t -}}
+          </button>
+        </p>
       </div>
     </div>
     {%- if photos != blank -%}
@@ -48,7 +45,7 @@
         {%- for file in photo_files -%}
           {%- assign file_name = file | strip -%}
           <figure class="guide__photos-item{% if file_name contains '-cutout' %} guide__photos-item--cutout{% endif %}">
-            <img src="{{ file_name | asset_url }}" width="1672" height="941" loading="lazy" alt="{{ name | escape }}">
+            {%- render 'theme-image', file: file_name, alt: name, sizes: '(min-width: 750px) 46vw, 92vw' -%}
           </figure>
         {%- endfor -%}
       </div>

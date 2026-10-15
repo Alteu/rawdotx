@@ -12,6 +12,7 @@
   assign present_categories = present_categories | split: ','
   assign active_category = present_categories | first
   assign first_block_seen = false
+  assign faq_anchor_used = false
 -%}
 
 <product-showcase class="showcase" data-default-category="{{ active_category }}">
@@ -45,81 +46,54 @@
           {%- liquid
             assign category_index = category_index | plus: 1
             capture specs
-              for i in (1..4)
-                assign value_key = 'spec_' | append: i | append: '_value'
-                assign label_key = 'spec_' | append: i | append: '_label'
-                if block.settings[value_key] != blank
-                  assign tx_v = block.settings[value_key]
-                  assign tx_key = tx_v | handleize | replace: '-', '_' | prepend: 'content.'
-                  assign tx_try = tx_key | t
-                  unless tx_try contains 'ranslation missing' or tx_try contains '=>'
-                    assign tx_v = tx_try
-                  endunless
-                  assign tx_l = block.settings[label_key]
-                  assign tx_key = tx_l | handleize | replace: '-', '_' | prepend: 'content.'
-                  assign tx_try = tx_key | t
-                  unless tx_try contains 'ranslation missing' or tx_try contains '=>'
-                    assign tx_l = tx_try
-                  endunless
-                  echo tx_v | append: '|' | append: tx_l | append: '~~'
-                endif
-              endfor
+              render 'block-specs', settings: block.settings, scope: block.id, prefix: 'spec'
             endcapture
-            assign specs = specs | strip | remove_last: '~~'
+            capture extra_specs
+              render 'block-specs', settings: block.settings, scope: block.id, prefix: 'detail'
+            endcapture
+            capture title
+              render 'block-text', settings: block.settings, scope: block.id, field: 'title'
+            endcapture
+            capture badge
+              render 'block-text', settings: block.settings, scope: block.id, field: 'badge'
+            endcapture
+            capture tagline
+              render 'block-text', settings: block.settings, scope: block.id, field: 'tagline'
+            endcapture
             assign eager = false
             unless first_block_seen
               assign eager = true
               assign first_block_seen = true
             endunless
             assign versions = ''
-            capture extra_specs
-              for i in (1..4)
-                assign value_key = 'detail_' | append: i | append: '_value'
-                assign label_key = 'detail_' | append: i | append: '_label'
-                if block.settings[value_key] != blank
-                  assign tx_v = block.settings[value_key]
-                  assign tx_key = tx_v | handleize | replace: '-', '_' | prepend: 'content.'
-                  assign tx_try = tx_key | t
-                  unless tx_try contains 'ranslation missing' or tx_try contains '=>'
-                    assign tx_v = tx_try
-                  endunless
-                  assign tx_l = block.settings[label_key]
-                  assign tx_key = tx_l | handleize | replace: '-', '_' | prepend: 'content.'
-                  assign tx_try = tx_key | t
-                  unless tx_try contains 'ranslation missing' or tx_try contains '=>'
-                    assign tx_l = tx_try
-                  endunless
-                  echo tx_v | append: '|' | append: tx_l | append: '~~'
-                endif
-              endfor
-            endcapture
-            assign extra_specs = extra_specs | strip | remove_last: '~~'
             assign category_key = 'categories.' | append: category_id | replace: '-', '_'
             assign category_label = category_key | t
             assign eyebrow = 'rawdot / ' | append: category_label
-            assign tagline = block.settings.tagline
-            if tagline != blank
-              assign tx_key = tagline | handleize | replace: '-', '_' | prepend: 'content.'
-              assign tx_try = tx_key | t
-              unless tx_try contains 'ranslation missing' or tx_try contains '=>'
-                assign tagline = tx_try
-              endunless
-            endif
           -%}
           {%- if category_total > 1 -%}
             {%- capture versions -%}
               <div class="versions" role="group" aria-label="{{ 'showcase.versions' | t }}">
                 {%- for option in section.blocks -%}
                   {%- if option.settings.category != category_id -%}{%- continue -%}{%- endif -%}
-                  {%- assign option_name = option.settings.title | default: option.settings.product.title -%}
+                  {%- liquid
+                    capture option_name
+                      render 'block-text', settings: option.settings, scope: option.id, field: 'title'
+                    endcapture
+                    if option_name == blank
+                      assign option_name = option.settings.product.title
+                    endif
+                    capture option_badge
+                      render 'block-text', settings: option.settings, scope: option.id, field: 'badge'
+                    endcapture
+                  -%}
                   <button
                     type="button"
                     class="versions__item"
                     data-show-slide="{{ option.id }}"
                     aria-pressed="{% if option.id == block.id %}true{% else %}false{% endif %}"
                   >
-                    {%- if option.settings.badge != blank -%}
-                      <span class="versions__name">{{ option.settings.badge | escape }}</span>
+                    {%- if option_badge != blank -%}
+                      <span class="versions__name">{{ option_badge | escape }}</span>
                       <span class="visually-hidden">{{ option_name | escape }}</span>
                     {%- else -%}
                       <span class="versions__name">{{ option_name | escape }}</span>
@@ -137,8 +111,8 @@
             {% render 'buy-box',
               id: block.id,
               product: block.settings.product,
-              title: block.settings.title,
-              badge: block.settings.badge,
+              title: title,
+              badge: badge,
               tagline: tagline,
               image: block.settings.image,
               image_asset: block.settings.image_asset,
@@ -155,9 +129,9 @@
             {%- if block.settings.product != blank and block.settings.coming_soon == false -%}
               {% render 'product-structured-data',
                 product: block.settings.product,
-                name: block.settings.title,
+                name: title,
                 description: tagline,
-                images: block.settings.image_asset
+                image_files: block.settings.image_asset
               %}
             {%- endif -%}
           </div>
@@ -172,36 +146,17 @@
         {%- assign category_index = category_index | plus: 1 -%}
         {%- liquid
           capture guide_specs
-            for i in (1..4)
-              assign value_key = 'spec_' | append: i | append: '_value'
-              assign label_key = 'spec_' | append: i | append: '_label'
-              if block.settings[value_key] != blank
-                assign tx_v = block.settings[value_key]
-                assign tx_key = tx_v | handleize | replace: '-', '_' | prepend: 'content.'
-                assign tx_try = tx_key | t
-                unless tx_try contains 'ranslation missing' or tx_try contains '=>'
-                  assign tx_v = tx_try
-                endunless
-                assign tx_l = block.settings[label_key]
-                assign tx_key = tx_l | handleize | replace: '-', '_' | prepend: 'content.'
-                assign tx_try = tx_key | t
-                unless tx_try contains 'ranslation missing' or tx_try contains '=>'
-                  assign tx_l = tx_try
-                endunless
-                echo tx_v | append: '|' | append: tx_l | append: '~~'
-              endif
-            endfor
+            render 'block-specs', settings: block.settings, scope: block.id, prefix: 'spec'
           endcapture
-          assign guide_specs = guide_specs | strip | remove_last: '~~'
-          assign guide_name = block.settings.title | default: block.settings.product.title
-          assign guide_tagline = block.settings.tagline
-          if guide_tagline != blank
-            assign tx_key = guide_tagline | handleize | replace: '-', '_' | prepend: 'content.'
-            assign tx_try = tx_key | t
-            unless tx_try contains 'ranslation missing' or tx_try contains '=>'
-              assign guide_tagline = tx_try
-            endunless
+          capture guide_name
+            render 'block-text', settings: block.settings, scope: block.id, field: 'title'
+          endcapture
+          if guide_name == blank
+            assign guide_name = block.settings.product.title
           endif
+          capture guide_tagline
+            render 'block-text', settings: block.settings, scope: block.id, field: 'tagline'
+          endcapture
         -%}
         {%- if block.settings.guide != 'none' and block.settings.guide != blank -%}
           <div
@@ -213,10 +168,18 @@
             {% endif %}
           >
             {%- if block.settings.guide == 'skates' -%}
+              {%- liquid
+                # The first skates guide on the page carries the #faq anchor and the FAQ structured data.
+                assign faq_anchor_free = false
+                unless faq_anchor_used
+                  assign faq_anchor_free = true
+                  assign faq_anchor_used = true
+                endunless
+              -%}
               {% render 'guide-skates',
                 id: block.id,
                 name: guide_name,
-                anchor: forloop.first,
+                anchor: faq_anchor_free,
                 included: block.settings.included_asset
               %}
             {%- else -%}
@@ -243,8 +206,8 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Page heading (for search engines and screen readers)",
-      "info": "Not shown visually. Leave empty to use the store name."
+      "label": "Page heading (unused)",
+      "info": "The hidden page heading now comes from the language files (seo.home_h1), so it is written for search in each language."
     }
   ],
   "blocks": [
