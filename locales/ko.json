@@ -168,7 +168,9 @@
   },
   "reviews": {
     "label": "리뷰",
-    "heading": "고객 리뷰"
+    "heading": "고객 리뷰",
+    "photos_label": "고객 사진",
+    "photo_alt": "고객 사진: rawdot 도트를 붙인 마우스"
   },
   "toast": {
     "added": "장바구니에 담았습니다",

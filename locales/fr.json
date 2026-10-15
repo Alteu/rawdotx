@@ -171,7 +171,9 @@
   },
   "reviews": {
     "label": "Avis",
-    "heading": "Avis clients"
+    "heading": "Avis clients",
+    "photos_label": "Photos de clients",
+    "photo_alt": "Photo client : une souris équipée de dots rawdot"
   },
   "toast": {
     "added": "Ajouté au panier",

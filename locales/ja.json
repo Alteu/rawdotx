@@ -168,7 +168,9 @@
   },
   "reviews": {
     "label": "レビュー",
-    "heading": "お客様のレビュー"
+    "heading": "お客様のレビュー",
+    "photos_label": "お客様の写真",
+    "photo_alt": "お客様の写真：rawdot ドットを貼ったマウス"
   },
   "toast": {
     "added": "カートに追加しました",
