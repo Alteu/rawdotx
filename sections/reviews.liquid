@@ -1,7 +1,7 @@
 {%- liquid
   assign has_reviews = false
   for block in section.blocks
-    if block.settings.image != blank
+    if block.settings.image != blank or block.settings.image_asset != blank
       assign has_reviews = true
       break
     endif
@@ -23,18 +23,26 @@
     {%- if has_reviews -%}
       <ul class="reviews__list" role="list">
         {%- for block in section.blocks -%}
-          {%- if block.settings.image == blank -%}{%- continue -%}{%- endif -%}
+          {%- if block.settings.image == blank and block.settings.image_asset == blank -%}{%- continue -%}{%- endif -%}
           <li class="reviews__item" {{ block.shopify_attributes }}>
             <figure>
-              {{
-                block.settings.image
-                | image_url: width: 900
-                | image_tag:
-                  widths: '360, 540, 720, 900',
-                  sizes: '(min-width: 990px) 24vw, 70vw',
-                  loading: 'lazy',
-                  alt: block.settings.alt
-              }}
+              {%- if block.settings.image_asset != blank -%}
+                {%- render 'theme-image',
+                  file: block.settings.image_asset,
+                  alt: block.settings.alt,
+                  sizes: '(min-width: 990px) 20rem, 70vw'
+                -%}
+              {%- else -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 900
+                  | image_tag:
+                    widths: '360, 540, 720, 900',
+                    sizes: '(min-width: 990px) 24vw, 70vw',
+                    loading: 'lazy',
+                    alt: block.settings.alt
+                }}
+              {%- endif -%}
               {%- if block.settings.name != blank -%}
                 <figcaption>{{ block.settings.name | escape }}</figcaption>
               {%- endif -%}
@@ -75,6 +83,12 @@
       "name": "Review screenshot",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Screenshot" },
+        {
+          "type": "text",
+          "id": "image_asset",
+          "label": "Or: theme image file",
+          "info": "File name in the theme's assets, e.g. review-1.webp. Used when no screenshot is picked above."
+        },
         {
           "type": "text",
           "id": "alt",

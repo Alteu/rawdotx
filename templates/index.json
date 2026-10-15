@@ -115,7 +115,51 @@
       "type": "reviews",
       "settings": {
         "category": "skates"
-      }
+      },
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-1.webp",
+            "alt": "Calidad de trabajo: excelente. Material: excelente. Montaje: fácil. Excelente producto, 100% recomendado."
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-2.webp",
+            "alt": "Perdón por el mousepad sucio, pero qué diferencia en el desplazamiento. Tenía mis dudas, pero valió completamente la pena."
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-3.webp",
+            "alt": "A la madre, está top."
+          }
+        },
+        "review-4": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-4.webp",
+            "alt": "Sí están muy duros, están muy buenos, van flying."
+          }
+        },
+        "review-5": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-5.webp",
+            "alt": "Listo bro, ya quedó. Noma bro, literal se siente mejor, mejor mi aim, siento más fluido. Aunque quiero cambiarme a uno de tela o de cristal."
+          }
+        }
+      },
+      "block_order": [
+        "review-1",
+        "review-2",
+        "review-3",
+        "review-4",
+        "review-5"
+      ]
     }
   },
   "order": [

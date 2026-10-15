@@ -47,6 +47,15 @@
   <meta name="robots" content="noindex, follow">
 {%- endif %}
 <link rel="canonical" href="{{ canonical_url }}">
+{%- if settings.google_site_verification != blank %}
+  <meta
+    name="google-site-verification"
+    content="{{ settings.google_site_verification | remove: '"' | strip | escape }}"
+  >
+{%- endif %}
+{%- if settings.bing_site_verification != blank %}
+  <meta name="msvalidate.01" content="{{ settings.bing_site_verification | remove: '"' | strip | escape }}">
+{%- endif %}
 
 {%- if settings.favicon != blank %}
   <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 96, height: 96 }}">

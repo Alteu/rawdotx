@@ -136,5 +136,22 @@
         "default": "rawdot.shop@outlook.com"
       }
     ]
+  },
+  {
+    "name": "Search engines",
+    "settings": [
+      {
+        "type": "text",
+        "id": "google_site_verification",
+        "label": "Google Search Console verification code",
+        "info": "In Search Console choose \"URL prefix\" → \"HTML tag\" and paste only the content value (the long code between the quotes)."
+      },
+      {
+        "type": "text",
+        "id": "bing_site_verification",
+        "label": "Bing Webmaster Tools verification code",
+        "info": "The content value of Bing's msvalidate.01 meta tag."
+      }
+    ]
   }
 ]
