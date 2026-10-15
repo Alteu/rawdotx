@@ -1,0 +1,310 @@
+{
+  "accessibility": {
+    "skip_to_content": "انتقل إلى المحتوى",
+    "close": "إغلاق"
+  },
+  "general": {
+    "page": "الصفحة {{ page }}",
+    "not_found_title": "الصفحة غير موجودة",
+    "not_found_text": "الصفحة التي تبحث عنها غير موجودة."
+  },
+  "header": {
+    "navigation": "الرئيسية",
+    "account": "الحساب",
+    "cart": "السلة",
+    "cart_count": {
+      "zero": "لا توجد منتجات في السلة",
+      "one": "منتج واحد في السلة",
+      "two": "منتجان في السلة",
+      "few": "{{ count }} منتجات في السلة",
+      "many": "{{ count }} منتجًا في السلة",
+      "other": "{{ count }} منتج في السلة"
+    },
+    "menu": "القائمة",
+    "about": "من نحن"
+  },
+  "footer": {
+    "navigation": "تذييل الصفحة",
+    "all_rights_reserved": "جميع الحقوق محفوظة.",
+    "socials": "حساباتنا",
+    "legal": "الشؤون القانونية"
+  },
+  "localization": {
+    "country_label": "الدولة/المنطقة",
+    "language_label": "اللغة",
+    "update": "تحديث"
+  },
+  "categories": {
+    "skates": "أقدام الماوس",
+    "glasspads": "لوحات ماوس زجاجية",
+    "arm_sleeves": "أكمام الذراع"
+  },
+  "showcase": {
+    "versions": "الإصدارات"
+  },
+  "products": {
+    "add_to_cart": "أضف إلى السلة",
+    "adding": "جارٍ الإضافة…",
+    "added": "تمت الإضافة إلى السلة",
+    "add_error": "تعذّرت الإضافة إلى السلة. يُرجى المحاولة مرة أخرى.",
+    "go_to_cart": "اذهب إلى السلة",
+    "sold_out": "نفدت الكمية",
+    "unavailable": "غير متاح",
+    "see_more": "عرض المزيد",
+    "coming_soon": "قريبًا",
+    "notify_me": "أبلغني",
+    "notify_label": "تلقَّ رسالة بريد إلكتروني عند توفره",
+    "notify_success": "شكرًا! سنراسلك عند توفره.",
+    "specifications": "المواصفات",
+    "about": "عن المنتج",
+    "in_stock": "متوفر",
+    "notify_consent": "بالتسجيل، توافق على تلقي رسائل بريد إلكتروني من rawdot حول هذا المنتج. يمكنك إلغاء الاشتراك في أي وقت. راجع [privacy]سياسة الخصوصية[/privacy].",
+    "details": "التفاصيل",
+    "in_the_guide": "في الدليل",
+    "image_of": "الصورة {{ number }} من {{ total }}",
+    "regular_price": "السعر العادي",
+    "sale_price": "سعر التخفيض"
+  },
+  "cart": {
+    "title": "السلة",
+    "quantity_for": "الكمية لـ {{ title }}",
+    "remove": "إزالة",
+    "update": "تحديث السلة",
+    "subtotal": "المجموع الفرعي",
+    "taxes_and_shipping": "تُحتسب الضرائب والشحن عند الدفع.",
+    "checkout": "إتمام الشراء",
+    "empty": "سلتك فارغة.",
+    "continue_shopping": "متابعة التسوق",
+    "decrease": "تقليل كمية {{ title }}",
+    "increase": "زيادة كمية {{ title }}",
+    "updated": "تم تحديث السلة",
+    "update_error": "تعذر تحديث السلة. حاول مرة أخرى."
+  },
+  "collections": {
+    "empty": "لا توجد منتجات بعد."
+  },
+  "search": {
+    "title": "بحث",
+    "label": "ابحث عن المنتجات",
+    "submit": "بحث",
+    "results_count": {
+      "zero": "لا توجد نتائج لـ \"{{ terms }}\"",
+      "one": "نتيجة واحدة لـ \"{{ terms }}\"",
+      "two": "نتيجتان لـ \"{{ terms }}\"",
+      "few": "{{ count }} نتائج لـ \"{{ terms }}\"",
+      "many": "{{ count }} نتيجة لـ \"{{ terms }}\"",
+      "other": "{{ count }} نتيجة لـ \"{{ terms }}\""
+    }
+  },
+  "password": {
+    "label": "كلمة المرور",
+    "submit": "دخول"
+  },
+  "gift_card": {
+    "expired": "انتهت صلاحية بطاقة الهدايا هذه.",
+    "use_at_checkout": "استخدم هذا الرمز عند الدفع:",
+    "add_to_apple_wallet": "أضف إلى Apple Wallet"
+  },
+  "guide": {
+    "placement": {
+      "label": "01 / التركيب",
+      "heading": "أوضاع التركيب الموصى بها",
+      "description": "توزيعات مقترحة للنقاط على ستة فئران شائعة. استخدمها كنقطة بداية: نقاط أقل تعني انزلاقًا أسرع، ونقاط أكثر تعني تحكمًا أكبر.",
+      "gpro_alt": "G Pro Wireless · G Pro X Super",
+      "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
+      "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
+    },
+    "included": {
+      "label": "02 / داخل العلبة",
+      "heading": "محتويات العلبة",
+      "image_alt": "محتويات العبوة: 20 نقطة أقدام ومنديل كحول واحد",
+      "dots_name": "نقاط أقدام {{ name }}",
+      "dots_detail": "قطر 6.5 مم · سماكة 0.8 مم",
+      "pad_name": "منديل كحول",
+      "pad_detail": "مغلّف بشكل فردي لتنظيف قاعدة الماوس قبل التركيب",
+      "quantity": {
+        "zero": "{{ count }} قطعة",
+        "one": "قطعة واحدة",
+        "two": "قطعتان",
+        "few": "{{ count }} قطع",
+        "many": "{{ count }} قطعة",
+        "other": "{{ count }} قطعة"
+      }
+    },
+    "install": {
+      "label": "03 / التركيب خطوة بخطوة",
+      "heading": "طريقة التركيب",
+      "description": "أربع خطوات. السطح النظيف والجاف يمنح أقوى التصاق.",
+      "image_12_alt": "الخطوتان 1 و2: أزل الأقدام القديمة ونظّف القاعدة",
+      "image_34_alt": "الخطوتان 3 و4: حاذِ النقاط واضغطها في مكانها",
+      "step_1_title": "إزالة",
+      "step_1_text": "أزل جميع الأقدام الموجودة بعناية، بما في ذلك اللاصق مزدوج الوجه، وتأكد من عدم بقاء أي بقايا.",
+      "step_2_title": "تنظيف",
+      "step_2_text": "امسح مكان كل قدم بمنديل الكحول لإزالة الغبار أو الزيوت أو بقايا اللاصق، ثم اتركه يجف تمامًا.",
+      "step_3_title": "محاذاة",
+      "step_3_text": "اختر النقطة بالحجم المناسب، وحاذِ كل نقطة مع حافة الماوس لتحقيق التوازن والثبات.",
+      "step_4_title": "ضغط",
+      "step_4_text": "بعد وضع جميع النقاط، اضغط بقوة على كل واحدة لبضع ثوانٍ لضمان التصاقها جيدًا."
+    },
+    "faq": {
+      "label": "04 / الأسئلة الشائعة",
+      "heading": "الأسئلة الشائعة",
+      "q1": "هل يناسب {{ name }} الماوس الخاص بي؟",
+      "a1": "نعم. نقاط {{ name }} عالمية، لذا تناسب أي ماوس. ضعها مكان الأقدام الأصلية بعيدًا عن فتحة المستشعر، ووزّعها بالتساوي ليستقر الماوس مستويًا.",
+      "q2": "كم نقطة يجب أن أستخدم؟",
+      "a2": "ابدأ بأحد التوزيعات الموصى بها. نقاط أقل تعني انزلاقًا أسرع وأخف، ونقاط أكثر تضيف تلامسًا وتحكمًا. عدّل حتى تشعر بالراحة.",
+      "q3": "هل يجب إزالة الأقدام الأصلية؟",
+      "a3": "نعم. أزل أولًا الأقدام الأصلية وأي بقايا لاصق، ثم نظّف القاعدة بالمنديل المرفق واتركها تجف تمامًا.",
+      "q4": "على أي لوحات ماوس يعمل {{ name }}؟",
+      "a4": "صُمّم {{ name }} للوحات الماوس القماشية والزجاجية.",
+      "q5": "ما الفرق بين Ice Version وControl Version؟",
+      "a5": "Ice Version هو قدم السرعة لدينا، لانزلاق سريع منخفض الاحتكاك. وControl Version هو قدم التحكم لدينا، بقدرة توقف أكبر لتصويب دقيق ومتحكم به.",
+      "q6": "هل تؤثر النقاط على المستشعر؟",
+      "a6": "لا. توضع النقاط على حواف القاعدة بعيدًا عن فتحة المستشعر، فلا تلمسه ولا تغطيه أبدًا. وعند تركيبها بالتساوي يبقى الماوس مستويًا ويظل التتبع ثابتًا."
+    },
+    "soon": {
+      "label": "01 / نظرة عامة",
+      "text": "المزيد من التفاصيل قريبًا. تلقَّ رسالة عند الإطلاق."
+    }
+  },
+  "about": {
+    "label": "من نحن",
+    "heading": "RAWDOT",
+    "story_label": "كيف بدأنا",
+    "lead": "بدأت RAWDOT بلاعب واحد ومشكلة واحدة: كان استبدال أقدام الماوس المتآكلة في المكسيك مكلفًا، وكان العثور على أقدام جيدة شبه مستحيل.",
+    "step_1_title": "المشكلة",
+    "step_1_text": "كانت الأقدام عالية الجودة باهظة الثمن وصعبة الشراء في المكسيك، مع أن كل ماوس يحتاج إلى أقدام جديدة عاجلًا أم آجلًا.",
+    "step_2_title": "حلّنا",
+    "step_2_text": "صنعنا أقدامنا بأنفسنا: نقاط عالمية بسعر يتيح للاعبين في المكسيك الحصول أخيرًا على الجودة دون دفع مبالغ زائدة.",
+    "step_3_title": "إلى كل المكسيك",
+    "step_3_text": "جاءت النقاط بجودة تضاهي أي منتج في السوق، فأتحنا rawdot للاعبين في كل أنحاء المكسيك.",
+    "step_4_title": "التالي: لوحات الماوس الزجاجية",
+    "step_4_text": "لوحة الماوس الزجاجية الجيدة باهظة الثمن أيضًا في المكسيك. الفكرة نفسها، والمنتج التالي: معدات عالية الجودة بسعر عادل."
+  },
+  "reviews": {
+    "label": "المراجعات",
+    "heading": "مراجعات العملاء"
+  },
+  "toast": {
+    "added": "أُضيف إلى السلة",
+    "removed": "أُزيل من السلة",
+    "view_cart": "عرض السلة",
+    "undo": "تراجع",
+    "dismiss": "إغلاق",
+    "updated": "تم تحديث السلة",
+    "quantity": "الكمية"
+  },
+  "seo": {
+    "home_title": "Rawdot",
+    "home_description": "20 نقطة ماوس عالمية من PTFE بنسبة 100% لانزلاق سريع وناعم على قواعد القماش والزجاج. تناسب أي ماوس.",
+    "home_h1": "rawdot: أرجل ماوس عالمية من PTFE وقواعد زجاجية وأكمام ذراع للألعاب"
+  },
+  "content": {
+    "ptfe": "PTFE",
+    "dots": "Dots",
+    "diameter": "Diameter",
+    "thickness": "Thickness",
+    "finish": "Finish",
+    "surface": "Surface",
+    "frosted": "Frosted",
+    "micro_etched": "Micro-etched",
+    "type": "Type",
+    "shape": "Shape",
+    "fits": "Fits",
+    "surfaces": "Surfaces",
+    "circular_dots": "Circular dots",
+    "any_mouse_universal": "Any mouse (universal)",
+    "cloth_and_glass_mousepads": "Cloth and glass mousepads",
+    "universal_100_ptfe_dots_for_a_smooth_fast_consistent_glide_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+    "universal_100_ptfe_dots_with_more_stopping_power_for_precise_controlled_aim_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+    "frosted_glass_surface_micro_etched_a_permanent_surface_treatment_not_a_coating": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating."
+  },
+  "blocks": {
+    "ice_version": {
+      "title": "Ice Version",
+      "badge": "Speed",
+      "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    },
+    "control_version": {
+      "title": "Control Version",
+      "badge": "Control",
+      "tagline": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Control",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    },
+    "glasspad": {
+      "title": "11:37",
+      "badge": "Speed",
+      "tagline": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating.",
+      "spec_1_value": "Frosted",
+      "spec_1_label": "Finish",
+      "spec_2_value": "Micro-etched",
+      "spec_2_label": "Surface",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type"
+    },
+    "arm_sleeve": {
+      "title": "Arm Sleeve"
+    },
+    "product": {
+      "title": "Ice Version",
+      "badge": "Speed",
+      "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    }
+  },
+  "contact": {
+    "heading": "اتصل بنا",
+    "name": "اسمك",
+    "email": "البريد الإلكتروني",
+    "message": "الرسالة",
+    "send": "إرسال",
+    "success": "شكرًا! استلمنا رسالتك وسنرد عليك عبر البريد الإلكتروني.",
+    "intro": "لديك سؤال؟ اكتب لنا وسنرد عبر البريد الإلكتروني."
+  }
+}

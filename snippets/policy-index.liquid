@@ -1,0 +1,42 @@
+{% doc %}
+  Policy pages (terms, privacy, refunds, shipping…): the page title and a numbered index of every policy,
+  shown beside the text on desktop and after it on phones. Shopify renders the policy text itself.
+
+  @param {string} part - "title" for the heading block, "index" for the list of policies
+{% enddoc %}
+{%- liquid
+  assign current_handle = request.path | split: '/' | last
+  assign current_title = page_title
+  for policy in shop.policies
+    assign policy_handle = policy.url | split: '/' | last
+    if policy_handle == current_handle
+      assign current_title = policy.title
+    endif
+  endfor
+-%}
+{%- if part == 'title' -%}
+  <div class="policy-head">
+    <p class="section-label">rawdot / {{ 'footer.legal' | t }}</p>
+    <p class="policy-head__title" aria-hidden="true">{{ current_title | escape }}</p>
+  </div>
+{%- else -%}
+  <nav class="policy-index" aria-label="{{ 'footer.legal' | t }}">
+    <p class="section-label">{{ 'footer.legal' | t }}</p>
+    <ol role="list">
+      {%- for policy in shop.policies -%}
+        {%- assign policy_handle = policy.url | split: '/' | last -%}
+        <li>
+          <a
+            href="{{ policy.url }}"
+            {% if policy_handle == current_handle %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span class="policy-index__number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            {{ policy.title | escape }}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </nav>
+{%- endif -%}

@@ -1,0 +1,148 @@
+{%- liquid
+  comment
+    Product pages use the same buy box as the homepage. When "Product" below matches the page's product,
+    the section's texts, cutouts and guide are used (the same fields as the homepage showcase block).
+    Otherwise the product's own photos are shown, and key specs come from the metafield custom.key_specs
+    (list of single-line text, each "value|label").
+  endcomment
+  assign matches = false
+  if section.settings.product != blank and section.settings.product.id == product.id
+    assign matches = true
+  endif
+
+  assign category_key = 'categories.' | append: section.settings.category | replace: '-', '_'
+  assign category_label = category_key | t
+  assign eyebrow = 'rawdot / ' | append: category_label
+
+  if matches
+    capture specs
+      render 'block-specs', settings: section.settings, scope: 'product', prefix: 'spec'
+    endcapture
+    capture extra_specs
+      render 'block-specs', settings: section.settings, scope: 'product', prefix: 'detail'
+    endcapture
+    capture title
+      render 'block-text', settings: section.settings, scope: 'product', field: 'title'
+    endcapture
+    capture badge
+      render 'block-text', settings: section.settings, scope: 'product', field: 'badge'
+    endcapture
+    capture tagline
+      render 'block-text', settings: section.settings, scope: 'product', field: 'tagline'
+    endcapture
+    assign image_asset = section.settings.image_asset
+    assign guide = section.settings.guide
+  else
+    assign specs = product.metafields.custom.key_specs.value | join: '~~'
+    assign extra_specs = ''
+    assign title = product.title
+    assign badge = product.metafields.custom.type_label.value
+    assign tagline = product.metafields.custom.tagline.value
+    assign image_asset = ''
+    assign guide = 'none'
+  endif
+  if title == blank
+    assign title = product.title
+  endif
+-%}
+<div class="main-product">
+  {% render 'buy-box',
+    id: section.id,
+    product: product,
+    title: title,
+    badge: badge,
+    tagline: tagline,
+    image_asset: image_asset,
+    specs: specs,
+    extra_specs: extra_specs,
+    coming_soon: section.settings.coming_soon,
+    heading_tag: 'h1',
+    eyebrow: eyebrow,
+    eager: true,
+    guide_id: section.id,
+    guide_type: guide
+  %}
+</div>
+
+{%- if guide == 'skates' -%}
+  <div class="main-product__guide" id="guide-{{ section.id }}">
+    {% render 'guide-skates', id: section.id, name: title, anchor: true, included: section.settings.included_asset %}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product",
+  "class": "section-main-product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "coming_soon",
+      "label": "Show as coming soon",
+      "info": "Use on a product template assigned to products that aren't for sale yet.",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "category",
+      "label": "Category (small line above the name)",
+      "options": [
+        { "value": "skates", "label": "Skates" },
+        { "value": "glasspads", "label": "Glasspads" },
+        { "value": "arm-sleeves", "label": "Arm sleeves" }
+      ],
+      "default": "skates"
+    },
+    {
+      "type": "header",
+      "content": "Product page content",
+      "info": "Used only on the product chosen here, so its page matches the homepage. Other products show their own photos."
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    { "type": "text", "id": "title", "label": "Name", "info": "Leave empty to use the product title." },
+    { "type": "text", "id": "badge", "label": "Type label" },
+    { "type": "text", "id": "tagline", "label": "One-line description" },
+    {
+      "type": "text",
+      "id": "image_asset",
+      "label": "Theme image files",
+      "info": "Same as on the homepage block: file names separated by commas."
+    },
+    {
+      "type": "text",
+      "id": "included_asset",
+      "label": "What's included photo (skates guide)"
+    },
+    { "type": "text", "id": "spec_1_value", "label": "Spec 1 value" },
+    { "type": "text", "id": "spec_1_label", "label": "Spec 1 label" },
+    { "type": "text", "id": "spec_2_value", "label": "Spec 2 value" },
+    { "type": "text", "id": "spec_2_label", "label": "Spec 2 label" },
+    { "type": "text", "id": "spec_3_value", "label": "Spec 3 value" },
+    { "type": "text", "id": "spec_3_label", "label": "Spec 3 label" },
+    { "type": "text", "id": "spec_4_value", "label": "Spec 4 value" },
+    { "type": "text", "id": "spec_4_label", "label": "Spec 4 label" },
+    { "type": "text", "id": "detail_1_value", "label": "Detail 1 value" },
+    { "type": "text", "id": "detail_1_label", "label": "Detail 1 label" },
+    { "type": "text", "id": "detail_2_value", "label": "Detail 2 value" },
+    { "type": "text", "id": "detail_2_label", "label": "Detail 2 label" },
+    { "type": "text", "id": "detail_3_value", "label": "Detail 3 value" },
+    { "type": "text", "id": "detail_3_label", "label": "Detail 3 label" },
+    { "type": "text", "id": "detail_4_value", "label": "Detail 4 value" },
+    { "type": "text", "id": "detail_4_label", "label": "Detail 4 label" },
+    {
+      "type": "select",
+      "id": "guide",
+      "label": "Guide below the product",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "skates", "label": "Skates guide (placement, install, FAQ)" }
+      ],
+      "default": "none"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,396 @@
+{% doc %}
+  The sell-first product unit: a large media stage with the product name, key facts, a one-line
+  description and an add-to-cart bar with the price, all on the first screen. Longer details open in a
+  side sheet ("See more"). Products that are blank or marked coming soon show a notify-me form instead.
+
+  @param {string} id - Unique ID for this buy box (used for element IDs)
+  @param {product} [product] - The Shopify product; leave blank for a product that doesn't exist yet
+  @param {string} [title] - Display name; falls back to the product title
+  @param {string} [eyebrow] - Small line above the name, e.g. "rawdot / skates"
+  @param {string} [badge] - Short type label, e.g. "Speed" or "Control"
+  @param {string} [tagline] - One sentence: what it is and why it matters
+  @param {image} [image] - Image shown first, before the product's own images
+  @param {string} [image_asset] - Theme asset file names, separated by commas. When set, they replace the product's own photos (used for background-free cutouts and products not yet in Shopify). Photos get the usual rounded corners and shadow; a file whose name contains "-cutout" (transparent background) gets a soft drop shadow instead.
+  @param {string} [specs] - Key specs as "value|label" pairs separated by "~~"
+  @param {string} [details] - Extra rich text shown under "See more"
+  @param {boolean} [coming_soon] - Show as coming soon (not purchasable)
+  @param {string} [heading_tag] - Heading element for the name, "h1" or "h2" (default "h2")
+  @param {boolean} [eager] - Load the media eagerly (first visible product)
+  @param {string} [extra_specs] - Details shown under "See more" that aren't in the fact row, as "value|label" pairs separated by "~~". When set, the dialog shows these instead of repeating the fact row and product description.
+  @param {string} [guide_id] - ID of this product's guide; "See more" then lists links into it
+  @param {string} [guide_type] - "skates" or "coming_soon": which guide links to list
+  @param {string} [versions] - Version switch (e.g. Ice Version / Control Version), shown at the top of the panel
+{% enddoc %}
+{%- liquid
+  assign heading_tag = heading_tag | default: 'h2'
+  assign display_title = title | default: product.title
+  assign is_coming_soon = coming_soon
+  if product == blank
+    assign is_coming_soon = true
+  endif
+  assign current_variant = product.selected_or_first_available_variant
+  assign model = product.media | where: 'media_type', 'model' | first
+  assign spec_items = specs | split: '~~'
+  assign notify_tag = product.handle | default: display_title | handle
+  assign form_id = id | append: '-form'
+  assign notify_form_id = id | append: '-notify'
+  if eager
+    assign image_loading = 'eager'
+    assign image_priority = 'high'
+  else
+    assign image_loading = 'lazy'
+    assign image_priority = 'auto'
+  endif
+-%}
+
+<article class="buy-box" id="{{ id }}" aria-labelledby="{{ id }}-title" data-buy-box>
+  <div class="buy-box__stage">
+    <div class="buy-box__media">
+      {%- if model != blank -%}
+        {{
+          model
+          | model_viewer_tag:
+            image_size: '1200x',
+            reveal: 'auto',
+            camera-controls: '',
+            auto-rotate: '',
+            interaction-prompt: 'none'
+        }}
+      {%- else -%}
+        {%- liquid
+          assign slide_count = 0
+          assign product_images = product.media | where: 'media_type', 'image'
+        -%}
+        {%- capture slides -%}
+          {%- if image != blank -%}
+            {%- assign slide_count = slide_count | plus: 1 -%}
+            <div class="gallery__slide">
+              {{
+                image
+                | image_url: width: 1600
+                | image_tag:
+                  widths: '480, 720, 960, 1280, 1600',
+                  sizes: '(min-width: 990px) 50vw, 90vw',
+                  loading: image_loading,
+                  fetchpriority: image_priority,
+                  alt: display_title
+              }}
+            </div>
+          {%- endif -%}
+          {%- if image_asset != blank -%}
+            {%- assign asset_files = image_asset | split: ',' -%}
+            {%- for file in asset_files -%}
+              {%- liquid
+                assign file_name = file | strip
+                assign slide_count = slide_count | plus: 1
+                assign slide_loading = 'lazy'
+                assign slide_priority = 'auto'
+                if slide_count == 1
+                  assign slide_loading = image_loading
+                  assign slide_priority = image_priority
+                endif
+              -%}
+              <div class="gallery__slide">
+                {%- liquid
+                  assign asset_class = 'buy-box__asset'
+                  if file_name contains '-cutout'
+                    assign asset_class = 'buy-box__asset buy-box__asset--cutout'
+                  endif
+                  render 'theme-image', file: file_name, alt: display_title, class: asset_class, sizes: '(min-width: 990px) 50vw, 92vw', loading: slide_loading, priority: slide_priority
+                -%}
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+          {%- if image_asset == blank -%}
+          {%- for media in product_images -%}
+            {%- liquid
+              assign slide_count = slide_count | plus: 1
+              assign slide_loading = 'lazy'
+              assign slide_priority = 'auto'
+              if slide_count == 1
+                assign slide_loading = image_loading
+                assign slide_priority = image_priority
+              endif
+              assign slide_alt = media.alt | default: display_title
+            -%}
+            <div class="gallery__slide">
+              {{
+                media.preview_image
+                | image_url: width: 1600
+                | image_tag:
+                  widths: '480, 720, 960, 1280, 1600',
+                  sizes: '(min-width: 990px) 50vw, 90vw',
+                  loading: slide_loading,
+                  fetchpriority: slide_priority,
+                  alt: slide_alt
+              }}
+            </div>
+          {%- endfor -%}
+          {%- endif -%}
+        {%- endcapture -%}
+
+        {%- if slide_count == 0 -%}
+          <div class="buy-box__placeholder">
+            {% render 'logo-mark' %}
+            <span>{{ 'products.coming_soon' | t }}</span>
+          </div>
+        {%- elsif slide_count == 1 -%}
+          {{ slides }}
+        {%- else -%}
+          <media-gallery class="gallery">
+            <div class="gallery__track" data-gallery-track tabindex="0" aria-label="{{ display_title | escape }}">
+              {{ slides }}
+            </div>
+            <div class="gallery__dots">
+              {%- for i in (1..slide_count) -%}
+                <button
+                  type="button"
+                  class="gallery__dot"
+                  data-gallery-dot="{{ forloop.index0 }}"
+                  {% if forloop.first %}
+                    aria-current="true"
+                  {% endif %}
+                >
+                  <span class="visually-hidden">{{ 'products.image_of' | t: number: i, total: slide_count }}</span>
+                </button>
+              {%- endfor -%}
+            </div>
+          </media-gallery>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="buy-box__panel">
+    {{ versions }}
+    {%- if eyebrow != blank -%}
+      <p class="buy-box__eyebrow">{{ eyebrow | escape }}</p>
+    {%- endif -%}
+    <{{ heading_tag }} class="buy-box__title" id="{{ id }}-title">{{ display_title | escape }}</{{ heading_tag }}>
+
+    {%- if spec_items.size > 0 -%}
+      <ul class="buy-box__facts" role="list">
+        {%- for spec in spec_items -%}
+          {%- assign spec_parts = spec | split: '|' -%}
+          <li>
+            <strong>{{ spec_parts[0] | escape }}</strong>
+            <span>{{ spec_parts[1] | escape }}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <div class="buy-box__tags">
+      {%- if badge != blank and versions == blank -%}
+        <span class="buy-box__badge">{{ badge | escape }}</span>
+      {%- endif -%}
+      {%- if is_coming_soon -%}
+        <span class="buy-box__tag">{{ 'products.coming_soon' | t }}</span>
+      {%- elsif current_variant.available -%}
+        <span class="buy-box__tag">{{ 'products.in_stock' | t }}</span>
+      {%- endif -%}
+      {%- unless is_coming_soon -%}
+        {%- if current_variant.compare_at_price > current_variant.price -%}
+          {%- assign saving = current_variant.compare_at_price
+            | minus: current_variant.price
+            | times: 100.0
+            | divided_by: current_variant.compare_at_price
+            | round
+          -%}
+          <span class="buy-box__tag buy-box__tag--sale">−{{ saving }}%</span>
+        {%- endif -%}
+      {%- endunless -%}
+    </div>
+
+    {%- if tagline != blank -%}
+      <p class="buy-box__tagline">{{ tagline | escape }}</p>
+    {%- endif -%}
+
+    <button type="button" class="buy-box__more" data-dialog-open="{{ id }}-details" aria-haspopup="dialog">
+      {{- 'products.see_more' | t }} +
+    </button>
+
+    {%- unless is_coming_soon or product.has_only_default_variant -%}
+      <variant-picker class="variant-picker" data-form-id="{{ form_id }}">
+        {%- for option in product.options_with_values -%}
+          {%- assign option_index = forloop.index0 -%}
+          <fieldset class="variant-picker__option">
+            <legend>{{ option.name | escape }}</legend>
+            <div class="variant-picker__values">
+              {%- for value in option.values -%}
+                <label class="variant-picker__value">
+                  <input
+                    type="radio"
+                    name="{{ id }}-option-{{ option_index }}"
+                    value="{{ value | escape }}"
+                    data-option-index="{{ option_index }}"
+                    {% if current_variant.options[option_index] == value %}
+                      checked
+                    {% endif %}
+                  >
+                  <span>{{ value | escape }}</span>
+                </label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+        {%- endfor -%}
+        <script type="application/json" data-variants>
+          [
+            {%- for variant in product.variants -%}
+              {
+                "id": {{ variant.id }},
+                "options": {{ variant.options | json }},
+                "available": {{ variant.available | json }},
+                {%- capture variant_price -%}{%- render 'price', variant: variant -%}{%- endcapture %}
+                "price": {{ variant_price | strip | json }}
+              }{% unless forloop.last %},{% endunless %}
+            {%- endfor -%}
+          ]
+        </script>
+      </variant-picker>
+    {%- endunless -%}
+
+    <div class="buy-box__actions">
+      {%- if is_coming_soon -%}
+        <button
+          type="button"
+          class="buy-bar"
+          data-dialog-open="{{ id }}-details"
+          aria-haspopup="dialog"
+        >
+          <span>{{ 'products.notify_me' | t }}</span>
+          <span class="buy-bar__meta">{{ 'products.coming_soon' | t }}</span>
+        </button>
+      {%- else -%}
+        {%- form 'product', product, id: form_id, class: 'buy-box__form', data-product-form: '' -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+          <button
+            type="submit"
+            name="add"
+            class="buy-bar"
+            data-add-button
+            {% unless current_variant.available %}
+              disabled
+            {% endunless %}
+          >
+            <span data-add-label>
+              {%- if current_variant.available -%}
+                {{ 'products.add_to_cart' | t }}
+              {%- else -%}
+                {{ 'products.sold_out' | t }}
+              {%- endif -%}
+            </span>
+            <span class="buy-bar__meta" data-price>{% render 'price', variant: current_variant %}</span>
+          </button>
+          <a class="buy-bar buy-bar--done" href="{{ routes.cart_url }}" hidden data-go-to-cart>
+            <span>{{ 'products.go_to_cart' | t }}</span>
+            <span class="buy-bar__meta">{% render 'icon', name: 'arrow-right' %}</span>
+          </a>
+        {%- endform -%}
+      {%- endif -%}
+    </div>
+  </div>
+
+  <dialog class="details-dialog" id="{{ id }}-details" aria-labelledby="{{ id }}-details-title">
+    <div class="details-dialog__header">
+      <p class="details-dialog__title" id="{{ id }}-details-title">{{ display_title | escape }}</p>
+      <form method="dialog">
+        <button type="submit" class="button button--icon">
+          {% render 'icon', name: 'close' %}
+          <span class="visually-hidden">{{ 'accessibility.close' | t }}</span>
+        </button>
+      </form>
+    </div>
+
+    <div class="details-dialog__body">
+      {%- if is_coming_soon -%}
+        <div class="notify">
+          <p class="notify__heading">{{ 'products.coming_soon' | t }}</p>
+          {%- form 'customer', id: notify_form_id, class: 'notify__form' -%}
+            {%- if form.posted_successfully? -%}
+              <p class="notify__success" role="status">{{ 'products.notify_success' | t }}</p>
+            {%- else -%}
+              <input type="hidden" name="contact[tags]" value="notify-me,notify-{{ notify_tag }}">
+              <label for="{{ id }}-notify-email">{{ 'products.notify_label' | t }}</label>
+              <div class="notify__row">
+                <input
+                  id="{{ id }}-notify-email"
+                  type="email"
+                  name="contact[email]"
+                  autocomplete="email"
+                  spellcheck="false"
+                  required
+                  aria-describedby="{{ id }}-notify-consent{% if form.errors %} {{ id }}-notify-error{% endif %}"
+                  {% if form.errors %}
+                    aria-invalid="true"
+                  {% endif %}
+                >
+                <button type="submit" class="button button--primary">{{ 'products.notify_me' | t }}</button>
+              </div>
+              {%- if form.errors -%}
+                <p class="notify__error" id="{{ id }}-notify-error">{{ form.errors | default_errors }}</p>
+              {%- endif -%}
+              {%- assign privacy_open = '<a href="' | append: shop.privacy_policy.url | append: '">' -%}
+              <p class="notify__consent" id="{{ id }}-notify-consent">
+                {{ 'products.notify_consent' | t | replace: '[privacy]', privacy_open | replace: '[/privacy]', '</a>' }}
+              </p>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      {%- endif -%}
+
+      {%- assign extra_items = extra_specs | split: '~~' -%}
+      {%- if extra_items.size > 0 -%}
+        <h3>{{ 'products.details' | t }}</h3>
+        <dl class="details-dialog__specs">
+          {%- for spec in extra_items -%}
+            {%- assign spec_parts = spec | split: '|' -%}
+            <div>
+              <dt>{{ spec_parts[1] | escape }}</dt>
+              <dd>{{ spec_parts[0] | escape }}</dd>
+            </div>
+          {%- endfor -%}
+        </dl>
+      {%- else -%}
+        {%- if spec_items.size > 0 -%}
+          <h3>{{ 'products.specifications' | t }}</h3>
+          <dl class="details-dialog__specs">
+            {%- for spec in spec_items -%}
+              {%- assign spec_parts = spec | split: '|' -%}
+              <div>
+                <dt>{{ spec_parts[1] | escape }}</dt>
+                <dd>{{ spec_parts[0] | escape }}</dd>
+              </div>
+            {%- endfor -%}
+          </dl>
+        {%- endif -%}
+        {%- if product.description != blank -%}
+          <h3>{{ 'products.about' | t }}</h3>
+          <div class="rte">{{ product.description }}</div>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if details != blank -%}
+        <div class="rte">{{ details }}</div>
+      {%- endif -%}
+
+      {%- if guide_type == 'skates' -%}
+        <h3>{{ 'products.in_the_guide' | t }}</h3>
+        <ul class="guide-links" role="list">
+          <li>
+            <a href="#GuidePlacement-{{ guide_id }}" data-scroll-to>{{ 'guide.placement.heading' | t }}</a>
+          </li>
+          <li>
+            <a href="#GuideIncluded-{{ guide_id }}" data-scroll-to>{{ 'guide.included.heading' | t }}</a>
+          </li>
+          <li>
+            <a href="#GuideInstall-{{ guide_id }}" data-scroll-to>{{ 'guide.install.heading' | t }}</a>
+          </li>
+          <li>
+            <a href="#GuideFaq-{{ guide_id }}" data-scroll-to>{{ 'guide.faq.heading' | t }}</a>
+          </li>
+        </ul>
+      {%- endif -%}
+    </div>
+  </dialog>
+</article>

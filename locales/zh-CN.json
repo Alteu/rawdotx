@@ -1,0 +1,295 @@
+{
+  "accessibility": {
+    "skip_to_content": "跳到内容",
+    "close": "关闭"
+  },
+  "general": {
+    "page": "第 {{ page }} 页",
+    "not_found_title": "找不到页面",
+    "not_found_text": "您要找的页面不存在。"
+  },
+  "header": {
+    "navigation": "主菜单",
+    "account": "账户",
+    "cart": "购物车",
+    "cart_count": {
+      "other": "购物车中有 {{ count }} 件商品"
+    },
+    "menu": "菜单",
+    "about": "关于"
+  },
+  "footer": {
+    "navigation": "页脚",
+    "all_rights_reserved": "保留所有权利。",
+    "socials": "社交媒体",
+    "legal": "法律信息"
+  },
+  "localization": {
+    "country_label": "国家/地区",
+    "language_label": "语言",
+    "update": "更新"
+  },
+  "categories": {
+    "skates": "鼠标脚贴",
+    "glasspads": "玻璃鼠标垫",
+    "arm_sleeves": "电竞袖套"
+  },
+  "showcase": {
+    "versions": "版本"
+  },
+  "products": {
+    "add_to_cart": "加入购物车",
+    "adding": "正在加入…",
+    "added": "已加入购物车",
+    "add_error": "无法加入购物车，请重试。",
+    "go_to_cart": "前往购物车",
+    "sold_out": "已售罄",
+    "unavailable": "不可购买",
+    "see_more": "查看更多",
+    "coming_soon": "即将推出",
+    "notify_me": "到货通知",
+    "notify_label": "到货时通过邮件通知我",
+    "notify_success": "谢谢！到货时我们会发邮件通知您。",
+    "specifications": "规格",
+    "about": "关于产品",
+    "in_stock": "有货",
+    "notify_consent": "注册即表示您同意接收 rawdot 关于此产品的邮件。可随时退订。请查看我们的[privacy]隐私政策[/privacy]。",
+    "details": "详细信息",
+    "in_the_guide": "指南目录",
+    "image_of": "第 {{ number }} 张，共 {{ total }} 张",
+    "regular_price": "原价",
+    "sale_price": "促销价"
+  },
+  "cart": {
+    "title": "购物车",
+    "quantity_for": "{{ title }} 的数量",
+    "remove": "移除",
+    "update": "更新购物车",
+    "subtotal": "小计",
+    "taxes_and_shipping": "税费和运费将在结账时计算。",
+    "checkout": "结账",
+    "empty": "您的购物车是空的。",
+    "continue_shopping": "继续购物",
+    "decrease": "减少 {{ title }} 的数量",
+    "increase": "增加 {{ title }} 的数量",
+    "updated": "购物车已更新",
+    "update_error": "无法更新购物车，请重试。"
+  },
+  "collections": {
+    "empty": "暂无产品。"
+  },
+  "search": {
+    "title": "搜索",
+    "label": "搜索产品",
+    "submit": "搜索",
+    "results_count": {
+      "other": "“{{ terms }}”的搜索结果：{{ count }} 个"
+    }
+  },
+  "password": {
+    "label": "密码",
+    "submit": "进入"
+  },
+  "gift_card": {
+    "expired": "此礼品卡已过期。",
+    "use_at_checkout": "结账时使用此代码：",
+    "add_to_apple_wallet": "添加到 Apple 钱包"
+  },
+  "guide": {
+    "placement": {
+      "label": "01 / 贴法",
+      "heading": "推荐贴法",
+      "description": "六款热门鼠标的圆点贴法建议。以此为起点：圆点越少滑动越快，圆点越多控制越稳。",
+      "gpro_alt": "G Pro Wireless · G Pro X Super",
+      "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
+      "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
+    },
+    "included": {
+      "label": "02 / 包装清单",
+      "heading": "包装内含",
+      "image_alt": "包装内容：20 个圆点脚贴和 1 片酒精棉片",
+      "dots_name": "{{ name }} 圆点脚贴",
+      "dots_detail": "直径 6.5 毫米 · 厚 0.8 毫米",
+      "pad_name": "酒精棉片",
+      "pad_detail": "独立包装，用于贴装前清洁鼠标底部",
+      "quantity": {
+        "other": "{{ count }} 个"
+      }
+    },
+    "install": {
+      "label": "03 / 安装",
+      "heading": "安装方法",
+      "description": "四个步骤。表面干净干燥，粘贴最牢固。",
+      "image_12_alt": "步骤 1 和 2：移除旧脚贴并清洁底部",
+      "image_34_alt": "步骤 3 和 4：对齐圆点并按压固定",
+      "step_1_title": "移除",
+      "step_1_text": "小心移除所有原有脚贴，包括双面胶，确保不留残胶。",
+      "step_2_title": "清洁",
+      "step_2_text": "用酒精棉片擦拭每个脚贴位置，去除灰尘、油污或残胶，然后让其完全干燥。",
+      "step_3_title": "对齐",
+      "step_3_text": "选择合适尺寸的圆点，将每个圆点对齐鼠标边缘，以获得平衡和稳定。",
+      "step_4_title": "按压",
+      "step_4_text": "所有圆点贴好后，用力按压每个圆点几秒钟，确保牢固粘贴。"
+    },
+    "faq": {
+      "label": "04 / 常见问题",
+      "heading": "常见问题",
+      "q1": "{{ name }} 适合我的鼠标吗？",
+      "a1": "适合。{{ name }} 圆点为通用设计，适用于任何鼠标。将它们贴在原装脚贴的位置，避开传感器开口，并均匀分布，让鼠标平稳放置。",
+      "q2": "应该用几个圆点？",
+      "a2": "先从推荐贴法之一开始。圆点越少，滑动越快越轻；圆点越多，接触和控制越多。调整到手感合适为止。",
+      "q3": "需要移除原装脚贴吗？",
+      "a3": "需要。先移除原装脚贴和残胶，再用附带的酒精棉片清洁底部，并让其完全干燥。",
+      "q4": "{{ name }} 适用于哪些鼠标垫？",
+      "a4": "{{ name }} 适用于布面和玻璃鼠标垫。",
+      "q5": "Ice Version 和 Control Version 有什么区别？",
+      "a5": "Ice Version 是我们的速度型脚贴，带来快速、低摩擦的滑动。Control Version 是我们的控制型脚贴，制动力更强，瞄准更精准稳定。",
+      "q6": "圆点会影响传感器吗？",
+      "a6": "不会。圆点贴在底部边缘，远离传感器开口，不会接触或遮挡传感器。均匀贴好后，鼠标保持水平，追踪也保持稳定。"
+    },
+    "soon": {
+      "label": "01 / 概览",
+      "text": "更多详情即将公布。上市时通过邮件通知你。"
+    }
+  },
+  "about": {
+    "label": "关于我们",
+    "heading": "RAWDOT",
+    "story_label": "我们的起点",
+    "lead": "RAWDOT 始于一位玩家和一个问题：在墨西哥更换磨损的鼠标脚贴很贵，好的脚贴几乎买不到。",
+    "step_1_title": "问题",
+    "step_1_text": "在墨西哥，优质脚贴价格高、难买到，而每只鼠标迟早都需要更换。",
+    "step_2_title": "我们的答案",
+    "step_2_text": "我们自己做：通用圆点脚贴，价格让墨西哥玩家终于能买到好品质，而不用多花钱。",
+    "step_3_title": "走向全墨西哥",
+    "step_3_text": "我们的贴点不输市面上任何产品，于是我们把 rawdot 带给全墨西哥的玩家。",
+    "step_4_title": "下一步：玻璃鼠标垫",
+    "step_4_text": "在墨西哥，一块好的玻璃鼠标垫同样昂贵。同样的理念，下一个产品：价格公道的优质装备。"
+  },
+  "reviews": {
+    "label": "评价",
+    "heading": "客户评价"
+  },
+  "toast": {
+    "added": "已加入购物车",
+    "removed": "已从购物车移除",
+    "view_cart": "查看购物车",
+    "undo": "撤销",
+    "dismiss": "关闭",
+    "updated": "购物车已更新",
+    "quantity": "数量"
+  },
+  "seo": {
+    "home_title": "Rawdot",
+    "home_description": "20 片 100% PTFE 通用鼠标脚贴，在布面和玻璃鼠标垫上顺滑快速。适用于任何鼠标。",
+    "home_h1": "rawdot：通用 PTFE 鼠标脚贴、玻璃鼠标垫和电竞护臂"
+  },
+  "content": {
+    "ptfe": "PTFE",
+    "dots": "Dots",
+    "diameter": "Diameter",
+    "thickness": "Thickness",
+    "finish": "Finish",
+    "surface": "Surface",
+    "frosted": "Frosted",
+    "micro_etched": "Micro-etched",
+    "type": "Type",
+    "shape": "Shape",
+    "fits": "Fits",
+    "surfaces": "Surfaces",
+    "circular_dots": "Circular dots",
+    "any_mouse_universal": "Any mouse (universal)",
+    "cloth_and_glass_mousepads": "Cloth and glass mousepads",
+    "universal_100_ptfe_dots_for_a_smooth_fast_consistent_glide_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+    "universal_100_ptfe_dots_with_more_stopping_power_for_precise_controlled_aim_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+    "frosted_glass_surface_micro_etched_a_permanent_surface_treatment_not_a_coating": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating."
+  },
+  "blocks": {
+    "ice_version": {
+      "title": "Ice Version",
+      "badge": "Speed",
+      "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    },
+    "control_version": {
+      "title": "Control Version",
+      "badge": "Control",
+      "tagline": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Control",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    },
+    "glasspad": {
+      "title": "11:37",
+      "badge": "Speed",
+      "tagline": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating.",
+      "spec_1_value": "Frosted",
+      "spec_1_label": "Finish",
+      "spec_2_value": "Micro-etched",
+      "spec_2_label": "Surface",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type"
+    },
+    "arm_sleeve": {
+      "title": "Arm Sleeve"
+    },
+    "product": {
+      "title": "Ice Version",
+      "badge": "Speed",
+      "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    }
+  },
+  "contact": {
+    "heading": "联系我们",
+    "name": "你的姓名",
+    "email": "电子邮件",
+    "message": "留言",
+    "send": "发送",
+    "success": "谢谢！我们已收到你的留言，会通过电子邮件回复。",
+    "intro": "有问题？给我们留言，我们会通过电子邮件回复。"
+  }
+}

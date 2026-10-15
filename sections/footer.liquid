@@ -1,0 +1,69 @@
+{%- liquid
+  assign socials_url = settings.social_links_url | default: settings.social_instagram
+  assign has_policies = false
+  for policy in shop.policies
+    assign has_policies = true
+    break
+  endfor
+-%}
+<footer class="site-footer">
+  <div class="site-footer__inner page-width">
+    <div class="site-footer__brand">
+      <a href="{{ routes.root_url }}" class="site-footer__logo">
+        <img
+          src="{{ 'rawdot-wordmark-inverted.png' | asset_url }}"
+          alt="{{ shop.name | escape }}"
+          width="74"
+          height="53"
+          loading="lazy"
+        >
+      </a>
+      <p>
+        © {{ 'now' | date: '%Y' }}
+        <span translate="no">rawdot</span>. {{ 'footer.all_rights_reserved' | t }}
+      </p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="{{ 'footer.navigation' | t }}">
+      <ul role="list">
+        {%- if socials_url != blank -%}
+          <li>
+            <a class="site-footer__link" href="{{ socials_url }}" target="_blank" rel="noopener">
+              {{- 'footer.socials' | t -}}
+              <svg class="site-footer__arrow" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
+                <path d="M2.5 7.5l5-5M3.5 2.5h4v4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if has_policies -%}
+          <li>
+            <details class="footer-menu">
+              <summary class="site-footer__link">
+                {{- 'footer.legal' | t -}}
+                <svg class="site-footer__chevron" viewBox="0 0 10 6" aria-hidden="true" focusable="false">
+                  <path d="M1 5l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <ul class="footer-menu__list" role="list">
+                {%- for policy in shop.policies -%}
+                  <li>
+                    <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </details>
+          </li>
+        {%- endif -%}
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section-footer scheme-dark",
+  "settings": []
+}
+{% endschema %}

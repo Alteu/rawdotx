@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Secrets — never commit real credentials
+.env
+.env.*
+!.env.example
+
+# Shopify CLI
+.shopify/
+
+# Playwright output
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Temporary audit/test scripts run from the repo root
+/_*.js
+/_*.mjs
+/.*.mjs
+/audit-*.cjs
+/audit-*.js
+/audit-*.mjs

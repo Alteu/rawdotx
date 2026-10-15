@@ -1,0 +1,26 @@
+{% doc %}
+  Compact product link for grids and search results.
+
+  @param {product} product - The product to show
+{% enddoc %}
+<a class="product-card" href="{{ product.url }}">
+  <span class="product-card__media">
+    {%- if product.featured_image -%}
+      {{
+        product.featured_image
+        | image_url: width: 720
+        | image_tag: widths: '360, 540, 720', sizes: '(min-width: 990px) 25vw, 50vw', loading: 'lazy'
+      }}
+    {%- else -%}
+      <span class="buy-box__placeholder">{% render 'logo-mark' %}</span>
+    {%- endif -%}
+  </span>
+  <span class="product-card__title">{{ product.title | escape }}</span>
+  <span class="product-card__price">
+    {%- if product.available -%}
+      {{ product.price | money_with_currency }}
+    {%- else -%}
+      {{ 'products.sold_out' | t }}
+    {%- endif -%}
+  </span>
+</a>

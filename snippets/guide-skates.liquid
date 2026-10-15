@@ -1,0 +1,195 @@
+{% doc %}
+  Guide for a skate product (Ice Version, Control Version), shown below the first screen while that version is
+  selected: recommended placements, what's included, installation and FAQ. Text uses the product name.
+  Installation images exist in English and Spanish; other languages show the English images with the steps
+  written out as text underneath.
+
+  @param {string} id - Unique ID (the showcase block ID)
+  @param {string} name - Product name, e.g. "Ice Version"
+  @param {boolean} [anchor] - Give the FAQ the page-wide #faq anchor (footer link target)
+  @param {string} [included] - Theme file of the "What's included" photo for this version (transparent cutout)
+{% enddoc %}
+{%- liquid
+  assign cards = 'gpro,finalmouse,viper' | split: ','
+  assign language = request.locale.iso_code | split: '-' | first
+  if language == 'es'
+    assign install_language = 'es'
+  else
+    assign install_language = 'en'
+  endif
+-%}
+<div class="guide">
+  <section class="guide__section page-width" aria-labelledby="GuidePlacement-{{ id }}">
+    <div class="guide__header">
+      <p class="section-label">{{ 'guide.placement.label' | t }}</p>
+      <h2 class="guide__heading" id="GuidePlacement-{{ id }}">{{ 'guide.placement.heading' | t }}</h2>
+      <p class="guide__intro">{{ 'guide.placement.description' | t }}</p>
+    </div>
+    <ul class="placement-grid" role="list">
+      {%- for card in cards -%}
+        {%- liquid
+          assign alt_key = 'guide.placement.' | append: card | append: '_alt'
+          assign base = 'placement-' | append: card
+          assign src_480 = base | append: '-480.webp' | asset_url
+          assign src_960 = base | append: '-960.webp' | asset_url
+          assign src_1536 = base | append: '-1536.webp' | asset_url
+        -%}
+        <li class="placement-card">
+          <img
+            src="{{ src_960 }}"
+            srcset="{{ src_480 }} 480w, {{ src_960 }} 960w, {{ src_1536 }} 1536w"
+            sizes="(min-width: 990px) 31vw, 92vw"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            alt="{{ alt_key | t | escape }}"
+          >
+        </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+
+  <section class="guide__section page-width" aria-labelledby="GuideIncluded-{{ id }}">
+    <div class="guide__split guide__split--centered">
+      <div class="guide__header">
+        <p class="section-label">{{ 'guide.included.label' | t }}</p>
+        <h2 class="guide__heading" id="GuideIncluded-{{ id }}">{{ 'guide.included.heading' | t }}</h2>
+        <ul class="included-list" role="list">
+          <li>
+            <span class="included-list__item">
+              <strong>{{ 'guide.included.dots_name' | t: name: name }}</strong>
+              <span>{{ 'guide.included.dots_detail' | t }}</span>
+            </span>
+            <span class="included-list__qty">{{ 'guide.included.quantity' | t: count: 20 }}</span>
+          </li>
+          <li>
+            <span class="included-list__item">
+              <strong>{{ 'guide.included.pad_name' | t }}</strong>
+              <span>{{ 'guide.included.pad_detail' | t }}</span>
+            </span>
+            <span class="included-list__qty">{{ 'guide.included.quantity' | t: count: 1 }}</span>
+          </li>
+        </ul>
+      </div>
+      {%- if included != blank -%}
+        <div class="guide__photo guide__photo--cutout">
+          {%- liquid
+            assign included_alt = 'guide.included.image_alt' | t
+            render 'theme-image', file: included, alt: included_alt, sizes: '(min-width: 990px) 50vw, 92vw'
+          -%}
+        </div>
+      {%- else -%}
+        <div class="guide__photo">
+          <img
+            src="{{ 'rawdot-contents-full-960.webp' | asset_url }}"
+            srcset="{{ 'rawdot-contents-full-480.webp' | asset_url }} 480w, {{ 'rawdot-contents-full-960.webp' | asset_url }} 960w, {{ 'rawdot-contents-full-1536.webp' | asset_url }} 1536w"
+            sizes="(min-width: 990px) 50vw, 92vw"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            alt="{{ 'guide.included.image_alt' | t | escape }}"
+          >
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <section class="guide__section guide__section--dark scheme-dark page-width" aria-labelledby="GuideInstall-{{ id }}">
+    <div class="guide__header">
+      <p class="section-label">{{ 'guide.install.label' | t }}</p>
+      <h2 class="guide__heading" id="GuideInstall-{{ id }}">{{ 'guide.install.heading' | t }}</h2>
+      <p class="guide__intro">{{ 'guide.install.description' | t }}</p>
+    </div>
+    <div class="install-images">
+      {%- for pair in (1..2) -%}
+        {%- liquid
+          if pair == 1
+            assign steps = '12'
+          else
+            assign steps = '34'
+          endif
+          assign base = 'install-' | append: install_language | append: '-' | append: steps
+          assign src_480 = base | append: '-480.webp' | asset_url
+          assign src_960 = base | append: '-960.webp' | asset_url
+          assign src_1536 = base | append: '-1536.webp' | asset_url
+          assign alt_key = 'guide.install.image_' | append: steps | append: '_alt'
+        -%}
+        <img
+          src="{{ src_960 }}"
+          srcset="{{ src_480 }} 480w, {{ src_960 }} 960w, {{ src_1536 }} 1536w"
+          sizes="(min-width: 990px) 46vw, 92vw"
+          width="1536"
+          height="1152"
+          loading="lazy"
+          alt="{{ alt_key | t | escape }}"
+        >
+      {%- endfor -%}
+    </div>
+    <ol
+      class="install-steps{% if language == 'en' or language == 'es' %} install-steps--small-only{% endif %}"
+      role="list"
+    >
+      {%- for i in (1..4) -%}
+        {%- liquid
+          assign title_key = 'guide.install.step_' | append: i | append: '_title'
+          assign text_key = 'guide.install.step_' | append: i | append: '_text'
+        -%}
+        <li class="install-step">
+          <span class="install-step__number" aria-hidden="true">0{{ i }}</span>
+          <h3>{{ title_key | t }}</h3>
+          <p>{{ text_key | t }}</p>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </section>
+
+  <section
+    class="guide__section page-width"
+    {% if anchor %}
+      id="faq"
+    {% endif %}
+    aria-labelledby="GuideFaq-{{ id }}"
+  >
+    <div class="guide__split">
+      <div class="guide__header">
+        <p class="section-label">{{ 'guide.faq.label' | t }}</p>
+        <h2 class="guide__heading" id="GuideFaq-{{ id }}">{{ 'guide.faq.heading' | t }}</h2>
+      </div>
+      <div class="faq-list">
+        {%- for i in (1..6) -%}
+          {%- liquid
+            assign q_key = 'guide.faq.q' | append: i
+            assign a_key = 'guide.faq.a' | append: i
+          -%}
+          <details class="faq-item">
+            <summary>{{ q_key | t: name: name }}</summary>
+            <p>{{ a_key | t: name: name }}</p>
+          </details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{%- if anchor -%}
+  {%- comment -%} The FAQ as structured data, so search engines and AI assistants can quote the answers. {%- endcomment -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for i in (1..6) -%}
+          {%- liquid
+            assign q_key = 'guide.faq.q' | append: i
+            assign a_key = 'guide.faq.a' | append: i
+          -%}
+          {
+            "@type": "Question",
+            "name": {{ q_key | t: name: name | json }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ a_key | t: name: name | json }} }
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}

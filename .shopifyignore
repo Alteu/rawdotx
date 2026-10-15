@@ -1,0 +1,7 @@
+# Only theme folders are uploaded; keep project files out.
+node_modules/**
+docs/**
+brand/**
+tests/**
+test-results/**
+playwright-report/**

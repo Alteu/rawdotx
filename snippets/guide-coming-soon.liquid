@@ -1,0 +1,54 @@
+{% doc %}
+  Short guide for a product that isn't out yet (glasspad, arm sleeve): what is known so far and a
+  notify-me button. Shown below the first screen while that product is selected.
+
+  @param {string} id - Unique ID (the showcase block ID); the notify dialog is "{id}-details"
+  @param {string} name - Product name (alt text of the photos)
+  @param {string} [tagline] - One-line description
+  @param {string} [specs] - Known facts as "value|label" pairs separated by "~~"
+  @param {string} [photos] - In-use and detail photos: theme file names separated by commas. Photos sit two per row at their own proportions; files named -cutout float without a frame.
+{% enddoc %}
+{%- assign spec_items = specs | split: '~~' -%}
+<div class="guide">
+  <section class="guide__section page-width" aria-labelledby="GuideSoon-{{ id }}">
+    <div class="guide__split">
+      <div class="guide__header">
+        <p class="section-label">{{ 'guide.soon.label' | t }}</p>
+        <h2 class="guide__heading" id="GuideSoon-{{ id }}">{{ 'products.details' | t }}</h2>
+        {%- if tagline != blank -%}
+          <p class="guide__intro">{{ tagline | escape }}</p>
+        {%- endif -%}
+      </div>
+      <div class="guide__soon">
+        {%- if spec_items.size > 0 -%}
+          <dl class="details-dialog__specs">
+            {%- for spec in spec_items -%}
+              {%- assign spec_parts = spec | split: '|' -%}
+              <div>
+                <dt>{{ spec_parts[1] | escape }}</dt>
+                <dd>{{ spec_parts[0] | escape }}</dd>
+              </div>
+            {%- endfor -%}
+          </dl>
+        {%- endif -%}
+        <p class="guide__intro">
+          {{ 'guide.soon.text' | t }}
+          <button type="button" class="guide__notify-link" data-dialog-open="{{ id }}-details" aria-haspopup="dialog">
+            {{- 'products.notify_me' | t -}}
+          </button>
+        </p>
+      </div>
+    </div>
+    {%- if photos != blank -%}
+      {%- assign photo_files = photos | split: ',' -%}
+      <div class="guide__photos">
+        {%- for file in photo_files -%}
+          {%- assign file_name = file | strip -%}
+          <figure class="guide__photos-item{% if file_name contains '-cutout' %} guide__photos-item--cutout{% endif %}">
+            {%- render 'theme-image', file: file_name, alt: name, sizes: '(min-width: 750px) 46vw, 92vw' -%}
+          </figure>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </section>
+</div>

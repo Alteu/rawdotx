@@ -1,0 +1,201 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "showcase": {
+      "type": "showcase",
+      "blocks": {
+        "ice-version": {
+          "type": "item",
+          "settings": {
+            "category": "skates",
+            "product": "ice-version-mouse-skates",
+            "coming_soon": false,
+            "title": "Ice Version",
+            "badge": "Speed",
+            "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+            "image_asset": "ice-version-1-cutout.webp, ice-version-2-cutout.webp",
+            "included_asset": "included-ice-cutout.webp",
+            "spec_1_value": "100%",
+            "spec_1_label": "PTFE",
+            "spec_2_value": "20",
+            "spec_2_label": "Dots",
+            "spec_3_value": "6.5 mm",
+            "spec_3_label": "Diameter",
+            "spec_4_value": "0.8 mm",
+            "spec_4_label": "Thickness",
+            "detail_1_value": "Speed",
+            "detail_1_label": "Type",
+            "detail_2_value": "Circular dots",
+            "detail_2_label": "Shape",
+            "detail_3_value": "Any mouse (universal)",
+            "detail_3_label": "Fits",
+            "detail_4_value": "Cloth and glass mousepads",
+            "detail_4_label": "Surfaces",
+            "guide": "skates"
+          }
+        },
+        "control-version": {
+          "type": "item",
+          "settings": {
+            "category": "skates",
+            "coming_soon": true,
+            "title": "Control Version",
+            "badge": "Control",
+            "tagline": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+            "image_asset": "control-version-1-cutout.webp, control-version-2-cutout.webp",
+            "included_asset": "included-control-cutout.webp",
+            "spec_1_value": "100%",
+            "spec_1_label": "PTFE",
+            "spec_2_value": "20",
+            "spec_2_label": "Dots",
+            "spec_3_value": "6.5 mm",
+            "spec_3_label": "Diameter",
+            "spec_4_value": "0.8 mm",
+            "spec_4_label": "Thickness",
+            "detail_1_value": "Control",
+            "detail_1_label": "Type",
+            "detail_2_value": "Circular dots",
+            "detail_2_label": "Shape",
+            "detail_3_value": "Any mouse (universal)",
+            "detail_3_label": "Fits",
+            "detail_4_value": "Cloth and glass mousepads",
+            "detail_4_label": "Surfaces",
+            "guide": "skates"
+          }
+        },
+        "glasspad": {
+          "type": "item",
+          "settings": {
+            "category": "glasspads",
+            "coming_soon": true,
+            "title": "11:37",
+            "badge": "Speed",
+            "tagline": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating.",
+            "image_asset": "glasspad-cutout.webp",
+            "spec_1_value": "Frosted",
+            "spec_1_label": "Finish",
+            "spec_2_value": "Micro-etched",
+            "spec_2_label": "Surface",
+            "detail_1_value": "Speed",
+            "detail_1_label": "Type",
+            "guide": "coming_soon"
+          }
+        },
+        "arm-sleeve": {
+          "type": "item",
+          "settings": {
+            "category": "arm-sleeves",
+            "coming_soon": true,
+            "title": "Arm Sleeve",
+            "image_asset": "arm-sleeve-1-cutout.webp, arm-sleeve-2-cutout.webp",
+            "lifestyle_asset": "arm-sleeve-lifestyle.webp, arm-sleeve-lifestyle-desk.webp, arm-sleeve-detail-logo-cutout.webp, arm-sleeve-detail-cuff-cutout.webp",
+            "guide": "coming_soon"
+          }
+        }
+      },
+      "block_order": [
+        "ice-version",
+        "control-version",
+        "glasspad",
+        "arm-sleeve"
+      ],
+      "settings": {
+        "heading": "rawdot — mouse skates, glasspads and gaming arm sleeves"
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+        "category": "skates"
+      },
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-1.webp",
+            "alt": "Calidad de trabajo: excelente. Material: excelente. Montaje: fácil. Excelente producto, 100% recomendado."
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-2.webp",
+            "alt": "Perdón por el mousepad sucio, pero qué diferencia en el desplazamiento. Tenía mis dudas, pero valió completamente la pena."
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-3.webp",
+            "alt": "A la madre, está top."
+          }
+        },
+        "review-4": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-4.webp",
+            "alt": "Sí están muy duros, están muy buenos, van flying."
+          }
+        },
+        "review-5": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-5.webp",
+            "alt": "Listo bro, ya quedó. Noma bro, literal se siente mejor, mejor mi aim, siento más fluido. Aunque quiero cambiarme a uno de tela o de cristal."
+          }
+        },
+        "review-6": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-6.webp",
+            "alt": "Brooo ya se las puse y se ven de maravilla. Hasta ahora 10/10, ponerlas muy fácil y se siente muy bien. Le puse como me habías dicho, tres abajo y dos arriba."
+          }
+        },
+        "review-7": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-7.webp",
+            "alt": "Se sienten súper, bro. Silenciosos y buenos. Antes tuve unos Wallhack y la verdad es que los siento casi igual o mejores."
+          }
+        },
+        "review-8": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-8.webp",
+            "alt": "Muy bien, deslizan bien y vienen varios. Lo recomiendo por el precio y se sienten muy cómodos al jugar."
+          }
+        },
+        "review-9": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-9.webp",
+            "alt": "Muy buena calidad y funcionan perfectamente en glass pad."
+          }
+        }
+      },
+      "block_order": [
+        "review-7",
+        "review-2",
+        "review-6",
+        "review-1",
+        "review-5",
+        "review-8",
+        "review-9",
+        "review-4",
+        "review-3"
+      ]
+    }
+  },
+  "order": [
+    "showcase",
+    "reviews"
+  ]
+}

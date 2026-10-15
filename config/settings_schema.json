@@ -1,0 +1,157 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "rawdot",
+    "theme_version": "0.1.0",
+    "theme_author": "rawdot",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Page"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#fbfbf9"
+      },
+      {
+        "type": "color",
+        "id": "color_foreground",
+        "label": "Text and buttons",
+        "default": "#111214"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Panels",
+        "default": "#f1f1ee"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Secondary text",
+        "default": "#6b6c69"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Borders",
+        "default": "#deded9"
+      },
+      {
+        "type": "header",
+        "content": "Dark areas (header, footer)"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_background",
+        "label": "Background",
+        "default": "#0d0e0e"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_foreground",
+        "label": "Text and buttons",
+        "default": "#f4f4ef"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_surface",
+        "label": "Panels",
+        "default": "#1a1b1b"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_muted",
+        "label": "Secondary text",
+        "default": "#9a9b97"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_border",
+        "label": "Borders",
+        "default": "#2b2c2c"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Font",
+        "default": "jost_n4",
+        "info": "Owner choice (13 Oct 2026): Jost. Medium and semibold weights load automatically."
+      }
+    ]
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Square image, at least 96 × 96 px."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_intro",
+        "label": "Logo intro animation",
+        "info": "Plays once per visit. Skipped for visitors arriving from an ad or campaign link; visitors who prefer reduced motion see a short fade instead.",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Social media and contact",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_links_url",
+        "label": "Socials link (Linktree)",
+        "info": "The footer's \"Socials\" link. Falls back to Instagram when empty."
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Contact email",
+        "default": "rawdot.shop@outlook.com"
+      }
+    ]
+  },
+  {
+    "name": "Search engines",
+    "settings": [
+      {
+        "type": "text",
+        "id": "google_site_verification",
+        "label": "Google Search Console verification code",
+        "info": "In Search Console choose \"URL prefix\" → \"HTML tag\" and paste only the content value (the long code between the quotes)."
+      },
+      {
+        "type": "text",
+        "id": "bing_site_verification",
+        "label": "Bing Webmaster Tools verification code",
+        "info": "The content value of Bing's msvalidate.01 meta tag."
+      }
+    ]
+  }
+]

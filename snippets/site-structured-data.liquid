@@ -1,0 +1,59 @@
+{% doc %}
+  Site-wide JSON-LD: the rawdot organization (logo, socials, contact) and the website.
+{% enddoc %}
+{%- liquid
+  assign same_as = ''
+  if settings.social_instagram != blank
+    assign same_as = same_as | append: settings.social_instagram | append: '|'
+  endif
+  if settings.social_tiktok != blank
+    assign same_as = same_as | append: settings.social_tiktok | append: '|'
+  endif
+  if settings.social_links_url != blank
+    assign same_as = same_as | append: settings.social_links_url
+  endif
+  assign same_as_list = same_as | split: '|'
+  assign search_template = request.origin | append: routes.search_url | append: '?q={search_term_string}'
+-%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": {{ request.origin | append: '/#organization' | json }},
+        "name": "rawdot",
+        "alternateName": "RAWDOT",
+        "url": {{ request.origin | append: '/' | json }},
+        "logo": {{ 'favicon-512.png' | asset_url | prepend: 'https:' | json }},
+        "description": {{ 'seo.home_description' | t | json }},
+        "areaServed": { "@type": "Country", "name": "Mexico" },
+        {%- if shop.email != blank %}
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": {{ shop.email | json }},
+            "availableLanguage": ["es", "en"]
+          },
+        {%- endif %}
+        "sameAs": {{ same_as_list | json }}
+      },
+      {
+        "@type": "WebSite",
+        "@id": {{ request.origin | append: '/#website' | json }},
+        "name": "rawdot",
+        "url": {{ request.origin | append: '/' | json }},
+        "inLanguage": {{ request.locale.iso_code | json }},
+        "publisher": { "@id": {{ request.origin | append: '/#organization' | json }} },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": {{ search_template | json }}
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+</script>

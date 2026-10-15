@@ -1,0 +1,295 @@
+{
+  "accessibility": {
+    "skip_to_content": "コンテンツへスキップ",
+    "close": "閉じる"
+  },
+  "general": {
+    "page": "{{ page }}ページ",
+    "not_found_title": "ページが見つかりません",
+    "not_found_text": "お探しのページは存在しません。"
+  },
+  "header": {
+    "navigation": "メイン",
+    "account": "アカウント",
+    "cart": "カート",
+    "cart_count": {
+      "other": "カート内の商品 {{ count }} 点"
+    },
+    "menu": "メニュー",
+    "about": "About"
+  },
+  "footer": {
+    "navigation": "フッター",
+    "all_rights_reserved": "All rights reserved.",
+    "socials": "SNS",
+    "legal": "法的情報"
+  },
+  "localization": {
+    "country_label": "国/地域",
+    "language_label": "言語",
+    "update": "更新"
+  },
+  "categories": {
+    "skates": "マウスソール",
+    "glasspads": "ガラスマウスパッド",
+    "arm_sleeves": "アームスリーブ"
+  },
+  "showcase": {
+    "versions": "バージョン"
+  },
+  "products": {
+    "add_to_cart": "カートに追加",
+    "adding": "追加中…",
+    "added": "カートに追加しました",
+    "add_error": "カートに追加できませんでした。もう一度お試しください。",
+    "go_to_cart": "カートを見る",
+    "sold_out": "売り切れ",
+    "unavailable": "購入不可",
+    "see_more": "詳しく見る",
+    "coming_soon": "近日発売",
+    "notify_me": "入荷を通知",
+    "notify_label": "入荷時にメールでお知らせします",
+    "notify_success": "ありがとうございます！入荷時にメールでお知らせします。",
+    "specifications": "仕様",
+    "about": "製品について",
+    "in_stock": "在庫あり",
+    "notify_consent": "登録すると、この製品に関するrawdotからのメールを受け取ることに同意したことになります。配信はいつでも停止できます。[privacy]プライバシーポリシー[/privacy]をご確認ください。",
+    "details": "詳細",
+    "in_the_guide": "ガイド内",
+    "image_of": "画像 {{ number }}/{{ total }}",
+    "regular_price": "通常価格",
+    "sale_price": "セール価格"
+  },
+  "cart": {
+    "title": "カート",
+    "quantity_for": "{{ title }}の数量",
+    "remove": "削除",
+    "update": "カートを更新",
+    "subtotal": "小計",
+    "taxes_and_shipping": "税金と送料はチェックアウト時に計算されます。",
+    "checkout": "購入手続きへ",
+    "empty": "カートは空です。",
+    "continue_shopping": "買い物を続ける",
+    "decrease": "{{ title }} の数量を減らす",
+    "increase": "{{ title }} の数量を増やす",
+    "updated": "カートを更新しました",
+    "update_error": "カートを更新できませんでした。もう一度お試しください。"
+  },
+  "collections": {
+    "empty": "まだ製品がありません。"
+  },
+  "search": {
+    "title": "検索",
+    "label": "製品を検索",
+    "submit": "検索",
+    "results_count": {
+      "other": "「{{ terms }}」の検索結果 {{ count }} 件"
+    }
+  },
+  "password": {
+    "label": "パスワード",
+    "submit": "入る"
+  },
+  "gift_card": {
+    "expired": "このギフトカードは有効期限が切れています。",
+    "use_at_checkout": "チェックアウト時にこのコードをご利用ください：",
+    "add_to_apple_wallet": "Apple Walletに追加"
+  },
+  "guide": {
+    "placement": {
+      "label": "01 / 配置",
+      "heading": "おすすめの配置",
+      "description": "人気マウス6機種のドット配置例です。まずはここから：ドットが少ないほど速い滑り、多いほどコントロール重視になります。",
+      "gpro_alt": "G Pro Wireless · G Pro X Super",
+      "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
+      "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
+    },
+    "included": {
+      "label": "02 / 同梱物",
+      "heading": "同梱物",
+      "image_alt": "内容物：スケートドット20個とアルコールパッド1枚",
+      "dots_name": "{{ name }} スケートドット",
+      "dots_detail": "直径6.5 mm・厚さ0.8 mm",
+      "pad_name": "アルコールパッド",
+      "pad_detail": "個包装。貼り付け前にマウス底面の清掃に使います",
+      "quantity": {
+        "other": "{{ count }}個"
+      }
+    },
+    "install": {
+      "label": "03 / 取り付け",
+      "heading": "取り付け方法",
+      "description": "4ステップ。清潔で乾いた表面が最もよく接着します。",
+      "image_12_alt": "ステップ1と2：古いソールをはがし、底面を清掃",
+      "image_34_alt": "ステップ3と4：ドットを合わせて押さえる",
+      "step_1_title": "はがす",
+      "step_1_text": "既存のソールを両面テープも含めて丁寧にはがし、粘着の残りがないようにします。",
+      "step_2_title": "拭く",
+      "step_2_text": "アルコールパッドで各ソール部分を拭き、ほこり・油分・粘着の残りを取り除きます。完全に乾かしてください。",
+      "step_3_title": "合わせる",
+      "step_3_text": "適切なサイズのドットを選び、バランスと安定性のためにマウスの縁に合わせて配置します。",
+      "step_4_title": "押さえる",
+      "step_4_text": "すべてのドットを配置したら、しっかり接着するよう各ドットを数秒間強く押さえます。"
+    },
+    "faq": {
+      "label": "04 / FAQ",
+      "heading": "よくある質問",
+      "q1": "{{ name }}は私のマウスに合いますか？",
+      "a1": "はい。{{ name }}のドットはユニバーサル仕様なので、どのマウスにも合います。純正ソールがあった位置に、センサーの開口部を避けて均等に配置し、マウスが水平に置けるようにしてください。",
+      "q2": "ドットは何個使えばいいですか？",
+      "a2": "まずはおすすめの配置から始めましょう。ドットが少ないほど速く軽い滑りに、多いほど接地とコントロールが増します。好みに合うまで調整してください。",
+      "q3": "純正ソールははがす必要がありますか？",
+      "a3": "はい。まず純正ソールと残った粘着剤を取り除き、付属のパッドで底面を清掃して完全に乾かしてください。",
+      "q4": "{{ name }}はどのマウスパッドで使えますか？",
+      "a4": "{{ name }}は布製とガラス製のマウスパッドに対応しています。",
+      "q5": "Ice VersionとControl Versionの違いは？",
+      "a5": "Ice Versionはスピード系ソールで、速く摩擦の少ない滑りを実現します。Control Versionはコントロール系ソールで、より高い止め性能により精密で安定したエイムを実現します。",
+      "q6": "ドットはセンサーに影響しますか？",
+      "a6": "いいえ。ドットは底面の縁、センサー開口部から離れた位置に貼るため、センサーに触れたり覆ったりすることはありません。均等に貼ればマウスは水平に保たれ、トラッキングも安定します。"
+    },
+    "soon": {
+      "label": "01 / 概要",
+      "text": "詳細は近日公開。発売時にメールでお知らせします。"
+    }
+  },
+  "about": {
+    "label": "私たちについて",
+    "heading": "RAWDOT",
+    "story_label": "はじまり",
+    "lead": "RAWDOTは、一人のゲーマーと一つの問題から始まりました。メキシコではすり減ったマウスソールの交換が高く、良いものを見つけるのはほぼ不可能だったのです。",
+    "step_1_title": "問題",
+    "step_1_text": "メキシコでは高品質なソールが高価で入手しにくく、それでもマウスはいずれ交換が必要になります。",
+    "step_2_title": "私たちの答え",
+    "step_2_text": "自分たちで作りました。メキシコのゲーマーが払いすぎずに品質を手にできる価格の、ユニバーサルスケートドットです。",
+    "step_3_title": "メキシコ全土へ",
+    "step_3_text": "ドットは市場のどの製品にも負けない仕上がりになったので、rawdotをメキシコ全土のゲーマーに届けることにしました。",
+    "step_4_title": "次はガラスマウスパッド",
+    "step_4_text": "良いガラスマウスパッドもメキシコでは同じく高価です。同じ考えで次の製品へ：品質の良いギアを適正な価格で。"
+  },
+  "reviews": {
+    "label": "レビュー",
+    "heading": "お客様のレビュー"
+  },
+  "toast": {
+    "added": "カートに追加しました",
+    "removed": "カートから削除しました",
+    "view_cart": "カートを見る",
+    "undo": "元に戻す",
+    "dismiss": "閉じる",
+    "updated": "カートを更新しました",
+    "quantity": "数量"
+  },
+  "seo": {
+    "home_title": "Rawdot",
+    "home_description": "布製・ガラス製マウスパッドで速く滑らかに滑る、100% PTFEのユニバーサルマウスソール20個。どのマウスにも対応。",
+    "home_h1": "rawdot：ユニバーサルPTFEマウスソール、ガラスパッド、ゲーミングアームスリーブ"
+  },
+  "content": {
+    "ptfe": "PTFE",
+    "dots": "Dots",
+    "diameter": "Diameter",
+    "thickness": "Thickness",
+    "finish": "Finish",
+    "surface": "Surface",
+    "frosted": "Frosted",
+    "micro_etched": "Micro-etched",
+    "type": "Type",
+    "shape": "Shape",
+    "fits": "Fits",
+    "surfaces": "Surfaces",
+    "circular_dots": "Circular dots",
+    "any_mouse_universal": "Any mouse (universal)",
+    "cloth_and_glass_mousepads": "Cloth and glass mousepads",
+    "universal_100_ptfe_dots_for_a_smooth_fast_consistent_glide_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+    "universal_100_ptfe_dots_with_more_stopping_power_for_precise_controlled_aim_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+    "frosted_glass_surface_micro_etched_a_permanent_surface_treatment_not_a_coating": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating."
+  },
+  "blocks": {
+    "ice_version": {
+      "title": "Ice Version",
+      "badge": "Speed",
+      "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    },
+    "control_version": {
+      "title": "Control Version",
+      "badge": "Control",
+      "tagline": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Control",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    },
+    "glasspad": {
+      "title": "11:37",
+      "badge": "Speed",
+      "tagline": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating.",
+      "spec_1_value": "Frosted",
+      "spec_1_label": "Finish",
+      "spec_2_value": "Micro-etched",
+      "spec_2_label": "Surface",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type"
+    },
+    "arm_sleeve": {
+      "title": "Arm Sleeve"
+    },
+    "product": {
+      "title": "Ice Version",
+      "badge": "Speed",
+      "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    }
+  },
+  "contact": {
+    "heading": "お問い合わせ",
+    "name": "お名前",
+    "email": "メールアドレス",
+    "message": "メッセージ",
+    "send": "送信",
+    "success": "ありがとうございます。メッセージを受け付けました。メールでご返信します。",
+    "intro": "ご質問はこちらから。メールでご返信します。"
+  }
+}

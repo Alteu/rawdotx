@@ -1,0 +1,298 @@
+{
+  "accessibility": {
+    "skip_to_content": "Zum Inhalt springen",
+    "close": "Schließen"
+  },
+  "general": {
+    "page": "Seite {{ page }}",
+    "not_found_title": "Seite nicht gefunden",
+    "not_found_text": "Die gesuchte Seite existiert nicht."
+  },
+  "header": {
+    "navigation": "Hauptmenü",
+    "account": "Konto",
+    "cart": "Warenkorb",
+    "cart_count": {
+      "one": "{{ count }} Artikel im Warenkorb",
+      "other": "{{ count }} Artikel im Warenkorb"
+    },
+    "menu": "Menü",
+    "about": "Über uns"
+  },
+  "footer": {
+    "navigation": "Fußzeile",
+    "all_rights_reserved": "Alle Rechte vorbehalten.",
+    "socials": "Socials",
+    "legal": "Rechtliches"
+  },
+  "localization": {
+    "country_label": "Land/Region",
+    "language_label": "Sprache",
+    "update": "Aktualisieren"
+  },
+  "categories": {
+    "skates": "Skates",
+    "glasspads": "Glas-Mauspads",
+    "arm_sleeves": "Armsleeves"
+  },
+  "showcase": {
+    "versions": "Versionen"
+  },
+  "products": {
+    "add_to_cart": "In den Warenkorb",
+    "adding": "Wird hinzugefügt…",
+    "added": "Zum Warenkorb hinzugefügt",
+    "add_error": "Konnte nicht hinzugefügt werden. Bitte versuche es erneut.",
+    "go_to_cart": "Zum Warenkorb",
+    "sold_out": "Ausverkauft",
+    "unavailable": "Nicht verfügbar",
+    "see_more": "Mehr ansehen",
+    "coming_soon": "Bald erhältlich",
+    "notify_me": "Benachrichtigen",
+    "notify_label": "Per E-Mail benachrichtigen, sobald verfügbar",
+    "notify_success": "Danke! Wir melden uns, sobald es verfügbar ist.",
+    "specifications": "Technische Daten",
+    "about": "Über das Produkt",
+    "in_stock": "Auf Lager",
+    "notify_consent": "Mit der Anmeldung stimmst du zu, E-Mails von rawdot zu diesem Produkt zu erhalten. Abmeldung jederzeit möglich. Siehe unsere [privacy]Datenschutzerklärung[/privacy].",
+    "details": "Details",
+    "in_the_guide": "Im Guide",
+    "image_of": "Bild {{ number }} von {{ total }}",
+    "regular_price": "Regulärer Preis",
+    "sale_price": "Angebotspreis"
+  },
+  "cart": {
+    "title": "Warenkorb",
+    "quantity_for": "Menge für {{ title }}",
+    "remove": "Entfernen",
+    "update": "Warenkorb aktualisieren",
+    "subtotal": "Zwischensumme",
+    "taxes_and_shipping": "Steuern und Versand werden an der Kasse berechnet.",
+    "checkout": "Zur Kasse",
+    "empty": "Dein Warenkorb ist leer.",
+    "continue_shopping": "Weiter einkaufen",
+    "decrease": "Menge für {{ title }} verringern",
+    "increase": "Menge für {{ title }} erhöhen",
+    "updated": "Warenkorb aktualisiert",
+    "update_error": "Der Warenkorb konnte nicht aktualisiert werden. Versuche es erneut."
+  },
+  "collections": {
+    "empty": "Noch keine Produkte."
+  },
+  "search": {
+    "title": "Suche",
+    "label": "Produkte suchen",
+    "submit": "Suchen",
+    "results_count": {
+      "one": "{{ count }} Ergebnis für „{{ terms }}“",
+      "other": "{{ count }} Ergebnisse für „{{ terms }}“"
+    }
+  },
+  "password": {
+    "label": "Passwort",
+    "submit": "Eintreten"
+  },
+  "gift_card": {
+    "expired": "Dieser Geschenkgutschein ist abgelaufen.",
+    "use_at_checkout": "Nutze diesen Code an der Kasse:",
+    "add_to_apple_wallet": "Zu Apple Wallet hinzufügen"
+  },
+  "guide": {
+    "placement": {
+      "label": "01 / Platzierung",
+      "heading": "Empfohlene Platzierungen",
+      "description": "Vorgeschlagene Dot-Layouts für sechs beliebte Mäuse. Nutze sie als Ausgangspunkt: weniger Dots für schnelleres Gleiten, mehr Dots für mehr Kontrolle.",
+      "gpro_alt": "G Pro Wireless · G Pro X Super",
+      "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
+      "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
+    },
+    "included": {
+      "label": "02 / im Lieferumfang",
+      "heading": "Lieferumfang",
+      "image_alt": "Inhalt: 20 Skate-Dots und 1 Alkoholtupfer",
+      "dots_name": "{{ name }} Skate-Dots",
+      "dots_detail": "6,5 mm Durchmesser · 0,8 mm Stärke",
+      "pad_name": "Alkoholtupfer",
+      "pad_detail": "Einzeln verpackt, zum Reinigen der Mausunterseite vor dem Aufkleben",
+      "quantity": {
+        "one": "{{ count }} Stück",
+        "other": "{{ count }} Stück"
+      }
+    },
+    "install": {
+      "label": "03 / Montage",
+      "heading": "Montage",
+      "description": "Vier Schritte. Eine saubere, trockene Fläche sorgt für den besten Halt.",
+      "image_12_alt": "Schritte 1 und 2: alte Skates entfernen und Unterseite reinigen",
+      "image_34_alt": "Schritte 3 und 4: Dots ausrichten und andrücken",
+      "step_1_title": "Entfernen",
+      "step_1_text": "Entferne alle vorhandenen Skates vorsichtig, inklusive doppelseitigem Klebeband. Achte darauf, dass keine Rückstände bleiben.",
+      "step_2_title": "Reinigen",
+      "step_2_text": "Wische jede Skate-Fläche mit dem Alkoholtupfer ab, um Staub, Fett oder Kleberreste zu entfernen. Vollständig trocknen lassen.",
+      "step_3_title": "Ausrichten",
+      "step_3_text": "Wähle die passende Dot-Größe. Richte jeden Dot am Rand der Maus aus – für Balance und Stabilität.",
+      "step_4_title": "Andrücken",
+      "step_4_text": "Sobald alle Dots sitzen, drücke jeden einige Sekunden fest an, damit er sicher haftet."
+    },
+    "faq": {
+      "label": "04 / FAQ",
+      "heading": "Häufige Fragen",
+      "q1": "Passt {{ name }} auf meine Maus?",
+      "a1": "Ja. {{ name }} Dots sind universell und passen auf jede Maus. Platziere sie dort, wo die Original-Skates saßen, halte sie von der Sensoröffnung fern und verteile sie gleichmäßig, damit die Maus plan aufliegt.",
+      "q2": "Wie viele Dots sollte ich verwenden?",
+      "a2": "Starte mit einem der empfohlenen Layouts. Weniger Dots sorgen für schnelleres, leichteres Gleiten; mehr Dots für mehr Kontakt und Kontrolle. Passe an, bis es sich richtig anfühlt.",
+      "q3": "Muss ich die Original-Skates entfernen?",
+      "a3": "Ja. Entferne zuerst die Original-Skates und Kleberreste, reinige dann die Unterseite mit dem beiliegenden Tupfer und lass sie vollständig trocknen.",
+      "q4": "Auf welchen Mauspads funktioniert {{ name }}?",
+      "a4": "{{ name }} ist für Stoff- und Glas-Mauspads gemacht.",
+      "q5": "Was ist der Unterschied zwischen Ice Version und Control Version?",
+      "a5": "Die Ice Version ist unser Speed-Skate für schnelles Gleiten mit wenig Reibung. Die Control Version ist unser Control-Skate mit mehr Bremskraft für präzises, kontrolliertes Zielen.",
+      "q6": "Beeinflussen die Dots den Sensor?",
+      "a6": "Nein. Die Dots sitzen an den Rändern der Unterseite, weg von der Sensoröffnung, und berühren oder verdecken den Sensor nie. Gleichmäßig angebracht halten sie die Maus plan und das Tracking bleibt konstant."
+    },
+    "soon": {
+      "label": "01 / Überblick",
+      "text": "Mehr Details folgen bald. Lass dich per E-Mail zum Launch benachrichtigen."
+    }
+  },
+  "about": {
+    "label": "Über uns",
+    "heading": "RAWDOT",
+    "story_label": "Wie alles begann",
+    "lead": "RAWDOT begann mit einem Gamer und einem Problem: Abgenutzte Mouse-Skates in Mexiko zu ersetzen war teuer, und gute zu finden fast unmöglich.",
+    "step_1_title": "Das Problem",
+    "step_1_text": "Hochwertige Skates waren in Mexiko überteuert und schwer zu bekommen, obwohl jede Maus früher oder später neue braucht.",
+    "step_2_title": "Unsere Antwort",
+    "step_2_text": "Wir haben eigene gemacht: universelle Skate-Dots zu einem Preis, mit dem Gamer in Mexiko endlich Qualität bekommen, ohne zu viel zu zahlen.",
+    "step_3_title": "Für ganz Mexiko",
+    "step_3_text": "Unsere Dots waren so gut wie alles auf dem Markt, also haben wir rawdot für Gamer in ganz Mexiko geöffnet.",
+    "step_4_title": "Als Nächstes: Glas-Mauspads",
+    "step_4_text": "Ein gutes Glas-Mauspad ist in Mexiko genauso teuer. Gleiche Idee, nächstes Produkt: Qualität zu einem fairen Preis."
+  },
+  "reviews": {
+    "label": "Bewertungen",
+    "heading": "Kundenbewertungen"
+  },
+  "toast": {
+    "added": "In den Warenkorb gelegt",
+    "removed": "Aus dem Warenkorb entfernt",
+    "view_cart": "Warenkorb ansehen",
+    "undo": "Rückgängig",
+    "dismiss": "Schließen",
+    "updated": "Warenkorb aktualisiert",
+    "quantity": "Menge"
+  },
+  "seo": {
+    "home_title": "Rawdot",
+    "home_description": "20 universelle Mausfüße aus 100 % PTFE für schnelles, sanftes Gleiten auf Stoff- und Glasmauspads. Passen auf jede Maus.",
+    "home_h1": "rawdot: universelle PTFE-Mausfüße, Glasspads und Gaming-Armsleeves"
+  },
+  "content": {
+    "ptfe": "PTFE",
+    "dots": "Dots",
+    "diameter": "Diameter",
+    "thickness": "Thickness",
+    "finish": "Finish",
+    "surface": "Surface",
+    "frosted": "Frosted",
+    "micro_etched": "Micro-etched",
+    "type": "Type",
+    "shape": "Shape",
+    "fits": "Fits",
+    "surfaces": "Surfaces",
+    "circular_dots": "Circular dots",
+    "any_mouse_universal": "Any mouse (universal)",
+    "cloth_and_glass_mousepads": "Cloth and glass mousepads",
+    "universal_100_ptfe_dots_for_a_smooth_fast_consistent_glide_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+    "universal_100_ptfe_dots_with_more_stopping_power_for_precise_controlled_aim_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+    "frosted_glass_surface_micro_etched_a_permanent_surface_treatment_not_a_coating": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating."
+  },
+  "blocks": {
+    "ice_version": {
+      "title": "Ice Version",
+      "badge": "Speed",
+      "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    },
+    "control_version": {
+      "title": "Control Version",
+      "badge": "Control",
+      "tagline": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Control",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    },
+    "glasspad": {
+      "title": "11:37",
+      "badge": "Speed",
+      "tagline": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating.",
+      "spec_1_value": "Frosted",
+      "spec_1_label": "Finish",
+      "spec_2_value": "Micro-etched",
+      "spec_2_label": "Surface",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type"
+    },
+    "arm_sleeve": {
+      "title": "Arm Sleeve"
+    },
+    "product": {
+      "title": "Ice Version",
+      "badge": "Speed",
+      "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+      "spec_1_value": "100%",
+      "spec_1_label": "PTFE",
+      "spec_2_value": "20",
+      "spec_2_label": "Dots",
+      "spec_3_value": "6.5 mm",
+      "spec_3_label": "Diameter",
+      "spec_4_value": "0.8 mm",
+      "spec_4_label": "Thickness",
+      "detail_1_value": "Speed",
+      "detail_1_label": "Type",
+      "detail_2_value": "Circular dots",
+      "detail_2_label": "Shape",
+      "detail_3_value": "Any mouse (universal)",
+      "detail_3_label": "Fits",
+      "detail_4_value": "Cloth and glass mousepads",
+      "detail_4_label": "Surfaces"
+    }
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "name": "Dein Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "send": "Senden",
+    "success": "Danke! Wir haben deine Nachricht erhalten und antworten per E-Mail.",
+    "intro": "Fragen? Schreib uns, wir antworten per E-Mail."
+  }
+}
