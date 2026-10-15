@@ -173,6 +173,13 @@
     "removed": "已从购物车移除",
     "view_cart": "查看购物车",
     "undo": "撤销",
-    "dismiss": "关闭"
+    "dismiss": "关闭",
+    "updated": "购物车已更新",
+    "quantity": "数量"
+  },
+  "seo": {
+    "home_title": "rawdot | 通用 PTFE 鼠标脚贴",
+    "home_description": "20 片 100% PTFE 通用鼠标脚贴，在布面和玻璃鼠标垫上顺滑快速。适用于任何鼠标。",
+    "home_h1": "rawdot：通用 PTFE 鼠标脚贴、玻璃鼠标垫和电竞护臂"
   }
 }

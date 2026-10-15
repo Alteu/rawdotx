@@ -1,0 +1,64 @@
+{% doc %}
+  Product JSON-LD for search engines and AI shopping assistants: brand, price in the store currency,
+  availability, images and the return policy (all sales final). Used on the homepage for every
+  showcase product and on product pages.
+
+  @param {product} product - The Shopify product
+  @param {string} [name] - Display name (defaults to the product title)
+  @param {string} [description] - Fallback description when the product has none
+  @param {string} [images] - Theme image files, separated by commas, listed before the product's own
+{% enddoc %}
+{%- liquid
+  assign display_name = name | default: product.title
+  assign variant = product.selected_or_first_available_variant
+  assign product_url = request.origin | append: product.url
+  assign text = product.description | strip_html | strip_newlines | strip | truncate: 600
+  if text == blank
+    assign text = description
+  endif
+  if variant.available
+    assign availability = 'https://schema.org/InStock'
+  else
+    assign availability = 'https://schema.org/OutOfStock'
+  endif
+  assign asset_files = images | split: ','
+-%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": {{ product_url | append: '#product' | json }},
+    "name": {{ display_name | prepend: 'rawdot ' | json }},
+    "description": {{ text | json }},
+    "url": {{ product_url | json }},
+    "sku": {{ variant.sku | default: variant.id | json }},
+    {%- if variant.barcode != blank %}"gtin": {{ variant.barcode | json }},{% endif %}
+    "category": {{ product.type | default: 'Mouse skates' | json }},
+    "brand": { "@type": "Brand", "name": "rawdot" },
+    "image": [
+      {%- for file in asset_files -%}
+        {{ file | strip | asset_url | prepend: 'https:' | json }},
+      {%- endfor -%}
+      {%- for media in product.media limit: 6 -%}
+        {%- if media.media_type == 'image' -%}
+          {{ media | image_url: width: 1600 | prepend: 'https:' | json }},
+        {%- endif -%}
+      {%- endfor -%}
+      {{ 'og-image.jpg' | asset_url | prepend: 'https:' | json }}
+    ],
+    "offers": {
+      "@type": "Offer",
+      "url": {{ product_url | json }},
+      "price": {{ variant.price | divided_by: 100.0 | json }},
+      "priceCurrency": {{ cart.currency.iso_code | json }},
+      "availability": {{ availability | json }},
+      "itemCondition": "https://schema.org/NewCondition",
+      "seller": { "@id": {{ request.origin | append: '/#organization' | json }} },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "MX",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+      }
+    }
+  }
+</script>

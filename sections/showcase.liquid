@@ -15,7 +15,7 @@
 -%}
 
 <product-showcase class="showcase" data-default-category="{{ active_category }}">
-  <h1 class="visually-hidden">{{ section.settings.heading | default: shop.name | escape }}</h1>
+  <h1 class="visually-hidden">{{ 'seo.home_h1' | t }}</h1>
 
   {%- for category_id in present_categories -%}
     {%- liquid
@@ -120,6 +120,14 @@
               guide_id: block.id,
               guide_type: block.settings.guide
             %}
+            {%- if block.settings.product != blank and block.settings.coming_soon == false -%}
+              {% render 'product-structured-data',
+                product: block.settings.product,
+                name: block.settings.title,
+                description: block.settings.tagline,
+                images: block.settings.image_asset
+              %}
+            {%- endif -%}
           </div>
         {%- endfor -%}
       </div>
@@ -249,7 +257,7 @@
           "type": "text",
           "id": "lifestyle_asset",
           "label": "In-use photos (coming soon guide)",
-          "info": "Theme file names separated by commas. The first is shown wide, the rest in a row under it."
+          "info": "Theme file names separated by commas, two per row. Files named -cutout (transparent) float without a frame."
         },
         {
           "type": "text",

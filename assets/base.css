@@ -2365,12 +2365,20 @@ select:focus-visible {
   color: var(--color-muted);
 }
 
-/* Coming-soon guide photos: the first wide, then details in a row (square, square, wide on desktop). */
+/* Coming-soon guide photos: two per row at their own proportions. Photos get a frame; cutouts float. */
 .guide__photos {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
   margin-block-start: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+@media (min-width: 750px) {
+  .guide__photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
 }
 
 .guide__photos-item {
@@ -2378,36 +2386,32 @@ select:focus-visible {
   overflow: hidden;
   border-radius: 0.5rem;
   background: #111214;
-  aspect-ratio: 1;
-}
-
-.guide__photos-item--wide,
-.guide__photos-item:last-child:nth-child(even) {
-  grid-column: 1 / -1;
-  aspect-ratio: 1672 / 941;
+  box-shadow: 0 30px 60px -34px rgb(17 18 20 / 0.5);
 }
 
 .guide__photos-item img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   transition: transform 0.8s var(--ease-out);
 }
 
 .guide__photos-item:hover img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
-@media (min-width: 750px) {
-  .guide__photos {
-    grid-template-columns: 1fr 1fr 2fr;
-    gap: 1rem;
-  }
+.guide__photos-item--cutout {
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 2.5rem);
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+}
 
-  .guide__photos-item:last-child:nth-child(even) {
-    grid-column: auto;
-    aspect-ratio: auto;
-  }
+.guide__photos-item--cutout img {
+  width: min(100%, 26rem);
+  filter: drop-shadow(0 24px 30px rgb(17 18 20 / 0.22));
 }
 
 .guide__photo--cutout img {

@@ -176,6 +176,13 @@
     "removed": "Aus dem Warenkorb entfernt",
     "view_cart": "Warenkorb ansehen",
     "undo": "Rückgängig",
-    "dismiss": "Schließen"
+    "dismiss": "Schließen",
+    "updated": "Warenkorb aktualisiert",
+    "quantity": "Menge"
+  },
+  "seo": {
+    "home_title": "rawdot | Universelle PTFE-Mausfüße (Mouse Dots)",
+    "home_description": "20 universelle Mausfüße aus 100 % PTFE für schnelles, sanftes Gleiten auf Stoff- und Glasmauspads. Passen auf jede Maus.",
+    "home_h1": "rawdot: universelle PTFE-Mausfüße, Glasspads und Gaming-Armsleeves"
   }
 }

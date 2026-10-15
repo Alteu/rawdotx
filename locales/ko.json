@@ -173,6 +173,13 @@
     "removed": "장바구니에서 삭제했습니다",
     "view_cart": "장바구니 보기",
     "undo": "실행 취소",
-    "dismiss": "닫기"
+    "dismiss": "닫기",
+    "updated": "장바구니가 업데이트되었습니다",
+    "quantity": "수량"
+  },
+  "seo": {
+    "home_title": "rawdot | 범용 PTFE 마우스 스케이트",
+    "home_description": "천·유리 마우스패드에서 빠르고 부드럽게 미끄러지는 100% PTFE 범용 마우스 도트 20개. 모든 마우스에 사용 가능.",
+    "home_h1": "rawdot: 범용 PTFE 마우스 스케이트, 글래스패드, 게이밍 암 슬리브"
   }
 }

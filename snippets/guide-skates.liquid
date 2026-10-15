@@ -173,3 +173,26 @@
     </div>
   </section>
 </div>
+
+{%- if anchor -%}
+  {%- comment -%} The FAQ as structured data, so search engines and AI assistants can quote the answers. {%- endcomment -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for i in (1..6) -%}
+          {%- liquid
+            assign q_key = 'guide.faq.q' | append: i
+            assign a_key = 'guide.faq.a' | append: i
+          -%}
+          {
+            "@type": "Question",
+            "name": {{ q_key | t: name: name | json }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ a_key | t: name: name | json }} }
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}

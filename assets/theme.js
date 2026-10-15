@@ -376,6 +376,7 @@ function restoreCartLine(removed) {
 function changeCartLine(line, quantity) {
   // Remember what is being removed, so the toast can put it back.
   const row = document.querySelector(`[data-cart-line="${CSS.escape(String(line))}"]`);
+  const changed = row ? { title: row.dataset.title, image: row.dataset.image } : null;
   const removed =
     quantity === 0 && row
       ? {
@@ -403,6 +404,13 @@ function changeCartLine(line, quantity) {
           title: removed.title,
           image: removed.image,
           action: { label: strings.toastUndo, onClick: () => restoreCartLine(removed) },
+        });
+      } else if (changed) {
+        showToast({
+          message: strings.toastUpdated,
+          title: `${changed.title} · ${strings.toastQuantity} ${quantity}`,
+          image: changed.image,
+          action: null,
         });
       } else {
         announce(strings.cartUpdated);

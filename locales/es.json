@@ -99,7 +99,7 @@
     "placement": {
       "label": "01 / colocación",
       "heading": "Colocaciones recomendadas",
-      "description": "Distribuciones sugeridas para seis ratones populares. Úsalas como punto de partida: menos puntos dan un deslizamiento más rápido, más puntos añaden control.",
+      "description": "Distribuciones sugeridas para seis mouse populares. Úsalas como punto de partida: menos puntos dan un deslizamiento más rápido, más puntos añaden control.",
       "gpro_alt": "G Pro Wireless · G Pro X Super",
       "finalmouse_alt": "Finalmouse S12 · Razer DeathAdder V3 Pro",
       "viper_alt": "Razer Viper Ultimate · Pulsar X2 / X2 Mini"
@@ -111,7 +111,7 @@
       "dots_name": "Puntos de patín {{ name }}",
       "dots_detail": "6.5 mm de diámetro · 0.8 mm de grosor",
       "pad_name": "Toallita con alcohol",
-      "pad_detail": "Empaquetada individualmente, para limpiar la base del ratón antes de aplicar",
+      "pad_detail": "Empaquetada individualmente, para limpiar la base del mouse antes de aplicar",
       "quantity": {
         "one": "{{ count }} pza",
         "other": "{{ count }} pzas"
@@ -128,15 +128,15 @@
       "step_2_title": "Limpiar",
       "step_2_text": "Limpia cada zona con la toallita de alcohol para quitar polvo, grasa o restos de adhesivo. Deja secar por completo.",
       "step_3_title": "Alinear",
-      "step_3_text": "Elige el punto del tamaño adecuado. Alinea cada punto con el borde del ratón para lograr equilibrio y estabilidad.",
+      "step_3_text": "Elige el punto del tamaño adecuado. Alinea cada punto con el borde del mouse para lograr equilibrio y estabilidad.",
       "step_4_title": "Presionar",
       "step_4_text": "Cuando todos los puntos estén colocados, presiona firmemente cada uno durante unos segundos para que se adhiera bien."
     },
     "faq": {
       "label": "04 / FAQ",
       "heading": "Preguntas frecuentes",
-      "q1": "¿{{ name }} se adapta a mi ratón?",
-      "a1": "Sí. Los puntos {{ name }} son universales, así que se adaptan a cualquier ratón. Colócalos donde estaban los patines originales, lejos de la abertura del sensor, y repártelos de forma uniforme para que el ratón quede plano.",
+      "q1": "¿{{ name }} se adapta a mi mouse?",
+      "a1": "Sí. Los puntos {{ name }} son universales, así que se adaptan a cualquier mouse. Colócalos donde estaban los patines originales, lejos de la abertura del sensor, y repártelos de forma uniforme para que el mouse quede plano.",
       "q2": "¿Cuántos puntos debo usar?",
       "a2": "Empieza con una de las distribuciones recomendadas. Menos puntos dan un deslizamiento más rápido y ligero; más puntos añaden contacto y control. Ajusta hasta que se sienta bien.",
       "q3": "¿Tengo que quitar los patines originales?",
@@ -146,7 +146,7 @@
       "q5": "¿Cuál es la diferencia entre Ice Version y Control Version?",
       "a5": "Ice Version es nuestro patín de velocidad, para un deslizamiento rápido y de baja fricción. Control Version es nuestro patín de control, con más frenado para un apuntado preciso y controlado.",
       "q6": "¿Los puntos afectan al sensor?",
-      "a6": "No. Los puntos van en la base, alrededor de los bordes y lejos de la abertura del sensor, así que nunca lo tocan ni lo cubren. Bien aplicados, mantienen el ratón nivelado y el seguimiento constante."
+      "a6": "No. Los puntos van en la base, alrededor de los bordes y lejos de la abertura del sensor, así que nunca lo tocan ni lo cubren. Bien aplicados, mantienen el mouse nivelado y el seguimiento constante."
     },
     "soon": {
       "label": "01 / resumen",
@@ -157,9 +157,9 @@
     "label": "Sobre nosotros",
     "heading": "RAWDOT",
     "story_label": "Cómo empezó",
-    "lead": "RAWDOT empezó con un gamer y un problema: reemplazar los patines gastados del ratón en México era caro, y encontrar unos buenos era casi imposible.",
+    "lead": "RAWDOT empezó con un gamer y un problema: reemplazar los patines gastados del mouse en México era caro, y encontrar unos buenos era casi imposible.",
     "step_1_title": "El problema",
-    "step_1_text": "Los patines de calidad eran caros y difíciles de conseguir en México, aunque todo ratón los necesita tarde o temprano.",
+    "step_1_text": "Los patines de calidad eran caros y difíciles de conseguir en México, aunque todo mouse los necesita tarde o temprano.",
     "step_2_title": "Nuestra respuesta",
     "step_2_text": "Hicimos los nuestros: puntos de patín universales, a un precio para que los gamers en México por fin tuvieran calidad sin pagar de más.",
     "step_3_title": "Hacia el mundo",
@@ -176,6 +176,13 @@
     "removed": "Eliminado del carrito",
     "view_cart": "Ver carrito",
     "undo": "Deshacer",
-    "dismiss": "Cerrar"
+    "dismiss": "Cerrar",
+    "updated": "Carrito actualizado",
+    "quantity": "Cantidad"
+  },
+  "seo": {
+    "home_title": "rawdot | Mouse skates de PTFE universales (mouse dots) en México",
+    "home_description": "20 mouse dots universales de PTFE 100% para un glide rápido y suave en mousepads de tela y vidrio. Para cualquier mouse. Envíos a todo México.",
+    "home_h1": "rawdot: mouse skates de PTFE universales, glasspads y mangas gamer"
   }
 }

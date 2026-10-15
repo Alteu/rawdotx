@@ -6,7 +6,7 @@
   @param {string} name - Product name
   @param {string} [tagline] - One-line description
   @param {string} [specs] - Known facts as "value|label" pairs separated by "~~"
-  @param {string} [photos] - In-use and detail photos: theme file names separated by commas. The first is shown wide, the rest in a row under it.
+  @param {string} [photos] - In-use and detail photos: theme file names separated by commas. Photos sit two per row at their own proportions; files named -cutout float without a frame.
 {% enddoc %}
 {%- assign spec_items = specs | split: '~~' -%}
 <div class="guide">
@@ -47,14 +47,8 @@
       <div class="guide__photos">
         {%- for file in photo_files -%}
           {%- assign file_name = file | strip -%}
-          <figure class="guide__photos-item{% if forloop.first %} guide__photos-item--wide{% endif %}">
-            <img
-              src="{{ file_name | asset_url }}"
-              width="1672"
-              height="941"
-              loading="lazy"
-              alt="{{ name | escape }}"
-            >
+          <figure class="guide__photos-item{% if file_name contains '-cutout' %} guide__photos-item--cutout{% endif %}">
+            <img src="{{ file_name | asset_url }}" width="1672" height="941" loading="lazy" alt="{{ name | escape }}">
           </figure>
         {%- endfor -%}
       </div>

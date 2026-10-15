@@ -176,6 +176,13 @@
     "removed": "Retiré du panier",
     "view_cart": "Voir le panier",
     "undo": "Annuler",
-    "dismiss": "Fermer"
+    "dismiss": "Fermer",
+    "updated": "Panier mis à jour",
+    "quantity": "Quantité"
+  },
+  "seo": {
+    "home_title": "rawdot | Patins de souris universels en PTFE",
+    "home_description": "20 patins de souris universels en PTFE 100 % pour une glisse rapide et fluide sur tapis en tissu et en verre. Compatibles avec toutes les souris.",
+    "home_h1": "rawdot : patins de souris universels en PTFE, glasspads et manchons gaming"
   }
 }

@@ -176,6 +176,13 @@
     "removed": "Rimosso dal carrello",
     "view_cart": "Vedi carrello",
     "undo": "Annulla",
-    "dismiss": "Chiudi"
+    "dismiss": "Chiudi",
+    "updated": "Carrello aggiornato",
+    "quantity": "Quantità"
+  },
+  "seo": {
+    "home_title": "rawdot | Pattini per mouse universali in PTFE",
+    "home_description": "20 pattini universali in PTFE 100% per uno scorrimento rapido e fluido su tappetini in tessuto e vetro. Per qualsiasi mouse.",
+    "home_h1": "rawdot: pattini per mouse universali in PTFE, glasspad e maniche gaming"
   }
 }

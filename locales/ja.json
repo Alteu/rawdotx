@@ -173,6 +173,13 @@
     "removed": "カートから削除しました",
     "view_cart": "カートを見る",
     "undo": "元に戻す",
-    "dismiss": "閉じる"
+    "dismiss": "閉じる",
+    "updated": "カートを更新しました",
+    "quantity": "数量"
+  },
+  "seo": {
+    "home_title": "rawdot | ユニバーサルPTFEマウスソール",
+    "home_description": "布製・ガラス製マウスパッドで速く滑らかに滑る、100% PTFEのユニバーサルマウスソール20個。どのマウスにも対応。",
+    "home_h1": "rawdot：ユニバーサルPTFEマウスソール、ガラスパッド、ゲーミングアームスリーブ"
   }
 }
