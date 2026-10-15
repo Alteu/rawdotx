@@ -16,6 +16,8 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Anchors and focused elements stop below the sticky header instead of behind it. */
+  scroll-padding-block-start: calc(var(--header-height) + 1rem);
   --dir: 1;
 }
 
@@ -81,6 +83,26 @@ h2,
 h3,
 p {
   overflow-wrap: break-word;
+}
+
+/* No tap delay or grey flash on phones; keyboard focus keeps its visible ring. */
+a,
+button,
+summary,
+label,
+input,
+select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* An open dialog keeps scrolling inside itself and the page behind it stays put. */
+dialog {
+  overscroll-behavior: contain;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
 }
 
 :focus-visible {
@@ -333,8 +355,10 @@ select:focus-visible {
     transition-duration: 0.01ms !important;
   }
 
-  .showcase *,
-  .details-dialog {
+  /* Every decorative loop and entrance stops (drifting light, floating rings, menus, dialogs). */
+  *:not(.intro),
+  *:not(.intro)::before,
+  *:not(.intro)::after {
     animation: none !important;
   }
 }

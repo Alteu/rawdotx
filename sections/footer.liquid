@@ -18,7 +18,10 @@
           loading="lazy"
         >
       </a>
-      <p>© {{ 'now' | date: '%Y' }} rawdot. {{ 'footer.all_rights_reserved' | t }}</p>
+      <p>
+        © {{ 'now' | date: '%Y' }}
+        <span translate="no">rawdot</span>. {{ 'footer.all_rights_reserved' | t }}
+      </p>
     </div>
 
     <nav class="site-footer__nav" aria-label="{{ 'footer.navigation' | t }}">
