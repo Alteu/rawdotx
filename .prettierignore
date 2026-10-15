@@ -7,3 +7,4 @@ playwright-report/
 config/settings_data.json
 templates/*.json
 sections/*.json
+assets/fx-canvas.js
