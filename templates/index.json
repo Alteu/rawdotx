@@ -10,6 +10,7 @@
             "product": "https-rawdot-shop",
             "coming_soon": false,
             "title": "Ice Version",
+            "included_asset": "included-ice-cutout.webp",
             "image_asset": "ice-version-1-cutout.webp, ice-version-2-cutout.webp",
             "badge": "Speed",
             "tagline": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
@@ -38,6 +39,7 @@
             "category": "skates",
             "coming_soon": true,
             "title": "Control Version",
+            "included_asset": "included-control-cutout.webp",
             "image_asset": "control-version-1-cutout.webp, control-version-2-cutout.webp",
             "badge": "Control",
             "guide": "skates",
@@ -85,7 +87,7 @@
             "coming_soon": true,
             "title": "Arm Sleeve",
             "image_asset": "arm-sleeve-1-cutout.webp, arm-sleeve-2-cutout.webp",
-            "lifestyle_asset": "arm-sleeve-lifestyle",
+            "lifestyle_asset": "arm-sleeve-lifestyle.webp, arm-sleeve-detail-logo.webp, arm-sleeve-detail-cuff.webp, arm-sleeve-lifestyle-desk.webp",
             "guide": "coming_soon"
           }
         }

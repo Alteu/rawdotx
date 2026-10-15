@@ -2365,19 +2365,55 @@ select:focus-visible {
   color: var(--color-muted);
 }
 
-.guide__lifestyle {
-  margin: clamp(2.5rem, 6vw, 4.5rem) 0 0;
+/* Coming-soon guide photos: the first wide, then details in a row (square, square, wide on desktop). */
+.guide__photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-block-start: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.guide__photos-item {
+  margin: 0;
   overflow: hidden;
   border-radius: 0.5rem;
   background: #111214;
-  box-shadow: 0 30px 60px -30px rgb(17 18 20 / 0.45);
+  aspect-ratio: 1;
 }
 
-.guide__lifestyle img {
-  width: 100%;
-  height: auto;
+.guide__photos-item--wide,
+.guide__photos-item:last-child:nth-child(even) {
+  grid-column: 1 / -1;
   aspect-ratio: 1672 / 941;
+}
+
+.guide__photos-item img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.guide__photos-item:hover img {
+  transform: scale(1.03);
+}
+
+@media (min-width: 750px) {
+  .guide__photos {
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 1rem;
+  }
+
+  .guide__photos-item:last-child:nth-child(even) {
+    grid-column: auto;
+    aspect-ratio: auto;
+  }
+}
+
+.guide__photo--cutout img {
+  background: none;
+  border-radius: 0;
+  filter: drop-shadow(0 24px 30px rgb(17 18 20 / 0.18));
 }
 
 .guide__soon {

@@ -7,6 +7,7 @@
   @param {string} id - Unique ID (the showcase block ID)
   @param {string} name - Product name, e.g. "Ice Version"
   @param {boolean} [anchor] - Give the FAQ the page-wide #faq anchor (footer link target)
+  @param {string} [included] - Theme file of the "What's included" photo for this version (transparent cutout)
 {% enddoc %}
 {%- liquid
   assign cards = 'gpro,finalmouse,viper' | split: ','
@@ -70,17 +71,29 @@
           </li>
         </ul>
       </div>
-      <div class="guide__photo">
-        <img
-          src="{{ 'rawdot-contents-full-960.webp' | asset_url }}"
-          srcset="{{ 'rawdot-contents-full-480.webp' | asset_url }} 480w, {{ 'rawdot-contents-full-960.webp' | asset_url }} 960w, {{ 'rawdot-contents-full-1536.webp' | asset_url }} 1536w"
-          sizes="(min-width: 990px) 50vw, 92vw"
-          width="1536"
-          height="1024"
-          loading="lazy"
-          alt="{{ 'guide.included.image_alt' | t | escape }}"
-        >
-      </div>
+      {%- if included != blank -%}
+        <div class="guide__photo guide__photo--cutout">
+          <img
+            src="{{ included | asset_url }}"
+            width="1400"
+            height="934"
+            loading="lazy"
+            alt="{{ 'guide.included.image_alt' | t | escape }}"
+          >
+        </div>
+      {%- else -%}
+        <div class="guide__photo">
+          <img
+            src="{{ 'rawdot-contents-full-960.webp' | asset_url }}"
+            srcset="{{ 'rawdot-contents-full-480.webp' | asset_url }} 480w, {{ 'rawdot-contents-full-960.webp' | asset_url }} 960w, {{ 'rawdot-contents-full-1536.webp' | asset_url }} 1536w"
+            sizes="(min-width: 990px) 50vw, 92vw"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            alt="{{ 'guide.included.image_alt' | t | escape }}"
+          >
+        </div>
+      {%- endif -%}
     </div>
   </section>
 

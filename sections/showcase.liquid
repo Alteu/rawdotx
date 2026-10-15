@@ -153,14 +153,19 @@
             {% endif %}
           >
             {%- if block.settings.guide == 'skates' -%}
-              {% render 'guide-skates', id: block.id, name: guide_name, anchor: forloop.first %}
+              {% render 'guide-skates',
+                id: block.id,
+                name: guide_name,
+                anchor: forloop.first,
+                included: block.settings.included_asset
+              %}
             {%- else -%}
               {% render 'guide-coming-soon',
                 id: block.id,
                 name: guide_name,
                 tagline: block.settings.tagline,
                 specs: guide_specs,
-                lifestyle: block.settings.lifestyle_asset
+                photos: block.settings.lifestyle_asset
               %}
             {%- endif -%}
           </div>
@@ -243,8 +248,14 @@
         {
           "type": "text",
           "id": "lifestyle_asset",
-          "label": "In-use photo (coming soon guide)",
-          "info": "Theme file name without size and extension, e.g. arm-sleeve-lifestyle (needs -960.webp and -1672.webp files). Shown wide in the coming-soon guide."
+          "label": "In-use photos (coming soon guide)",
+          "info": "Theme file names separated by commas. The first is shown wide, the rest in a row under it."
+        },
+        {
+          "type": "text",
+          "id": "included_asset",
+          "label": "What's included photo (skates guide)",
+          "info": "Theme file name of a transparent cutout, e.g. included-ice-cutout.webp"
         },
         {
           "type": "header",
