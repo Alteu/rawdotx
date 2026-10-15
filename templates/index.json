@@ -151,14 +151,46 @@
             "image_asset": "review-5.webp",
             "alt": "Listo bro, ya quedó. Noma bro, literal se siente mejor, mejor mi aim, siento más fluido. Aunque quiero cambiarme a uno de tela o de cristal."
           }
+        },
+        "review-6": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-6.webp",
+            "alt": "Brooo ya se las puse y se ven de maravilla. Hasta ahora 10/10, ponerlas muy fácil y se siente muy bien. Le puse como me habías dicho, tres abajo y dos arriba."
+          }
+        },
+        "review-7": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-7.webp",
+            "alt": "Se sienten súper, bro. Silenciosos y buenos. Antes tuve unos Wallhack y la verdad es que los siento casi igual o mejores."
+          }
+        },
+        "review-8": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-8.webp",
+            "alt": "Muy bien, deslizan bien y vienen varios. Lo recomiendo por el precio y se sienten muy cómodos al jugar."
+          }
+        },
+        "review-9": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-9.webp",
+            "alt": "Muy buena calidad y funcionan perfectamente en glass pad."
+          }
         }
       },
       "block_order": [
-        "review-1",
+        "review-7",
         "review-2",
-        "review-3",
+        "review-6",
+        "review-1",
+        "review-5",
+        "review-8",
+        "review-9",
         "review-4",
-        "review-5"
+        "review-3"
       ]
     }
   },
