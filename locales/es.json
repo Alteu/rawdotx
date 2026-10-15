@@ -184,5 +184,25 @@
     "home_title": "Rawdot",
     "home_description": "20 mouse dots universales de PTFE 100% para un glide rápido y suave en mousepads de tela y vidrio. Para cualquier mouse. Envíos a todo México.",
     "home_h1": "rawdot: mouse skates de PTFE universales, glasspads y mangas gamer"
+  },
+  "content": {
+    "ptfe": "PTFE",
+    "dots": "Dots",
+    "diameter": "Diámetro",
+    "thickness": "Grosor",
+    "finish": "Acabado",
+    "surface": "Superficie",
+    "frosted": "Esmerilado",
+    "micro_etched": "Micrograbado",
+    "type": "Tipo",
+    "shape": "Forma",
+    "fits": "Compatible con",
+    "surfaces": "Superficies",
+    "circular_dots": "Dots circulares",
+    "any_mouse_universal": "Cualquier mouse (universal)",
+    "cloth_and_glass_mousepads": "Mousepads de tela y vidrio",
+    "universal_100_ptfe_dots_for_a_smooth_fast_consistent_glide_on_cloth_and_glass_mousepads": "Dots universales de PTFE 100% para un deslizamiento suave, rápido y consistente en mousepads de tela y vidrio.",
+    "universal_100_ptfe_dots_with_more_stopping_power_for_precise_controlled_aim_on_cloth_and_glass_mousepads": "Dots universales de PTFE 100% con más poder de frenado, para un apuntado preciso y controlado en mousepads de tela y vidrio.",
+    "frosted_glass_surface_micro_etched_a_permanent_surface_treatment_not_a_coating": "Superficie de vidrio esmerilado y micrograbado: un tratamiento permanente, no un recubrimiento."
   }
 }

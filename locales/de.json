@@ -184,5 +184,25 @@
     "home_title": "Rawdot",
     "home_description": "20 universelle Mausfüße aus 100 % PTFE für schnelles, sanftes Gleiten auf Stoff- und Glasmauspads. Passen auf jede Maus.",
     "home_h1": "rawdot: universelle PTFE-Mausfüße, Glasspads und Gaming-Armsleeves"
+  },
+  "content": {
+    "ptfe": "PTFE",
+    "dots": "Dots",
+    "diameter": "Diameter",
+    "thickness": "Thickness",
+    "finish": "Finish",
+    "surface": "Surface",
+    "frosted": "Frosted",
+    "micro_etched": "Micro-etched",
+    "type": "Type",
+    "shape": "Shape",
+    "fits": "Fits",
+    "surfaces": "Surfaces",
+    "circular_dots": "Circular dots",
+    "any_mouse_universal": "Any mouse (universal)",
+    "cloth_and_glass_mousepads": "Cloth and glass mousepads",
+    "universal_100_ptfe_dots_for_a_smooth_fast_consistent_glide_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots for a smooth, fast, consistent glide on cloth and glass mousepads.",
+    "universal_100_ptfe_dots_with_more_stopping_power_for_precise_controlled_aim_on_cloth_and_glass_mousepads": "Universal 100% PTFE dots with more stopping power, for precise, controlled aim on cloth and glass mousepads.",
+    "frosted_glass_surface_micro_etched_a_permanent_surface_treatment_not_a_coating": "Frosted glass surface, micro-etched: a permanent surface treatment, not a coating."
   }
 }

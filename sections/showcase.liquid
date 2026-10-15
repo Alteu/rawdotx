@@ -49,7 +49,19 @@
                 assign value_key = 'spec_' | append: i | append: '_value'
                 assign label_key = 'spec_' | append: i | append: '_label'
                 if block.settings[value_key] != blank
-                  echo block.settings[value_key] | append: '|' | append: block.settings[label_key] | append: '~~'
+                  assign tx_v = block.settings[value_key]
+                  assign tx_key = tx_v | handleize | replace: '-', '_' | prepend: 'content.'
+                  assign tx_try = tx_key | t
+                  unless tx_try contains 'ranslation missing' or tx_try contains '=>'
+                    assign tx_v = tx_try
+                  endunless
+                  assign tx_l = block.settings[label_key]
+                  assign tx_key = tx_l | handleize | replace: '-', '_' | prepend: 'content.'
+                  assign tx_try = tx_key | t
+                  unless tx_try contains 'ranslation missing' or tx_try contains '=>'
+                    assign tx_l = tx_try
+                  endunless
+                  echo tx_v | append: '|' | append: tx_l | append: '~~'
                 endif
               endfor
             endcapture
@@ -65,7 +77,19 @@
                 assign value_key = 'detail_' | append: i | append: '_value'
                 assign label_key = 'detail_' | append: i | append: '_label'
                 if block.settings[value_key] != blank
-                  echo block.settings[value_key] | append: '|' | append: block.settings[label_key] | append: '~~'
+                  assign tx_v = block.settings[value_key]
+                  assign tx_key = tx_v | handleize | replace: '-', '_' | prepend: 'content.'
+                  assign tx_try = tx_key | t
+                  unless tx_try contains 'ranslation missing' or tx_try contains '=>'
+                    assign tx_v = tx_try
+                  endunless
+                  assign tx_l = block.settings[label_key]
+                  assign tx_key = tx_l | handleize | replace: '-', '_' | prepend: 'content.'
+                  assign tx_try = tx_key | t
+                  unless tx_try contains 'ranslation missing' or tx_try contains '=>'
+                    assign tx_l = tx_try
+                  endunless
+                  echo tx_v | append: '|' | append: tx_l | append: '~~'
                 endif
               endfor
             endcapture
@@ -73,6 +97,14 @@
             assign category_key = 'categories.' | append: category_id | replace: '-', '_'
             assign category_label = category_key | t
             assign eyebrow = 'rawdot / ' | append: category_label
+            assign tagline = block.settings.tagline
+            if tagline != blank
+              assign tx_key = tagline | handleize | replace: '-', '_' | prepend: 'content.'
+              assign tx_try = tx_key | t
+              unless tx_try contains 'ranslation missing' or tx_try contains '=>'
+                assign tagline = tx_try
+              endunless
+            endif
           -%}
           {%- if category_total > 1 -%}
             {%- capture versions -%}
@@ -107,7 +139,7 @@
               product: block.settings.product,
               title: block.settings.title,
               badge: block.settings.badge,
-              tagline: block.settings.tagline,
+              tagline: tagline,
               image: block.settings.image,
               image_asset: block.settings.image_asset,
               specs: specs,
@@ -124,7 +156,7 @@
               {% render 'product-structured-data',
                 product: block.settings.product,
                 name: block.settings.title,
-                description: block.settings.tagline,
+                description: tagline,
                 images: block.settings.image_asset
               %}
             {%- endif -%}
@@ -144,12 +176,32 @@
               assign value_key = 'spec_' | append: i | append: '_value'
               assign label_key = 'spec_' | append: i | append: '_label'
               if block.settings[value_key] != blank
-                echo block.settings[value_key] | append: '|' | append: block.settings[label_key] | append: '~~'
+                assign tx_v = block.settings[value_key]
+                assign tx_key = tx_v | handleize | replace: '-', '_' | prepend: 'content.'
+                assign tx_try = tx_key | t
+                unless tx_try contains 'ranslation missing' or tx_try contains '=>'
+                  assign tx_v = tx_try
+                endunless
+                assign tx_l = block.settings[label_key]
+                assign tx_key = tx_l | handleize | replace: '-', '_' | prepend: 'content.'
+                assign tx_try = tx_key | t
+                unless tx_try contains 'ranslation missing' or tx_try contains '=>'
+                  assign tx_l = tx_try
+                endunless
+                echo tx_v | append: '|' | append: tx_l | append: '~~'
               endif
             endfor
           endcapture
           assign guide_specs = guide_specs | strip | remove_last: '~~'
           assign guide_name = block.settings.title | default: block.settings.product.title
+          assign guide_tagline = block.settings.tagline
+          if guide_tagline != blank
+            assign tx_key = guide_tagline | handleize | replace: '-', '_' | prepend: 'content.'
+            assign tx_try = tx_key | t
+            unless tx_try contains 'ranslation missing' or tx_try contains '=>'
+              assign guide_tagline = tx_try
+            endunless
+          endif
         -%}
         {%- if block.settings.guide != 'none' and block.settings.guide != blank -%}
           <div
@@ -171,7 +223,7 @@
               {% render 'guide-coming-soon',
                 id: block.id,
                 name: guide_name,
-                tagline: block.settings.tagline,
+                tagline: guide_tagline,
                 specs: guide_specs,
                 photos: block.settings.lifestyle_asset
               %}
