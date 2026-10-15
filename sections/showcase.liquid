@@ -159,7 +159,8 @@
                 id: block.id,
                 name: guide_name,
                 tagline: block.settings.tagline,
-                specs: guide_specs
+                specs: guide_specs,
+                lifestyle: block.settings.lifestyle_asset
               %}
             {%- endif -%}
           </div>
@@ -238,6 +239,12 @@
           "id": "image_asset",
           "label": "Theme image files",
           "info": "Replaces the product's own photos when set. Several files: separate with commas. Add -cutout to the file name for transparent images."
+        },
+        {
+          "type": "text",
+          "id": "lifestyle_asset",
+          "label": "In-use photo (coming soon guide)",
+          "info": "Theme file name without size and extension, e.g. arm-sleeve-lifestyle (needs -960.webp and -1672.webp files). Shown wide in the coming-soon guide."
         },
         {
           "type": "header",

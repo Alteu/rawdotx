@@ -43,13 +43,6 @@
             loading="lazy"
             alt="{{ alt_key | t | escape }}"
           >
-          {%- comment -%} One name under each mouse in the photo (the image shows two mice side by side). {%- endcomment -%}
-          {%- assign mouse_names = alt_key | t | split: ' · ' -%}
-          <p class="placement-card__names" aria-hidden="true">
-            {%- for mouse_name in mouse_names -%}
-              <span>{{ mouse_name }}</span>
-            {%- endfor -%}
-          </p>
         </li>
       {%- endfor -%}
     </ul>

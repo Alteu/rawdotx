@@ -1570,21 +1570,6 @@ select:focus-visible {
   background: #111110;
 }
 
-.placement-card__names {
-  display: grid;
-  grid-auto-columns: minmax(0, 1fr);
-  grid-auto-flow: column;
-  gap: 0.75rem;
-  text-align: center;
-}
-
-.placement-card p {
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
 .included-list {
   display: grid;
   margin-block-start: 1rem;
@@ -2378,6 +2363,21 @@ select:focus-visible {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-muted);
+}
+
+.guide__lifestyle {
+  margin: clamp(2.5rem, 6vw, 4.5rem) 0 0;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #111214;
+  box-shadow: 0 30px 60px -30px rgb(17 18 20 / 0.45);
+}
+
+.guide__lifestyle img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: cover;
 }
 
 .guide__soon {

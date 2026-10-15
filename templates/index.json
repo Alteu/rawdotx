@@ -84,6 +84,8 @@
             "category": "arm-sleeves",
             "coming_soon": true,
             "title": "Arm Sleeve",
+            "image_asset": "arm-sleeve-1-cutout.webp, arm-sleeve-2-cutout.webp",
+            "lifestyle_asset": "arm-sleeve-lifestyle",
             "guide": "coming_soon"
           }
         }

@@ -6,6 +6,7 @@
   @param {string} name - Product name
   @param {string} [tagline] - One-line description
   @param {string} [specs] - Known facts as "value|label" pairs separated by "~~"
+  @param {string} [lifestyle] - Theme file base name of a wide in-use photo (files "-960.webp" and "-1672.webp")
 {% enddoc %}
 {%- assign spec_items = specs | split: '~~' -%}
 <div class="guide">
@@ -41,5 +42,22 @@
         </button>
       </div>
     </div>
+    {%- if lifestyle != blank -%}
+      {%- liquid
+        assign photo_960 = lifestyle | append: '-960.webp' | asset_url
+        assign photo_1672 = lifestyle | append: '-1672.webp' | asset_url
+      -%}
+      <figure class="guide__lifestyle">
+        <img
+          src="{{ photo_1672 }}"
+          srcset="{{ photo_960 }} 960w, {{ photo_1672 }} 1672w"
+          sizes="(min-width: 1440px) 1360px, 94vw"
+          width="1672"
+          height="941"
+          loading="lazy"
+          alt="{{ name | escape }}"
+        >
+      </figure>
+    {%- endif -%}
   </section>
 </div>
