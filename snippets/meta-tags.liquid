@@ -28,7 +28,7 @@
   {{ seo_title }}
   {%- if current_page != 1 %} – {{ 'general.page' | t: page: current_page }}{% endif -%}
   {%- assign seo_title_lower = seo_title | downcase -%}
-  {%- unless seo_title_lower contains 'rawdot' %} | rawdot{% endunless -%}
+  {%- unless seo_title_lower contains 'rawdot' %} | Rawdot{% endunless -%}
 </title>
 {%- if seo_description != blank %}
   <meta name="description" content="{{ seo_description | escape }}">
