@@ -173,7 +173,8 @@
     "label": "Bewertungen",
     "heading": "Kundenbewertungen",
     "photos_label": "Kundenfotos",
-    "photo_alt": "Kundenfoto: eine Maus mit rawdot Dots"
+    "photo_alt": "Kundenfoto: eine Maus mit rawdot Dots",
+    "photos_heading": "An den Mäusen unserer Kunden"
   },
   "toast": {
     "added": "In den Warenkorb gelegt",

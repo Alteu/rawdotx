@@ -1,0 +1,55 @@
+{%- comment -%}
+  Customer photos (mice with rawdot dots installed), apart from the written reviews so no photo reads as
+  belonging to a quote. A compact mosaic in black and white, like the rest of the site; color returns on
+  hover. Shown with one homepage category, like the reviews.
+{%- endcomment -%}
+{%- assign photo_files = section.settings.photos | split: ',' -%}
+{%- if photo_files.size > 0 -%}
+  <div
+    class="customer-photos page-width"
+    {% if section.settings.category != 'all' %}
+      data-category-only="{{ section.settings.category }}"
+    {% endif %}
+  >
+    <div class="guide__header">
+      <p class="section-label">{{ 'reviews.photos_label' | t }}</p>
+      <h2 class="guide__heading">{{ 'reviews.photos_heading' | t }}</h2>
+    </div>
+    <ul class="customer-photos__grid" role="list">
+      {%- assign photo_alt = 'reviews.photo_alt' | t -%}
+      {%- for file in photo_files -%}
+        <li class="customer-photos__item">
+          {%- render 'theme-image', file: file, alt: photo_alt, sizes: '(min-width: 990px) 14vw, 32vw' -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Customer photos",
+  "class": "section-customer-photos",
+  "settings": [
+    {
+      "type": "select",
+      "id": "category",
+      "label": "Show with",
+      "options": [
+        { "value": "skates", "label": "Skates" },
+        { "value": "glasspads", "label": "Glasspads" },
+        { "value": "arm-sleeves", "label": "Arm sleeves" },
+        { "value": "all", "label": "All categories" }
+      ],
+      "default": "skates"
+    },
+    {
+      "type": "text",
+      "id": "photos",
+      "label": "Photos",
+      "info": "Theme file names separated by commas. The first one is shown large."
+    }
+  ],
+  "presets": [{ "name": "Customer photos" }]
+}
+{% endschema %}
