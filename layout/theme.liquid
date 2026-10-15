@@ -13,6 +13,49 @@
     <script>
       document.documentElement.classList.add('js');
     </script>
+    {%- comment -%}
+      First visit only: open the store in the visitor's device language when the store offers it.
+      Runs before anything paints so there is no flash. Skipped when the visitor chose a language before,
+      arrived on a language-specific link (/es/…), or is a crawler. Changing the language by hand sticks.
+    {%- endcomment -%}
+    {%- if request.locale.primary and localization.available_languages.size > 1 and request.design_mode == false -%}
+      <script>
+        (function () {
+          var languages = [
+            {%- for language in localization.available_languages -%}
+              { code: {{ language.iso_code | downcase | json }}, url: {{ language.root_url | json }} }{% unless forloop.last %},{% endunless %}
+            {%- endfor -%}
+          ];
+          var current = {{ request.locale.iso_code | downcase | json }};
+          try {
+            if (/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)) return;
+            if (localStorage.getItem('rawdot-language')) return;
+            localStorage.setItem('rawdot-language', 'auto');
+          } catch (e) {
+            return;
+          }
+          var wanted = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+          for (var i = 0; i < wanted.length; i++) {
+            var pref = String(wanted[i]).toLowerCase();
+            var match = null;
+            for (var j = 0; j < languages.length; j++) {
+              if (languages[j].code === pref) match = languages[j];
+            }
+            if (!match) {
+              for (var k = 0; k < languages.length; k++) {
+                if (languages[k].code.split('-')[0] === pref.split('-')[0]) match = languages[k];
+              }
+            }
+            if (match) {
+              if (match.code !== current) {
+                window.location.replace(match.url.replace(/\/$/, '') + window.location.pathname + window.location.search + window.location.hash);
+              }
+              return;
+            }
+          }
+        })();
+      </script>
+    {%- endif -%}
     {%- if settings.show_intro -%}
       <script>
         try {

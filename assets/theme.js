@@ -488,7 +488,15 @@ if (window.location.search.includes('customer_posted=true') || window.location.h
 
 /* Country and language selectors apply as soon as they change. */
 document.querySelectorAll('[data-localization-form] select').forEach((select) => {
-  select.addEventListener('change', () => select.form.submit());
+  select.addEventListener('change', () => {
+    // A language picked by hand wins over the automatic first-visit choice.
+    try {
+      localStorage.setItem('rawdot-language', 'manual');
+    } catch {
+      /* storage blocked: nothing to remember */
+    }
+    select.form.submit();
+  });
 });
 
 /* 3D models: load Shopify's model viewer only when a product has one. */
