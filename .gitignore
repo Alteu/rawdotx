@@ -19,3 +19,8 @@ playwright/.cache/
 .DS_Store
 Thumbs.db
 *.log
+
+# Temporary audit/test scripts run from the repo root
+/_*.js
+/_*.mjs
+/.*.mjs
