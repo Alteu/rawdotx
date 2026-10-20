@@ -186,26 +186,50 @@
             "image_asset": "review-10.webp",
             "alt": "Me acaban de llegar, los probé y qué sensación tan hermosa. Recomendadísimos con mousepad de tela."
           }
+        },
+        "review-11": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-11.webp",
+            "alt": "No, están súper, ya me llegaron. Neta es lo mejor, no había notado un gran cambio hasta ahora. Se siente que desliza súper pro."
+          }
+        },
+        "review-12": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-12.webp",
+            "alt": "Yo me los compré para mi Superlight, muy buenos la verdad."
+          }
+        },
+        "review-13": {
+          "type": "review",
+          "settings": {
+            "image_asset": "review-13.webp",
+            "alt": "Pedí otros porque la verdad son muy buenos, bro. Es la primera vez que los compro, por eso pedí otro paquete."
+          }
         }
       },
       "block_order": [
         "review-7",
         "review-2",
+        "review-13",
         "review-6",
+        "review-11",
         "review-10",
         "review-1",
         "review-5",
         "review-8",
         "review-9",
         "review-4",
-        "review-3"
+        "review-3",
+        "review-12"
       ]
     },
     "customer-photos": {
       "type": "customer-photos",
       "settings": {
         "category": "skates",
-        "photos": "customer-photo-7.webp, customer-photo-1.webp, customer-photo-2.webp, customer-photo-3.webp, customer-photo-4.webp, customer-photo-5.webp, customer-photo-6.webp, customer-photo-8.webp, customer-photo-9.webp, customer-photo-10.webp, customer-photo-11.webp"
+        "photos": "customer-photo-7.webp, customer-photo-1.webp, customer-photo-2.webp, customer-photo-3.webp, customer-photo-4.webp, customer-photo-5.webp, customer-photo-6.webp, customer-photo-8.webp, customer-photo-9.webp, customer-photo-10.webp, customer-photo-11.webp, customer-photo-12.webp"
       }
     }
   },
